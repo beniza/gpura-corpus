@@ -1,0 +1,604 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<alto xmlns="http://www.loc.gov/standards/alto/ns-v4#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.loc.gov/standards/alto/ns-v4# http://www.loc.gov/standards/alto/v4/alto-4-4.xsd" SCHEMAVERSION="4.4">
+  <Description>
+    <MeasurementUnit>pixel</MeasurementUnit>
+    <sourceImageInformation>
+      <fileName>https://iiif.gpura.org/iiif/3/1957-sir-isaac-newton__0009.jpg/full/max/0/default.jpg</fileName>
+      <fileIdentifier fileIdentifierLocation="IIIF Presentation canvas">https://artifacts.gpura.org/public/1957-sir-isaac-newton/canvas/9</fileIdentifier>
+    </sourceImageInformation>
+    <Processing ID="proc_ocr">
+      <processingCategory>contentGeneration</processingCategory>
+      <processingStepDescription>Line boxes detected automatically; line text is Gpura's existing OCR aligned to them (ocr/*.lines.json), not reviewed; ALTERNATIVE = Tesseract reading used for the alignment.</processingStepDescription>
+      <processingSoftware>
+        <softwareName>Gpura corpus pipeline (auto_lines.py) + Tesseract</softwareName>
+      </processingSoftware>
+    </Processing>
+    <Processing ID="proc_conv">
+      <processingCategory>other</processingCategory>
+      <processingDateTime>2026-11-02T19:38:20+00:00</processingDateTime>
+      <processingStepDescription>PAGE 2019-07-15 -&gt; ALTO 4.4 from page/p009.page.xml; word boxes estimated (tag geom_est).</processingStepDescription>
+      <processingSoftware>
+        <softwareName>page/page2alto.py (Gpura pipeline demo)</softwareName>
+      </processingSoftware>
+    </Processing>
+  </Description>
+  <Styles/>
+  <Tags>
+    <LayoutTag ID="lt_paragraph" TYPE="structure" LABEL="paragraph" DESCRIPTION="PAGE TextRegion/@type=paragraph"/>
+    <OtherTag ID="prod_printed" TYPE="production" LABEL="printed" DESCRIPTION="PAGE @production=printed"/>
+    <OtherTag ID="geom_est" TYPE="geometry" LABEL="estimated word boxes" DESCRIPTION="PAGE source is line-level; String HPOS/VPOS/WIDTH/HEIGHT were estimated by splitting the line box along the baseline in proportion to code-point counts. Do not use for word-level highlighting precision."/>
+    <OtherTag ID="p009_r01_l001_t01" TYPE="unclear" LABEL="unclear (low)" DESCRIPTION="unclear on code points 0-2 (end-exclusive) of TextLine p009_r01_l001; cert=low; note: Gpura has no text for this page; the reading is raw Tesseract output."/>
+    <OtherTag ID="p009_r01_l002_t01" TYPE="unclear" LABEL="unclear (low)" DESCRIPTION="unclear on code points 0-40 (end-exclusive) of TextLine p009_r01_l002; cert=low; note: Gpura has no text for this page; the reading is raw Tesseract output."/>
+    <OtherTag ID="p009_r01_l003_t01" TYPE="unclear" LABEL="unclear (low)" DESCRIPTION="unclear on code points 0-47 (end-exclusive) of TextLine p009_r01_l003; cert=low; note: Gpura has no text for this page; the reading is raw Tesseract output."/>
+    <OtherTag ID="p009_r01_l004_t01" TYPE="unclear" LABEL="unclear (low)" DESCRIPTION="unclear on code points 0-84 (end-exclusive) of TextLine p009_r01_l004; cert=low; note: Gpura has no text for this page; the reading is raw Tesseract output."/>
+    <OtherTag ID="p009_r01_l005_t01" TYPE="unclear" LABEL="unclear (low)" DESCRIPTION="unclear on code points 0-17 (end-exclusive) of TextLine p009_r01_l005; cert=low; note: Gpura has no text for this page; the reading is raw Tesseract output."/>
+    <OtherTag ID="p009_r01_l006_t01" TYPE="unclear" LABEL="unclear (low)" DESCRIPTION="unclear on code points 0-41 (end-exclusive) of TextLine p009_r01_l006; cert=low; note: Gpura has no text for this page; the reading is raw Tesseract output."/>
+    <OtherTag ID="p009_r01_l007_t01" TYPE="unclear" LABEL="unclear (low)" DESCRIPTION="unclear on code points 0-24 (end-exclusive) of TextLine p009_r01_l007; cert=low; note: Gpura has no text for this page; the reading is raw Tesseract output."/>
+    <OtherTag ID="p009_r01_l008_t01" TYPE="unclear" LABEL="unclear (low)" DESCRIPTION="unclear on code points 0-44 (end-exclusive) of TextLine p009_r01_l008; cert=low; note: Gpura has no text for this page; the reading is raw Tesseract output."/>
+    <OtherTag ID="p009_r01_l009_t01" TYPE="unclear" LABEL="unclear (low)" DESCRIPTION="unclear on code points 0-66 (end-exclusive) of TextLine p009_r01_l009; cert=low; note: Gpura has no text for this page; the reading is raw Tesseract output."/>
+    <OtherTag ID="p009_r01_l010_t01" TYPE="unclear" LABEL="unclear (low)" DESCRIPTION="unclear on code points 0-60 (end-exclusive) of TextLine p009_r01_l010; cert=low; note: Gpura has no text for this page; the reading is raw Tesseract output."/>
+    <OtherTag ID="p009_r02_l001_t01" TYPE="unclear" LABEL="unclear (low)" DESCRIPTION="unclear on code points 0-35 (end-exclusive) of TextLine p009_r02_l001; cert=low; note: Gpura has no text for this page; the reading is raw Tesseract output."/>
+    <OtherTag ID="p009_r03_l001_t01" TYPE="unclear" LABEL="unclear (low)" DESCRIPTION="unclear on code points 0-19 (end-exclusive) of TextLine p009_r03_l001; cert=low; note: Gpura has no text for this page; the reading is raw Tesseract output."/>
+    <OtherTag ID="p009_r03_l002_t01" TYPE="unclear" LABEL="unclear (low)" DESCRIPTION="unclear on code points 0-31 (end-exclusive) of TextLine p009_r03_l002; cert=low; note: Gpura has no text for this page; the reading is raw Tesseract output."/>
+    <OtherTag ID="p009_r03_l003_t01" TYPE="unclear" LABEL="unclear (low)" DESCRIPTION="unclear on code points 0-41 (end-exclusive) of TextLine p009_r03_l003; cert=low; note: Gpura has no text for this page; the reading is raw Tesseract output."/>
+    <OtherTag ID="p009_r03_l004_t01" TYPE="unclear" LABEL="unclear (low)" DESCRIPTION="unclear on code points 0-48 (end-exclusive) of TextLine p009_r03_l004; cert=low; note: Gpura has no text for this page; the reading is raw Tesseract output."/>
+    <OtherTag ID="p009_r03_l005_t01" TYPE="unclear" LABEL="unclear (low)" DESCRIPTION="unclear on code points 0-109 (end-exclusive) of TextLine p009_r03_l005; cert=low; note: Gpura has no text for this page; the reading is raw Tesseract output."/>
+  </Tags>
+  <Layout>
+    <Page ID="p009" PAGECLASS="content" PHYSICAL_IMG_NR="9" WIDTH="1751" HEIGHT="2643" PROCESSINGREFS="proc_ocr proc_conv">
+      <PrintSpace ID="p009_ps" HPOS="0" VPOS="0" WIDTH="1751" HEIGHT="2643">
+        <TextBlock ID="p009_r01" HPOS="240" VPOS="224" WIDTH="1326" HEIGHT="1116" LANG="ml" TAGREFS="lt_paragraph prod_printed" IDNEXT="p009_r02">
+          <Shape>
+            <Polygon POINTS="240,224 1566,224 1566,1340 240,1340"/>
+          </Shape>
+          <TextLine ID="p009_r01_l001" HPOS="240" VPOS="224" WIDTH="1326" HEIGHT="130" BASELINE="240,353 1566,353" LANG="ml" TAGREFS="geom_est">
+            <Shape>
+              <Polygon POINTS="240,224 1566,224 1566,354 240,354"/>
+            </Shape>
+            <String ID="p009_r01_l001_w001" CONTENT="Lo" HPOS="240" VPOS="224" WIDTH="1326" HEIGHT="130" TAGREFS="p009_r01_l001_t01"/>
+          </TextLine>
+          <TextLine ID="p009_r01_l002" HPOS="240" VPOS="354" WIDTH="1326" HEIGHT="65" BASELINE="240,418 1566,418" LANG="ml" TAGREFS="geom_est">
+            <Shape>
+              <Polygon POINTS="240,354 1566,354 1566,419 240,419"/>
+            </Shape>
+            <String ID="p009_r01_l002_w001" CONTENT="LENE" HPOS="240" VPOS="354" WIDTH="133" HEIGHT="65" TAGREFS="p009_r01_l002_t01"/>
+            <SP HPOS="373" VPOS="354" WIDTH="33" HEIGHT="65"/>
+            <String ID="p009_r01_l002_w002" CONTENT="aaa" HPOS="406" VPOS="354" WIDTH="99" HEIGHT="65" TAGREFS="p009_r01_l002_t01"/>
+            <SP HPOS="505" VPOS="354" WIDTH="33" HEIGHT="65"/>
+            <String ID="p009_r01_l002_w003" CONTENT="Fees" HPOS="538" VPOS="354" WIDTH="133" HEIGHT="65" TAGREFS="p009_r01_l002_t01"/>
+            <SP HPOS="671" VPOS="354" WIDTH="33" HEIGHT="65"/>
+            <String ID="p009_r01_l002_w004" CONTENT="eS," HPOS="704" VPOS="354" WIDTH="99" HEIGHT="65" TAGREFS="p009_r01_l002_t01"/>
+            <SP HPOS="804" VPOS="354" WIDTH="33" HEIGHT="65"/>
+            <String ID="p009_r01_l002_w005" CONTENT="ക" HPOS="837" VPOS="354" WIDTH="33" HEIGHT="65" TAGREFS="p009_r01_l002_t01"/>
+            <SP HPOS="870" VPOS="354" WIDTH="33" HEIGHT="65"/>
+            <String ID="p009_r01_l002_w006" CONTENT="pl" HPOS="903" VPOS="354" WIDTH="66" HEIGHT="65" TAGREFS="p009_r01_l002_t01"/>
+            <SP HPOS="969" VPOS="354" WIDTH="33" HEIGHT="65"/>
+            <String ID="p009_r01_l002_w007" CONTENT="pea" HPOS="1002" VPOS="354" WIDTH="99" HEIGHT="65" TAGREFS="p009_r01_l002_t01"/>
+            <SP HPOS="1102" VPOS="354" WIDTH="33" HEIGHT="65"/>
+            <String ID="p009_r01_l002_w008" CONTENT="ക" HPOS="1135" VPOS="354" WIDTH="33" HEIGHT="65" TAGREFS="p009_r01_l002_t01"/>
+            <SP HPOS="1168" VPOS="354" WIDTH="33" HEIGHT="65"/>
+            <String ID="p009_r01_l002_w009" CONTENT="SE" HPOS="1201" VPOS="354" WIDTH="66" HEIGHT="65" TAGREFS="p009_r01_l002_t01"/>
+            <SP HPOS="1268" VPOS="354" WIDTH="33" HEIGHT="65"/>
+            <String ID="p009_r01_l002_w010" CONTENT="See" HPOS="1301" VPOS="354" WIDTH="99" HEIGHT="65" TAGREFS="p009_r01_l002_t01"/>
+            <SP HPOS="1400" VPOS="354" WIDTH="33" HEIGHT="65"/>
+            <String ID="p009_r01_l002_w011" CONTENT="Sa" HPOS="1433" VPOS="354" WIDTH="66" HEIGHT="65" TAGREFS="p009_r01_l002_t01"/>
+            <SP HPOS="1500" VPOS="354" WIDTH="33" HEIGHT="65"/>
+            <String ID="p009_r01_l002_w012" CONTENT="a" HPOS="1533" VPOS="354" WIDTH="33" HEIGHT="65" TAGREFS="p009_r01_l002_t01"/>
+          </TextLine>
+          <TextLine ID="p009_r01_l003" HPOS="240" VPOS="419" WIDTH="1326" HEIGHT="121" BASELINE="240,539 1566,539" LANG="ml" TAGREFS="geom_est">
+            <Shape>
+              <Polygon POINTS="240,419 1566,419 1566,540 240,540"/>
+            </Shape>
+            <String ID="p009_r01_l003_w001" CONTENT="i" HPOS="240" VPOS="419" WIDTH="28" HEIGHT="121" TAGREFS="p009_r01_l003_t01"/>
+            <SP HPOS="268" VPOS="419" WIDTH="28" HEIGHT="121"/>
+            <String ID="p009_r01_l003_w002" CONTENT="ത" HPOS="296" VPOS="419" WIDTH="28" HEIGHT="121" TAGREFS="p009_r01_l003_t01"/>
+            <SP HPOS="325" VPOS="419" WIDTH="28" HEIGHT="121"/>
+            <String ID="p009_r01_l003_w003" CONTENT="ക" HPOS="353" VPOS="419" WIDTH="28" HEIGHT="121" TAGREFS="p009_r01_l003_t01"/>
+            <SP HPOS="381" VPOS="419" WIDTH="28" HEIGHT="121"/>
+            <String ID="p009_r01_l003_w004" CONTENT="Se" HPOS="409" VPOS="419" WIDTH="56" HEIGHT="121" TAGREFS="p009_r01_l003_t01"/>
+            <SP HPOS="466" VPOS="419" WIDTH="28" HEIGHT="121"/>
+            <String ID="p009_r01_l003_w005" CONTENT="Yn" HPOS="494" VPOS="419" WIDTH="56" HEIGHT="121" TAGREFS="p009_r01_l003_t01"/>
+            <SP HPOS="550" VPOS="419" WIDTH="28" HEIGHT="121"/>
+            <String ID="p009_r01_l003_w006" CONTENT="വ" HPOS="579" VPOS="419" WIDTH="28" HEIGHT="121" TAGREFS="p009_r01_l003_t01"/>
+            <SP HPOS="607" VPOS="419" WIDTH="28" HEIGHT="121"/>
+            <String ID="p009_r01_l003_w007" CONTENT="a" HPOS="635" VPOS="419" WIDTH="28" HEIGHT="121" TAGREFS="p009_r01_l003_t01"/>
+            <SP HPOS="663" VPOS="419" WIDTH="28" HEIGHT="121"/>
+            <String ID="p009_r01_l003_w008" CONTENT="te" HPOS="691" VPOS="419" WIDTH="56" HEIGHT="121" TAGREFS="p009_r01_l003_t01"/>
+            <SP HPOS="748" VPOS="419" WIDTH="28" HEIGHT="121"/>
+            <String ID="p009_r01_l003_w009" CONTENT="ക" HPOS="776" VPOS="419" WIDTH="28" HEIGHT="121" TAGREFS="p009_r01_l003_t01"/>
+            <SP HPOS="804" VPOS="419" WIDTH="28" HEIGHT="121"/>
+            <String ID="p009_r01_l003_w010" CONTENT="ക" HPOS="832" VPOS="419" WIDTH="28" HEIGHT="121" TAGREFS="p009_r01_l003_t01"/>
+            <SP HPOS="861" VPOS="419" WIDTH="28" HEIGHT="121"/>
+            <String ID="p009_r01_l003_w011" CONTENT="ക" HPOS="889" VPOS="419" WIDTH="28" HEIGHT="121" TAGREFS="p009_r01_l003_t01"/>
+            <SP HPOS="917" VPOS="419" WIDTH="28" HEIGHT="121"/>
+            <String ID="p009_r01_l003_w012" CONTENT="ഉ" HPOS="945" VPOS="419" WIDTH="28" HEIGHT="121" TAGREFS="p009_r01_l003_t01"/>
+            <SP HPOS="974" VPOS="419" WIDTH="28" HEIGHT="121"/>
+            <String ID="p009_r01_l003_w013" CONTENT="=" HPOS="1002" VPOS="419" WIDTH="28" HEIGHT="121" TAGREFS="p009_r01_l003_t01"/>
+            <SP HPOS="1030" VPOS="419" WIDTH="28" HEIGHT="121"/>
+            <String ID="p009_r01_l003_w014" CONTENT="ക" HPOS="1058" VPOS="419" WIDTH="28" HEIGHT="121" TAGREFS="p009_r01_l003_t01"/>
+            <SP HPOS="1086" VPOS="419" WIDTH="28" HEIGHT="121"/>
+            <String ID="p009_r01_l003_w015" CONTENT="Saal" HPOS="1115" VPOS="419" WIDTH="113" HEIGHT="121" TAGREFS="p009_r01_l003_t01"/>
+            <SP HPOS="1227" VPOS="419" WIDTH="28" HEIGHT="121"/>
+            <String ID="p009_r01_l003_w016" CONTENT="യി" HPOS="1256" VPOS="419" WIDTH="56" HEIGHT="121" TAGREFS="p009_r01_l003_t01"/>
+            <SP HPOS="1312" VPOS="419" WIDTH="28" HEIGHT="121"/>
+            <String ID="p009_r01_l003_w017" CONTENT="a" HPOS="1340" VPOS="419" WIDTH="28" HEIGHT="121" TAGREFS="p009_r01_l003_t01"/>
+            <SP HPOS="1369" VPOS="419" WIDTH="28" HEIGHT="121"/>
+            <String ID="p009_r01_l003_w018" CONTENT="RES" HPOS="1397" VPOS="419" WIDTH="85" HEIGHT="121" TAGREFS="p009_r01_l003_t01"/>
+            <SP HPOS="1481" VPOS="419" WIDTH="28" HEIGHT="121"/>
+            <String ID="p009_r01_l003_w019" CONTENT="RE" HPOS="1510" VPOS="419" WIDTH="56" HEIGHT="121" TAGREFS="p009_r01_l003_t01"/>
+          </TextLine>
+          <TextLine ID="p009_r01_l004" HPOS="240" VPOS="540" WIDTH="1326" HEIGHT="148" BASELINE="240,687 1566,687" LANG="ml" TAGREFS="geom_est">
+            <Shape>
+              <Polygon POINTS="240,540 1566,540 1566,688 240,688"/>
+            </Shape>
+            <String ID="p009_r01_l004_w001" CONTENT="മ" HPOS="240" VPOS="540" WIDTH="16" HEIGHT="148" TAGREFS="p009_r01_l004_t01"/>
+            <SP HPOS="256" VPOS="540" WIDTH="16" HEIGHT="148"/>
+            <String ID="p009_r01_l004_w002" CONTENT="eal" HPOS="272" VPOS="540" WIDTH="47" HEIGHT="148" TAGREFS="p009_r01_l004_t01"/>
+            <SP HPOS="319" VPOS="540" WIDTH="16" HEIGHT="148"/>
+            <String ID="p009_r01_l004_w003" CONTENT="LE" HPOS="335" VPOS="540" WIDTH="32" HEIGHT="148" TAGREFS="p009_r01_l004_t01"/>
+            <SP HPOS="366" VPOS="540" WIDTH="16" HEIGHT="148"/>
+            <String ID="p009_r01_l004_w004" CONTENT="fe" HPOS="382" VPOS="540" WIDTH="32" HEIGHT="148" TAGREFS="p009_r01_l004_t01"/>
+            <SP HPOS="414" VPOS="540" WIDTH="16" HEIGHT="148"/>
+            <String ID="p009_r01_l004_w005" CONTENT="OR" HPOS="429" VPOS="540" WIDTH="32" HEIGHT="148" TAGREFS="p009_r01_l004_t01"/>
+            <SP HPOS="461" VPOS="540" WIDTH="16" HEIGHT="148"/>
+            <String ID="p009_r01_l004_w006" CONTENT="Se" HPOS="477" VPOS="540" WIDTH="32" HEIGHT="148" TAGREFS="p009_r01_l004_t01"/>
+            <SP HPOS="508" VPOS="540" WIDTH="16" HEIGHT="148"/>
+            <String ID="p009_r01_l004_w007" CONTENT="sae" HPOS="524" VPOS="540" WIDTH="47" HEIGHT="148" TAGREFS="p009_r01_l004_t01"/>
+            <SP HPOS="572" VPOS="540" WIDTH="16" HEIGHT="148"/>
+            <String ID="p009_r01_l004_w008" CONTENT="പ" HPOS="587" VPOS="540" WIDTH="16" HEIGHT="148" TAGREFS="p009_r01_l004_t01"/>
+            <SP HPOS="603" VPOS="540" WIDTH="16" HEIGHT="148"/>
+            <String ID="p009_r01_l004_w009" CONTENT="RN" HPOS="619" VPOS="540" WIDTH="32" HEIGHT="148" TAGREFS="p009_r01_l004_t01"/>
+            <SP HPOS="650" VPOS="540" WIDTH="16" HEIGHT="148"/>
+            <String ID="p009_r01_l004_w010" CONTENT="താര" HPOS="666" VPOS="540" WIDTH="47" HEIGHT="148" TAGREFS="p009_r01_l004_t01"/>
+            <SP HPOS="714" VPOS="540" WIDTH="16" HEIGHT="148"/>
+            <String ID="p009_r01_l004_w011" CONTENT="nl" HPOS="729" VPOS="540" WIDTH="32" HEIGHT="148" TAGREFS="p009_r01_l004_t01"/>
+            <SP HPOS="761" VPOS="540" WIDTH="16" HEIGHT="148"/>
+            <String ID="p009_r01_l004_w012" CONTENT="aE" HPOS="777" VPOS="540" WIDTH="32" HEIGHT="148" TAGREFS="p009_r01_l004_t01"/>
+            <SP HPOS="808" VPOS="540" WIDTH="16" HEIGHT="148"/>
+            <String ID="p009_r01_l004_w013" CONTENT="ക" HPOS="824" VPOS="540" WIDTH="16" HEIGHT="148" TAGREFS="p009_r01_l004_t01"/>
+            <SP HPOS="840" VPOS="540" WIDTH="16" HEIGHT="148"/>
+            <String ID="p009_r01_l004_w014" CONTENT="൦" HPOS="856" VPOS="540" WIDTH="16" HEIGHT="148" TAGREFS="p009_r01_l004_t01"/>
+            <SP HPOS="871" VPOS="540" WIDTH="16" HEIGHT="148"/>
+            <String ID="p009_r01_l004_w015" CONTENT="Sina" HPOS="887" VPOS="540" WIDTH="63" HEIGHT="148" TAGREFS="p009_r01_l004_t01"/>
+            <SP HPOS="950" VPOS="540" WIDTH="16" HEIGHT="148"/>
+            <String ID="p009_r01_l004_w016" CONTENT="ക" HPOS="966" VPOS="540" WIDTH="16" HEIGHT="148" TAGREFS="p009_r01_l004_t01"/>
+            <SP HPOS="982" VPOS="540" WIDTH="16" HEIGHT="148"/>
+            <String ID="p009_r01_l004_w017" CONTENT="ad" HPOS="998" VPOS="540" WIDTH="32" HEIGHT="148" TAGREFS="p009_r01_l004_t01"/>
+            <SP HPOS="1029" VPOS="540" WIDTH="16" HEIGHT="148"/>
+            <String ID="p009_r01_l004_w018" CONTENT="NEE" HPOS="1045" VPOS="540" WIDTH="47" HEIGHT="148" TAGREFS="p009_r01_l004_t01"/>
+            <SP HPOS="1092" VPOS="540" WIDTH="16" HEIGHT="148"/>
+            <String ID="p009_r01_l004_w019" CONTENT="fee" HPOS="1108" VPOS="540" WIDTH="47" HEIGHT="148" TAGREFS="p009_r01_l004_t01"/>
+            <SP HPOS="1156" VPOS="540" WIDTH="16" HEIGHT="148"/>
+            <String ID="p009_r01_l004_w020" CONTENT="-" HPOS="1171" VPOS="540" WIDTH="16" HEIGHT="148" TAGREFS="p009_r01_l004_t01"/>
+            <SP HPOS="1187" VPOS="540" WIDTH="16" HEIGHT="148"/>
+            <String ID="p009_r01_l004_w021" CONTENT="TER" HPOS="1203" VPOS="540" WIDTH="47" HEIGHT="148" TAGREFS="p009_r01_l004_t01"/>
+            <SP HPOS="1250" VPOS="540" WIDTH="16" HEIGHT="148"/>
+            <String ID="p009_r01_l004_w022" CONTENT="a" HPOS="1266" VPOS="540" WIDTH="16" HEIGHT="148" TAGREFS="p009_r01_l004_t01"/>
+            <SP HPOS="1282" VPOS="540" WIDTH="16" HEIGHT="148"/>
+            <String ID="p009_r01_l004_w023" CONTENT="aT" HPOS="1298" VPOS="540" WIDTH="32" HEIGHT="148" TAGREFS="p009_r01_l004_t01"/>
+            <SP HPOS="1329" VPOS="540" WIDTH="16" HEIGHT="148"/>
+            <String ID="p009_r01_l004_w024" CONTENT=".." HPOS="1345" VPOS="540" WIDTH="32" HEIGHT="148" TAGREFS="p009_r01_l004_t01"/>
+            <SP HPOS="1377" VPOS="540" WIDTH="16" HEIGHT="148"/>
+            <String ID="p009_r01_l004_w025" CONTENT="ക" HPOS="1392" VPOS="540" WIDTH="16" HEIGHT="148" TAGREFS="p009_r01_l004_t01"/>
+            <SP HPOS="1408" VPOS="540" WIDTH="16" HEIGHT="148"/>
+            <String ID="p009_r01_l004_w026" CONTENT="ടം" HPOS="1424" VPOS="540" WIDTH="32" HEIGHT="148" TAGREFS="p009_r01_l004_t01"/>
+            <SP HPOS="1456" VPOS="540" WIDTH="16" HEIGHT="148"/>
+            <String ID="p009_r01_l004_w027" CONTENT="ട്‌" HPOS="1471" VPOS="540" WIDTH="47" HEIGHT="148" TAGREFS="p009_r01_l004_t01"/>
+            <SP HPOS="1519" VPOS="540" WIDTH="16" HEIGHT="148"/>
+            <String ID="p009_r01_l004_w028" CONTENT="ളം" HPOS="1534" VPOS="540" WIDTH="32" HEIGHT="148" TAGREFS="p009_r01_l004_t01"/>
+          </TextLine>
+          <TextLine ID="p009_r01_l005" HPOS="240" VPOS="688" WIDTH="1325" HEIGHT="61" BASELINE="240,748 1565,748" LANG="ml" TAGREFS="geom_est">
+            <Shape>
+              <Polygon POINTS="240,688 1565,688 1565,749 240,749"/>
+            </Shape>
+            <String ID="p009_r01_l005_w001" CONTENT="RE" HPOS="240" VPOS="688" WIDTH="156" HEIGHT="61" TAGREFS="p009_r01_l005_t01"/>
+            <SP HPOS="396" VPOS="688" WIDTH="78" HEIGHT="61"/>
+            <String ID="p009_r01_l005_w002" CONTENT="EE" HPOS="474" VPOS="688" WIDTH="156" HEIGHT="61" TAGREFS="p009_r01_l005_t01"/>
+            <SP HPOS="630" VPOS="688" WIDTH="78" HEIGHT="61"/>
+            <String ID="p009_r01_l005_w003" CONTENT="TR" HPOS="708" VPOS="688" WIDTH="156" HEIGHT="61" TAGREFS="p009_r01_l005_t01"/>
+            <SP HPOS="864" VPOS="688" WIDTH="78" HEIGHT="61"/>
+            <String ID="p009_r01_l005_w004" CONTENT="യ" HPOS="941" VPOS="688" WIDTH="78" HEIGHT="61" TAGREFS="p009_r01_l005_t01"/>
+            <SP HPOS="1019" VPOS="688" WIDTH="78" HEIGHT="61"/>
+            <String ID="p009_r01_l005_w005" CONTENT="ae" HPOS="1097" VPOS="688" WIDTH="156" HEIGHT="61" TAGREFS="p009_r01_l005_t01"/>
+            <SP HPOS="1253" VPOS="688" WIDTH="78" HEIGHT="61"/>
+            <String ID="p009_r01_l005_w006" CONTENT="Sta" HPOS="1331" VPOS="688" WIDTH="234" HEIGHT="61" TAGREFS="p009_r01_l005_t01"/>
+          </TextLine>
+          <TextLine ID="p009_r01_l006" HPOS="240" VPOS="749" WIDTH="1325" HEIGHT="157" BASELINE="240,905 1565,905" LANG="ml" TAGREFS="geom_est">
+            <Shape>
+              <Polygon POINTS="240,749 1565,749 1565,906 240,906"/>
+            </Shape>
+            <String ID="p009_r01_l006_w001" CONTENT="BSE" HPOS="240" VPOS="749" WIDTH="97" HEIGHT="157" TAGREFS="p009_r01_l006_t01"/>
+            <SP HPOS="337" VPOS="749" WIDTH="32" HEIGHT="157"/>
+            <String ID="p009_r01_l006_w002" CONTENT="LTE" HPOS="369" VPOS="749" WIDTH="97" HEIGHT="157" TAGREFS="p009_r01_l006_t01"/>
+            <SP HPOS="466" VPOS="749" WIDTH="32" HEIGHT="157"/>
+            <String ID="p009_r01_l006_w003" CONTENT="a" HPOS="499" VPOS="749" WIDTH="32" HEIGHT="157" TAGREFS="p009_r01_l006_t01"/>
+            <SP HPOS="531" VPOS="749" WIDTH="32" HEIGHT="157"/>
+            <String ID="p009_r01_l006_w004" CONTENT="A" HPOS="563" VPOS="749" WIDTH="32" HEIGHT="157" TAGREFS="p009_r01_l006_t01"/>
+            <SP HPOS="595" VPOS="749" WIDTH="32" HEIGHT="157"/>
+            <String ID="p009_r01_l006_w005" CONTENT="RE" HPOS="628" VPOS="749" WIDTH="65" HEIGHT="157" TAGREFS="p009_r01_l006_t01"/>
+            <SP HPOS="692" VPOS="749" WIDTH="32" HEIGHT="157"/>
+            <String ID="p009_r01_l006_w006" CONTENT="at" HPOS="725" VPOS="749" WIDTH="65" HEIGHT="157" TAGREFS="p009_r01_l006_t01"/>
+            <SP HPOS="789" VPOS="749" WIDTH="32" HEIGHT="157"/>
+            <String ID="p009_r01_l006_w007" CONTENT="ee" HPOS="822" VPOS="749" WIDTH="65" HEIGHT="157" TAGREFS="p009_r01_l006_t01"/>
+            <SP HPOS="886" VPOS="749" WIDTH="32" HEIGHT="157"/>
+            <String ID="p009_r01_l006_w008" CONTENT="EE" HPOS="919" VPOS="749" WIDTH="65" HEIGHT="157" TAGREFS="p009_r01_l006_t01"/>
+            <SP HPOS="983" VPOS="749" WIDTH="32" HEIGHT="157"/>
+            <String ID="p009_r01_l006_w009" CONTENT="a" HPOS="1016" VPOS="749" WIDTH="32" HEIGHT="157" TAGREFS="p009_r01_l006_t01"/>
+            <SP HPOS="1048" VPOS="749" WIDTH="32" HEIGHT="157"/>
+            <String ID="p009_r01_l006_w010" CONTENT="Te" HPOS="1080" VPOS="749" WIDTH="65" HEIGHT="157" TAGREFS="p009_r01_l006_t01"/>
+            <SP HPOS="1145" VPOS="749" WIDTH="32" HEIGHT="157"/>
+            <String ID="p009_r01_l006_w011" CONTENT="am" HPOS="1177" VPOS="749" WIDTH="65" HEIGHT="157" TAGREFS="p009_r01_l006_t01"/>
+            <SP HPOS="1242" VPOS="749" WIDTH="32" HEIGHT="157"/>
+            <String ID="p009_r01_l006_w012" CONTENT="Ea" HPOS="1274" VPOS="749" WIDTH="65" HEIGHT="157" TAGREFS="p009_r01_l006_t01"/>
+            <SP HPOS="1339" VPOS="749" WIDTH="32" HEIGHT="157"/>
+            <String ID="p009_r01_l006_w013" CONTENT="x" HPOS="1371" VPOS="749" WIDTH="32" HEIGHT="157" TAGREFS="p009_r01_l006_t01"/>
+            <SP HPOS="1403" VPOS="749" WIDTH="32" HEIGHT="157"/>
+            <String ID="p009_r01_l006_w014" CONTENT="a" HPOS="1436" VPOS="749" WIDTH="32" HEIGHT="157" TAGREFS="p009_r01_l006_t01"/>
+            <SP HPOS="1468" VPOS="749" WIDTH="32" HEIGHT="157"/>
+            <String ID="p009_r01_l006_w015" CONTENT="=." HPOS="1500" VPOS="749" WIDTH="65" HEIGHT="157" TAGREFS="p009_r01_l006_t01"/>
+          </TextLine>
+          <TextLine ID="p009_r01_l007" HPOS="240" VPOS="906" WIDTH="1325" HEIGHT="88" BASELINE="240,993 1565,993" LANG="ml" TAGREFS="geom_est">
+            <Shape>
+              <Polygon POINTS="240,906 1565,906 1565,994 240,994"/>
+            </Shape>
+            <String ID="p009_r01_l007_w001" CONTENT="Chien" HPOS="240" VPOS="906" WIDTH="276" HEIGHT="88" TAGREFS="p009_r01_l007_t01"/>
+            <SP HPOS="516" VPOS="906" WIDTH="55" HEIGHT="88"/>
+            <String ID="p009_r01_l007_w002" CONTENT="te" HPOS="571" VPOS="906" WIDTH="110" HEIGHT="88" TAGREFS="p009_r01_l007_t01"/>
+            <SP HPOS="682" VPOS="906" WIDTH="55" HEIGHT="88"/>
+            <String ID="p009_r01_l007_w003" CONTENT="a" HPOS="737" VPOS="906" WIDTH="55" HEIGHT="88" TAGREFS="p009_r01_l007_t01"/>
+            <SP HPOS="792" VPOS="906" WIDTH="55" HEIGHT="88"/>
+            <String ID="p009_r01_l007_w004" CONTENT="PER" HPOS="847" VPOS="906" WIDTH="166" HEIGHT="88" TAGREFS="p009_r01_l007_t01"/>
+            <SP HPOS="1013" VPOS="906" WIDTH="55" HEIGHT="88"/>
+            <String ID="p009_r01_l007_w005" CONTENT="FR" HPOS="1068" VPOS="906" WIDTH="110" HEIGHT="88" TAGREFS="p009_r01_l007_t01"/>
+            <SP HPOS="1179" VPOS="906" WIDTH="55" HEIGHT="88"/>
+            <String ID="p009_r01_l007_w006" CONTENT="RR" HPOS="1234" VPOS="906" WIDTH="110" HEIGHT="88" TAGREFS="p009_r01_l007_t01"/>
+            <SP HPOS="1344" VPOS="906" WIDTH="55" HEIGHT="88"/>
+            <String ID="p009_r01_l007_w007" CONTENT="SNe" HPOS="1399" VPOS="906" WIDTH="166" HEIGHT="88" TAGREFS="p009_r01_l007_t01"/>
+          </TextLine>
+          <TextLine ID="p009_r01_l008" HPOS="240" VPOS="994" WIDTH="1325" HEIGHT="94" BASELINE="240,1087 1565,1087" LANG="ml" TAGREFS="geom_est">
+            <Shape>
+              <Polygon POINTS="240,994 1565,994 1565,1088 240,1088"/>
+            </Shape>
+            <String ID="p009_r01_l008_w001" CONTENT="ക" HPOS="240" VPOS="994" WIDTH="30" HEIGHT="94" TAGREFS="p009_r01_l008_t01"/>
+            <SP HPOS="270" VPOS="994" WIDTH="30" HEIGHT="94"/>
+            <String ID="p009_r01_l008_w002" CONTENT="യ" HPOS="300" VPOS="994" WIDTH="30" HEIGHT="94" TAGREFS="p009_r01_l008_t01"/>
+            <SP HPOS="330" VPOS="994" WIDTH="30" HEIGHT="94"/>
+            <String ID="p009_r01_l008_w003" CONTENT="മ" HPOS="360" VPOS="994" WIDTH="30" HEIGHT="94" TAGREFS="p009_r01_l008_t01"/>
+            <SP HPOS="391" VPOS="994" WIDTH="30" HEIGHT="94"/>
+            <String ID="p009_r01_l008_w004" CONTENT="ക" HPOS="421" VPOS="994" WIDTH="30" HEIGHT="94" TAGREFS="p009_r01_l008_t01"/>
+            <SP HPOS="451" VPOS="994" WIDTH="30" HEIGHT="94"/>
+            <String ID="p009_r01_l008_w005" CONTENT="San" HPOS="481" VPOS="994" WIDTH="90" HEIGHT="94" TAGREFS="p009_r01_l008_t01"/>
+            <SP HPOS="571" VPOS="994" WIDTH="30" HEIGHT="94"/>
+            <String ID="p009_r01_l008_w006" CONTENT="gs" HPOS="601" VPOS="994" WIDTH="60" HEIGHT="94" TAGREFS="p009_r01_l008_t01"/>
+            <SP HPOS="662" VPOS="994" WIDTH="30" HEIGHT="94"/>
+            <String ID="p009_r01_l008_w007" CONTENT="REE" HPOS="692" VPOS="994" WIDTH="90" HEIGHT="94" TAGREFS="p009_r01_l008_t01"/>
+            <SP HPOS="782" VPOS="994" WIDTH="30" HEIGHT="94"/>
+            <String ID="p009_r01_l008_w008" CONTENT="പ" HPOS="812" VPOS="994" WIDTH="30" HEIGHT="94" TAGREFS="p009_r01_l008_t01"/>
+            <SP HPOS="842" VPOS="994" WIDTH="30" HEIGHT="94"/>
+            <String ID="p009_r01_l008_w009" CONTENT="ൽ" HPOS="872" VPOS="994" WIDTH="30" HEIGHT="94" TAGREFS="p009_r01_l008_t01">
+              <ALTERNATIVE PURPOSE="Tesseract reading used for alignment">ല്‍</ALTERNATIVE>
+            </String>
+            <SP HPOS="902" VPOS="994" WIDTH="30" HEIGHT="94"/>
+            <String ID="p009_r01_l008_w010" CONTENT="EE" HPOS="933" VPOS="994" WIDTH="60" HEIGHT="94" TAGREFS="p009_r01_l008_t01"/>
+            <SP HPOS="993" VPOS="994" WIDTH="30" HEIGHT="94"/>
+            <String ID="p009_r01_l008_w011" CONTENT="Sa" HPOS="1023" VPOS="994" WIDTH="60" HEIGHT="94" TAGREFS="p009_r01_l008_t01"/>
+            <SP HPOS="1083" VPOS="994" WIDTH="30" HEIGHT="94"/>
+            <String ID="p009_r01_l008_w012" CONTENT="ലു" HPOS="1113" VPOS="994" WIDTH="60" HEIGHT="94" TAGREFS="p009_r01_l008_t01"/>
+            <SP HPOS="1174" VPOS="994" WIDTH="30" HEIGHT="94"/>
+            <String ID="p009_r01_l008_w013" CONTENT="aaatiae" HPOS="1204" VPOS="994" WIDTH="211" HEIGHT="94" TAGREFS="p009_r01_l008_t01"/>
+            <SP HPOS="1414" VPOS="994" WIDTH="30" HEIGHT="94"/>
+            <String ID="p009_r01_l008_w014" CONTENT="rain" HPOS="1445" VPOS="994" WIDTH="120" HEIGHT="94" TAGREFS="p009_r01_l008_t01"/>
+          </TextLine>
+          <TextLine ID="p009_r01_l009" HPOS="240" VPOS="1088" WIDTH="1324" HEIGHT="96" BASELINE="240,1183 1564,1183" LANG="ml" TAGREFS="geom_est">
+            <Shape>
+              <Polygon POINTS="240,1088 1564,1088 1564,1184 240,1184"/>
+            </Shape>
+            <String ID="p009_r01_l009_w001" CONTENT="Se" HPOS="240" VPOS="1088" WIDTH="40" HEIGHT="96" TAGREFS="p009_r01_l009_t01"/>
+            <SP HPOS="280" VPOS="1088" WIDTH="20" HEIGHT="96"/>
+            <String ID="p009_r01_l009_w002" CONTENT="Fe" HPOS="300" VPOS="1088" WIDTH="40" HEIGHT="96" TAGREFS="p009_r01_l009_t01"/>
+            <SP HPOS="340" VPOS="1088" WIDTH="20" HEIGHT="96"/>
+            <String ID="p009_r01_l009_w003" CONTENT="aE" HPOS="360" VPOS="1088" WIDTH="40" HEIGHT="96" TAGREFS="p009_r01_l009_t01"/>
+            <SP HPOS="400" VPOS="1088" WIDTH="20" HEIGHT="96"/>
+            <String ID="p009_r01_l009_w004" CONTENT="eae" HPOS="421" VPOS="1088" WIDTH="60" HEIGHT="96" TAGREFS="p009_r01_l009_t01"/>
+            <SP HPOS="481" VPOS="1088" WIDTH="20" HEIGHT="96"/>
+            <String ID="p009_r01_l009_w005" CONTENT="ക" HPOS="501" VPOS="1088" WIDTH="20" HEIGHT="96" TAGREFS="p009_r01_l009_t01"/>
+            <SP HPOS="521" VPOS="1088" WIDTH="20" HEIGHT="96"/>
+            <String ID="p009_r01_l009_w006" CONTENT="EEE" HPOS="541" VPOS="1088" WIDTH="60" HEIGHT="96" TAGREFS="p009_r01_l009_t01"/>
+            <SP HPOS="601" VPOS="1088" WIDTH="20" HEIGHT="96"/>
+            <String ID="p009_r01_l009_w007" CONTENT="ത" HPOS="621" VPOS="1088" WIDTH="20" HEIGHT="96" TAGREFS="p009_r01_l009_t01"/>
+            <SP HPOS="641" VPOS="1088" WIDTH="20" HEIGHT="96"/>
+            <String ID="p009_r01_l009_w008" CONTENT="rama" HPOS="661" VPOS="1088" WIDTH="80" HEIGHT="96" TAGREFS="p009_r01_l009_t01"/>
+            <SP HPOS="742" VPOS="1088" WIDTH="20" HEIGHT="96"/>
+            <String ID="p009_r01_l009_w009" CONTENT="aay" HPOS="762" VPOS="1088" WIDTH="60" HEIGHT="96" TAGREFS="p009_r01_l009_t01"/>
+            <SP HPOS="822" VPOS="1088" WIDTH="20" HEIGHT="96"/>
+            <String ID="p009_r01_l009_w010" CONTENT="Sh" HPOS="842" VPOS="1088" WIDTH="40" HEIGHT="96" TAGREFS="p009_r01_l009_t01"/>
+            <SP HPOS="882" VPOS="1088" WIDTH="20" HEIGHT="96"/>
+            <String ID="p009_r01_l009_w011" CONTENT="TR" HPOS="902" VPOS="1088" WIDTH="40" HEIGHT="96" TAGREFS="p009_r01_l009_t01"/>
+            <SP HPOS="942" VPOS="1088" WIDTH="20" HEIGHT="96"/>
+            <String ID="p009_r01_l009_w012" CONTENT="a" HPOS="962" VPOS="1088" WIDTH="20" HEIGHT="96" TAGREFS="p009_r01_l009_t01"/>
+            <SP HPOS="982" VPOS="1088" WIDTH="20" HEIGHT="96"/>
+            <String ID="p009_r01_l009_w013" CONTENT="HEC" HPOS="1002" VPOS="1088" WIDTH="60" HEIGHT="96" TAGREFS="p009_r01_l009_t01"/>
+            <SP HPOS="1062" VPOS="1088" WIDTH="20" HEIGHT="96"/>
+            <String ID="p009_r01_l009_w014" CONTENT="BR" HPOS="1083" VPOS="1088" WIDTH="40" HEIGHT="96" TAGREFS="p009_r01_l009_t01"/>
+            <SP HPOS="1123" VPOS="1088" WIDTH="20" HEIGHT="96"/>
+            <String ID="p009_r01_l009_w015" CONTENT="Waa" HPOS="1143" VPOS="1088" WIDTH="60" HEIGHT="96" TAGREFS="p009_r01_l009_t01"/>
+            <SP HPOS="1203" VPOS="1088" WIDTH="20" HEIGHT="96"/>
+            <String ID="p009_r01_l009_w016" CONTENT="SE" HPOS="1223" VPOS="1088" WIDTH="40" HEIGHT="96" TAGREFS="p009_r01_l009_t01"/>
+            <SP HPOS="1263" VPOS="1088" WIDTH="20" HEIGHT="96"/>
+            <String ID="p009_r01_l009_w017" CONTENT="EEA" HPOS="1283" VPOS="1088" WIDTH="60" HEIGHT="96" TAGREFS="p009_r01_l009_t01"/>
+            <SP HPOS="1343" VPOS="1088" WIDTH="20" HEIGHT="96"/>
+            <String ID="p009_r01_l009_w018" CONTENT="Sa" HPOS="1363" VPOS="1088" WIDTH="40" HEIGHT="96" TAGREFS="p009_r01_l009_t01"/>
+            <SP HPOS="1404" VPOS="1088" WIDTH="20" HEIGHT="96"/>
+            <String ID="p009_r01_l009_w019" CONTENT="LT" HPOS="1424" VPOS="1088" WIDTH="40" HEIGHT="96" TAGREFS="p009_r01_l009_t01"/>
+            <SP HPOS="1464" VPOS="1088" WIDTH="20" HEIGHT="96"/>
+            <String ID="p009_r01_l009_w020" CONTENT="el" HPOS="1484" VPOS="1088" WIDTH="40" HEIGHT="96" TAGREFS="p009_r01_l009_t01"/>
+            <SP HPOS="1524" VPOS="1088" WIDTH="20" HEIGHT="96"/>
+            <String ID="p009_r01_l009_w021" CONTENT="i" HPOS="1544" VPOS="1088" WIDTH="20" HEIGHT="96" TAGREFS="p009_r01_l009_t01"/>
+          </TextLine>
+          <TextLine ID="p009_r01_l010" HPOS="240" VPOS="1184" WIDTH="1324" HEIGHT="156" BASELINE="240,1339 1564,1339" LANG="ml" TAGREFS="geom_est">
+            <Shape>
+              <Polygon POINTS="240,1184 1564,1184 1564,1340 240,1340"/>
+            </Shape>
+            <String ID="p009_r01_l010_w001" CONTENT="ക" HPOS="240" VPOS="1184" WIDTH="22" HEIGHT="156" TAGREFS="p009_r01_l010_t01"/>
+            <SP HPOS="262" VPOS="1184" WIDTH="22" HEIGHT="156"/>
+            <String ID="p009_r01_l010_w002" CONTENT="Se" HPOS="284" VPOS="1184" WIDTH="44" HEIGHT="156" TAGREFS="p009_r01_l010_t01"/>
+            <SP HPOS="328" VPOS="1184" WIDTH="22" HEIGHT="156"/>
+            <String ID="p009_r01_l010_w003" CONTENT="ER" HPOS="350" VPOS="1184" WIDTH="44" HEIGHT="156" TAGREFS="p009_r01_l010_t01"/>
+            <SP HPOS="394" VPOS="1184" WIDTH="22" HEIGHT="156"/>
+            <String ID="p009_r01_l010_w004" CONTENT="RE" HPOS="417" VPOS="1184" WIDTH="44" HEIGHT="156" TAGREFS="p009_r01_l010_t01"/>
+            <SP HPOS="461" VPOS="1184" WIDTH="22" HEIGHT="156"/>
+            <String ID="p009_r01_l010_w005" CONTENT="Ee" HPOS="483" VPOS="1184" WIDTH="44" HEIGHT="156" TAGREFS="p009_r01_l010_t01"/>
+            <SP HPOS="527" VPOS="1184" WIDTH="22" HEIGHT="156"/>
+            <String ID="p009_r01_l010_w006" CONTENT="BIE" HPOS="549" VPOS="1184" WIDTH="66" HEIGHT="156" TAGREFS="p009_r01_l010_t01"/>
+            <SP HPOS="615" VPOS="1184" WIDTH="22" HEIGHT="156"/>
+            <String ID="p009_r01_l010_w007" CONTENT="REAPER" HPOS="637" VPOS="1184" WIDTH="132" HEIGHT="156" TAGREFS="p009_r01_l010_t01"/>
+            <SP HPOS="770" VPOS="1184" WIDTH="22" HEIGHT="156"/>
+            <String ID="p009_r01_l010_w008" CONTENT="AE" HPOS="792" VPOS="1184" WIDTH="44" HEIGHT="156" TAGREFS="p009_r01_l010_t01"/>
+            <SP HPOS="836" VPOS="1184" WIDTH="22" HEIGHT="156"/>
+            <String ID="p009_r01_l010_w009" CONTENT="വ" HPOS="858" VPOS="1184" WIDTH="22" HEIGHT="156" TAGREFS="p009_r01_l010_t01"/>
+            <SP HPOS="880" VPOS="1184" WIDTH="22" HEIGHT="156"/>
+            <String ID="p009_r01_l010_w010" CONTENT="SSE" HPOS="902" VPOS="1184" WIDTH="66" HEIGHT="156" TAGREFS="p009_r01_l010_t01"/>
+            <SP HPOS="968" VPOS="1184" WIDTH="22" HEIGHT="156"/>
+            <String ID="p009_r01_l010_w011" CONTENT="SERRE" HPOS="990" VPOS="1184" WIDTH="110" HEIGHT="156" TAGREFS="p009_r01_l010_t01"/>
+            <SP HPOS="1101" VPOS="1184" WIDTH="22" HEIGHT="156"/>
+            <String ID="p009_r01_l010_w012" CONTENT="aa" HPOS="1123" VPOS="1184" WIDTH="44" HEIGHT="156" TAGREFS="p009_r01_l010_t01"/>
+            <SP HPOS="1167" VPOS="1184" WIDTH="22" HEIGHT="156"/>
+            <String ID="p009_r01_l010_w013" CONTENT="ഞാ" HPOS="1189" VPOS="1184" WIDTH="44" HEIGHT="156" TAGREFS="p009_r01_l010_t01"/>
+            <SP HPOS="1233" VPOS="1184" WIDTH="22" HEIGHT="156"/>
+            <String ID="p009_r01_l010_w014" CONTENT="See" HPOS="1255" VPOS="1184" WIDTH="66" HEIGHT="156" TAGREFS="p009_r01_l010_t01"/>
+            <SP HPOS="1321" VPOS="1184" WIDTH="22" HEIGHT="156"/>
+            <String ID="p009_r01_l010_w015" CONTENT="oN" HPOS="1343" VPOS="1184" WIDTH="44" HEIGHT="156" TAGREFS="p009_r01_l010_t01"/>
+            <SP HPOS="1387" VPOS="1184" WIDTH="22" HEIGHT="156"/>
+            <String ID="p009_r01_l010_w016" CONTENT="a" HPOS="1410" VPOS="1184" WIDTH="22" HEIGHT="156" TAGREFS="p009_r01_l010_t01"/>
+            <SP HPOS="1432" VPOS="1184" WIDTH="22" HEIGHT="156"/>
+            <String ID="p009_r01_l010_w017" CONTENT="SEA" HPOS="1454" VPOS="1184" WIDTH="66" HEIGHT="156" TAGREFS="p009_r01_l010_t01"/>
+            <SP HPOS="1520" VPOS="1184" WIDTH="22" HEIGHT="156"/>
+            <String ID="p009_r01_l010_w018" CONTENT="a" HPOS="1542" VPOS="1184" WIDTH="22" HEIGHT="156" TAGREFS="p009_r01_l010_t01"/>
+          </TextLine>
+        </TextBlock>
+        <TextBlock ID="p009_r02" HPOS="240" VPOS="1535" WIDTH="1322" HEIGHT="123" LANG="ml" TAGREFS="lt_paragraph prod_printed" IDNEXT="p009_r03">
+          <Shape>
+            <Polygon POINTS="240,1535 1562,1535 1562,1658 240,1658"/>
+          </Shape>
+          <TextLine ID="p009_r02_l001" HPOS="240" VPOS="1535" WIDTH="1322" HEIGHT="123" BASELINE="240,1657 1562,1657" LANG="ml" TAGREFS="geom_est">
+            <Shape>
+              <Polygon POINTS="240,1535 1562,1535 1562,1658 240,1658"/>
+            </Shape>
+            <String ID="p009_r02_l001_w001" CONTENT="ER" HPOS="240" VPOS="1535" WIDTH="76" HEIGHT="123" TAGREFS="p009_r02_l001_t01"/>
+            <SP HPOS="316" VPOS="1535" WIDTH="38" HEIGHT="123"/>
+            <String ID="p009_r02_l001_w002" CONTENT="യ" HPOS="353" VPOS="1535" WIDTH="38" HEIGHT="123" TAGREFS="p009_r02_l001_t01"/>
+            <SP HPOS="391" VPOS="1535" WIDTH="38" HEIGHT="123"/>
+            <String ID="p009_r02_l001_w003" CONTENT="FEES" HPOS="429" VPOS="1535" WIDTH="151" HEIGHT="123" TAGREFS="p009_r02_l001_t01"/>
+            <SP HPOS="580" VPOS="1535" WIDTH="38" HEIGHT="123"/>
+            <String ID="p009_r02_l001_w004" CONTENT="ആ:" HPOS="618" VPOS="1535" WIDTH="76" HEIGHT="123" TAGREFS="p009_r02_l001_t01"/>
+            <SP HPOS="693" VPOS="1535" WIDTH="38" HEIGHT="123"/>
+            <String ID="p009_r02_l001_w005" CONTENT="ആ." HPOS="731" VPOS="1535" WIDTH="76" HEIGHT="123" TAGREFS="p009_r02_l001_t01"/>
+            <SP HPOS="807" VPOS="1535" WIDTH="38" HEIGHT="123"/>
+            <String ID="p009_r02_l001_w006" CONTENT="എക" HPOS="844" VPOS="1535" WIDTH="76" HEIGHT="123" TAGREFS="p009_r02_l001_t01"/>
+            <SP HPOS="920" VPOS="1535" WIDTH="38" HEIGHT="123"/>
+            <String ID="p009_r02_l001_w007" CONTENT="ക" HPOS="958" VPOS="1535" WIDTH="38" HEIGHT="123" TAGREFS="p009_r02_l001_t01"/>
+            <SP HPOS="995" VPOS="1535" WIDTH="38" HEIGHT="123"/>
+            <String ID="p009_r02_l001_w008" CONTENT="ഇ" HPOS="1033" VPOS="1535" WIDTH="38" HEIGHT="123" TAGREFS="p009_r02_l001_t01"/>
+            <SP HPOS="1071" VPOS="1535" WIDTH="38" HEIGHT="123"/>
+            <String ID="p009_r02_l001_w009" CONTENT="Ee" HPOS="1109" VPOS="1535" WIDTH="76" HEIGHT="123" TAGREFS="p009_r02_l001_t01"/>
+            <SP HPOS="1184" VPOS="1535" WIDTH="38" HEIGHT="123"/>
+            <String ID="p009_r02_l001_w010" CONTENT="ക" HPOS="1222" VPOS="1535" WIDTH="38" HEIGHT="123" TAGREFS="p009_r02_l001_t01"/>
+            <SP HPOS="1260" VPOS="1535" WIDTH="38" HEIGHT="123"/>
+            <String ID="p009_r02_l001_w011" CONTENT="putin" HPOS="1298" VPOS="1535" WIDTH="189" HEIGHT="123" TAGREFS="p009_r02_l001_t01"/>
+            <SP HPOS="1486" VPOS="1535" WIDTH="38" HEIGHT="123"/>
+            <String ID="p009_r02_l001_w012" CONTENT="ൾ" HPOS="1524" VPOS="1535" WIDTH="38" HEIGHT="123" TAGREFS="p009_r02_l001_t01">
+              <ALTERNATIVE PURPOSE="Tesseract reading used for alignment">ള്‍</ALTERNATIVE>
+            </String>
+          </TextLine>
+        </TextBlock>
+        <TextBlock ID="p009_r03" HPOS="240" VPOS="1773" WIDTH="1321" HEIGHT="525" LANG="ml" TAGREFS="lt_paragraph prod_printed">
+          <Shape>
+            <Polygon POINTS="240,1773 1561,1773 1561,2298 240,2298"/>
+          </Shape>
+          <TextLine ID="p009_r03_l001" HPOS="240" VPOS="1773" WIDTH="1248" HEIGHT="83" BASELINE="240,1855 1488,1855" LANG="ml" TAGREFS="geom_est">
+            <Shape>
+              <Polygon POINTS="240,1773 1488,1773 1488,1856 240,1856"/>
+            </Shape>
+            <String ID="p009_r03_l001_w001" CONTENT="BEE" HPOS="240" VPOS="1773" WIDTH="197" HEIGHT="83" TAGREFS="p009_r03_l001_t01"/>
+            <SP HPOS="437" VPOS="1773" WIDTH="66" HEIGHT="83"/>
+            <String ID="p009_r03_l001_w002" CONTENT="ne" HPOS="503" VPOS="1773" WIDTH="131" HEIGHT="83" TAGREFS="p009_r03_l001_t01"/>
+            <SP HPOS="634" VPOS="1773" WIDTH="66" HEIGHT="83"/>
+            <String ID="p009_r03_l001_w003" CONTENT="ae" HPOS="700" VPOS="1773" WIDTH="131" HEIGHT="83" TAGREFS="p009_r03_l001_t01"/>
+            <SP HPOS="831" VPOS="1773" WIDTH="66" HEIGHT="83"/>
+            <String ID="p009_r03_l001_w004" CONTENT="a" HPOS="897" VPOS="1773" WIDTH="66" HEIGHT="83" TAGREFS="p009_r03_l001_t01"/>
+            <SP HPOS="963" VPOS="1773" WIDTH="66" HEIGHT="83"/>
+            <String ID="p009_r03_l001_w005" CONTENT="a" HPOS="1028" VPOS="1773" WIDTH="66" HEIGHT="83" TAGREFS="p009_r03_l001_t01"/>
+            <SP HPOS="1094" VPOS="1773" WIDTH="66" HEIGHT="83"/>
+            <String ID="p009_r03_l001_w006" CONTENT="AE" HPOS="1160" VPOS="1773" WIDTH="131" HEIGHT="83" TAGREFS="p009_r03_l001_t01"/>
+            <SP HPOS="1291" VPOS="1773" WIDTH="66" HEIGHT="83"/>
+            <String ID="p009_r03_l001_w007" CONTENT="ER" HPOS="1357" VPOS="1773" WIDTH="131" HEIGHT="83" TAGREFS="p009_r03_l001_t01"/>
+          </TextLine>
+          <TextLine ID="p009_r03_l002" HPOS="240" VPOS="1856" WIDTH="1321" HEIGHT="88" BASELINE="240,1943 1561,1943" LANG="ml" TAGREFS="geom_est">
+            <Shape>
+              <Polygon POINTS="240,1856 1561,1856 1561,1944 240,1944"/>
+            </Shape>
+            <String ID="p009_r03_l002_w001" CONTENT="ര" HPOS="240" VPOS="1856" WIDTH="43" HEIGHT="88" TAGREFS="p009_r03_l002_t01"/>
+            <SP HPOS="283" VPOS="1856" WIDTH="43" HEIGHT="88"/>
+            <String ID="p009_r03_l002_w002" CONTENT="RCI" HPOS="325" VPOS="1856" WIDTH="128" HEIGHT="88" TAGREFS="p009_r03_l002_t01"/>
+            <SP HPOS="453" VPOS="1856" WIDTH="43" HEIGHT="88"/>
+            <String ID="p009_r03_l002_w003" CONTENT="ക" HPOS="496" VPOS="1856" WIDTH="43" HEIGHT="88" TAGREFS="p009_r03_l002_t01"/>
+            <SP HPOS="538" VPOS="1856" WIDTH="43" HEIGHT="88"/>
+            <String ID="p009_r03_l002_w004" CONTENT="TE" HPOS="581" VPOS="1856" WIDTH="85" HEIGHT="88" TAGREFS="p009_r03_l002_t01"/>
+            <SP HPOS="666" VPOS="1856" WIDTH="43" HEIGHT="88"/>
+            <String ID="p009_r03_l002_w005" CONTENT="Seta" HPOS="709" VPOS="1856" WIDTH="170" HEIGHT="88" TAGREFS="p009_r03_l002_t01"/>
+            <SP HPOS="879" VPOS="1856" WIDTH="43" HEIGHT="88"/>
+            <String ID="p009_r03_l002_w006" CONTENT="ക" HPOS="922" VPOS="1856" WIDTH="43" HEIGHT="88" TAGREFS="p009_r03_l002_t01"/>
+            <SP HPOS="964" VPOS="1856" WIDTH="43" HEIGHT="88"/>
+            <String ID="p009_r03_l002_w007" CONTENT="SERRE" HPOS="1007" VPOS="1856" WIDTH="213" HEIGHT="88" TAGREFS="p009_r03_l002_t01"/>
+            <SP HPOS="1220" VPOS="1856" WIDTH="43" HEIGHT="88"/>
+            <String ID="p009_r03_l002_w008" CONTENT="Ch" HPOS="1263" VPOS="1856" WIDTH="85" HEIGHT="88" TAGREFS="p009_r03_l002_t01"/>
+            <SP HPOS="1348" VPOS="1856" WIDTH="43" HEIGHT="88"/>
+            <String ID="p009_r03_l002_w009" CONTENT="BEER" HPOS="1391" VPOS="1856" WIDTH="170" HEIGHT="88" TAGREFS="p009_r03_l002_t01"/>
+          </TextLine>
+          <TextLine ID="p009_r03_l003" HPOS="240" VPOS="1944" WIDTH="1248" HEIGHT="125" BASELINE="240,2068 1488,2068" LANG="ml" TAGREFS="geom_est">
+            <Shape>
+              <Polygon POINTS="240,1944 1488,1944 1488,2069 240,2069"/>
+            </Shape>
+            <String ID="p009_r03_l003_w001" CONTENT="ത" HPOS="240" VPOS="1944" WIDTH="30" HEIGHT="125" TAGREFS="p009_r03_l003_t01"/>
+            <SP HPOS="270" VPOS="1944" WIDTH="30" HEIGHT="125"/>
+            <String ID="p009_r03_l003_w002" CONTENT="SR" HPOS="301" VPOS="1944" WIDTH="61" HEIGHT="125" TAGREFS="p009_r03_l003_t01"/>
+            <SP HPOS="362" VPOS="1944" WIDTH="30" HEIGHT="125"/>
+            <String ID="p009_r03_l003_w003" CONTENT="a" HPOS="392" VPOS="1944" WIDTH="30" HEIGHT="125" TAGREFS="p009_r03_l003_t01"/>
+            <SP HPOS="423" VPOS="1944" WIDTH="30" HEIGHT="125"/>
+            <String ID="p009_r03_l003_w004" CONTENT="SEN" HPOS="453" VPOS="1944" WIDTH="91" HEIGHT="125" TAGREFS="p009_r03_l003_t01"/>
+            <SP HPOS="544" VPOS="1944" WIDTH="30" HEIGHT="125"/>
+            <String ID="p009_r03_l003_w005" CONTENT="ARATE" HPOS="575" VPOS="1944" WIDTH="152" HEIGHT="125" TAGREFS="p009_r03_l003_t01"/>
+            <SP HPOS="727" VPOS="1944" WIDTH="30" HEIGHT="125"/>
+            <String ID="p009_r03_l003_w006" CONTENT="a" HPOS="757" VPOS="1944" WIDTH="30" HEIGHT="125" TAGREFS="p009_r03_l003_t01"/>
+            <SP HPOS="788" VPOS="1944" WIDTH="30" HEIGHT="125"/>
+            <String ID="p009_r03_l003_w007" CONTENT="കഷ" HPOS="818" VPOS="1944" WIDTH="61" HEIGHT="125" TAGREFS="p009_r03_l003_t01"/>
+            <SP HPOS="879" VPOS="1944" WIDTH="30" HEIGHT="125"/>
+            <String ID="p009_r03_l003_w008" CONTENT="a" HPOS="910" VPOS="1944" WIDTH="30" HEIGHT="125" TAGREFS="p009_r03_l003_t01"/>
+            <SP HPOS="940" VPOS="1944" WIDTH="30" HEIGHT="125"/>
+            <String ID="p009_r03_l003_w009" CONTENT=":" HPOS="971" VPOS="1944" WIDTH="30" HEIGHT="125" TAGREFS="p009_r03_l003_t01"/>
+            <SP HPOS="1001" VPOS="1944" WIDTH="30" HEIGHT="125"/>
+            <String ID="p009_r03_l003_w010" CONTENT="Ep" HPOS="1031" VPOS="1944" WIDTH="61" HEIGHT="125" TAGREFS="p009_r03_l003_t01"/>
+            <SP HPOS="1092" VPOS="1944" WIDTH="30" HEIGHT="125"/>
+            <String ID="p009_r03_l003_w011" CONTENT="ക" HPOS="1123" VPOS="1944" WIDTH="30" HEIGHT="125" TAGREFS="p009_r03_l003_t01"/>
+            <SP HPOS="1153" VPOS="1944" WIDTH="30" HEIGHT="125"/>
+            <String ID="p009_r03_l003_w012" CONTENT="EA" HPOS="1184" VPOS="1944" WIDTH="61" HEIGHT="125" TAGREFS="p009_r03_l003_t01"/>
+            <SP HPOS="1244" VPOS="1944" WIDTH="30" HEIGHT="125"/>
+            <String ID="p009_r03_l003_w013" CONTENT="ER" HPOS="1275" VPOS="1944" WIDTH="61" HEIGHT="125" TAGREFS="p009_r03_l003_t01"/>
+            <SP HPOS="1336" VPOS="1944" WIDTH="30" HEIGHT="125"/>
+            <String ID="p009_r03_l003_w014" CONTENT="St" HPOS="1366" VPOS="1944" WIDTH="61" HEIGHT="125" TAGREFS="p009_r03_l003_t01"/>
+            <SP HPOS="1427" VPOS="1944" WIDTH="30" HEIGHT="125"/>
+            <String ID="p009_r03_l003_w015" CONTENT=":" HPOS="1458" VPOS="1944" WIDTH="30" HEIGHT="125" TAGREFS="p009_r03_l003_t01"/>
+          </TextLine>
+          <TextLine ID="p009_r03_l004" HPOS="240" VPOS="2069" WIDTH="1248" HEIGHT="103" BASELINE="240,2171 1488,2171" LANG="ml" TAGREFS="geom_est">
+            <Shape>
+              <Polygon POINTS="240,2069 1488,2069 1488,2172 240,2172"/>
+            </Shape>
+            <String ID="p009_r03_l004_w001" CONTENT="ക്ല" HPOS="240" VPOS="2069" WIDTH="78" HEIGHT="103" TAGREFS="p009_r03_l004_t01"/>
+            <SP HPOS="318" VPOS="2069" WIDTH="26" HEIGHT="103"/>
+            <String ID="p009_r03_l004_w002" CONTENT="ha" HPOS="344" VPOS="2069" WIDTH="52" HEIGHT="103" TAGREFS="p009_r03_l004_t01"/>
+            <SP HPOS="396" VPOS="2069" WIDTH="26" HEIGHT="103"/>
+            <String ID="p009_r03_l004_w003" CONTENT="ക" HPOS="422" VPOS="2069" WIDTH="26" HEIGHT="103" TAGREFS="p009_r03_l004_t01"/>
+            <SP HPOS="448" VPOS="2069" WIDTH="26" HEIGHT="103"/>
+            <String ID="p009_r03_l004_w004" CONTENT="ക" HPOS="474" VPOS="2069" WIDTH="26" HEIGHT="103" TAGREFS="p009_r03_l004_t01"/>
+            <SP HPOS="500" VPOS="2069" WIDTH="26" HEIGHT="103"/>
+            <String ID="p009_r03_l004_w005" CONTENT="ER" HPOS="526" VPOS="2069" WIDTH="52" HEIGHT="103" TAGREFS="p009_r03_l004_t01"/>
+            <SP HPOS="578" VPOS="2069" WIDTH="26" HEIGHT="103"/>
+            <String ID="p009_r03_l004_w006" CONTENT="EL" HPOS="604" VPOS="2069" WIDTH="52" HEIGHT="103" TAGREFS="p009_r03_l004_t01"/>
+            <SP HPOS="656" VPOS="2069" WIDTH="26" HEIGHT="103"/>
+            <String ID="p009_r03_l004_w007" CONTENT="Find" HPOS="682" VPOS="2069" WIDTH="104" HEIGHT="103" TAGREFS="p009_r03_l004_t01"/>
+            <SP HPOS="786" VPOS="2069" WIDTH="26" HEIGHT="103"/>
+            <String ID="p009_r03_l004_w008" CONTENT="REE" HPOS="812" VPOS="2069" WIDTH="78" HEIGHT="103" TAGREFS="p009_r03_l004_t01"/>
+            <SP HPOS="890" VPOS="2069" WIDTH="26" HEIGHT="103"/>
+            <String ID="p009_r03_l004_w009" CONTENT="SR" HPOS="916" VPOS="2069" WIDTH="52" HEIGHT="103" TAGREFS="p009_r03_l004_t01"/>
+            <SP HPOS="968" VPOS="2069" WIDTH="26" HEIGHT="103"/>
+            <String ID="p009_r03_l004_w010" CONTENT="h" HPOS="994" VPOS="2069" WIDTH="26" HEIGHT="103" TAGREFS="p009_r03_l004_t01"/>
+            <SP HPOS="1020" VPOS="2069" WIDTH="26" HEIGHT="103"/>
+            <String ID="p009_r03_l004_w011" CONTENT="SAE" HPOS="1046" VPOS="2069" WIDTH="78" HEIGHT="103" TAGREFS="p009_r03_l004_t01"/>
+            <SP HPOS="1124" VPOS="2069" WIDTH="26" HEIGHT="103"/>
+            <String ID="p009_r03_l004_w012" CONTENT="Rae" HPOS="1150" VPOS="2069" WIDTH="78" HEIGHT="103" TAGREFS="p009_r03_l004_t01"/>
+            <SP HPOS="1228" VPOS="2069" WIDTH="26" HEIGHT="103"/>
+            <String ID="p009_r03_l004_w013" CONTENT="eee" HPOS="1254" VPOS="2069" WIDTH="78" HEIGHT="103" TAGREFS="p009_r03_l004_t01"/>
+            <SP HPOS="1332" VPOS="2069" WIDTH="26" HEIGHT="103"/>
+            <String ID="p009_r03_l004_w014" CONTENT="BUSES" HPOS="1358" VPOS="2069" WIDTH="130" HEIGHT="103" TAGREFS="p009_r03_l004_t01"/>
+          </TextLine>
+          <TextLine ID="p009_r03_l005" HPOS="240" VPOS="2172" WIDTH="1248" HEIGHT="126" BASELINE="240,2296 1488,2296" LANG="ml" TAGREFS="geom_est">
+            <Shape>
+              <Polygon POINTS="240,2172 1488,2172 1488,2298 240,2298"/>
+            </Shape>
+            <String ID="p009_r03_l005_w001" CONTENT=":" HPOS="240" VPOS="2172" WIDTH="11" HEIGHT="126" TAGREFS="p009_r03_l005_t01"/>
+            <SP HPOS="251" VPOS="2172" WIDTH="11" HEIGHT="126"/>
+            <String ID="p009_r03_l005_w002" CONTENT="ERE" HPOS="263" VPOS="2172" WIDTH="34" HEIGHT="126" TAGREFS="p009_r03_l005_t01"/>
+            <SP HPOS="297" VPOS="2172" WIDTH="11" HEIGHT="126"/>
+            <String ID="p009_r03_l005_w003" CONTENT="OEE" HPOS="309" VPOS="2172" WIDTH="34" HEIGHT="126" TAGREFS="p009_r03_l005_t01"/>
+            <SP HPOS="343" VPOS="2172" WIDTH="11" HEIGHT="126"/>
+            <String ID="p009_r03_l005_w004" CONTENT="a" HPOS="354" VPOS="2172" WIDTH="11" HEIGHT="126" TAGREFS="p009_r03_l005_t01"/>
+            <SP HPOS="366" VPOS="2172" WIDTH="11" HEIGHT="126"/>
+            <String ID="p009_r03_l005_w005" CONTENT="innate" HPOS="377" VPOS="2172" WIDTH="69" HEIGHT="126" TAGREFS="p009_r03_l005_t01"/>
+            <SP HPOS="446" VPOS="2172" WIDTH="11" HEIGHT="126"/>
+            <String ID="p009_r03_l005_w006" CONTENT="SRR" HPOS="458" VPOS="2172" WIDTH="34" HEIGHT="126" TAGREFS="p009_r03_l005_t01"/>
+            <SP HPOS="492" VPOS="2172" WIDTH="11" HEIGHT="126"/>
+            <String ID="p009_r03_l005_w007" CONTENT="ക" HPOS="503" VPOS="2172" WIDTH="11" HEIGHT="126" TAGREFS="p009_r03_l005_t01"/>
+            <SP HPOS="515" VPOS="2172" WIDTH="11" HEIGHT="126"/>
+            <String ID="p009_r03_l005_w008" CONTENT="SHE" HPOS="526" VPOS="2172" WIDTH="34" HEIGHT="126" TAGREFS="p009_r03_l005_t01"/>
+            <SP HPOS="561" VPOS="2172" WIDTH="11" HEIGHT="126"/>
+            <String ID="p009_r03_l005_w009" CONTENT="EE" HPOS="572" VPOS="2172" WIDTH="23" HEIGHT="126" TAGREFS="p009_r03_l005_t01"/>
+            <SP HPOS="595" VPOS="2172" WIDTH="11" HEIGHT="126"/>
+            <String ID="p009_r03_l005_w010" CONTENT="Co" HPOS="606" VPOS="2172" WIDTH="23" HEIGHT="126" TAGREFS="p009_r03_l005_t01"/>
+            <SP HPOS="629" VPOS="2172" WIDTH="11" HEIGHT="126"/>
+            <String ID="p009_r03_l005_w011" CONTENT="SEE" HPOS="641" VPOS="2172" WIDTH="34" HEIGHT="126" TAGREFS="p009_r03_l005_t01"/>
+            <SP HPOS="675" VPOS="2172" WIDTH="11" HEIGHT="126"/>
+            <String ID="p009_r03_l005_w012" CONTENT="fata" HPOS="687" VPOS="2172" WIDTH="46" HEIGHT="126" TAGREFS="p009_r03_l005_t01"/>
+            <SP HPOS="732" VPOS="2172" WIDTH="11" HEIGHT="126"/>
+            <String ID="p009_r03_l005_w013" CONTENT="ക" HPOS="744" VPOS="2172" WIDTH="11" HEIGHT="126" TAGREFS="p009_r03_l005_t01"/>
+            <SP HPOS="755" VPOS="2172" WIDTH="11" HEIGHT="126"/>
+            <String ID="p009_r03_l005_w014" CONTENT="SR" HPOS="767" VPOS="2172" WIDTH="23" HEIGHT="126" TAGREFS="p009_r03_l005_t01"/>
+            <SP HPOS="790" VPOS="2172" WIDTH="11" HEIGHT="126"/>
+            <String ID="p009_r03_l005_w015" CONTENT="Shoe" HPOS="801" VPOS="2172" WIDTH="46" HEIGHT="126" TAGREFS="p009_r03_l005_t01"/>
+            <SP HPOS="847" VPOS="2172" WIDTH="11" HEIGHT="126"/>
+            <String ID="p009_r03_l005_w016" CONTENT="RR" HPOS="858" VPOS="2172" WIDTH="23" HEIGHT="126" TAGREFS="p009_r03_l005_t01"/>
+            <SP HPOS="881" VPOS="2172" WIDTH="11" HEIGHT="126"/>
+            <String ID="p009_r03_l005_w017" CONTENT="Sa" HPOS="893" VPOS="2172" WIDTH="23" HEIGHT="126" TAGREFS="p009_r03_l005_t01"/>
+            <SP HPOS="916" VPOS="2172" WIDTH="11" HEIGHT="126"/>
+            <String ID="p009_r03_l005_w018" CONTENT="ക" HPOS="927" VPOS="2172" WIDTH="11" HEIGHT="126" TAGREFS="p009_r03_l005_t01"/>
+            <SP HPOS="938" VPOS="2172" WIDTH="11" HEIGHT="126"/>
+            <String ID="p009_r03_l005_w019" CONTENT="A" HPOS="950" VPOS="2172" WIDTH="11" HEIGHT="126" TAGREFS="p009_r03_l005_t01"/>
+            <SP HPOS="961" VPOS="2172" WIDTH="11" HEIGHT="126"/>
+            <String ID="p009_r03_l005_w020" CONTENT="aR" HPOS="973" VPOS="2172" WIDTH="23" HEIGHT="126" TAGREFS="p009_r03_l005_t01"/>
+            <SP HPOS="996" VPOS="2172" WIDTH="11" HEIGHT="126"/>
+            <String ID="p009_r03_l005_w021" CONTENT="Cai" HPOS="1007" VPOS="2172" WIDTH="34" HEIGHT="126" TAGREFS="p009_r03_l005_t01"/>
+            <SP HPOS="1041" VPOS="2172" WIDTH="11" HEIGHT="126"/>
+            <String ID="p009_r03_l005_w022" CONTENT="te" HPOS="1053" VPOS="2172" WIDTH="23" HEIGHT="126" TAGREFS="p009_r03_l005_t01"/>
+            <SP HPOS="1076" VPOS="2172" WIDTH="11" HEIGHT="126"/>
+            <String ID="p009_r03_l005_w023" CONTENT="ക" HPOS="1087" VPOS="2172" WIDTH="11" HEIGHT="126" TAGREFS="p009_r03_l005_t01"/>
+            <SP HPOS="1099" VPOS="2172" WIDTH="11" HEIGHT="126"/>
+            <String ID="p009_r03_l005_w024" CONTENT="പ" HPOS="1110" VPOS="2172" WIDTH="11" HEIGHT="126" TAGREFS="p009_r03_l005_t01"/>
+            <SP HPOS="1122" VPOS="2172" WIDTH="11" HEIGHT="126"/>
+            <String ID="p009_r03_l005_w025" CONTENT="വ" HPOS="1133" VPOS="2172" WIDTH="11" HEIGHT="126" TAGREFS="p009_r03_l005_t01"/>
+            <SP HPOS="1145" VPOS="2172" WIDTH="11" HEIGHT="126"/>
+            <String ID="p009_r03_l005_w026" CONTENT="TRE" HPOS="1156" VPOS="2172" WIDTH="34" HEIGHT="126" TAGREFS="p009_r03_l005_t01"/>
+            <SP HPOS="1190" VPOS="2172" WIDTH="11" HEIGHT="126"/>
+            <String ID="p009_r03_l005_w027" CONTENT="ത" HPOS="1202" VPOS="2172" WIDTH="11" HEIGHT="126" TAGREFS="p009_r03_l005_t01"/>
+            <SP HPOS="1213" VPOS="2172" WIDTH="11" HEIGHT="126"/>
+            <String ID="p009_r03_l005_w028" CONTENT="RE" HPOS="1225" VPOS="2172" WIDTH="23" HEIGHT="126" TAGREFS="p009_r03_l005_t01"/>
+            <SP HPOS="1248" VPOS="2172" WIDTH="11" HEIGHT="126"/>
+            <String ID="p009_r03_l005_w029" CONTENT="a" HPOS="1259" VPOS="2172" WIDTH="11" HEIGHT="126" TAGREFS="p009_r03_l005_t01"/>
+            <SP HPOS="1270" VPOS="2172" WIDTH="11" HEIGHT="126"/>
+            <String ID="p009_r03_l005_w030" CONTENT="ER" HPOS="1282" VPOS="2172" WIDTH="23" HEIGHT="126" TAGREFS="p009_r03_l005_t01"/>
+            <SP HPOS="1305" VPOS="2172" WIDTH="11" HEIGHT="126"/>
+            <String ID="p009_r03_l005_w031" CONTENT="EE" HPOS="1316" VPOS="2172" WIDTH="23" HEIGHT="126" TAGREFS="p009_r03_l005_t01"/>
+            <SP HPOS="1339" VPOS="2172" WIDTH="11" HEIGHT="126"/>
+            <String ID="p009_r03_l005_w032" CONTENT="LE" HPOS="1351" VPOS="2172" WIDTH="23" HEIGHT="126" TAGREFS="p009_r03_l005_t01"/>
+            <SP HPOS="1374" VPOS="2172" WIDTH="11" HEIGHT="126"/>
+            <String ID="p009_r03_l005_w033" CONTENT="Pr" HPOS="1385" VPOS="2172" WIDTH="23" HEIGHT="126" TAGREFS="p009_r03_l005_t01"/>
+            <SP HPOS="1408" VPOS="2172" WIDTH="11" HEIGHT="126"/>
+            <String ID="p009_r03_l005_w034" CONTENT="a" HPOS="1419" VPOS="2172" WIDTH="11" HEIGHT="126" TAGREFS="p009_r03_l005_t01"/>
+            <SP HPOS="1431" VPOS="2172" WIDTH="11" HEIGHT="126"/>
+            <String ID="p009_r03_l005_w035" CONTENT="Tl" HPOS="1442" VPOS="2172" WIDTH="23" HEIGHT="126" TAGREFS="p009_r03_l005_t01"/>
+            <SP HPOS="1465" VPOS="2172" WIDTH="11" HEIGHT="126"/>
+            <String ID="p009_r03_l005_w036" CONTENT="a" HPOS="1477" VPOS="2172" WIDTH="11" HEIGHT="126" TAGREFS="p009_r03_l005_t01"/>
+          </TextLine>
+        </TextBlock>
+      </PrintSpace>
+    </Page>
+  </Layout>
+</alto>

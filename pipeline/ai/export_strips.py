@@ -59,6 +59,9 @@ def needs_ai(line, weak):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--weak", action="store_true", help="also lines with a weak match to Gpura's text")
+    ap.add_argument("--min-page-conf", type=float, default=0.45,
+                    help="skip pages whose median Tesseract confidence is below this: covers, endpapers and plates "
+                         "read as noise, and an AI reading of noise only costs tokens (default 0.45; 0 = no skip)")
     a = ap.parse_args()
     if AI.exists():
         shutil.rmtree(AI / "strips", ignore_errors=True)
@@ -67,13 +70,18 @@ def main():
         font = ImageFont.truetype("arial.ttf", 34)
     except OSError:
         font = ImageFont.load_default()
-    manifest = {}
+    manifest, skipped = {}, []
     for pid in page_ids():
         d = json.loads((ROOT / "ocr" / f"{pid}.lines.json").read_text(encoding="utf-8"))
         if not d.get("automatic"):
             continue
         todo = [l for r in d["regions"] for l in r.get("lines", []) if needs_ai(l, a.weak)]
         if not todo:
+            continue
+        confs = sorted(l.get("conf") or 0 for r in d["regions"] for l in r.get("lines", []))
+        med = confs[len(confs) // 2]
+        if med < a.min_page_conf:
+            skipped.append(f"{pid} ({med:.2f})")
             continue
         im = Image.open(page_image(pid)).convert("RGB")
         for k in range(0, len(todo), PER_STRIP):
@@ -96,6 +104,8 @@ def main():
     n = sum(len(v) for v in manifest.values())
     (AI / "PROMPT.md").write_text(PROMPT.format(strips_dir=(AI / "strips").resolve(), names=" ".join(manifest),
                                                 out=(AI / "readings.json").resolve()), encoding="utf-8", newline="\n")
+    if skipped:
+        print(f"skipped as non-text (median Tesseract confidence below {a.min_page_conf}): {', '.join(skipped)}")
     print(f"{n} lines in {len(manifest)} strips need an AI reading -> {AI.relative_to(ROOT.parent.parent)}")
 
 
