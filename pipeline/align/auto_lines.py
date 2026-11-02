@@ -38,6 +38,7 @@ ROOT = item_dir()
 _ai = ROOT / "ocr" / "ai_readings.json"          # AI readings for lines Gpura has no text for (pipeline/ai/)
 AI_READINGS = json.loads(_ai.read_text(encoding="utf-8")) if _ai.exists() else {}
 TESSDATA = os.environ.get("GPURA_TESSDATA") or str(REPO / ".cache" / "tessdata")
+NON_TEXT_CONF = 0.45  # a page with no Gpura text and a median Tesseract confidence below this is not text
 MIN_SIM = 35          # below this a detected line and an archive line are never paired
 END_PUNCT = tuple(".?!:;”’\"')]")
 WORD_FINAL = ("്", "ം", "ൻ", "ർ", "ൽ", "ൾ", "ൺ", "ഃ")   # shapes that end Malayalam words
@@ -329,6 +330,11 @@ def build_page(pid, prev_tail):
         elif l["conf"] and (l["conf"] >= 0.6 or not arch) and len(key(l["text_tesseract"])) >= 2:
             l.update(text=encode(l["text_tesseract"]), raw=None, block=None, score=None, arch=None)
             kept.append(l)                             # printed line Gpura's text lacks
+    confs = sorted(l["conf"] or 0 for l in kept)      # the same lines the AI export measures
+    non_text = None
+    if not arch and confs and confs[len(confs) // 2] < NON_TEXT_CONF:
+        non_text = round(confs[len(confs) // 2], 2)   # cover, endpaper or plate: Tesseract reads only noise
+        kept = []
     used = {pairs[i][0] for i in pairs}
     unplaced = [{"text": g["text"], "archive_line": j + 1} for j, g in enumerate(arch) if j not in used]
 
@@ -414,6 +420,9 @@ def build_page(pid, prev_tail):
                                                              if r["type"] == "page-number"), None),
             "width": W, "height": H, "automatic": True,
             "regions": out_regions, "unplaced": unplaced,
+            **({"non_text": f"No lines encoded: Gpura has no text for this page and Tesseract's median confidence "
+                            f"is {non_text} (below {NON_TEXT_CONF}), so it is treated as a cover, endpaper or plate."}
+               if non_text is not None else {}),
             "notes": [
                 "AUTOMATIC, NOT REVIEWED. Coordinates are pixels in the full-resolution scan, origin top-left; bbox = [x, y, w, h].",
                 "Line boxes: projection profiles on dark, low-chroma pixels (coloured reader ink ignored). Baselines are estimated.",
