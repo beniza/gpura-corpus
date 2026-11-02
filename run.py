@@ -133,6 +133,23 @@ def build_site(item):
     book_index()
 
 
+def ensure_images(item):
+    """Scans are not kept in git: download any that are missing from Gpura's IIIF image service."""
+    import urllib.request
+    meta = item_json(item)
+    pages = {int(Path(f).name[1:4]) for f in glob.glob(str(item / "ocr" / "p*.lines.json"))}
+    pages |= set(meta.get("canvases_encoded", []))
+    (item / "images").mkdir(exist_ok=True)
+    for n in sorted(pages):
+        if any((item / "images" / f"p{n:03d}.{e}").exists() for e in ("png", "jpg")):
+            continue
+        url = meta["iiif_image_base"] + f"{n:04d}.jpg/full/max/0/default.jpg"
+        print(f"  downloading scan {n} from Gpura", flush=True)
+        req = urllib.request.Request(url, headers={"User-Agent": "gpura-corpus-pipeline (+https://github.com/beniza/gpura-corpus)"})
+        with urllib.request.urlopen(req, timeout=120) as r:
+            (item / "images" / f"p{n:03d}.jpg").write_bytes(r.read())
+
+
 def book_index():
     """docs/specimen/index.json: every book on the site, read by docs/nav.js for the Books menu."""
     books = []
@@ -164,6 +181,8 @@ def main():
         item = Path(sh(args, REPO, capture=True).strip().splitlines()[-1]).resolve()
         stages = (a.stages or ",".join(DEFAULT)).split(",")
     stages = [s.strip() for s in stages if s.strip()]
+    if set(stages) & {"align", "ocr", "ai-export", "site"}:
+        ensure_images(item)
     for s in stages:
         print(f"[{s}]", flush=True)
         if s == "fetch":

@@ -74,7 +74,7 @@ pipeline/
 schemas/                   PAGE 2019 XSD, ALTO 4.4 XSD, tei_all.rng (see schemas/SOURCES.md)
 items/<item>/
   item.json                metadata, IIIF URLs, provenance wording; nothing item-specific lives in pipeline/
-  images/                  page scans
+  images/                  page scans (not in git; run.py downloads missing ones from Gpura's IIIF service)
   ocr/*.lines.json         line inventory: the contract every later stage builds from
   page/  tei/              generated encodings
 docs/                      GitHub Pages site (landing, proposal, walkthrough, specimens)
