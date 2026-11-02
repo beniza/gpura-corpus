@@ -121,3 +121,14 @@ in the public domain. This is an independent proposal, not a Gpura publication.
 - Data and encodings (`items/*/` transcriptions, PAGE, ALTO, TEI, `lines.json`) and the site text in
   `docs/`: CC0 1.0. See `LICENSE-data`.
 - Vendored schemas in `schemas/` keep their own licences. Page images remain Gpura's and are public domain.
+
+## Optional AI step: lines Gpura has no text for
+
+Where Gpura has no text for a printed line, the automatic path falls back to Tesseract (about 13% of characters wrong on this book). The AI step replaces only those readings:
+
+    python3 run.py items/<item> --stages ai-export        # numbered strips of the lines that need it -> <item>/ai/
+    # a vision model reads <item>/ai/strips/ per <item>/ai/PROMPT.md and writes <item>/ai/readings.json
+    GPURA_ITEM_DIR=items/<item> python3 pipeline/ai/import_readings.py --model "Claude Sonnet 5.5"
+    python3 run.py items/<item>                           # rebuild; readings are kept in ocr/ai_readings.json
+
+Each reading is tied to its line's box and used only while the box is unchanged. In TEI such a line is `<unclear cert="medium" reason="ai-reading" resp="#ai">`, with the model named in the header; PAGE-XML labels it the same way. On a 60-line test against Gpura's text, Claude Sonnet got 1.6% of characters wrong (Haiku 3.2%, Tesseract 12.7%). Very short fragments read badly without the rest of the line.

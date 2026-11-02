@@ -89,6 +89,12 @@ def header(tei):
     rs = E("respStmt", ts, id="tesseract")
     E("resp", rs, "fallback readings where Gpura's text has no matching line")
     E("name", rs, "Tesseract OCR (mal+eng)")
+    models = sorted({l["ai_model"] for d in DATA.values() for r in d["regions"] for l in r.get("lines", [])
+                     if l.get("source") == "ai"})
+    if models:
+        rs = E("respStmt", ts, id="ai")
+        E("resp", rs, "readings of line images where Gpura has no text (not reviewed)")
+        E("name", rs, ", ".join(models))
 
     ex = E("extent", fd)
     E("measure", ex, f"{len(PAGES)} page images", unit="pages", quantity=len(PAGES))
@@ -136,7 +142,8 @@ def header(tei):
       "line that continues the previous line's word. In automatic encodings this is an estimate from the book's own "
       "vocabulary and Malayalam script rules.")
     E("p", E("interpretation", nz), "<unclear> marks a line whose reading is not Gpura's text (cert='low': "
-      "Tesseract only) or whose match to the detected line is weak (cert='medium').")
+      "Tesseract only; reason='ai-reading', cert='medium': read by an AI model from the line image) or whose "
+      "match to the detected line is weak (cert='medium').")
     pf = E("profileDesc", h)
     E("language", E("langUsage", pf), "Malayalam", ident=ITEM.get("language", "ml"))
     rd = E("revisionDesc", h)
@@ -178,9 +185,10 @@ class Flow:
         whole = [f for f in l.get("flags", []) if f["type"] == "unclear" and f["start"] <= 0 and f["end"] >= len(text)]
         if whole and text:
             f = whole[0]
+            ai = f.get("source") == "ai"
             E("unclear", parent, text, id=f"f-{l['id']}-{l['flags'].index(f) + 1}", cert=f.get("cert"),
-              reason="no-archive-text" if f.get("cert") == "low" else "weak-match",
-              resp="#tesseract" if f.get("cert") == "low" else "#gpura-ocr")
+              reason="ai-reading" if ai else "no-archive-text" if f.get("cert") == "low" else "weak-match",
+              resp="#ai" if ai else "#tesseract" if f.get("cert") == "low" else "#gpura-ocr")
         else:
             tail(parent, text)
         if in_flow:

@@ -1,0 +1,373 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<PcGts xmlns="http://schema.primaresearch.org/PAGE/gts/pagecontent/2019-07-15" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schema.primaresearch.org/PAGE/gts/pagecontent/2019-07-15 http://schema.primaresearch.org/PAGE/gts/pagecontent/2019-07-15/pagecontent.xsd" pcGtsId="p019_pcgts">
+  <Metadata>
+    <Creator>Gpura digitisation pipeline demo - layout-encoding stage (page/json2page.py, lxml)</Creator>
+    <Created>2026-11-02T18:37:35+00:00</Created>
+    <LastChange>2026-11-02T18:37:35+00:00</LastChange>
+    <Comments>Source: 'Narayan Vaman Tilak' (Malayalam, 1950), Gpura archive, IIIF canvas 19, printed page 5. Layout and readings come from ocr/p019.lines.json: line boxes detected automatically (projection profiles); TextEquiv index=1 is Gpura's existing OCR text for the line, aligned automatically and NOT reviewed; index=2 is the Tesseract reading used for the alignment (mal+eng) with its mean word confidence; index=3 (where present) is Gpura's string before the corpus encoding rules were applied. Coordinates are pixels of the full-resolution scan (1954 x 3241) assumed identical to the IIIF full/max image. Line-level flags (underlined/unclear/damage/inkOver/hyphenEnd) are in TextLine/@custom (Transkribus-style 'tag {offset:N; length:M; ...}' code-point offsets) with notes in @comments.</Comments>
+    <MetadataItem type="other" name="iiif-canvas" value="https://artifacts.gpura.org/public/1950-narayana-vamana-thilak/canvas/19"/>
+    <MetadataItem type="other" name="printed-page-number" value="5"/>
+  </Metadata>
+  <Page imageFilename="https://iiif.gpura.org/iiif/3/1950-narayana-vamana-thilak__0019.jpg/full/max/0/default.jpg" imageWidth="1954" imageHeight="3241" type="content" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" textLineOrder="top-to-bottom">
+    <!-- IIIF canvas: https://artifacts.gpura.org/public/1950-narayana-vamana-thilak/canvas/19 -->
+    <ReadingOrder>
+      <OrderedGroup id="p019_ro" caption="printed text flow (lines.json reading_order)">
+        <RegionRefIndexed index="0" regionRef="p019_r01"/>
+        <RegionRefIndexed index="1" regionRef="p019_r02"/>
+        <RegionRefIndexed index="2" regionRef="p019_r03"/>
+        <RegionRefIndexed index="3" regionRef="p019_r04"/>
+      </OrderedGroup>
+    </ReadingOrder>
+    <TextRegion id="p019_r01" custom="readingOrder {index:0;}" type="page-number" readingDirection="left-to-right" textLineOrder="top-to-bottom" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" production="printed">
+      <Coords points="931,160 958,160 958,207 931,207"/>
+      <TextLine id="p019_r01_l001" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:0;}" index="0">
+        <Coords points="931,160 958,160 958,207 931,207"/>
+        <Baseline points="931,206 958,206"/>
+        <TextEquiv index="1" comments="Gpura's existing OCR text, aligned automatically (not reviewed)">
+          <Unicode>5</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.739" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>5</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextEquiv index="1" comments="lines joined with newline">
+        <Unicode>5</Unicode>
+      </TextEquiv>
+    </TextRegion>
+    <TextRegion id="p019_r02" custom="readingOrder {index:1;}" continuation="true" type="paragraph" readingDirection="left-to-right" textLineOrder="top-to-bottom" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" production="printed">
+      <!-- continues paragraph p018_r03 (p018.page.xml) -->
+      <Coords points="115,321 1781,321 1781,942 115,942"/>
+      <TextLine id="p019_r02_l001" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:0;}" index="0">
+        <Coords points="115,321 1777,321 1777,384 115,384"/>
+        <Baseline points="115,368 1777,368"/>
+        <TextEquiv index="1" comments="Gpura's existing OCR text, aligned automatically (not reviewed)">
+          <Unicode>അമ്മയെ ഭയഭക്തിപൂർവ്വം സ്മരിക്കും. ആ മഹതിക്കുണ്ടായി</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.698" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>അമ്മയെ ഭയഭക്തിപുൂപല്വം സ:മരിക്കും. ആ മഹതിക്കണ്ടായി</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p019_r02_l002" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:1;} hyphenEnd {offset:45; length:0; printed:false;}" comments="[hyphen_end] last word continues on the next line without a printed hyphen" index="1">
+        <Coords points="115,413 1777,413 1777,467 115,467"/>
+        <Baseline points="115,458 1777,458"/>
+        <TextEquiv index="1" comments="Gpura's existing OCR text, aligned automatically (not reviewed)">
+          <Unicode>രുന്ന കവിതാവാസനയാണു് എനിക്കും ജന്മസിദ്ധമായി ല</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.515" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>രുന്ന കവിതാവാസനയാണു്‌?. എനിക്കും ജന്മസിദ്ധമായി el</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p019_r02_l003" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:2;}" index="2">
+        <Coords points="123,499 1777,499 1777,565 123,565"/>
+        <Baseline points="123,551 1777,551"/>
+        <TextEquiv index="1" comments="Gpura's existing OCR text, aligned automatically (not reviewed)">
+          <Unicode>ഭിച്ചിരിക്കുന്നതു്. എന്നെ വിദ്യാസമ്പന്നനാക്കിത്തീക്കുന്നതിനു</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.538" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>ഭിച്ചിരിക്കുന്നതു?. എന്നെ വിദ്യസമ്പന്നനാക്കിത്തീക്ടന്നതിനു</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p019_r02_l004" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:3;}" index="3">
+        <Coords points="120,593 1779,593 1779,656 120,656"/>
+        <Baseline points="120,643 1779,643"/>
+        <TextEquiv index="1" comments="Gpura's existing OCR text, aligned automatically (not reviewed)">
+          <Unicode>അടിസ്ഥാനമിട്ടതു് എന്റെ വാത്സല്യമാതാവാണെന്നോക്കുന്ന</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.447" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>അടിസ്ഥാനമിടുതു എനെറെ വാതമ്സലുമാതാവാണെന്നോക്കന്ന</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p019_r02_l005" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:4;} hyphenEnd {offset:51; length:0; printed:false;}" comments="[hyphen_end] last word continues on the next line without a printed hyphen" index="4">
+        <Coords points="115,691 1781,691 1781,757 115,757"/>
+        <Baseline points="115,736 1781,736"/>
+        <TextEquiv index="1" comments="Gpura's existing OCR text, aligned automatically (not reviewed)">
+          <Unicode>തു് എനിക്കു് എത്ര സന്തോഷപ്രദമായിരിക്കുന്നു." വാമനറാ</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.626" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>തു? എനിക്കു? “എത്ര സന്തോഷപ്രദമായിരിക്കുന്നു.? വാമനറാ</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p019_r02_l006" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:5;} hyphenEnd {offset:49; length:0; printed:false;}" comments="[hyphen_end] last word continues on the next line without a printed hyphen" index="5">
+        <Coords points="115,782 1781,782 1781,844 115,844"/>
+        <Baseline points="115,829 1781,829"/>
+        <TextEquiv index="1" comments="Gpura's existing OCR text, aligned automatically (not reviewed)">
+          <Unicode>വു അപൂർവ്വം അവസരങ്ങളിൽ മാത്രമെ ഭായ്യയെയും കുട്ടിക</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.805" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>വു അപൂപ്വം അവസരങ്ങളില്‍ മാത്രമെ ഭായ്യയെയും കുട്ടിക</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p019_r02_l007" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:6;}" index="6">
+        <Coords points="116,875 1091,875 1091,942 116,942"/>
+        <Baseline points="116,921 1091,921"/>
+        <TextEquiv index="1" comments="Gpura's existing OCR text, aligned automatically (not reviewed)">
+          <Unicode>ളെയും സന്ദർശിക്കാറുണ്ടായിരുന്നുള്ളു.</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.366" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>ളെയും സന്ദശിക്കാറുണ്ടായിരുന്നുള്ള «</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextEquiv index="1" comments="lines joined with newline">
+        <Unicode>അമ്മയെ ഭയഭക്തിപൂർവ്വം സ്മരിക്കും. ആ മഹതിക്കുണ്ടായി
+രുന്ന കവിതാവാസനയാണു് എനിക്കും ജന്മസിദ്ധമായി ല
+ഭിച്ചിരിക്കുന്നതു്. എന്നെ വിദ്യാസമ്പന്നനാക്കിത്തീക്കുന്നതിനു
+അടിസ്ഥാനമിട്ടതു് എന്റെ വാത്സല്യമാതാവാണെന്നോക്കുന്ന
+തു് എനിക്കു് എത്ര സന്തോഷപ്രദമായിരിക്കുന്നു." വാമനറാ
+വു അപൂർവ്വം അവസരങ്ങളിൽ മാത്രമെ ഭായ്യയെയും കുട്ടിക
+ളെയും സന്ദർശിക്കാറുണ്ടായിരുന്നുള്ളു.</Unicode>
+      </TextEquiv>
+    </TextRegion>
+    <TextRegion id="p019_r03" custom="readingOrder {index:2;}" type="paragraph" readingDirection="left-to-right" textLineOrder="top-to-bottom" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" production="printed">
+      <Coords points="118,999 1789,999 1789,1882 118,1882"/>
+      <TextLine id="p019_r03_l001" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:0;}" index="0">
+        <Coords points="284,999 1784,999 1784,1051 284,1051"/>
+        <Baseline points="284,1034 1784,1034"/>
+        <TextEquiv index="1" comments="Gpura's existing OCR text, aligned automatically (not reviewed)">
+          <Unicode>പുത്രനായ നാരായണന്റെ ജനനം ഒരു അശുഭമായ</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.672" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>പുത്രനായ. നാരായണനെറ ജനനം ഒരു അശുഭമായ</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p019_r03_l002" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:1;} hyphenEnd {offset:44; length:0; printed:false;}" comments="[hyphen_end] last word continues on the next line without a printed hyphen" index="1">
+        <Coords points="124,1082 1783,1082 1783,1143 124,1143"/>
+        <Baseline points="124,1126 1783,1126"/>
+        <TextEquiv index="1" comments="Gpura's existing OCR text, aligned automatically (not reviewed)">
+          <Unicode>നാളിലാണെന്നും അവൻ ഒരു കാലത്തു ഹിന്ദുമതം കൈവെ</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.837" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>നാളിലാണെന്നും അവ൯ ഒരു കാലത്തു ഹിന്ദുമതം കൈപവെ</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p019_r03_l003" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:2;}" index="2">
+        <Coords points="118,1169 1784,1169 1784,1239 118,1239"/>
+        <Baseline points="118,1217 1784,1217"/>
+        <TextEquiv index="1" comments="Gpura's existing OCR text, aligned automatically (not reviewed)">
+          <Unicode>ടിഞ്ഞു മറ്റൊരു മതത്തിലേക്കു പരിവർത്തനം ചെയ്യുമെന്നും</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.758" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>ടിഞ്ഞു മറെറാരു മതത്തിലേക്ക പരിവത്തനം ചെയ്യുമെന്നും</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p019_r03_l004" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:3;}" index="3">
+        <Coords points="123,1265 1784,1265 1784,1324 123,1324"/>
+        <Baseline points="123,1309 1784,1309"/>
+        <TextEquiv index="1" comments="Gpura's existing OCR text, aligned automatically (not reviewed)">
+          <Unicode>അവന്റെ ജാതകമെഴുത്തുകാർ പറഞ്ഞിരുന്നു. ജാതകത്തി</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.757" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>അവുനെറ ജതകമെഴത്തുകാര പറഞ്ഞിരുന്നും ജാതകത്തി</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p019_r03_l005" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:4;}" index="4">
+        <Coords points="124,1357 1783,1357 1783,1416 124,1416"/>
+        <Baseline points="124,1402 1783,1402"/>
+        <TextEquiv index="1" comments="Gpura's existing OCR text, aligned automatically (not reviewed)">
+          <Unicode>ലും ജ്യോതിഷത്തിലും അതിയായ വിശ്വാസമുണ്ടായിരുന്ന</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.786" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>ലും ജ്യോതിഷത്തിലും” അതിയായ വിശ്വാസമുണ്ടായിരുന്ന</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p019_r03_l006" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:5;} hyphenEnd {offset:41; length:0; printed:false;}" comments="[hyphen_end] last word continues on the next line without a printed hyphen" index="5">
+        <Coords points="121,1454 1785,1454 1785,1511 121,1511"/>
+        <Baseline points="121,1495 1785,1495"/>
+        <TextEquiv index="1" comments="Gpura's existing OCR text, aligned automatically (not reviewed)">
+          <Unicode>വാമനറാവു ഇക്കാരണംകൊണ്ടു് പിതൃസഹജമായ വാത്സ</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.733" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>വാമനറഃവു ഇക്കാരണംകൊണ്ടു? പിതൃസഹജമായ വാത്സ</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p019_r03_l007" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:6;}" index="6">
+        <Coords points="126,1542 1786,1542 1786,1609 126,1609"/>
+        <Baseline points="126,1587 1786,1587"/>
+        <TextEquiv index="1" comments="Gpura's existing OCR text, aligned automatically (not reviewed)">
+          <Unicode>ല്യം പുത്രനോടു പ്രദർശിപ്പിച്ചില്ല. ഇപ്രകാരം പിതൃവാത്സ</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.711" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>ലും പൂത്രനോടു പ്രദരശിപ്പിചില്ല. ഇപ്രകാരം വിതൃവാത്സ</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p019_r03_l008" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:7;}" index="7">
+        <Coords points="128,1633 1789,1633 1789,1697 128,1697"/>
+        <Baseline points="128,1679 1789,1679"/>
+        <TextEquiv index="1" comments="Gpura's existing OCR text, aligned automatically (not reviewed)">
+          <Unicode>ല്യമോ ലാളനയോ ലഭിച്ചിട്ടില്ലാതിരുന്ന പുത്രൻ വലിയ</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.809" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>ലുമോ ലാളനയോ ലഭിച്ചിടില്ലാതിരുന്ന പുത്രന്‍ വലിയ</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p019_r03_l009" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:8;} hyphenEnd {offset:45; length:0; printed:false;}" comments="[hyphen_end] last word continues on the next line without a printed hyphen" index="8">
+        <Coords points="128,1724 1789,1724 1789,1792 128,1792"/>
+        <Baseline points="128,1771 1789,1771"/>
+        <TextEquiv index="1" comments="Gpura's existing OCR text, aligned automatically (not reviewed)">
+          <Unicode>ച്ഛനിൽ മാത്രം മുഴുവൻ സ്നേഹവും ആശ്രയവും അർപ്പി</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.408" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>ചഴഛരനിൽ മാത്രം മഴുവ൯ സ്്ലേഹവും ആശ്രയവും അപ്പി</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p019_r03_l010" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:9;}" index="9">
+        <Coords points="128,1818 1059,1818 1059,1882 128,1882"/>
+        <Baseline points="128,1862 1059,1862"/>
+        <TextEquiv index="1" comments="Gpura's existing OCR text, aligned automatically (not reviewed)">
+          <Unicode>ച്ചിരുന്നതിൽ അതിശയിപ്പാനില്ല.</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.278" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>ഛകവരുന്നതില്‍ അതിശയിലപ്പാനില്ല.</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextEquiv index="1" comments="lines joined with newline">
+        <Unicode>പുത്രനായ നാരായണന്റെ ജനനം ഒരു അശുഭമായ
+നാളിലാണെന്നും അവൻ ഒരു കാലത്തു ഹിന്ദുമതം കൈവെ
+ടിഞ്ഞു മറ്റൊരു മതത്തിലേക്കു പരിവർത്തനം ചെയ്യുമെന്നും
+അവന്റെ ജാതകമെഴുത്തുകാർ പറഞ്ഞിരുന്നു. ജാതകത്തി
+ലും ജ്യോതിഷത്തിലും അതിയായ വിശ്വാസമുണ്ടായിരുന്ന
+വാമനറാവു ഇക്കാരണംകൊണ്ടു് പിതൃസഹജമായ വാത്സ
+ല്യം പുത്രനോടു പ്രദർശിപ്പിച്ചില്ല. ഇപ്രകാരം പിതൃവാത്സ
+ല്യമോ ലാളനയോ ലഭിച്ചിട്ടില്ലാതിരുന്ന പുത്രൻ വലിയ
+ച്ഛനിൽ മാത്രം മുഴുവൻ സ്നേഹവും ആശ്രയവും അർപ്പി
+ച്ചിരുന്നതിൽ അതിശയിപ്പാനില്ല.</Unicode>
+      </TextEquiv>
+    </TextRegion>
+    <TextRegion id="p019_r04" custom="readingOrder {index:3;}" type="paragraph" readingDirection="left-to-right" textLineOrder="top-to-bottom" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" production="printed">
+      <Coords points="120,1925 1797,1925 1797,3009 120,3009"/>
+      <TextLine id="p019_r04_l001" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:0;}" index="0">
+        <Coords points="287,1925 1789,1925 1789,1992 287,1992"/>
+        <Baseline points="287,1973 1789,1973"/>
+        <TextEquiv index="1" comments="Gpura's existing OCR text, aligned automatically (not reviewed)">
+          <Unicode>ഏറെനാൾ കഴിയുന്നതിനു മുൻപു് വാമനറാവുവിനെ</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.533" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>ഏറെനാള്‍ കഴിയുന്നതിനു Gaba’ വാമനറവാവുവിനെ</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p019_r04_l002" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:1;}" index="1">
+        <Coords points="122,2021 1790,2021 1790,2095 122,2095"/>
+        <Baseline points="122,2065 1790,2065"/>
+        <TextEquiv index="1" comments="Gpura's existing OCR text, aligned automatically (not reviewed)">
+          <Unicode>നാസിക്കു് ഡിസ്ട്രിക്ടിൽ മോക്കു് ഹഡാ എന്ന പ്രദേശത്തേക്കു</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.555" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>നാസിക്ക്‌? ഡിസ്്രിക്ില്‍ മോക്ക്‌ ഹഡാ എന്ന പ്രദേശത്തേക്കു</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p019_r04_l003" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:2;}" index="2">
+        <Coords points="128,2113 1788,2113 1788,2170 128,2170"/>
+        <Baseline points="128,2157 1788,2157"/>
+        <TextEquiv index="1" comments="Gpura's existing OCR text, aligned automatically (not reviewed)">
+          <Unicode>സ്ഥലംമാറ്റി. ആ അവസരത്തിൽ വാമനറാവു ഭായ്യയെയും</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.712" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>സ്ഥലംമാററി. ആ അവസരത്തിൽ വാമനറാവു ഭായ്യയെയും</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p019_r04_l004" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:3;} hyphenEnd {offset:47; length:0; printed:false;}" comments="[hyphen_end] last word continues on the next line without a printed hyphen" index="3">
+        <Coords points="120,2207 1791,2207 1791,2268 120,2268"/>
+        <Baseline points="120,2252 1791,2252"/>
+        <TextEquiv index="1" comments="Gpura's existing OCR text, aligned automatically (not reviewed)">
+          <Unicode>കുട്ടികളെയും ബോംബെ പട്ടണത്തിനടുത്തുള്ള കല്യാൺ എ</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.588" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>കുട്ടികളെയും ബോംബെ പടണത്തിനടുത്തുള്ള കല്യാണ്‍ എ</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p019_r04_l005" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:4;} hyphenEnd {offset:55; length:0; printed:false;}" comments="[hyphen_end] last word continues on the next line without a printed hyphen" index="4">
+        <Coords points="126,2301 1795,2301 1795,2373 126,2373"/>
+        <Baseline points="126,2344 1795,2344"/>
+        <TextEquiv index="1" comments="Gpura's existing OCR text, aligned automatically (not reviewed)">
+          <Unicode>ന്ന ഇപ്പോഴത്തെ തൈവണ്ടിസ്റ്റേഷ്യൻഅടുത്തുള്ള ഒരു സ്ഥലത്തേ</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.833" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>ന്ന ഇപ്പോഴത്തെ ത$വണ്ടിസ്റ്റേഷനടുത്തുള്ള ഒരു സ്ഥലത്തേ</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p019_r04_l006" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:5;}" index="5">
+        <Coords points="124,2385 1792,2385 1792,2461 124,2461"/>
+        <Baseline points="124,2436 1792,2436"/>
+        <TextEquiv index="1" comments="Gpura's existing OCR text, aligned automatically (not reviewed)">
+          <Unicode>ക്കു മാറ്റി താമസിപ്പിച്ചു. ആ മാതാപിതാക്കന്മാർക്കു് ആകെ</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.818" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>ക്കു മാററി താമസിപ്പിച്ചു. ആ മാതാപിതാക്കന്മാക്ക്‌ ആകെ</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p019_r04_l007" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:6;}" index="6">
+        <Coords points="126,2484 1791,2484 1791,2555 126,2555"/>
+        <Baseline points="126,2529 1791,2529"/>
+        <TextEquiv index="1" comments="Gpura's existing OCR text, aligned automatically (not reviewed)">
+          <Unicode>പതിനേഴു സന്താനങ്ങൾ ജനിച്ചു. അവരിൽ പന്ത്രണ്ടുപേർ</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.349" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>പതിനേഴ്ഴ സന്താനങ്ങധ ജനിക്ചു. അവരില്‍ പ്ര്രണ്ടുപേര</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p019_r04_l008" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:7;} hyphenEnd {offset:42; length:0; printed:false;}" comments="[hyphen_end] last word continues on the next line without a printed hyphen" index="7">
+        <Coords points="127,2576 1795,2576 1795,2645 127,2645"/>
+        <Baseline points="127,2620 1795,2620"/>
+        <TextEquiv index="1" comments="Gpura's existing OCR text, aligned automatically (not reviewed)">
+          <Unicode>ശൈശവത്തിലെ മരിച്ചുപോയി. ശേഷിച്ചവരിൽ ഒന്നാമ</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.783" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>ശൈശവത്തിലെ മരിച്ചുപോയി. ശേഷിച്ചവരില്‍ ഒന്നാമ</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p019_r04_l009" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:8;} hyphenEnd {offset:55; length:0; printed:false;}" comments="[hyphen_end] last word continues on the next line without a printed hyphen" index="8">
+        <Coords points="128,2668 1797,2668 1797,2726 128,2726"/>
+        <Baseline points="128,2713 1797,2713"/>
+        <TextEquiv index="1" comments="Gpura's existing OCR text, aligned automatically (not reviewed)">
+          <Unicode>ത്തേതു ഒരു പെൺകുട്ടിയായിരുന്നു. രണ്ടാമത്തെ കുട്ടിയായിരു</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.701" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>ത്തേതു ഒരു പെണ്‍കുടിയായിരുന്നു..- “രണ്ടാമത്തെ കുട്ടിയ യിരു</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p019_r04_l010" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:9;} hyphenEnd {offset:50; length:0; printed:false;}" comments="[hyphen_end] last word continues on the next line without a printed hyphen" index="9">
+        <Coords points="130,2758 1796,2758 1796,2822 130,2822"/>
+        <Baseline points="130,2805 1796,2805"/>
+        <TextEquiv index="1" comments="Gpura's existing OCR text, aligned automatically (not reviewed)">
+          <Unicode>ന്നു നമ്മുടെ കഥാനായകൻ. രണ്ടാമത്തെ പുത്രിയായ സുമുഖി</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.804" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>ന്നു നമ്മുടെ കഥാനായക൯. രണ്ടാമത്തെ പുത്രിയായ നുമുഖി</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p019_r04_l011" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:10;} hyphenEnd {offset:47; length:0; printed:false;}" comments="[hyphen_end] last word continues on the next line without a printed hyphen" index="10">
+        <Coords points="130,2850 1795,2850 1795,2916 130,2916"/>
+        <Baseline points="130,2896 1795,2896"/>
+        <TextEquiv index="1" comments="Gpura's existing OCR text, aligned automatically (not reviewed)">
+          <Unicode>യോടും രണ്ടാമത്തെ പുത്രനായിരുന്ന സുഖറാമിനോടും പി</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.613" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>യോട്ടം രണ്ടാമത്തെ പുത്രനായിരുന്ന 'നുഖറാമിനോടും_ ചി</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p019_r04_l012" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:11;}" index="11">
+        <Coords points="129,2942 1795,2942 1795,3009 129,3009"/>
+        <Baseline points="129,2988 1795,2988"/>
+        <TextEquiv index="1" comments="Gpura's existing OCR text, aligned automatically (not reviewed)">
+          <Unicode>താവിനു വിശേഷാൽ പ്രതിപത്തി തോന്നിയിരുന്നു. എന്നാൽ</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.893" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>താവിനു വിശേഷാല്‍ പ്രതിപത്തി തോന്നിയിരുന്നു. എന്നാല്‍</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextEquiv index="1" comments="lines joined with newline">
+        <Unicode>ഏറെനാൾ കഴിയുന്നതിനു മുൻപു് വാമനറാവുവിനെ
+നാസിക്കു് ഡിസ്ട്രിക്ടിൽ മോക്കു് ഹഡാ എന്ന പ്രദേശത്തേക്കു
+സ്ഥലംമാറ്റി. ആ അവസരത്തിൽ വാമനറാവു ഭായ്യയെയും
+കുട്ടികളെയും ബോംബെ പട്ടണത്തിനടുത്തുള്ള കല്യാൺ എ
+ന്ന ഇപ്പോഴത്തെ തൈവണ്ടിസ്റ്റേഷ്യൻഅടുത്തുള്ള ഒരു സ്ഥലത്തേ
+ക്കു മാറ്റി താമസിപ്പിച്ചു. ആ മാതാപിതാക്കന്മാർക്കു് ആകെ
+പതിനേഴു സന്താനങ്ങൾ ജനിച്ചു. അവരിൽ പന്ത്രണ്ടുപേർ
+ശൈശവത്തിലെ മരിച്ചുപോയി. ശേഷിച്ചവരിൽ ഒന്നാമ
+ത്തേതു ഒരു പെൺകുട്ടിയായിരുന്നു. രണ്ടാമത്തെ കുട്ടിയായിരു
+ന്നു നമ്മുടെ കഥാനായകൻ. രണ്ടാമത്തെ പുത്രിയായ സുമുഖി
+യോടും രണ്ടാമത്തെ പുത്രനായിരുന്ന സുഖറാമിനോടും പി
+താവിനു വിശേഷാൽ പ്രതിപത്തി തോന്നിയിരുന്നു. എന്നാൽ</Unicode>
+      </TextEquiv>
+    </TextRegion>
+  </Page>
+</PcGts>

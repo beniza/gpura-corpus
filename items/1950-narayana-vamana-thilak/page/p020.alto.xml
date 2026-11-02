@@ -15,7 +15,7 @@
     </Processing>
     <Processing ID="proc_conv">
       <processingCategory>other</processingCategory>
-      <processingDateTime>2026-11-02T17:31:41+00:00</processingDateTime>
+      <processingDateTime>2026-11-02T18:37:35+00:00</processingDateTime>
       <processingStepDescription>PAGE 2019-07-15 -&gt; ALTO 4.4 from page/p020.page.xml; word boxes estimated (tag geom_est).</processingStepDescription>
       <processingSoftware>
         <softwareName>page/page2alto.py (Gpura pipeline demo)</softwareName>
@@ -29,7 +29,7 @@
     <LayoutTag ID="lt_heading" TYPE="structure" LABEL="heading" DESCRIPTION="PAGE TextRegion/@type=heading"/>
     <OtherTag ID="prod_printed" TYPE="production" LABEL="printed" DESCRIPTION="PAGE @production=printed"/>
     <OtherTag ID="geom_est" TYPE="geometry" LABEL="estimated word boxes" DESCRIPTION="PAGE source is line-level; String HPOS/VPOS/WIDTH/HEIGHT were estimated by splitting the line box along the baseline in proportion to code-point counts. Do not use for word-level highlighting precision."/>
-    <OtherTag ID="p020_r05_l001_t01" TYPE="unclear" LABEL="unclear (low)" DESCRIPTION="unclear on code points 0-7 (end-exclusive) of TextLine p020_r05_l001; cert=low; note: No line in Gpura's text matches this printed line; the reading is raw Tesseract output."/>
+    <OtherTag ID="p020_r05_l001_t01" TYPE="unclear" LABEL="unclear (medium)" DESCRIPTION="unclear on code points 0-4 (end-exclusive) of TextLine p020_r05_l001; cert=medium; note: No line in Gpura's text matches this printed line; the reading was made by an AI model (Claude Sonnet 5.5) from the line image. Not reviewed."/>
   </Tags>
   <Layout>
     <Page ID="p020" PAGECLASS="content" PHYSICAL_IMG_NR="20" PRINTED_IMG_NR="6" WIDTH="1954" HEIGHT="3241" PROCESSINGREFS="proc_ocr proc_conv">
@@ -538,7 +538,9 @@
             <Shape>
               <Polygon POINTS="146,3012 307,3012 307,3065 146,3065"/>
             </Shape>
-            <String ID="p020_r05_l001_w001" CONTENT="ച്ചെടും" HPOS="146" VPOS="3012" WIDTH="161" HEIGHT="53" TAGREFS="p020_r05_l001_t01"/>
+            <String ID="p020_r05_l001_w001" CONTENT="ഒഇഉ്" HPOS="146" VPOS="3012" WIDTH="161" HEIGHT="53" TAGREFS="p020_r05_l001_t01">
+              <ALTERNATIVE PURPOSE="Tesseract reading used for alignment">ച്ചെടും</ALTERNATIVE>
+            </String>
           </TextLine>
         </TextBlock>
       </PrintSpace>

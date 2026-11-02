@@ -2,8 +2,8 @@
 <PcGts xmlns="http://schema.primaresearch.org/PAGE/gts/pagecontent/2019-07-15" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schema.primaresearch.org/PAGE/gts/pagecontent/2019-07-15 http://schema.primaresearch.org/PAGE/gts/pagecontent/2019-07-15/pagecontent.xsd" pcGtsId="p020_pcgts">
   <Metadata>
     <Creator>Gpura digitisation pipeline demo - layout-encoding stage (page/json2page.py, lxml)</Creator>
-    <Created>2026-11-02T17:31:41+00:00</Created>
-    <LastChange>2026-11-02T17:31:41+00:00</LastChange>
+    <Created>2026-11-02T18:37:35+00:00</Created>
+    <LastChange>2026-11-02T18:37:35+00:00</LastChange>
     <Comments>Source: 'Narayan Vaman Tilak' (Malayalam, 1950), Gpura archive, IIIF canvas 20, printed page 6. Layout and readings come from ocr/p020.lines.json: line boxes detected automatically (projection profiles); TextEquiv index=1 is Gpura's existing OCR text for the line, aligned automatically and NOT reviewed; index=2 is the Tesseract reading used for the alignment (mal+eng) with its mean word confidence; index=3 (where present) is Gpura's string before the corpus encoding rules were applied. Coordinates are pixels of the full-resolution scan (1954 x 3241) assumed identical to the IIIF full/max image. Line-level flags (underlined/unclear/damage/inkOver/hyphenEnd) are in TextLine/@custom (Transkribus-style 'tag {offset:N; length:M; ...}' code-point offsets) with notes in @comments.</Comments>
     <MetadataItem type="other" name="iiif-canvas" value="https://artifacts.gpura.org/public/1950-narayana-vamana-thilak/canvas/20"/>
     <MetadataItem type="other" name="printed-page-number" value="6"/>
@@ -35,7 +35,8 @@
         <Unicode>6</Unicode>
       </TextEquiv>
     </TextRegion>
-    <TextRegion id="p020_r02" custom="readingOrder {index:1;}" type="paragraph" readingDirection="left-to-right" textLineOrder="top-to-bottom" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" production="printed">
+    <TextRegion id="p020_r02" custom="readingOrder {index:1;}" continuation="true" type="paragraph" readingDirection="left-to-right" textLineOrder="top-to-bottom" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" production="printed">
+      <!-- continues paragraph p019_r04 (p019.page.xml) -->
       <Coords points="125,383 1792,383 1792,541 125,541"/>
       <TextLine id="p020_r02_l001" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:0;}" index="0">
         <Coords points="131,383 1792,383 1792,442 131,442"/>
@@ -355,18 +356,18 @@
     </TextRegion>
     <TextRegion id="p020_r05" custom="readingOrder {index:4;}" type="heading" readingDirection="left-to-right" textLineOrder="top-to-bottom" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" production="printed">
       <Coords points="146,3012 307,3012 307,3065 146,3065"/>
-      <TextLine id="p020_r05_l001" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:0;} unclear {offset:0; length:7; cert:low;}" comments="[unclear 0-7] No line in Gpura's text matches this printed line; the reading is raw Tesseract output." index="0">
+      <TextLine id="p020_r05_l001" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:0;} unclear {offset:0; length:4; cert:medium;}" comments="[unclear 0-4] No line in Gpura's text matches this printed line; the reading was made by an AI model (Claude Sonnet 5.5) from the line image. Not reviewed." index="0">
         <Coords points="146,3012 307,3012 307,3065 146,3065"/>
         <Baseline points="146,3057 307,3057"/>
-        <TextEquiv index="1" comments="Gpura's existing OCR text, aligned automatically (not reviewed)">
-          <Unicode>ച്ചെടും</Unicode>
+        <TextEquiv index="1" comments="AI reading of the line image; Gpura has no matching text for this line (not reviewed) (Claude Sonnet 5.5)">
+          <Unicode>ഒഇഉ്</Unicode>
         </TextEquiv>
         <TextEquiv index="2" conf="0.709" comments="Tesseract reading used for alignment (own encoding)">
           <Unicode>ച്ചെടും</Unicode>
         </TextEquiv>
       </TextLine>
       <TextEquiv index="1" comments="lines joined with newline">
-        <Unicode>ച്ചെടും</Unicode>
+        <Unicode>ഒഇഉ്</Unicode>
       </TextEquiv>
     </TextRegion>
   </Page>

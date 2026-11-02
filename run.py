@@ -172,6 +172,7 @@ def main():
             sh([py, PIPE / "fetch/gpura.py", meta.get("gpura_item", item.name), "--items-dir", item.parent]
                + (["--pages", pages] if pages else []), item)
         elif s == "align": sh([py, PIPE / "align/auto_lines.py"], item)
+        elif s == "ai-export": sh([py, PIPE / "ai/export_strips.py"], item)
         elif s == "ocr": sh([py, PIPE / "ocr/run_ocr.py"], item)
         elif s == "compare": sh([py, PIPE / "ocr/compare.py"], item)
         elif s == "page": sh([py, PIPE / "page/json2page.py"], item)

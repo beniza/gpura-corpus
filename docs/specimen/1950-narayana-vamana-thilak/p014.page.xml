@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<PcGts xmlns="http://schema.primaresearch.org/PAGE/gts/pagecontent/2019-07-15" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schema.primaresearch.org/PAGE/gts/pagecontent/2019-07-15 http://schema.primaresearch.org/PAGE/gts/pagecontent/2019-07-15/pagecontent.xsd" pcGtsId="p014_pcgts">
+  <Metadata>
+    <Creator>Gpura digitisation pipeline demo - layout-encoding stage (page/json2page.py, lxml)</Creator>
+    <Created>2026-11-02T18:37:35+00:00</Created>
+    <LastChange>2026-11-02T18:37:35+00:00</LastChange>
+    <Comments>Source: 'Narayan Vaman Tilak' (Malayalam, 1950), Gpura archive, IIIF canvas 14, printed page None. Layout and readings come from ocr/p014.lines.json: line boxes detected automatically (projection profiles); TextEquiv index=1 is Gpura's existing OCR text for the line, aligned automatically and NOT reviewed; index=2 is the Tesseract reading used for the alignment (mal+eng) with its mean word confidence; index=3 (where present) is Gpura's string before the corpus encoding rules were applied. Coordinates are pixels of the full-resolution scan (1954 x 3241) assumed identical to the IIIF full/max image. Line-level flags (underlined/unclear/damage/inkOver/hyphenEnd) are in TextLine/@custom (Transkribus-style 'tag {offset:N; length:M; ...}' code-point offsets) with notes in @comments.</Comments>
+    <MetadataItem type="other" name="iiif-canvas" value="https://artifacts.gpura.org/public/1950-narayana-vamana-thilak/canvas/14"/>
+  </Metadata>
+  <Page imageFilename="https://iiif.gpura.org/iiif/3/1950-narayana-vamana-thilak__0014.jpg/full/max/0/default.jpg" imageWidth="1954" imageHeight="3241" type="content" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" textLineOrder="top-to-bottom">
+    <!-- IIIF canvas: https://artifacts.gpura.org/public/1950-narayana-vamana-thilak/canvas/14 -->
+    <ReadingOrder>
+      <OrderedGroup id="p014_ro" caption="printed text flow (lines.json reading_order)">
+        <RegionRefIndexed index="0" regionRef="p014_r01"/>
+        <RegionRefIndexed index="1" regionRef="p014_r02"/>
+      </OrderedGroup>
+    </ReadingOrder>
+    <TextRegion id="p014_r01" custom="readingOrder {index:0;}" continuation="true" type="paragraph" readingDirection="left-to-right" textLineOrder="top-to-bottom" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" production="printed">
+      <!-- continues paragraph p013_r01 (p013.page.xml) -->
+      <Coords points="1723,1603 1796,1603 1796,1656 1723,1656"/>
+      <TextLine id="p014_r01_l001" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:0;} unclear {offset:0; length:2; cert:medium;}" comments="[unclear 0-2] No line in Gpura's text matches this printed line; the reading was made by an AI model (Claude Sonnet 5.5) from the line image. Not reviewed." index="0">
+        <Coords points="1723,1603 1796,1603 1796,1656 1723,1656"/>
+        <Baseline points="1723,1653 1796,1653"/>
+        <TextEquiv index="1" comments="AI reading of the line image; Gpura has no matching text for this line (not reviewed) (Claude Sonnet 5.5)">
+          <Unicode>46</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.962" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>46</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextEquiv index="1" comments="lines joined with newline">
+        <Unicode>46</Unicode>
+      </TextEquiv>
+    </TextRegion>
+    <TextRegion id="p014_r02" custom="readingOrder {index:1;}" type="paragraph" readingDirection="left-to-right" textLineOrder="top-to-bottom" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" production="printed">
+      <Coords points="1734,1919 1803,1919 1803,1973 1734,1973"/>
+      <TextLine id="p014_r02_l001" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:0;} unclear {offset:0; length:13; cert:medium;}" comments="[unclear 0-13] Weak match between Gpura's line and the Tesseract reading of this line (similarity 36.4)." index="0">
+        <Coords points="1734,1919 1803,1919 1803,1973 1734,1973"/>
+        <Baseline points="1734,1970 1803,1970"/>
+        <TextEquiv index="1" comments="Gpura's existing OCR text, aligned automatically (not reviewed)">
+          <Unicode>9. കവിതകൾ. 92</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.703" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>929</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextEquiv index="1" comments="lines joined with newline">
+        <Unicode>9. കവിതകൾ. 92</Unicode>
+      </TextEquiv>
+    </TextRegion>
+  </Page>
+</PcGts>

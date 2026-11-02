@@ -35,6 +35,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from common import ITEM, REPO, canvas_no, item_dir, page_id, page_image  # noqa: E402
 
 ROOT = item_dir()
+_ai = ROOT / "ocr" / "ai_readings.json"          # AI readings for lines Gpura has no text for (pipeline/ai/)
+AI_READINGS = json.loads(_ai.read_text(encoding="utf-8")) if _ai.exists() else {}
 TESSDATA = os.environ.get("GPURA_TESSDATA") or str(REPO / ".cache" / "tessdata")
 MIN_SIM = 35          # below this a detected line and an archive line are never paired
 END_PUNCT = tuple(".?!:;”’\"')]")
@@ -365,8 +367,17 @@ def build_page(pid, prev_tail):
                            [bbox[0], bbox[1] + bbox[3]]], "reading_order": ri, "lines": []}
         for li, l in enumerate(ls, 1):
             x, y, w, h = l["bbox"]
-            flags = []
-            if l["raw"] is None:
+            lid = f"{rid}_l{li:03d}"
+            flags, ai = [], AI_READINGS.get(lid)
+            if l["raw"] is None and ai and list(ai["bbox"]) == [int(x), int(y), int(w), int(h)]:
+                if not ai["text"].strip():
+                    continue                      # the model saw no text: a rule, border or speck, not a line
+                l["text"] = encode(ai["text"])        # the box is unchanged, so the reading belongs to this line
+                flags.append({"type": "unclear", "start": 0, "end": len(l["text"]), "cert": "medium",
+                              "source": "ai", "note": ("Gpura has no text for this page; " if not arch else
+                                                       "No line in Gpura's text matches this printed line; ") +
+                              f"the reading was made by an AI model ({ai['model']}) from the line image. Not reviewed."})
+            elif l["raw"] is None:
                 flags.append({"type": "unclear", "start": 0, "end": len(l["text"]), "cert": "low",
                               "note": ("Gpura has no text for this page; " if not arch else
                                        "No line in Gpura's text matches this printed line; ") +
@@ -374,15 +385,18 @@ def build_page(pid, prev_tail):
             elif l["score"] < 60:
                 flags.append({"type": "unclear", "start": 0, "end": len(l["text"]), "cert": "medium",
                               "note": f"Weak match between Gpura's line and the Tesseract reading of this line (similarity {l['score']})."})
-            line = {"id": f"{rid}_l{li:03d}", "bbox": [x, y, w, h], "baseline": [[x, l["baseline_y"]], [x + w, l["baseline_y"]]],
+            line = {"id": lid, "bbox": [x, y, w, h], "baseline": [[x, l["baseline_y"]], [x + w, l["baseline_y"]]],
                     "text_tesseract": l["text_tesseract"], "conf": l["conf"], "text": l["text"], "hyphen_end": False,
                     "flags": flags}
             if l["raw"] and l["raw"] != l["text"]:
                 line["text_archive"] = l["raw"]
             if l["score"] is not None:
                 line["match"] = l["score"]
+            if flags and flags[0].get("source") == "ai":
+                line["source"], line["ai_model"] = "ai", ai["model"]
             rec["lines"].append(line)
-        out_regions.append(rec)
+        if rec["lines"]:
+            out_regions.append(rec)
 
     # hyphenation: within the running text flow (paragraph lines, in order)
     flow = [l for r in out_regions if r["type"] in ("paragraph", "heading") for l in r["lines"]]
@@ -427,8 +441,9 @@ def main():
         out.write_text(json.dumps(data, ensure_ascii=False, indent=1, default=int) + "\n", encoding="utf-8", newline="\n")
         pid = data["page"]
         nl = sum(len(r["lines"]) for r in data["regions"])
-        nt = sum(1 for r in data["regions"] for l in r["lines"] if "match" not in l)
-        print(f"  {pid}: {len(data['regions'])} regions, {nl} lines ({nt} Tesseract-only), "
+        na = sum(1 for r in data["regions"] for l in r["lines"] if l.get("source") == "ai")
+        nt = sum(1 for r in data["regions"] for l in r["lines"] if "match" not in l) - na
+        print(f"  {pid}: {len(data['regions'])} regions, {nl} lines ({nt} Tesseract-only, {na} AI), "
               f"{len(data['unplaced'])} archive lines unplaced")
 
 

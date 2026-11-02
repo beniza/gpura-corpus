@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<alto xmlns="http://www.loc.gov/standards/alto/ns-v4#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.loc.gov/standards/alto/ns-v4# http://www.loc.gov/standards/alto/v4/alto-4-4.xsd" SCHEMAVERSION="4.4">
+  <Description>
+    <MeasurementUnit>pixel</MeasurementUnit>
+    <sourceImageInformation>
+      <fileName>https://iiif.gpura.org/iiif/3/1950-narayana-vamana-thilak__0006.jpg/full/max/0/default.jpg</fileName>
+      <fileIdentifier fileIdentifierLocation="IIIF Presentation canvas">https://artifacts.gpura.org/public/1950-narayana-vamana-thilak/canvas/6</fileIdentifier>
+    </sourceImageInformation>
+    <Processing ID="proc_ocr">
+      <processingCategory>contentGeneration</processingCategory>
+      <processingStepDescription>Line boxes detected automatically; line text is Gpura's existing OCR aligned to them (ocr/*.lines.json), not reviewed; ALTERNATIVE = Tesseract reading used for the alignment.</processingStepDescription>
+      <processingSoftware>
+        <softwareName>Gpura corpus pipeline (auto_lines.py) + Tesseract</softwareName>
+      </processingSoftware>
+    </Processing>
+    <Processing ID="proc_conv">
+      <processingCategory>other</processingCategory>
+      <processingDateTime>2026-11-02T18:37:35+00:00</processingDateTime>
+      <processingStepDescription>PAGE 2019-07-15 -&gt; ALTO 4.4 from page/p006.page.xml; word boxes estimated (tag geom_est).</processingStepDescription>
+      <processingSoftware>
+        <softwareName>page/page2alto.py (Gpura pipeline demo)</softwareName>
+      </processingSoftware>
+    </Processing>
+  </Description>
+  <Styles/>
+  <Tags/>
+  <Layout>
+    <Page ID="p006" PAGECLASS="content" PHYSICAL_IMG_NR="6" WIDTH="1954" HEIGHT="3241" PROCESSINGREFS="proc_ocr proc_conv">
+      <PrintSpace ID="p006_ps" HPOS="0" VPOS="0" WIDTH="1954" HEIGHT="3241"/>
+    </Page>
+  </Layout>
+</alto>
