@@ -235,7 +235,10 @@ body{margin:0}
   function draw(p){
     const {doc}=cache[p];
     const regs=[...doc.getElementsByTagNameNS(NS,'Page')[0].children].filter(e=>/Region$/.test(e.localName));
-    let h=`<image href="${p}.jpg" x="0" y="0" width="2374" height="3495" preserveAspectRatio="none"/>`;
+    const pg=doc.getElementsByTagNameNS(NS,'Page')[0];
+    const W=+pg.getAttribute('imageWidth')||2374, H=+pg.getAttribute('imageHeight')||3495;   // each scan has its own size
+    svg.setAttribute('viewBox',`0 0 ${W} ${H}`);
+    let h=`<image href="${p}.jpg" x="0" y="0" width="${W}" height="${H}" preserveAspectRatio="none"/>`;
     let nLines=0;
     regs.forEach(r=>{
       const c=clsFor(r);
