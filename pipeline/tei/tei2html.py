@@ -28,7 +28,9 @@ from pathlib import Path
 from lxml import etree
 
 HERE = (Path(os.environ["GPURA_ITEM_DIR"]) / "tei") if os.environ.get("GPURA_ITEM_DIR") else Path(__file__).resolve().parent
-SRC = Path(sys.argv[1]) if len(sys.argv) > 1 else HERE / "american-aikyanadu-p017-019.tei.xml"
+SRC = Path(sys.argv[1]) if len(sys.argv) > 1 else next(HERE.glob("*.tei.xml"))
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from common import ITEM  # noqa: E402
 DST = Path(sys.argv[2]) if len(sys.argv) > 2 else HERE / "reading.html"
 
 T = "{http://www.tei-c.org/ns/1.0}"
@@ -294,16 +296,26 @@ def render_map(fig):
     return f
 
 
+def default_citation():
+    who = ITEM.get("author", "")
+    if ITEM.get("translator"):
+        who += f", translated by {ITEM['translator']}"
+    pages = ITEM.get("canvases_encoded", [])
+    span = f" Gpura viewer pages {min(pages)}–{max(pages)}." if pages else ""
+    return f"{who}. {ITEM.get('publisher', '')}, {ITEM.get('date', 'n.d.')}.{span}".strip(" .,") + ("" if span else ".")
+
+
 def meta():
     hd = doc.find("t:teiHeader", NS)
     m = H("header", "tei-meta", lang="en")
     t = H("div", "title")
     t.append(H("span", None, hd.findtext(".//t:titleStmt/t:title[@type='main']", namespaces=NS), lang="ml"))
     m.append(t)
-    m.append(H("div", None, "C.P. Hill, translated by Kuttanad K. Ramakrishna Pillai. Trivandrum: State Institute of Languages, 1971. "
-                            "Printed pages 1–3 (Gpura viewer pages 17–19)."))
-    m.append(H("div", "caveat", "Demonstration encoding, not a Gpura publication. The readings are model-made (OCR plus Claude review) and have not been verified by a person. "
-                                "Underlining and notes in blue or brown are a later reader's marks, not part of the printed book."))
+    m.append(H("div", None, ITEM.get("reading_citation") or default_citation()))
+    m.append(H("div", "caveat", ITEM.get("reading_caveat") or
+               "Automatic encoding, not a Gpura publication. Line boxes were found by the pipeline and each line's text is "
+               "Gpura's existing OCR aligned to it; nothing has been checked by a person. Dotted lines are readings "
+               "the pipeline is unsure of."))
     return m
 
 

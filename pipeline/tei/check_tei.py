@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Checks for tei/american-aikyanadu-p017-019.tei.xml.
+"""Checks for an item's tei/*.tei.xml against its ocr/*.lines.json.
 
 1. well-formedness (lxml parse)
 2. RELAX NG validation against tei/schema/tei_all.rng (lxml)
@@ -23,7 +23,7 @@ from pathlib import Path
 from lxml import etree
 
 ROOT = Path(os.environ["GPURA_ITEM_DIR"]) if os.environ.get("GPURA_ITEM_DIR") else Path(__file__).resolve().parent.parent
-TEIF = Path(sys.argv[1]) if len(sys.argv) > 1 else ROOT / "tei" / "american-aikyanadu-p017-019.tei.xml"
+TEIF = Path(sys.argv[1]) if len(sys.argv) > 1 else next((ROOT / "tei").glob("*.tei.xml"))
 RNG = Path(os.environ["GPURA_TEI_RNG"]) if os.environ.get("GPURA_TEI_RNG") else Path(__file__).resolve().parents[2] / "schemas" / "tei" / "tei_all.rng"
 NS = {"t": "http://www.tei-c.org/ns/1.0"}
 T = "{http://www.tei-c.org/ns/1.0}"
@@ -67,7 +67,9 @@ for el in doc.iter(tag=etree.Element):
 print(f"3 pointers: {n_ptr} '#' references checked; external URIs: {sorted(external)}")
 
 # 4 ---------------------------------------------------------------------------
-data = {p: json.loads((ROOT / "ocr" / f"{p}.lines.json").read_text(encoding="utf-8")) for p in ("p017", "p018", "p019")}
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from common import page_ids  # noqa: E402
+data = {p: json.loads((ROOT / "ocr" / f"{p}.lines.json").read_text(encoding="utf-8")) for p in page_ids()}
 def pts(poly):
     return " ".join(f"{x},{y}" for x, y in poly)
 def rect(b):

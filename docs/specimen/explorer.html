@@ -125,7 +125,7 @@ body{margin:0}
 <div class="wrap">
   <header style="display:flex;flex-direction:column;gap:12px">
     <span class="eyebrow"><a href="../../" style="color:inherit">Gpura corpus</a> · working specimen · <span id="itemTitle" class="ml"></span></span>
-    <h1>Three pages, encoded end to end</h1>
+    <h1 id="pagesHead">Three pages, encoded end to end</h1>
     <p class="lede">The scans were run through fresh OCR, reviewed line by line, then encoded as PAGE-XML (layout), exported to ALTO, and edited as TEI (text and structure). Every line in each format carries the same ID, so the image, the layout and the edition point at each other. Select any line on the scan to follow it through all three.</p>
     <div class="pills">
       <span class="pill"><span class="dot"></span><b>PAGE 2019</b> valid against official XSD</span>
@@ -181,7 +181,7 @@ body{margin:0}
         <div class="bd"><pre class="raw" id="rawAlto"></pre></div>
       </section>
       <section class="card" data-view="tei" hidden>
-        <div class="hd"><h3>TEI P5 <span class="mono" style="color:var(--muted)">american-aikyanadu-p017-019.tei.xml</span></h3></div>
+        <div class="hd"><h3>TEI P5 <span class="mono" style="color:var(--muted)" id="teiName">tei-source.txt</span></h3></div>
         <div class="bd"><pre class="raw" id="rawTei"></pre></div>
       </section>
       <section class="card" data-view="cur" hidden>
@@ -356,6 +356,9 @@ body{margin:0}
   getText('pages.json').then(t=>{
     const meta=JSON.parse(t); PAGES=meta.pages.map(p=>p.id);
     document.getElementById('itemTitle').textContent=meta.title||meta.item;
+    if(meta.tei) document.getElementById('teiName').textContent=meta.tei;
+    const NUM=['','One page','Two pages','Three pages','Four pages','Five pages','Six pages'];
+    document.getElementById('pagesHead').textContent=(NUM[meta.pages.length]||meta.pages.length+' pages')+', encoded end to end';
     const tabs=document.getElementById('pageTabs');
     meta.pages.forEach((p,i)=>{const b=document.createElement('button'); b.setAttribute('role','tab'); b.dataset.pg=p.id; b.setAttribute('aria-selected',String(i===0));
       b.innerHTML=(p.printed?('Printed p. '+p.printed):p.id)+' <span class="mono">· '+(p.canvas||'')+'</span>'; b.addEventListener('click',()=>showPage(p.id)); tabs.append(b);});

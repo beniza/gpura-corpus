@@ -23,12 +23,14 @@ Usage: python3 page/page2alto.py [p017 p018 p019]   (set GPURA_ITEM_DIR to the i
 import os
 import re
 import sys
-from datetime import datetime, timezone
 from pathlib import Path
 
 from lxml import etree
 
-ROOT = Path(os.environ["GPURA_ITEM_DIR"]) if os.environ.get("GPURA_ITEM_DIR") else Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from common import PROV, item_dir, page_ids, stamp  # noqa: E402
+
+ROOT = item_dir()
 PC = "http://schema.primaresearch.org/PAGE/gts/pagecontent/2019-07-15"
 ALTO = "http://www.loc.gov/standards/alto/ns-v4#"
 XSI = "http://www.w3.org/2001/XMLSchema-instance"
@@ -228,7 +230,7 @@ class Converter:
                     s.set("SUBS_TYPE", "HypPart2")
                     s.set("SUBS_CONTENT", prv + tok.rstrip(STRIP_PUNCT))
             if use_alt and ttoks[i] != tok:
-                A(s, "ALTERNATIVE", PURPOSE="Tesseract 5.3.4 tessdata_best raw reading").text = ttoks[i]
+                A(s, "ALTERNATIVE", PURPOSE=PROV["alto_alternative"]).text = ttoks[i]
             self.stats["strings"] += 1
             if i < len(toks) - 1:
                 sp = A(tl, "SP")
@@ -286,7 +288,7 @@ class Converter:
         if local == "TextRegion":
             el = A(parent, "TextBlock", ID=rid)
         else:
-            itype = {"ImageRegion": "map" if rid.startswith("p019") else "image",
+            itype = {"ImageRegion": "map" if "map" in (r.get("comments") or "").lower() else "image",
                      "GraphicRegion": r.get("type") or "graphic",
                      "NoiseRegion": "damage"}[local]
             el = A(parent, "Illustration", ID=rid, TYPE=itype)
@@ -314,7 +316,8 @@ class Converter:
         pg = self.page
         md = self.tree.find("pc:Metadata", N)
         canvas = md.find("pc:MetadataItem[@name='iiif-canvas']", N).get("value")
-        printed = md.find("pc:MetadataItem[@name='printed-page-number']", N).get("value")
+        pn = md.find("pc:MetadataItem[@name='printed-page-number']", N)
+        printed = pn.get("value") if pn is not None else None
         root = etree.Element(f"{{{ALTO}}}alto", nsmap={None: ALTO, "xsi": XSI})
         root.set(f"{{{XSI}}}schemaLocation", ALTO + " http://www.loc.gov/standards/alto/v4/alto-4-4.xsd")
         root.set("SCHEMAVERSION", "4.4")
@@ -325,11 +328,9 @@ class Converter:
         A(sii, "fileIdentifier", fileIdentifierLocation="IIIF Presentation canvas").text = canvas
         p1 = A(desc, "Processing", ID="proc_ocr")
         A(p1, "processingCategory").text = "contentGeneration"
-        A(p1, "processingStepDescription").text = (
-            "Layout and line readings from the OCR stage (ocr/*.lines.json): model-made reading from zoomed line "
-            "images, NOT human-verified; ALTERNATIVE = raw Tesseract 5.3.4 tessdata_best.")
+        A(p1, "processingStepDescription").text = PROV["alto_step"]
         sw = A(A(p1, "processingSoftware"), "softwareName")
-        sw.text = "Tesseract 5.3.4 + model review"
+        sw.text = PROV["alto_software"]
         p2 = A(desc, "Processing", ID="proc_conv")
         A(p2, "processingCategory").text = "other"
         A(p2, "processingDateTime").text = now
@@ -391,9 +392,9 @@ class Converter:
 
 
 def main():
-    pids = sys.argv[1:] or ["p017", "p018", "p019"]
-    all_pages = {p.name[:4]: etree.parse(str(p)) for p in sorted((ROOT / "page").glob("p0*.page.xml"))}
-    now = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
+    pids = sys.argv[1:] or page_ids()
+    all_pages = {p.name.split(".")[0]: etree.parse(str(p)) for p in sorted((ROOT / "page").glob("p*.page.xml"))}
+    now = stamp()
     for pid in pids:
         c = Converter(pid, all_pages)
         tree = c.convert(now)

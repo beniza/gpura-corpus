@@ -3,12 +3,11 @@
 set -euo pipefail
 cd "$(dirname "$0")/../.."
 DEST=.cache/tessdata
+BASE=https://github.com/tesseract-ocr/tessdata_best/raw/main
 mkdir -p "$DEST/script"
-TMP=$(mktemp -d)
-git clone -q --depth 1 --filter=blob:none --sparse https://github.com/tesseract-ocr/tessdata_best "$TMP/tdb"
-git -C "$TMP/tdb" sparse-checkout set --no-cone /mal.traineddata /eng.traineddata /osd.traineddata /script/Malayalam.traineddata
-cp "$TMP/tdb/mal.traineddata" "$TMP/tdb/eng.traineddata" "$TMP/tdb/osd.traineddata" "$DEST/"
-cp "$TMP/tdb/script/Malayalam.traineddata" "$DEST/script/"
-cp "$TMP/tdb/script/Malayalam.traineddata" "$DEST/"
-rm -rf "$TMP"
+for f in mal eng osd; do
+  [ -s "$DEST/$f.traineddata" ] || curl -fsSL -o "$DEST/$f.traineddata" "$BASE/$f.traineddata"
+done
+[ -s "$DEST/script/Malayalam.traineddata" ] || curl -fsSL -o "$DEST/script/Malayalam.traineddata" "$BASE/script/Malayalam.traineddata"
+cp "$DEST/script/Malayalam.traineddata" "$DEST/Malayalam.traineddata"
 ls -l "$DEST" "$DEST/script"

@@ -8,17 +8,17 @@ import os
 import json
 import re
 import sys
-from datetime import datetime, timezone
 from pathlib import Path
 
 from lxml import etree
 
-ROOT = Path(os.environ["GPURA_ITEM_DIR"]) if os.environ.get("GPURA_ITEM_DIR") else Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from common import ITEM, PROV, canvas_url, image_url, item_dir, page_ids, stamp  # noqa: E402
+
+ROOT = item_dir()
 NS = "http://schema.primaresearch.org/PAGE/gts/pagecontent/2019-07-15"
 XSI = "http://www.w3.org/2001/XMLSchema-instance"
 SCHEMA_LOC = NS + " " + NS + "/pagecontent.xsd"
-IIIF_IMG = "https://iiif.gpura.org/iiif/3/1971-american-aikyanadinte-charithram__{n:04d}.jpg/full/max/0/default.jpg"
-IIIF_CANVAS = "https://artifacts.gpura.org/public/1971-american-aikyanadinte-charithram/canvas/{n}"
 
 TEXT_TYPE = {  # lines.json type -> (PAGE TextRegion @type, structure tag or None)
     "paragraph": ("paragraph", None),
@@ -30,18 +30,13 @@ TEXT_TYPE = {  # lines.json type -> (PAGE TextRegion @type, structure tag or Non
     "legend": ("other", "legend"),
     "map-label": ("other", "map-label"),
 }
-# handwritten production per region (decided from the image: connected script vs separate letters)
-HAND_PRODUCTION = {
-    "p017_r05": "handwritten-printscript",  # CMS, separate capitals
-    "p017_r06": "handwritten-printscript",  # circled numeral 1
-    "p019_r14": "handwritten-cursive",      # Trueman Doctrine
-    "p019_r15": "handwritten-cursive",      # Kennedy.
-}
-LATIN_REGIONS = {"p017_r05", "p019_r14", "p019_r15"}
-COMMON_REGIONS = {"p017_r06"}  # a digit only
+# Per-region facts that used to be hard-coded here now live in lines.json:
+#   production_detail  PAGE @production for handwriting (handwritten-printscript | handwritten-cursive)
+#   script             "Latn" (English) or "Zyyy" (undetermined, e.g. a lone digit); default Malayalam
+#   continues          id of the region on the previous page that this paragraph continues
 FLAG_TAG = {"underline": "underlined", "unclear": "unclear", "damage": "damage", "ink-over": "inkOver"}
-LINE_ID_RE = re.compile(r"p\d{3}_r\d{2}_l\d{3}")
-REGION_ID_RE = re.compile(r"p\d{3}_r\d{2}(?!_l)")
+LINE_ID_RE = re.compile(r"p\d{3,}_r\d{2,}_l\d{3,}")
+REGION_ID_RE = re.compile(r"p\d{3,}_r\d{2,}(?!\d|_l)")
 
 
 def E(parent, tag, **attrs):
@@ -96,6 +91,17 @@ def line_comments(line):
     return " | ".join(out) or None
 
 
+def continuation_note(prev_rid):
+    """Comment for a region that continues a paragraph from the previous page."""
+    prev_page = prev_rid.split("_")[0]
+    prev = json.loads((ROOT / "ocr" / f"{prev_page}.lines.json").read_text(encoding="utf-8"))
+    last = next(r for r in prev["regions"] if r["id"] == prev_rid)["lines"][-1]
+    s = f" continues paragraph {prev_rid} ({prev_page}.page.xml)"
+    if last.get("hyphen_end"):
+        s += f"; first word completes {last['id']} '{last['text'].split()[-1]}-'"
+    return s + " "
+
+
 def build(page_id, now):
     data = json.loads((ROOT / "ocr" / f"{page_id}.lines.json").read_text(encoding="utf-8"))
     n = int(data["canvas"])
@@ -112,27 +118,27 @@ def build(page_id, now):
     E(md, "Created").text = now
     E(md, "LastChange").text = now
     E(md, "Comments").text = (
-        f"Source: 'American Aikyanadinte Charithram' (Malayalam, 1971), Gpura archive, IIIF canvas {n}, "
+        f"Source: {ITEM['source_label']}, Gpura archive, IIIF canvas {n}, "
         f"printed page {data['printed_page']}. Layout and readings come from ocr/{page_id}.lines.json: "
-        "regions/lines drawn by the OCR stage; TextEquiv index=1 is a careful MODEL-MADE reading from zoomed "
-        "line images, NOT human-verified ground truth; TextEquiv index=2 (where present) is raw Tesseract 5.3.4 "
-        "(tessdata_best) output with its mean word confidence. Coordinates are pixels of the full-resolution "
+        f"{PROV['page_comment']} Coordinates are pixels of the full-resolution "
         f"scan ({data['width']} x {data['height']}) assumed identical to the IIIF full/max image. "
         "Line-level flags (underlined/unclear/damage/inkOver/hyphenEnd) are in TextLine/@custom "
         "(Transkribus-style 'tag {offset:N; length:M; ...}' code-point offsets) with notes in @comments."
     )
-    E(md, "MetadataItem", type="other", name="iiif-canvas", value=IIIF_CANVAS.format(n=n))
-    E(md, "MetadataItem", type="other", name="printed-page-number", value=data["printed_page"])
+    E(md, "MetadataItem", type="other", name="iiif-canvas", value=canvas_url(n))
+    if data.get("printed_page"):
+        E(md, "MetadataItem", type="other", name="printed-page-number", value=data["printed_page"])
 
-    page = E(root, "Page", imageFilename=IIIF_IMG.format(n=n), imageWidth=data["width"],
+    page = E(root, "Page", imageFilename=image_url(n), imageWidth=data["width"],
              imageHeight=data["height"], type="content", primaryLanguage="Malayalam",
              primaryScript="Mlym - Malayalam", readingDirection="left-to-right", textLineOrder="top-to-bottom")
-    page.append(etree.Comment(f" IIIF canvas: {IIIF_CANVAS.format(n=n)} "))
+    page.append(etree.Comment(f" IIIF canvas: {canvas_url(n)} "))
 
     # ---- ReadingOrder
-    ro = E(page, "ReadingOrder")
-    og = E(ro, "OrderedGroup", id=f"{page_id}_ro", caption="printed text flow (lines.json reading_order)")
     ordered = sorted((r for r in regions if r.get("reading_order") is not None), key=lambda r: r["reading_order"])
+    if ordered:
+        ro = E(page, "ReadingOrder")
+        og = E(ro, "OrderedGroup", id=f"{page_id}_ro", caption="printed text flow (lines.json reading_order)")
     i = 0
     for r in ordered:
         E(og, "RegionRefIndexed", index=i, regionRef=r["id"])
@@ -183,11 +189,11 @@ def build(page_id, now):
         if t in TEXT_TYPE:
             ptype, struct = TEXT_TYPE[t]
             hand = r.get("production") == "handwritten"
-            prod = HAND_PRODUCTION.get(rid, "handwritten-cursive") if hand else "printed"
+            prod = r.get("production_detail", "handwritten-cursive") if hand else "printed"
             lang, script = ("Malayalam", "Mlym - Malayalam")
-            if rid in LATIN_REGIONS:
+            if r.get("script") == "Latn":
                 lang, script = "English", "Latn - Latin"
-            elif rid in COMMON_REGIONS:
+            elif r.get("script") == "Zyyy":
                 lang, script = None, "Zyyy - Code for undetermined script"
             custom = []
             if r.get("reading_order") is not None:
@@ -197,12 +203,11 @@ def build(page_id, now):
             if r.get("hand"):
                 custom.append(f"hand {{ink:{r['hand']};}}")
             reg = E(page, "TextRegion", id=rid, custom=" ".join(custom) or None, comments=r.get("note"),
-                    continuation="true" if rid == "p018_r03" else None,
+                    continuation="true" if r.get("continues") else None,
                     orientation=orient, type=ptype, readingDirection="left-to-right",
                     textLineOrder="top-to-bottom", primaryLanguage=lang, primaryScript=script, production=prod)
-            if rid == "p018_r03":
-                reg.append(etree.Comment(" continues paragraph p017_r04 (p017.page.xml); first word completes "
-                                         "p017_r04_l012 'പതി-' "))
+            if r.get("continues"):
+                reg.append(etree.Comment(continuation_note(r["continues"])))
             E(reg, "Coords", points=pts(poly))
             for li, l in enumerate(r.get("lines", [])):
                 tl = E(reg, "TextLine", id=l["id"], primaryLanguage=lang, primaryScript=script,
@@ -211,13 +216,15 @@ def build(page_id, now):
                 E(tl, "Coords", points=pts(l.get("polygon") or rect(l["bbox"])))
                 E(tl, "Baseline", points=pts(l["baseline"]))
                 if l["text"]:
-                    te = E(tl, "TextEquiv", index=1, comments="reviewed model reading (not human-verified)")
+                    te = E(tl, "TextEquiv", index=1, comments=PROV["text1"])
                     E(te, "Unicode").text = l["text"]
                     if l.get("text_tesseract"):
                         te2 = E(tl, "TextEquiv", index=2,
                                 conf=None if l.get("conf") is None else f"{l['conf']:.3f}",
-                                comments="raw Tesseract 5.3.4 tessdata_best output (own encoding)")
+                                comments=PROV["text2"])
                         E(te2, "Unicode").text = l["text_tesseract"]
+                    if l.get("text_archive"):
+                        E(E(tl, "TextEquiv", index=3, comments=PROV["text3"]), "Unicode").text = l["text_archive"]
                 else:
                     tl.append(etree.Comment(" NOT TRANSCRIBED: label too faint/illegible; no TextEquiv emitted "
                                             "on purpose (see @comments for a cautious identification) "))
@@ -244,8 +251,8 @@ def build(page_id, now):
 
 
 def main():
-    now = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
-    for pid in sys.argv[1:] or ["p017", "p018", "p019"]:
+    now = stamp()
+    for pid in sys.argv[1:] or page_ids():
         tree = build(pid, now)
         out = ROOT / "page" / f"{pid}.page.xml"
         tree.write(str(out), xml_declaration=True, encoding="UTF-8", pretty_print=True)
