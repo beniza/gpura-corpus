@@ -130,6 +130,21 @@ def build_site(item):
     tmpl = REPO / "docs" / "specimen" / "explorer.html"
     shutil.copy(tmpl, out / "index.html")
     print(f"  site → {out.relative_to(REPO)}/ ({len(pages)} pages)")
+    book_index()
+
+
+def book_index():
+    """docs/specimen/index.json: every book on the site, read by docs/nav.js for the Books menu."""
+    books = []
+    for pj in sorted((REPO / "docs" / "specimen").glob("*/pages.json")):
+        m = json.loads(pj.read_text(encoding="utf-8"))
+        src = REPO / "items" / m["item"] / "ocr"
+        auto = any(json.loads(f.read_text(encoding="utf-8")).get("automatic") for f in src.glob("*.lines.json"))
+        books.append({"item": m["item"], "title": m.get("title"), "title_en": m.get("title_en"), "date": m.get("date"),
+                      "pages": len(m.get("pages", [])), "automatic": auto})
+    books.sort(key=lambda b: (b["automatic"], b["item"]))
+    (REPO / "docs" / "specimen" / "index.json").write_text(json.dumps(books, ensure_ascii=False, indent=1) + "\n",
+                                                          encoding="utf-8", newline="\n")
 
 
 def main():
