@@ -216,7 +216,8 @@ def build(page_id, now):
                 E(tl, "Coords", points=pts(l.get("polygon") or rect(l["bbox"])))
                 E(tl, "Baseline", points=pts(l["baseline"]))
                 if l["text"]:
-                    te = E(tl, "TextEquiv", index=1, comments=PROV["text1"])
+                    tess_only = data.get("automatic") and any(f.get("type") == "unclear" and f.get("cert") == "low" for f in l.get("flags", []))
+                    te = E(tl, "TextEquiv", index=1, comments=PROV["text1_tesseract" if tess_only else "text1"])
                     E(te, "Unicode").text = l["text"]
                     if l.get("text_tesseract"):
                         te2 = E(tl, "TextEquiv", index=2,

@@ -34,6 +34,7 @@ AUTO_PROVENANCE = {
                     "for the alignment (mal+eng) with its mean word confidence; index=3 (where present) is Gpura's "
                     "string before the corpus encoding rules were applied.",
     "text1": "Gpura's existing OCR text, aligned automatically (not reviewed)",
+    "text1_tesseract": "Tesseract reading (mal+eng); Gpura has no matching text for this line (not reviewed)",
     "text2": "Tesseract reading used for alignment (own encoding)",
     "text3": "Gpura's original string, before encoding normalisation",
     "alto_alternative": "Tesseract reading used for alignment",
@@ -42,6 +43,7 @@ AUTO_PROVENANCE = {
     "alto_software": "Gpura corpus pipeline (auto_lines.py) + Tesseract",
 }
 PROV = {**AUTO_PROVENANCE, **ITEM.get("provenance", {})}
+PROV.setdefault("text1_tesseract", AUTO_PROVENANCE["text1_tesseract"])
 
 
 def page_ids():
