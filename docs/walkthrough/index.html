@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Gpura Corpus Walkthrough</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:wght@500;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Noto+Serif+Malayalam:wght@400;600&display=swap">
+<style>
+/* Layout: one reading column; a three-page specimen explorer; layer colours IIIF / PAGE / TEI used consistently */
+:root{
+  --bg:#F4F5F3; --surface:#FFFFFF; --sunk:#E9ECE8; --paper:#EFE9DA; --ink:#2E3A8C; --fg:#1B2220; --muted:#5A6662; --line:#D3D9D5;
+  --iiif:#2B6A8A; --page:#A35A16; --tei:#674A96; --warn:#A2352B; --ok:#2E7D4F;
+  --iiif-soft:#E2EEF4; --page-soft:#F6EADD; --tei-soft:#ECE6F5; --warn-soft:#F7E3E0;
+  --f-display:"Spectral", Georgia, serif;
+  --f-body:"IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono:"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  --f-ml:"Noto Serif Malayalam", "Manjari", "Kartika", serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#141917; --surface:#1C2320; --sunk:#232B28; --paper:#3A362C; --ink:#9FB0FF; --fg:#E4EAE7; --muted:#9AA7A2; --line:#33403B;
+  --iiif:#7DB8D6; --page:#E3A266; --tei:#B79BE3; --warn:#EE8C80; --ok:#7FCB9C;
+  --iiif-soft:#1C2E37; --page-soft:#33261A; --tei-soft:#2A2338; --warn-soft:#3A2220; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#141917; --surface:#1C2320; --sunk:#232B28; --paper:#3A362C; --ink:#9FB0FF; --fg:#E4EAE7; --muted:#9AA7A2; --line:#33403B;
+  --iiif:#7DB8D6; --page:#E3A266; --tei:#B79BE3; --warn:#EE8C80; --ok:#7FCB9C;
+  --iiif-soft:#1C2E37; --page-soft:#33261A; --tei-soft:#2A2338; --warn-soft:#3A2220; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:16px;line-height:1.6}
+.wrap{max-width:1000px;margin:0 auto;padding-block:40px 80px;padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px));display:flex;flex-direction:column;gap:56px}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.2;margin:0}
+h1{font-size:clamp(2rem,5vw,2.9rem);font-weight:700}
+h2{font-size:1.65rem;font-weight:700}
+h3{font-size:1.05rem;font-family:var(--f-body);font-weight:600}
+p{margin:0;max-width:68ch}
+.ml{font-family:var(--f-ml)}
+.eyebrow{font-size:.75rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);font-weight:600}
+section{display:flex;flex-direction:column;gap:18px}
+a{color:var(--iiif)}
+code,.mono{font-family:var(--f-mono);font-size:.88em}
+.lede{font-size:1.1rem;color:var(--muted)}
+.chip{display:inline-block;font-family:var(--f-mono);font-size:.72rem;padding:2px 8px;border-radius:4px;font-weight:500;white-space:nowrap}
+.c-iiif{background:var(--iiif-soft);color:var(--iiif)} .c-page{background:var(--page-soft);color:var(--page)} .c-tei{background:var(--tei-soft);color:var(--tei)} .c-warn{background:var(--warn-soft);color:var(--warn)}
+
+.specimen{background:var(--surface);border:1px solid var(--line);border-radius:6px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);overflow:hidden}
+.specimen .cover{background:var(--paper);padding:24px;display:flex;flex-direction:column;justify-content:center;gap:6px;border-right:1px solid var(--line)}
+.specimen .cover .t{font-family:var(--f-ml);font-size:1.45rem;font-weight:600;line-height:1.45}
+.specimen dl{margin:0;padding:20px 24px;display:grid;grid-template-columns:max-content 1fr;gap:6px 16px;font-size:.9rem}
+.specimen dt{color:var(--muted)} .specimen dd{margin:0;min-width:0;overflow-wrap:anywhere}
+@media (max-width:640px){.specimen{grid-template-columns:1fr}.specimen .cover{border-right:0;border-bottom:1px solid var(--line)}}
+
+.stack{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px}
+.layer{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:16px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.layer .row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.layer p{font-size:.92rem;color:var(--muted)}
+.has{color:var(--ok);font-weight:600;font-size:.82rem} .part{color:var(--page);font-weight:600;font-size:.82rem} .no{color:var(--warn);font-weight:600;font-size:.82rem}
+
+/* explorer */
+.pages{display:flex;gap:8px;flex-wrap:wrap}
+.ptab{appearance:none;font:inherit;font-size:.9rem;border:1px solid var(--line);background:var(--surface);color:var(--fg);border-radius:6px;padding:8px 14px;cursor:pointer;display:flex;flex-direction:column;align-items:flex-start;line-height:1.3}
+.ptab small{color:var(--muted);font-size:.75rem}
+.ptab[aria-selected="true"]{border-color:var(--fg);box-shadow:inset 0 0 0 1px var(--fg)}
+.ptab:focus-visible,.zone:focus-visible,.fbtn:focus-visible{outline:2px solid var(--iiif);outline-offset:2px}
+.explorer{display:grid;grid-template-columns:minmax(0,260px) minmax(0,1fr);gap:20px;align-items:start}
+@media (max-width:780px){.explorer{grid-template-columns:1fr}}
+.pcol{display:flex;flex-direction:column;gap:10px;position:sticky;top:calc(env(safe-area-inset-top, 0px) + 12px)}
+@media (max-width:780px){.pcol{position:static;max-width:280px}}
+.sheet{background:var(--paper);border:1px solid var(--line);aspect-ratio:2374/3495;max-width:100%;position:relative;border-radius:2px;overflow:hidden}
+.txt{position:absolute;left:9%;right:9%;background:repeating-linear-gradient(to bottom,color-mix(in srgb,var(--muted) 38%,transparent) 0 3px,transparent 3px 9px);opacity:.75}
+.mapart{position:absolute;border:1.5px solid color-mix(in srgb,var(--muted) 60%,transparent);background:repeating-linear-gradient(45deg,color-mix(in srgb,var(--muted) 18%,transparent) 0 2px,transparent 2px 7px)}
+.zone{position:absolute;border:2px dashed var(--page);background:color-mix(in srgb,var(--page-soft) 55%,transparent);border-radius:3px;cursor:pointer;padding:0;display:flex;align-items:flex-start;justify-content:flex-start}
+.zone .n{font-family:var(--f-mono);font-size:.68rem;font-weight:600;background:var(--page);color:var(--surface);border-radius:3px;padding:0 4px;margin:-2px 0 0 -2px}
+.zone.on{border-style:solid;background:color-mix(in srgb,var(--page) 22%,transparent)}
+.zone.ink{border-color:var(--ink)} .zone.ink .n{background:var(--ink)}
+.zone.ink.on{background:color-mix(in srgb,var(--ink) 18%,transparent)}
+.pcol small{color:var(--muted);font-size:.78rem;line-height:1.45}
+.flist{display:flex;flex-direction:column;gap:6px}
+.fbtn{appearance:none;font:inherit;font-size:.86rem;text-align:left;background:none;border:1px solid transparent;border-radius:6px;padding:6px 8px;cursor:pointer;color:var(--fg);display:flex;gap:8px;align-items:baseline}
+.fbtn .n{font-family:var(--f-mono);font-size:.72rem;font-weight:600;color:var(--muted);flex:none}
+.fbtn[aria-pressed="true"]{background:var(--surface);border-color:var(--line)}
+.finding{display:flex;flex-direction:column;gap:14px;min-width:0}
+.finding header{display:flex;flex-direction:column;gap:6px}
+.trio{display:grid;grid-template-columns:1fr;gap:12px}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:12px 14px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.box .lbl{display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:space-between}
+.box p{font-size:.92rem}
+.box.scan{border-left:3px solid var(--fg)} .box.now{border-left:3px solid var(--warn)} .box.next{border-left:3px solid var(--tei)}
+pre{margin:0;background:var(--sunk);border-radius:4px;padding:10px 12px;overflow-x:auto;font-family:var(--f-mono);font-size:.78rem;line-height:1.7;white-space:pre}
+pre .ml{font-size:1.06em}
+pre .k{color:var(--tei)} pre .a{color:var(--iiif)} pre .cm{color:var(--muted);font-style:italic} pre .bad{background:var(--warn-soft);color:var(--warn);border-radius:2px}
+.vlink{font-size:.82rem;font-weight:500;white-space:nowrap}
+
+.big{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.point{display:flex;flex-direction:column;gap:6px;padding:14px 0;border-top:2px solid var(--fg)}
+.point p{font-size:.93rem;color:var(--muted)}
+
+.flow{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));counter-reset:st}
+.step{padding:14px 14px 14px 0;display:flex;flex-direction:column;gap:6px;position:relative;min-width:0}
+.step::before{counter-increment:st;content:counter(st);font-family:var(--f-display);font-weight:700;font-size:1.4rem;color:var(--muted)}
+.step h3{font-size:.95rem}
+.step p{font-size:.85rem;color:var(--muted)}
+.step:not(:last-child)::after{content:"";position:absolute;top:22px;right:8px;left:34px;height:1px;background:var(--line)}
+@media (max-width:760px){.flow{grid-template-columns:1fr}.step{padding:10px 0;border-top:1px solid var(--line)}.step:not(:last-child)::after{display:none}}
+.qs{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.q{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:14px 16px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.q p{font-size:.9rem;color:var(--muted)}
+.note{font-size:.85rem;color:var(--muted);border-top:1px solid var(--line);padding-top:16px}
+@media (prefers-reduced-motion: no-preference){.zone,.ptab,.fbtn{transition:background .15s,border-color .15s}}
+body{margin:0}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header style="display:flex;flex-direction:column;gap:14px">
+  <span class="eyebrow"><a href="../" style="color:inherit">Gpura corpus</a> · proposal walkthrough · ഗ്രന്ഥപ്പുര</span>
+  <h1>From scan to corpus: three pages of one Gpura book</h1>
+  <p class="lede">A Gpura corpus would store each item as structured, machine-readable files that record the page layout, the logical text and the metadata, with every piece of text tied to its place on the scan. This walkthrough uses three real pages to show what Gpura already publishes, what the current transcription cannot record, and how the corpus would record it.</p>
+</header>
+
+<section aria-labelledby="s1">
+  <span class="eyebrow">The specimen</span>
+  <h2 id="s1">A 1971 history of the United States, in Malayalam</h2>
+  <div class="specimen">
+    <div class="cover">
+      <span class="t">അമേരിക്കൻ ഐക്യനാടിൻ്റെ ചരിത്രം</span>
+      <span style="color:var(--muted)">C.P. Hill · tr. Kuttanad K. Ramakrishna Pillai</span>
+      <a href="https://gpura.org/item/1971-american-aikyanadinte-charithram" target="_blank" rel="noopener" style="font-size:.9rem;margin-top:8px">Open on Gpura ↗</a>
+    </div>
+    <dl>
+      <dt>Published</dt><dd>1971, State Institute of Languages, Trivandrum</dd>
+      <dt>Printer</dt><dd>Balan Press, Trivandrum</dd>
+      <dt>Extent</dt><dd>420 pages · 20.5 × 15 cm</dd>
+      <dt>Copy</dt><dd>Kottayam Public Library, digitized 22 October 2026</dd>
+      <dt>Pages used</dt><dd>Viewer pages 17–19 (printed pages 1–3), the opening of the chapter <span class="ml">ഭൂപ്രകൃതി</span></dd>
+      <dt>Why these</dt><dd>Printed text, a sideways map, reader annotations in two inks, and a damaged page edge</dd>
+    </dl>
+  </div>
+</section>
+
+<section aria-labelledby="s2">
+  <span class="eyebrow">What Gpura publishes today</span>
+  <h2 id="s2">Much of the foundation already exists</h2>
+  <p>Gpura already uses open standards for its records and images, and for this book it also produces a formatted transcription that marks some structure. The corpus would build on all of this rather than replace it.</p>
+  <div class="stack">
+    <div class="layer">
+      <div class="row"><span class="chip c-iiif">Omeka S · Dublin Core</span><span class="has">✓ in place</span></div>
+      <h3>Catalogue record</h3>
+      <p>Title in two scripts, author, translator, publisher, printer, dimensions, holding library, digitization date. JSON-LD at <code>/api/items/38951</code>.</p>
+    </div>
+    <div class="layer">
+      <div class="row"><span class="chip c-iiif">IIIF Presentation 3</span><span class="has">✓ in place</span></div>
+      <h3>Manifest and page images</h3>
+      <p><a href="https://gpura.org/iiif-presentation/3/item/38951/manifest" target="_blank" rel="noopener">421 canvases</a>, each page served at 2374 × 3495 px through an IIIF Image API (level 2), so any region can be cropped or rotated by URL.</p>
+    </div>
+    <div class="layer">
+      <div class="row"><span class="chip c-warn">.txt per page</span><span class="has">✓ in place</span></div>
+      <h3>OCR text</h3>
+      <p>Linked from each canvas as a <code>supplementing</code> annotation, plus a full-text file. On other items, a disclaimer in the text says it was produced with Gemini 2.0 Flash.</p>
+    </div>
+    <div class="layer">
+      <div class="row"><span class="chip c-warn">HTML</span><span class="part">◐ partial</span></div>
+      <h3>Formatted transcription</h3>
+      <p>Marks running heads, page numbers, section titles, paragraphs, line breaks, figures and footnotes with CSS classes. Useful, but a custom format, and nothing in it points back to the scan.</p>
+    </div>
+    <div class="layer">
+      <div class="row"><span class="chip c-page">PAGE-XML / ALTO</span><span class="no">✗ missing</span></div>
+      <h3>Where things sit on the page</h3>
+      <p>No coordinates for regions, lines or words, and no distinction between printed and handwritten text.</p>
+    </div>
+    <div class="layer">
+      <div class="row"><span class="chip c-tei">TEI</span><span class="no">✗ missing</span></div>
+      <h3>A standard edition</h3>
+      <p>No standard way to record reader annotations, damage, uncertain readings, original spelling, or figure content.</p>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="s3">
+  <span class="eyebrow">Explore the pages</span>
+  <h2 id="s3">What the transcription misses, and how a corpus records it</h2>
+  <p>Choose a page, then a numbered area. Each finding shows the scan, what Gpura's text and HTML say today, and the corpus encoding. Page outlines are schematic; "View on scan" opens the actual region through Gpura's IIIF service.</p>
+
+  <div class="pages" role="tablist" aria-label="Pages">
+    <button class="ptab" role="tab" data-pg="17" aria-selected="false" id="pt17">Printed p. 1<small>viewer page 17</small></button>
+    <button class="ptab" role="tab" data-pg="18" aria-selected="true" id="pt18">Printed p. 2<small>viewer page 18</small></button>
+    <button class="ptab" role="tab" data-pg="19" aria-selected="false" id="pt19">Printed p. 3<small>viewer page 19</small></button>
+  </div>
+
+  <div class="explorer">
+    <div class="pcol">
+      <!-- page 17 -->
+      <div class="sheet" data-sheet="17" hidden aria-label="Outline of printed page 1">
+        <div class="txt" style="top:27%;bottom:3%"></div>
+        <button class="zone ink" data-f="17a" style="left:36%;top:19%;width:37%;height:5.5%" aria-label="Finding 1"><span class="n">1</span></button>
+        <button class="zone" data-f="17b" style="left:84%;top:8.5%;width:8%;height:5%" aria-label="Finding 2"><span class="n">2</span></button>
+      </div>
+      <!-- page 18 -->
+      <div class="sheet" data-sheet="18" aria-label="Outline of printed page 2">
+        <div class="txt" style="top:8.5%;bottom:47%"></div>
+        <div class="txt" style="top:57%;bottom:3%"></div>
+        <button class="zone" data-f="18a" style="left:12%;top:4%;width:76%;height:3.6%" aria-label="Finding 1"><span class="n">1</span></button>
+        <button class="zone" data-f="18b" style="left:91%;top:2.5%;width:9%;height:16%" aria-label="Finding 2"><span class="n">2</span></button>
+        <button class="zone ink" data-f="18c" style="left:9%;top:24.5%;width:82%;height:3.5%" aria-label="Finding 3"><span class="n">3</span></button>
+        <button class="zone" data-f="18d" style="left:9%;top:69%;width:82%;height:4%" aria-label="Finding 4"><span class="n">4</span></button>
+      </div>
+      <!-- page 19 -->
+      <div class="sheet" data-sheet="19" hidden aria-label="Outline of printed page 3">
+        <div class="mapart" style="left:8%;top:13%;width:80%;height:83%"></div>
+        <button class="zone ink" data-f="19a" style="left:36%;top:0.5%;width:56%;height:12%" aria-label="Finding 1"><span class="n">1</span></button>
+        <button class="zone" data-f="19b" style="left:8%;top:13%;width:86%;height:83%" aria-label="Finding 2"><span class="n">2</span></button>
+      </div>
+      <small id="sheetnote">Dashed orange: print or paper. Dashed blue: reader's ink.</small>
+      <div class="flist" id="flist"></div>
+    </div>
+
+    <div id="findings">
+
+      <!-- 17a -->
+      <article class="finding" data-fd="17a" data-pgf="17" data-t="Reader's note fused into the chapter title" hidden>
+        <header><span class="eyebrow">Printed p. 1 · finding 1</span><h3>A reader's note becomes part of the chapter title</h3></header>
+        <div class="trio">
+          <div class="box scan"><div class="lbl"><span class="eyebrow">On the scan</span><a class="vlink" href="https://iiif.gpura.org/iiif/3/1971-american-aikyanadinte-charithram__0017.jpg/600,300,1774,900/max/0/default.jpg" target="_blank" rel="noopener">View on scan ↗</a></div>
+            <p>The printed chapter title <span class="ml">ഭൂപ്രകൃതി</span>, with a reader's handwritten "CMS" in blue ink beside it.</p></div>
+          <div class="box now"><div class="lbl"><span class="eyebrow">Gpura today (.txt and HTML)</span></div>
+<pre>&lt;h2 class="section-title"&gt;<span class="bad ml">ഭൂപ്രകൃതി CMS</span>&lt;/h2&gt;</pre>
+            <p>The handwriting is now part of the title, in search results and in any dataset built from the text.</p></div>
+          <div class="box next"><div class="lbl"><span class="eyebrow">In the corpus</span><span class="chip c-tei">TEI</span></div>
+<pre>&lt;<span class="k">head</span> <span class="a">facs</span>="#z17-title"&gt;<span class="ml">ഭൂപ്രകൃതി</span>&lt;/<span class="k">head</span>&gt;
+&lt;<span class="k">add</span> <span class="a">hand</span>="#blue-ink" <span class="a">place</span>="margin" <span class="a">facs</span>="#z17-cms"&gt;CMS&lt;/<span class="k">add</span>&gt;</pre>
+            <div class="lbl"><span></span><span class="chip c-page">PAGE-XML</span></div>
+<pre>&lt;<span class="k">TextRegion</span> <span class="a">id</span>="z17-title" <span class="a">type</span>="heading" <span class="a">production</span>="printed"&gt;…
+&lt;<span class="k">TextRegion</span> <span class="a">id</span>="z17-cms" <span class="a">type</span>="marginalia" <span class="a">production</span>="handwritten-cursive"&gt;…</pre>
+            <p>The title stays clean. The note is kept, attributed to a hand, and can be shown or hidden.</p></div>
+        </div>
+      </article>
+
+      <!-- 17b -->
+      <article class="finding" data-fd="17b" data-pgf="17" data-t="Printed page number dropped" hidden>
+        <header><span class="eyebrow">Printed p. 1 · finding 2</span><h3>The printed page number is dropped</h3></header>
+        <div class="trio">
+          <div class="box scan"><div class="lbl"><span class="eyebrow">On the scan</span><a class="vlink" href="https://iiif.gpura.org/iiif/3/1971-american-aikyanadinte-charithram__0017.jpg/1900,250,474,300/max/0/default.jpg" target="_blank" rel="noopener">View on scan ↗</a></div>
+            <p>Page number "1" at the top right. Viewer page 17 is printed page 1, so citations need both numbers.</p></div>
+          <div class="box now"><div class="lbl"><span class="eyebrow">Gpura today</span></div>
+            <p>Neither the .txt nor the HTML for this page records the "1", although the HTML does record page numbers on other pages.</p></div>
+          <div class="box next"><div class="lbl"><span class="eyebrow">In the corpus</span><span class="chip c-tei">TEI</span></div>
+<pre>&lt;<span class="k">pb</span> <span class="a">n</span>="1" <span class="a">facs</span>="https://artifacts.gpura.org/public/1971-american-aikyanadinte-charithram/canvas/17"/&gt;
+&lt;<span class="k">fw</span> <span class="a">type</span>="pageNum" <span class="a">place</span>="top-right"&gt;1&lt;/<span class="k">fw</span>&gt;</pre>
+            <p>The printed number and the canvas are linked, so "p. 1" in a citation resolves to the right image.</p></div>
+        </div>
+      </article>
+
+      <!-- 18a -->
+      <article class="finding" data-fd="18a" data-pgf="18" data-t="Running head reworded by the OCR">
+        <header><span class="eyebrow">Printed p. 2 · finding 1</span><h3>The running head was reworded</h3></header>
+        <div class="trio">
+          <div class="box scan"><div class="lbl"><span class="eyebrow">On the scan</span><a class="vlink" href="https://iiif.gpura.org/iiif/3/1971-american-aikyanadinte-charithram__0018.jpg/0,100,2374,250/max/0/default.jpg" target="_blank" rel="noopener">View on scan ↗</a></div>
+            <p>The printed running head reads <span class="ml">അമേരിക്കൻ ഐക്യനാടിൻറെ ചരിത്രം</span>.</p></div>
+          <div class="box now"><div class="lbl"><span class="eyebrow">Gpura today (.txt and HTML)</span></div>
+<pre>&lt;header class="header"&gt;<span class="ml">അമേരിക്കൻ <span class="bad">ഐക്യനാടുകളുടെ</span> ചരിത്രം</span>&lt;/header&gt;</pre>
+            <p>A different word, not a misread letter. Generative OCR can produce fluent text that isn't on the page, and without coordinates nobody can check a line against its image.</p></div>
+          <div class="box next"><div class="lbl"><span class="eyebrow">In the corpus</span><span class="chip c-page">PAGE-XML</span></div>
+<pre>&lt;<span class="k">TextRegion</span> <span class="a">id</span>="z18-head" <span class="a">type</span>="header"&gt;
+  &lt;<span class="k">Coords</span> <span class="a">points</span>="…"/&gt;
+  &lt;<span class="k">TextLine</span> <span class="a">id</span>="l18-0"&gt;&lt;<span class="k">Coords</span> <span class="a">points</span>="…"/&gt;
+    &lt;<span class="k">TextEquiv</span>&gt;&lt;<span class="k">Unicode</span>&gt;<span class="ml">അമേരിക്കൻ ഐക്യനാടിൻറെ ചരിത്രം</span>&lt;/<span class="k">Unicode</span>&gt;&lt;/<span class="k">TextEquiv</span>&gt;
+  &lt;/<span class="k">TextLine</span>&gt;
+&lt;/<span class="k">TextRegion</span>&gt;</pre>
+            <p>Every line has a box on the image, so a reviewer, or a script, can compare text and image line by line.</p></div>
+        </div>
+      </article>
+
+      <!-- 18b -->
+      <article class="finding" data-fd="18b" data-pgf="18" data-t="Damaged page edge not flagged" hidden>
+        <header><span class="eyebrow">Printed p. 2 · finding 2</span><h3>Text on the damaged edge is given without doubt</h3></header>
+        <div class="trio">
+          <div class="box scan"><div class="lbl"><span class="eyebrow">On the scan</span><a class="vlink" href="https://iiif.gpura.org/iiif/3/1971-american-aikyanadinte-charithram__0018.jpg/1700,80,674,650/max/0/default.jpg" target="_blank" rel="noopener">View on scan ↗</a></div>
+            <p>The right edge of the leaf is worn and stained. Words at the line ends, such as <span class="ml">പേരു്</span>, sit on the damaged area.</p></div>
+          <div class="box now"><div class="lbl"><span class="eyebrow">Gpura today</span></div>
+            <p>The text gives these words like any other. A reader cannot tell which words were read clearly and which were reconstructed.</p></div>
+          <div class="box next"><div class="lbl"><span class="eyebrow">In the corpus</span><span class="chip c-tei">TEI</span></div>
+<pre>&lt;<span class="k">damage</span> <span class="a">agent</span>="wear" <span class="a">facs</span>="#z18-edge"&gt;
+  &lt;<span class="k">unclear</span> <span class="a">reason</span>="damage" <span class="a">cert</span>="medium"&gt;<span class="ml">പേരു്</span>&lt;/<span class="k">unclear</span>&gt;
+&lt;/<span class="k">damage</span>&gt;</pre>
+            <p>Damage and uncertainty become data. Readers see where to check the image, and a later review can upgrade the reading.</p></div>
+        </div>
+      </article>
+
+      <!-- 18c -->
+      <article class="finding" data-fd="18c" data-pgf="18" data-t="Reader's underlining not recorded" hidden>
+        <header><span class="eyebrow">Printed p. 2 · finding 3</span><h3>Reader underlining leaves no trace</h3></header>
+        <div class="trio">
+          <div class="box scan"><div class="lbl"><span class="eyebrow">On the scan</span><a class="vlink" href="https://iiif.gpura.org/iiif/3/1971-american-aikyanadinte-charithram__0018.jpg/0,800,2374,250/max/0/default.jpg" target="_blank" rel="noopener">View on scan ↗</a></div>
+            <p>A reader underlined the sentence beginning <span class="ml">അമേരിക്കൻ സംസ്കാരം …</span> in ink. There is more underlining further down the page.</p></div>
+          <div class="box now"><div class="lbl"><span class="eyebrow">Gpura today</span></div>
+            <p>Not recorded. That's a sensible default for reading, but the marks are part of this copy's history: what an earlier reader found important.</p></div>
+          <div class="box next"><div class="lbl"><span class="eyebrow">In the corpus</span><span class="chip c-tei">TEI</span></div>
+<pre>&lt;<span class="k">handNote</span> <span class="a">xml:id</span>="dark-ink"&gt;underlining in dark ink&lt;/<span class="k">handNote</span>&gt;
+…
+&lt;<span class="k">hi</span> <span class="a">rend</span>="underline" <span class="a">hand</span>="#dark-ink"&gt;<span class="ml">അമേരിക്കൻ സംസ്കാരം …</span>&lt;/<span class="k">hi</span>&gt;</pre>
+            <div class="lbl"><span></span><span class="chip c-page">PAGE-XML</span></div>
+<pre>&lt;<span class="k">GraphicRegion</span> <span class="a">id</span>="z18-ul1" <span class="a">type</span>="handwritten-annotation"&gt;…</pre>
+            <p>Each ink gets its own hand. Whether the blue and dark inks are the same reader stays an open question, and the encoding doesn't force an answer.</p></div>
+        </div>
+      </article>
+
+      <!-- 18d -->
+      <article class="finding" data-fd="18d" data-pgf="18" data-t="Same printed form, two encodings" hidden>
+        <header><span class="eyebrow">Printed p. 2 · finding 4</span><h3>The same printed form is encoded two different ways</h3></header>
+        <div class="trio">
+          <div class="box scan"><div class="lbl"><span class="eyebrow">On the scan</span><a class="vlink" href="https://iiif.gpura.org/iiif/3/1971-american-aikyanadinte-charithram__0018.jpg/0,2380,2374,200/max/0/default.jpg" target="_blank" rel="noopener">View on scan ↗</a></div>
+            <p>The book is printed in the 1971 reformed script, which draws the conjunct ന്റ in the shape ൻറ throughout: <span class="ml">യൂറോപ്പിന്റെ</span>, <span class="ml">ഇംഗ്ലണ്ടിന്റെ</span>, <span class="ml">പട്ടണത്തിന്റെ</span> all look alike on the page. On this line a reader has also inked over <span class="ml">ഇംഗ്ലണ്ടിന്റെ അഞ്ചിരട്ടി</span>.</p></div>
+          <div class="box now"><div class="lbl"><span class="eyebrow">Gpura today</span></div>
+<pre><span class="ml">യൂറോപ്പിന്റെ · ഇംഗ്ലണ്ടിന്റെ · <span class="bad">പട്ടണത്തിൻറെ</span></span></pre>
+            <p>This is not a spelling change. The first two use the standard Unicode sequence (ന ് റ). The third copies the glyph shape with chillu ൻ + റ, a different character sequence. A search for <span class="ml">പട്ടണത്തിന്റെ</span> will not find it.</p></div>
+          <div class="box next"><div class="lbl"><span class="eyebrow">In the corpus</span><span class="chip c-tei">TEI</span></div>
+<pre>&lt;<span class="k">editorialDecl</span>&gt;
+  &lt;<span class="k">normalization</span>&gt;&lt;<span class="k">p</span>&gt;Reformed-script ൻറ and ററ shapes are
+    encoded ന്റ and റ്റ; the glyph shape is a property
+    of the typeface, not the text.&lt;/<span class="k">p</span>&gt;&lt;/<span class="k">normalization</span>&gt;
+&lt;/<span class="k">editorialDecl</span>&gt;</pre>
+            <p>One documented encoding rule, applied everywhere and checked by script. The look of the 1971 type is recorded once, not reproduced character by character.</p></div>
+        </div>
+      </article>
+
+      <!-- 19a -->
+      <article class="finding" data-fd="19a" data-pgf="19" data-t="Handwriting and running head merged into a paragraph" hidden>
+        <header><span class="eyebrow">Printed p. 3 · finding 1</span><h3>Handwriting and the running head become one paragraph</h3></header>
+        <div class="trio">
+          <div class="box scan"><div class="lbl"><span class="eyebrow">On the scan</span><a class="vlink" href="https://iiif.gpura.org/iiif/3/1971-american-aikyanadinte-charithram__0019.jpg/400,0,1974,500/max/0/default.jpg" target="_blank" rel="noopener">View on scan ↗</a></div>
+            <p>A reader wrote what reads as "Trueman Doctrine" (the Truman Doctrine) and "Kennedy" in blue ink across the printed running head <span class="ml">ഭൂപ്രകൃതി</span>. The page number "3" is printed at the right, and text from the other side of the leaf shows through.</p></div>
+          <div class="box now"><div class="lbl"><span class="eyebrow">Gpura today (HTML)</span></div>
+<pre>&lt;p class="paragraph"&gt;<span class="bad">Freeman Doctrow</span>&lt;br/&gt;<span class="bad ml">പ്രകൃതി</span>&lt;br/&gt;<span class="bad">Kennedy.</span>&lt;/p&gt;</pre>
+            <p>The handwriting is presented as printed body text, the running head lost its first letters, and the page number is missing.</p></div>
+          <div class="box next"><div class="lbl"><span class="eyebrow">In the corpus</span><span class="chip c-tei">TEI</span></div>
+<pre>&lt;<span class="k">pb</span> <span class="a">n</span>="3" <span class="a">facs</span>="…/canvas/19"/&gt;
+&lt;<span class="k">fw</span> <span class="a">type</span>="header"&gt;<span class="ml">ഭൂപ്രകൃതി</span>&lt;/<span class="k">fw</span>&gt;
+&lt;<span class="k">fw</span> <span class="a">type</span>="pageNum"&gt;3&lt;/<span class="k">fw</span>&gt;
+&lt;<span class="k">add</span> <span class="a">hand</span>="#blue-ink" <span class="a">place</span>="top"&gt;
+  &lt;<span class="k">unclear</span> <span class="a">cert</span>="medium"&gt;Trueman Doctrine&lt;/<span class="k">unclear</span>&gt; &lt;<span class="k">lb</span>/&gt;Kennedy
+&lt;/<span class="k">add</span>&gt;</pre>
+            <p>Print, handwriting and page furniture are separated. The uncertain handwritten word is marked as uncertain instead of guessed.</p></div>
+        </div>
+      </article>
+
+      <!-- 19b -->
+      <article class="finding" data-fd="19b" data-pgf="19" data-t="Map reduced to a one-line description" hidden>
+        <header><span class="eyebrow">Printed p. 3 · finding 2</span><h3>A full-page map becomes one generic sentence</h3></header>
+        <div class="trio">
+          <div class="box scan"><div class="lbl"><span class="eyebrow">On the scan</span><span style="display:flex;gap:12px;flex-wrap:wrap"><a class="vlink" href="https://iiif.gpura.org/iiif/3/1971-american-aikyanadinte-charithram__0019.jpg/full/1200,/90/default.jpg" target="_blank" rel="noopener">Map, upright ↗</a><a class="vlink" href="https://iiif.gpura.org/iiif/3/1971-american-aikyanadinte-charithram__0019.jpg/1500,700,800,1200/max/90/default.jpg" target="_blank" rel="noopener">Legend ↗</a></span></div>
+            <p>A relief map printed sideways, with Malayalam place labels, a legend of three elevation bands (in <span class="ml">അടി</span>, feet), and a sideways caption <span class="ml">അമേരിക്കൻ ഐക്യനാടിൻറെ ഭൂപ്രകൃതി</span>. A reader traced part of the coastline in blue ink.</p></div>
+          <div class="box now"><div class="lbl"><span class="eyebrow">Gpura today (HTML)</span></div>
+<pre>&lt;figure class="image"&gt;&lt;img alt="<span class="bad">This image contains a map with text labels in Malayalam script.</span>"&gt;&lt;/figure&gt;
+&lt;hr class="footnote-separator"/&gt;
+&lt;aside class="footnote"&gt;<span class="bad ml">പ്രസിദ്ധീകരണത്തിൻ്റെ ഭാഗമായ</span>&lt;/aside&gt;</pre>
+            <p>Caption, legend and labels are not transcribed, so the map can't be found by searching. The footnote does not exist: a full-resolution check of the page found only print, the reader’s handwriting, and show-through from the other side of the leaf.</p></div>
+          <div class="box next"><div class="lbl"><span class="eyebrow">In the corpus</span><span class="chip c-tei">TEI</span></div>
+<pre>&lt;<span class="k">figure</span> <span class="a">facs</span>="#z19-map" <span class="a">rend</span>="rotate(90)"&gt;
+  &lt;<span class="k">head</span>&gt;<span class="ml">അമേരിക്കൻ ഐക്യനാടിൻറെ ഭൂപ്രകൃതി</span>&lt;/<span class="k">head</span>&gt;
+  &lt;<span class="k">list</span> <span class="a">type</span>="legend"&gt;
+    &lt;<span class="k">item</span>&gt;&lt;<span class="k">unclear</span>&gt;6&lt;/<span class="k">unclear</span>&gt;<span class="ml">000 അ. മുകളിൽ</span>&lt;/<span class="k">item</span>&gt;
+    &lt;<span class="k">item</span>&gt;<span class="ml">3000 അ. ,,</span>&lt;/<span class="k">item</span>&gt;
+    &lt;<span class="k">item</span>&gt;<span class="ml">1200 അ. ,,</span>&lt;/<span class="k">item</span>&gt;
+  &lt;/<span class="k">list</span>&gt;
+  &lt;<span class="k">figDesc</span>&gt;Relief map of the United States; reader's blue-ink tracing along the coast.&lt;/<span class="k">figDesc</span>&gt;
+&lt;/<span class="k">figure</span>&gt;</pre>
+            <div class="lbl"><span></span><span class="chip c-page">PAGE-XML</span></div>
+<pre>&lt;<span class="k">ImageRegion</span> <span class="a">id</span>="z19-map" <span class="a">orientation</span>="90"&gt;…
+&lt;<span class="k">TextRegion</span> <span class="a">id</span>="z19-cap" <span class="a">type</span>="caption" <span class="a">orientation</span>="90"&gt;…</pre>
+            <p>In the corpus every piece of text must point to a region on the image. Text with no region, like that footnote, fails validation instead of slipping into the record.</p></div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="s4">
+  <span class="eyebrow">The argument in short</span>
+  <h2 id="s4">Readable text is not yet a faithful record</h2>
+  <div class="big">
+    <div class="point"><h3>Checkable</h3><p>Every line is tied to its place on the scan. Errors like the reworded running head can be found by comparing, not by luck.</p></div>
+    <div class="point"><h3>Honest about the copy</h3><p>Print, reader annotations, damage and uncertainty are recorded separately, so nothing is lost and nothing is passed off as print.</p></div>
+    <div class="point"><h3>Built to last</h3><p>TEI, PAGE-XML and IIIF are open, documented standards. The corpus outlives any website, viewer or AI model used to make it.</p></div>
+    <div class="point"><h3>Free to share</h3><p>The material is in the public domain, so the corpus can be mirrored by libraries and reused for research and Malayalam language technology.</p></div>
+  </div>
+</section>
+
+<section aria-labelledby="s5">
+  <span class="eyebrow">How it could be produced</span>
+  <h2 id="s5">A pipeline that builds on what exists</h2>
+  <div class="flow">
+    <div class="step"><h3>Layout</h3><p>Detect regions and lines on the full-resolution images: text, headings, figures, handwriting.</p></div>
+    <div class="step"><h3>Text</h3><p>Re-run recognition per line, or align the existing OCR text to the detected lines.</p></div>
+    <div class="step"><h3>Review</h3><p>Check lines against the image; mark damage, uncertainty and reader hands.</p></div>
+    <div class="step"><h3>TEI edition</h3><p>Generate TEI from the layout files, reusing structure the HTML already marks.</p></div>
+    <div class="step"><h3>Publish</h3><p>Link the files from the existing IIIF manifests; derive plain text and HTML from TEI.</p></div>
+  </div>
+</section>
+
+<section aria-labelledby="s6">
+  <span class="eyebrow">For the group to discuss</span>
+  <h2 id="s6">Open questions</h2>
+  <div class="qs">
+    <div class="q"><h3>Re-OCR or align?</h3><p>Should the corpus re-recognise text with a tool that outputs layout, or align the existing AI-generated text to detected lines?</p></div>
+    <div class="q"><h3>Reader marks</h3><p>Transcribe handwritten notes, or only mark that they exist? Underlining is cheap to flag; marginal notes take more effort.</p></div>
+    <div class="q"><h3>Spelling</h3><p>Keep only the printed spelling, or add modern spelling alongside it for search?</p></div>
+    <div class="q"><h3>PAGE-XML or ALTO</h3><p>PAGE-XML separates printed from handwritten text and handles rotated regions; ALTO is common in libraries. Pick one, or support both.</p></div>
+    <div class="q"><h3>Where to start</h3><p>The whole collection, or a pilot set chosen by the team?</p></div>
+  </div>
+</section>
+
+<p class="note">See the <a href="../specimen/american-aikyanadu-1971/">working specimen</a> for these pages fully encoded in PAGE-XML, ALTO and TEI. Item record, IIIF manifest, OCR text and HTML transcription were read from gpura.org, artifacts.gpura.org and iiif.gpura.org on 2 November 2026. Scan observations are from IIIF crops of viewer pages 17–19. Page outlines and the elided coordinates are schematic.</p>
+</div>
+
+<script>
+(function(){
+  const ptabs=[...document.querySelectorAll('.ptab')], sheets=[...document.querySelectorAll('.sheet')], zones=[...document.querySelectorAll('.zone')], arts=[...document.querySelectorAll('.finding')], flist=document.getElementById('flist');
+  let pg='18', f='18a';
+  function render(){
+    ptabs.forEach(t=>t.setAttribute('aria-selected', String(t.dataset.pg===pg)));
+    sheets.forEach(s=>s.hidden = s.dataset.sheet!==pg);
+    zones.forEach(z=>{z.classList.toggle('on', z.dataset.f===f); z.setAttribute('aria-pressed', String(z.dataset.f===f));});
+    arts.forEach(a=>a.hidden = a.dataset.fd!==f);
+    flist.innerHTML='';
+    arts.filter(a=>a.dataset.pgf===pg).forEach((a,i)=>{
+      const b=document.createElement('button'); b.className='fbtn'; b.type='button';
+      b.setAttribute('aria-pressed', String(a.dataset.fd===f));
+      const n=document.createElement('span'); n.className='n'; n.textContent=String(i+1);
+      const t=document.createElement('span'); t.textContent=a.dataset.t;
+      b.append(n,t); b.addEventListener('click',()=>{f=a.dataset.fd;render();});
+      flist.append(b);
+    });
+  }
+  ptabs.forEach(t=>t.addEventListener('click',()=>{pg=t.dataset.pg; f=pg+'a'; render();}));
+  zones.forEach(z=>z.addEventListener('click',()=>{f=z.dataset.f;render();}));
+  render();
+})();
+</script>
+</body>
+</html>

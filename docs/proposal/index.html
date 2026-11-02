@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Gpura Corpus Proposal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:wght@500;700&family=IBM+Plex+Sans:wght@400;500;600&family=Noto+Serif+Malayalam:wght@400;600&display=swap">
+<style>
+/* Layout: single reading column; English and Malayalam versions as two labelled blocks */
+:root{--bg:#F4F5F3;--surface:#FFFFFF;--fg:#1B2220;--muted:#5A6662;--line:#D3D9D5;--accent:#2B6A8A;
+  --f-display:"Spectral",Georgia,serif;--f-body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;--f-ml:"Noto Serif Malayalam","Manjari","Rachana",serif}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#141917;--surface:#1C2320;--fg:#E4EAE7;--muted:#9AA7A2;--line:#33403B;--accent:#7DB8D6;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#141917;--surface:#1C2320;--fg:#E4EAE7;--muted:#9AA7A2;--line:#33403B;--accent:#7DB8D6;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:17px;line-height:1.7}
+.wrap{max-width:760px;margin:0 auto;padding-block:48px 80px;padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px));display:flex;flex-direction:column;gap:40px}
+h1,h2{font-family:var(--f-display);margin:0;line-height:1.2;text-wrap:balance}
+h1{font-size:clamp(2rem,5vw,2.6rem)} h2{font-size:1.3rem}
+a{color:var(--accent)}
+.eyebrow{font-size:.75rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);font-weight:600}
+section{display:flex;flex-direction:column;gap:14px}
+p{margin:0}
+.ml p{font-family:var(--f-ml);line-height:2;font-size:1.02rem}
+.note{font-size:.88rem;color:var(--muted);border-top:1px solid var(--line);padding-top:16px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header style="display:flex;flex-direction:column;gap:12px">
+    <span class="eyebrow"><a href="../" style="color:inherit">Gpura corpus</a> · proposal</span>
+    <h1>A Gpura Corpus</h1>
+    <p style="color:var(--muted)">A short proposal to the Granthappura team, in English and Malayalam.</p>
+  </header>
+
+  <section lang="en" aria-labelledby="en">
+    <h2 id="en">English</h2>
+    <p>By a “Gpura corpus” I mean a structured, machine-readable companion to the scans: for every item, a standardised digital edition that records not just the words but how they appear on the page. Each page would have a layout file (ALTO or PAGE-XML) capturing text regions, line breaks, tables, illustrations and their exact positions on the scan. Each item would have a TEI XML edition encoding its logical structure (chapters, headings, verse, notes) together with its catalogue metadata, with every passage linked back to its page image (ideally served via IIIF). Plain-text exports would be generated from the same source. The goal is that nothing significant is lost in moving from paper to digital: someone working only from the corpus files should be able to reconstruct what the page said, where it said it, and what the item is.</p>
+    <p>This directly serves Gpura’s mission of preservation and open access. Scans preserve how a page looks, but its content stays locked in images, and OCR text without structure loses layout, tables and context. A standards-based corpus preserves both, in open formats that will outlive any particular website or software. Because Gpura’s materials are in the public domain, the corpus can be released openly and mirrored by libraries and archives, which makes the collection far safer from loss. It also widens access: people could search the full text of the collection, quote and cite exact passages, and reuse the material in research, education and Malayalam language technology. The existing OCR output is a ready starting point, and recording it in a structured form makes later corrections easy to add and keep. Using established standards (TEI, ALTO/PAGE, IIIF) means Gpura’s work will work with existing digital-humanities tools instead of needing custom software.</p>
+  </section>
+
+  <section class="ml" lang="ml" aria-labelledby="ml">
+    <h2 id="ml">മലയാളം</h2>
+    <p>ഗ്രന്ഥപ്പുരയിലെ ഓരോ ഇനത്തിന്റെയും (പുസ്തകങ്ങൾ, ആനുകാലികങ്ങൾ, പത്രങ്ങൾ, കൈയെഴുത്തുപ്രതികൾ) സ്കാൻ ചെയ്ത പേജുകൾക്കൊപ്പം സൂക്ഷിക്കുന്ന, ഘടനാപരവും യന്ത്രങ്ങൾക്ക് വായിക്കാവുന്നതുമായ (machine-readable) ഡിജിറ്റൽ പതിപ്പാണ് ഗ്രന്ഥപ്പുര കോർപ്പസ് (Gpura Corpus) എന്നതുകൊണ്ട് ഉദ്ദേശിക്കുന്നത്. ഓരോ പേജിലെയും എഴുത്തുഭാഗങ്ങൾ, വരികൾ, തലക്കെട്ടുകൾ, പട്ടികകൾ, ചിത്രങ്ങൾ എന്നിവയും സ്കാനിൽ അവയുടെ കൃത്യമായ സ്ഥാനവും ALTO അല്ലെങ്കിൽ PAGE-XML ഫോർമാറ്റിൽ രേഖപ്പെടുത്തും. ഓരോ ഇനത്തിന്റെയും ഘടനയും (അധ്യായങ്ങൾ, തലക്കെട്ടുകൾ, പദ്യഭാഗങ്ങൾ, കുറിപ്പുകൾ) കാറ്റലോഗ് വിവരങ്ങളും (metadata) TEI-XML ഫോർമാറ്റിൽ സൂക്ഷിക്കും. ഓരോ ഭാഗവും അതത് പേജ് ചിത്രവുമായി ബന്ധിപ്പിക്കും, ചിത്രങ്ങൾ IIIF വഴി ലഭ്യമാക്കുന്നതാണ് ഉചിതം. ഇതേ ഉറവിടത്തിൽ നിന്ന് സാധാരണ ടെക്സ്റ്റ് രൂപങ്ങളും തയ്യാറാക്കാം. കടലാസിൽ നിന്ന് ഡിജിറ്റലിലേക്കുള്ള മാറ്റത്തിൽ പ്രധാനപ്പെട്ട ഒന്നും നഷ്ടപ്പെടരുത് എന്നതാണ് ലക്ഷ്യം. കോർപ്പസ് ഫയലുകൾ മാത്രം ഉപയോഗിച്ച് ഒരു പേജിൽ എന്ത് എഴുതിയിരുന്നു, എവിടെ എഴുതിയിരുന്നു, ആ ഇനം എന്താണ് എന്നിവ പുനഃസൃഷ്ടിക്കാൻ കഴിയണം.</p>
+    <p>സംരക്ഷണവും സ്വതന്ത്ര ലഭ്യതയും എന്ന ഗ്രന്ഥപ്പുരയുടെ ലക്ഷ്യത്തെ ഇത് നേരിട്ട് പിന്തുണയ്ക്കുന്നു. സ്കാനുകൾ പേജിന്റെ രൂപം സംരക്ഷിക്കുന്നുണ്ടെങ്കിലും ഉള്ളടക്കം ചിത്രങ്ങളിൽ ഒതുങ്ങിനിൽക്കുന്നു. ഘടനയില്ലാത്ത OCR ടെക്സ്റ്റിലാകട്ടെ പേജ് വിന്യാസവും പട്ടികകളും സന്ദർഭവും നഷ്ടപ്പെടുന്നു. തുറന്ന മാനദണ്ഡങ്ങൾ (open standards) ഉപയോഗിച്ച് തയ്യാറാക്കുന്ന കോർപ്പസ് ഇവ രണ്ടും സംരക്ഷിക്കും. ഏതെങ്കിലും ഒരു വെബ്‌സൈറ്റിനെയോ സോഫ്റ്റ്‌വെയറിനെയോ ആശ്രയിക്കാതെ അത് ദീർഘകാലം നിലനിൽക്കുകയും ചെയ്യും. ഉള്ളടക്കം പൊതുസഞ്ചയത്തിലായതിനാൽ കോർപ്പസ് സ്വതന്ത്രമായി പങ്കുവെക്കാനും മറ്റ് ലൈബ്രറികൾക്കും ആർക്കൈവുകൾക്കും പകർപ്പുകൾ സൂക്ഷിക്കാനും കഴിയും. ഇത് ശേഖരം നഷ്ടപ്പെടാനുള്ള സാധ്യത ഗണ്യമായി കുറയ്ക്കും. മുഴുവൻ ശേഖരത്തിലും ടെക്സ്റ്റ് തിരയാനും കൃത്യമായ ഭാഗങ്ങൾ ഉദ്ധരിക്കാനും ഗവേഷണത്തിനും വിദ്യാഭ്യാസത്തിനും മലയാളം ഭാഷാ സാങ്കേതികവിദ്യയ്ക്കും ഇത് ഉപയോഗിക്കാനും സാധിക്കും. നിലവിലുള്ള OCR ടെക്സ്റ്റ് ഒരു തുടക്കമായി ഉപയോഗിക്കാം. അതിലെ തെറ്റുകൾ തിരുത്താൻ ഇനിയും പരിശ്രമം വേണ്ടിവരും. എന്നാൽ ഘടനാപരമായ രൂപത്തിൽ സൂക്ഷിക്കുന്നതിനാൽ ഓരോ തിരുത്തലും കൃത്യമായ സ്ഥാനത്ത് ചേർക്കാനും നിലനിർത്താനും കഴിയും.</p>
+  </section>
+
+  <p class="note">See it applied: the <a href="../walkthrough/">walkthrough</a> explains the idea on three real pages, and the <a href="../specimen/american-aikyanadu-1971/">working specimen</a> shows those pages fully encoded.</p>
+</div>
+</body>
+</html>

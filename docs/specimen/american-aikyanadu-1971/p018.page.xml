@@ -1,0 +1,588 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<PcGts xmlns="http://schema.primaresearch.org/PAGE/gts/pagecontent/2019-07-15" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schema.primaresearch.org/PAGE/gts/pagecontent/2019-07-15 http://schema.primaresearch.org/PAGE/gts/pagecontent/2019-07-15/pagecontent.xsd" pcGtsId="p018_pcgts">
+  <Metadata>
+    <Creator>Gpura digitisation pipeline demo - layout-encoding stage (page/json2page.py, lxml)</Creator>
+    <Created>2026-11-02T16:09:13+00:00</Created>
+    <LastChange>2026-11-02T16:09:13+00:00</LastChange>
+    <Comments>Source: 'American Aikyanadinte Charithram' (Malayalam, 1971), Gpura archive, IIIF canvas 18, printed page 2. Layout and readings come from ocr/p018.lines.json: regions/lines drawn by the OCR stage; TextEquiv index=1 is a careful MODEL-MADE reading from zoomed line images, NOT human-verified ground truth; TextEquiv index=2 (where present) is raw Tesseract 5.3.4 (tessdata_best) output with its mean word confidence. Coordinates are pixels of the full-resolution scan (2374 x 3495) assumed identical to the IIIF full/max image. Line-level flags (underlined/unclear/damage/inkOver/hyphenEnd) are in TextLine/@custom (Transkribus-style 'tag {offset:N; length:M; ...}' code-point offsets) with notes in @comments.</Comments>
+    <MetadataItem type="other" name="iiif-canvas" value="https://artifacts.gpura.org/public/1971-american-aikyanadinte-charithram/canvas/18"/>
+    <MetadataItem type="other" name="printed-page-number" value="2"/>
+  </Metadata>
+  <Page imageFilename="https://iiif.gpura.org/iiif/3/1971-american-aikyanadinte-charithram__0018.jpg/full/max/0/default.jpg" imageWidth="2374" imageHeight="3495" type="content" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" textLineOrder="top-to-bottom">
+    <!-- IIIF canvas: https://artifacts.gpura.org/public/1971-american-aikyanadinte-charithram/canvas/18 -->
+    <ReadingOrder>
+      <OrderedGroup id="p018_ro" caption="printed text flow (lines.json reading_order)">
+        <RegionRefIndexed index="0" regionRef="p018_r01"/>
+        <RegionRefIndexed index="1" regionRef="p018_r02"/>
+        <RegionRefIndexed index="2" regionRef="p018_r03"/>
+        <RegionRefIndexed index="3" regionRef="p018_r04"/>
+        <RegionRefIndexed index="4" regionRef="p018_r05"/>
+        <RegionRefIndexed index="5" regionRef="p018_r06"/>
+      </OrderedGroup>
+    </ReadingOrder>
+    <Relations>
+      <Relation id="p018_rel01" type="link" comments="reader mark at TextLine p018_r06_l003">
+        <SourceRegionRef regionRef="p018_r07"/>
+        <TargetRegionRef regionRef="p018_r06"/>
+      </Relation>
+      <Relation id="p018_rel02" type="link" comments="damage affects TextLine p018_r06_l009">
+        <SourceRegionRef regionRef="p018_r10"/>
+        <TargetRegionRef regionRef="p018_r06"/>
+      </Relation>
+      <Relation id="p018_rel03" type="link" comments="reader mark at TextLine p018_r04_l001">
+        <SourceRegionRef regionRef="p018_r11"/>
+        <TargetRegionRef regionRef="p018_r04"/>
+      </Relation>
+      <Relation id="p018_rel04" type="link" comments="reader mark at TextLine p018_r04_l002">
+        <SourceRegionRef regionRef="p018_r12"/>
+        <TargetRegionRef regionRef="p018_r04"/>
+      </Relation>
+      <Relation id="p018_rel05" type="link" comments="reader mark at TextLine p018_r04_l002">
+        <SourceRegionRef regionRef="p018_r13"/>
+        <TargetRegionRef regionRef="p018_r04"/>
+      </Relation>
+      <Relation id="p018_rel06" type="link" comments="reader mark at TextLine p018_r04_l003">
+        <SourceRegionRef regionRef="p018_r14"/>
+        <TargetRegionRef regionRef="p018_r04"/>
+      </Relation>
+      <Relation id="p018_rel07" type="link" comments="reader mark at TextLine p018_r04_l011">
+        <SourceRegionRef regionRef="p018_r15"/>
+        <TargetRegionRef regionRef="p018_r04"/>
+      </Relation>
+      <Relation id="p018_rel08" type="link" comments="reader mark at TextLine p018_r04_l011">
+        <SourceRegionRef regionRef="p018_r16"/>
+        <TargetRegionRef regionRef="p018_r04"/>
+      </Relation>
+      <Relation id="p018_rel09" type="link" comments="reader mark at TextLine p018_r04_l012">
+        <SourceRegionRef regionRef="p018_r17"/>
+        <TargetRegionRef regionRef="p018_r04"/>
+      </Relation>
+      <Relation id="p018_rel10" type="link" comments="reader mark at TextLine p018_r04_l013">
+        <SourceRegionRef regionRef="p018_r18"/>
+        <TargetRegionRef regionRef="p018_r04"/>
+      </Relation>
+      <Relation id="p018_rel11" type="link" comments="reader mark at TextLine p018_r04_l013">
+        <SourceRegionRef regionRef="p018_r19"/>
+        <TargetRegionRef regionRef="p018_r04"/>
+      </Relation>
+      <Relation id="p018_rel12" type="link" comments="reader mark at TextLine p018_r04_l013">
+        <SourceRegionRef regionRef="p018_r20"/>
+        <TargetRegionRef regionRef="p018_r04"/>
+      </Relation>
+      <Relation id="p018_rel13" type="link" comments="reader mark at TextLine p018_r04_l014">
+        <SourceRegionRef regionRef="p018_r21"/>
+        <TargetRegionRef regionRef="p018_r04"/>
+      </Relation>
+      <Relation id="p018_rel14" type="link" comments="reader mark at TextLine p018_r06_l001">
+        <SourceRegionRef regionRef="p018_r22"/>
+        <TargetRegionRef regionRef="p018_r06"/>
+      </Relation>
+      <Relation id="p018_rel15" type="link" comments="reader mark at TextLine p018_r06_l002">
+        <SourceRegionRef regionRef="p018_r23"/>
+        <TargetRegionRef regionRef="p018_r06"/>
+      </Relation>
+      <Relation id="p018_rel16" type="link" comments="reader mark at TextLine p018_r06_l006">
+        <SourceRegionRef regionRef="p018_r24"/>
+        <TargetRegionRef regionRef="p018_r06"/>
+      </Relation>
+      <Relation id="p018_rel17" type="link" comments="reader mark at TextLine p018_r06_l006">
+        <SourceRegionRef regionRef="p018_r25"/>
+        <TargetRegionRef regionRef="p018_r06"/>
+      </Relation>
+    </Relations>
+    <TextRegion id="p018_r01" custom="readingOrder {index:0;}" type="page-number" readingDirection="left-to-right" textLineOrder="top-to-bottom" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" production="printed">
+      <Coords points="241,173 270,173 270,215 241,215"/>
+      <TextLine id="p018_r01_l001" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:0;}" index="0">
+        <Coords points="241,173 270,173 270,215 241,215"/>
+        <Baseline points="241,211 270,211"/>
+        <TextEquiv index="1" comments="reviewed model reading (not human-verified)">
+          <Unicode>2</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.912" comments="raw Tesseract 5.3.4 tessdata_best output (own encoding)">
+          <Unicode>2</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextEquiv index="1" comments="lines joined with newline">
+        <Unicode>2</Unicode>
+      </TextEquiv>
+    </TextRegion>
+    <TextRegion id="p018_r02" custom="readingOrder {index:1;}" type="header" readingDirection="left-to-right" textLineOrder="top-to-bottom" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" production="printed">
+      <Coords points="769,178 1793,178 1793,237 769,237"/>
+      <TextLine id="p018_r02_l001" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:0;}" index="0">
+        <Coords points="769,178 1793,178 1793,237 769,237"/>
+        <Baseline points="769,233 1793,233"/>
+        <TextEquiv index="1" comments="reviewed model reading (not human-verified)">
+          <Unicode>അമേരിക്കൻ ഐക്യനാടിന്റെ ചരിത്രം</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.648" comments="raw Tesseract 5.3.4 tessdata_best output (own encoding)">
+          <Unicode>അമേരിക്കന്‍ ഐക്യനാടിന്‍െറ ചരിത്രം</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextEquiv index="1" comments="lines joined with newline">
+        <Unicode>അമേരിക്കൻ ഐക്യനാടിന്റെ ചരിത്രം</Unicode>
+      </TextEquiv>
+    </TextRegion>
+    <TextRegion id="p018_r03" custom="readingOrder {index:2;}" continuation="true" type="paragraph" readingDirection="left-to-right" textLineOrder="top-to-bottom" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" production="printed">
+      <!-- continues paragraph p017_r04 (p017.page.xml); first word completes p017_r04_l012 'പതി-' -->
+      <Coords points="241,313 2320,313 2320,637 241,637"/>
+      <TextLine id="p018_r03_l001" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:0;}" index="0">
+        <Coords points="241,313 2320,313 2320,404 241,404"/>
+        <Baseline points="241,378 2319,378"/>
+        <TextEquiv index="1" comments="reviewed model reading (not human-verified)">
+          <Unicode>പ്പിച്ചിട്ടുണ്ടു്. സുപരിചിതവും ശ്രദ്ധേയവും ആയ രണ്ടു് ഉദാഹരണം പറയാം.</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.500" comments="raw Tesseract 5.3.4 tessdata_best output (own encoding)">
+          <Unicode>പ്പിച്ചിട്ടണ്ടു!. സുപരിചിതവും ശ്രദ്ധേയവും ആയ രണ്ടു? ഉദാഹരണം പായും. |</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p018_r03_l002" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:1;} hyphenEnd {offset:60; length:0; printed:false;}" comments="[hyphen_end] last word continues on the next line without a printed hyphen" index="1">
+        <Coords points="246,395 2310,395 2310,484 246,484"/>
+        <Baseline points="246,458 2309,458"/>
+        <TextEquiv index="1" comments="reviewed model reading (not human-verified)">
+          <Unicode>കാലിഫോർണിയയിലെ ഏറ്റവും വലിയ രണ്ടു നഗരങ്ങൾക്കു് ഇപ്പോഴും സ്പാ</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.835" comments="raw Tesseract 5.3.4 tessdata_best output (own encoding)">
+          <Unicode>കാലിഫോര്‍ണിയയിലെ ഏററവും വലിയ രണ്ടു നഗരങ്ങടംക്ക* ഇപ്പോഴും സ്പാ</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p018_r03_l003" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:2;}" index="2">
+        <Coords points="242,474 2310,474 2310,556 242,556"/>
+        <Baseline points="242,530 2309,530"/>
+        <TextEquiv index="1" comments="reviewed model reading (not human-verified)">
+          <Unicode>നിഷ് പേരാണു്. മധ്യപശ്ചിമദേശത്തെ ഒരു വലിയ പട്ടണത്തിന്റെ പേരു്</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.563" comments="raw Tesseract 5.3.4 tessdata_best output (own encoding)">
+          <Unicode>നിഷ* പേരാണു. മധ്യപശ്ചിമദേശത്തെ ഒരു വലിയ പട്ടണത്തിന്‍െറ പേങ്ക്‌</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p018_r03_l004" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:3;}" index="3">
+        <Coords points="243,557 910,557 910,637 243,637"/>
+        <Baseline points="243,611 909,611"/>
+        <TextEquiv index="1" comments="reviewed model reading (not human-verified)">
+          <Unicode>സെന്റു് ലൂയിസ് എന്നും.</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.433" comments="raw Tesseract 5.3.4 tessdata_best output (own encoding)">
+          <Unicode>സെന്‍റ: ലൂയിസ* എന്നും.</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextEquiv index="1" comments="lines joined with newline">
+        <Unicode>പ്പിച്ചിട്ടുണ്ടു്. സുപരിചിതവും ശ്രദ്ധേയവും ആയ രണ്ടു് ഉദാഹരണം പറയാം.
+കാലിഫോർണിയയിലെ ഏറ്റവും വലിയ രണ്ടു നഗരങ്ങൾക്കു് ഇപ്പോഴും സ്പാ
+നിഷ് പേരാണു്. മധ്യപശ്ചിമദേശത്തെ ഒരു വലിയ പട്ടണത്തിന്റെ പേരു്
+സെന്റു് ലൂയിസ് എന്നും.</Unicode>
+      </TextEquiv>
+    </TextRegion>
+    <TextRegion id="p018_r04" custom="readingOrder {index:3;}" type="paragraph" readingDirection="left-to-right" textLineOrder="top-to-bottom" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" production="printed">
+      <Coords points="239,666 2315,666 2315,1804 239,1804"/>
+      <TextLine id="p018_r04_l001" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:0;} underlined {offset:0; length:44; hand:blue-ink; cert:high; graphic:p018_r11;} hyphenEnd {offset:59; length:0; printed:false;}" comments="[underline 0-44] underline graphic p018_r11; span approximate | [hyphen_end] last word continues on the next line without a printed hyphen" index="0">
+        <Coords points="376,666 2306,666 2306,757 376,757"/>
+        <Baseline points="376,731 2305,731"/>
+        <TextEquiv index="1" comments="reviewed model reading (not human-verified)">
+          <Unicode>അമേരിക്കൻ സംസ്കാരം ആംഗലസംസ്കാരത്തിന്റെ വെറും പകർപ്പല്ലാതിരി</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.682" comments="raw Tesseract 5.3.4 tessdata_best output (own encoding)">
+          <Unicode>അമേരിക്കന്‍ സംസ്കാരം ആംഗലസംസ്ക്ാരത്തിന്‍െറ വെറും പകര്‍പ്പലാതിയി</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p018_r04_l002" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:1;} underlined {offset:0; length:24; hand:blue-ink; cert:high; graphic:p018_r12;} inkOver {offset:14; length:16; hand:blue-ink; cert:high;} underlined {offset:14; length:50; hand:blue-ink; cert:high; graphic:p018_r13;} hyphenEnd {offset:66; length:0; printed:false;}" comments="[underline 0-24] underline graphic p018_r12; span approximate | [ink-over 14-30] underline stroke from the line above is drawn through these words; still legible | [underline 14-64] underline graphic p018_r13; span approximate | [hyphen_end] last word continues on the next line without a printed hyphen" index="1">
+        <Coords points="245,748 2312,748 2312,829 245,829"/>
+        <Baseline points="245,803 2311,803"/>
+        <TextEquiv index="1" comments="reviewed model reading (not human-verified)">
+          <Unicode>ക്കുന്നതിന്റെ രണ്ടാമത്തെ കാരണം യു. എസ്. ഏ. യുടെ ഭൂമിശാസ്ത്രപരമായ സ</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.556" comments="raw Tesseract 5.3.4 tessdata_best output (own encoding)">
+          <Unicode>ക്കുന്നതിന്‍െറ രണ്ടാമ കാരണം യു. എസ്‌. ഏ. യൂടെ ഭൂമിശാസ്രുപരമായ സ.</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p018_r04_l003" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:2;} underlined {offset:0; length:12; hand:blue-ink; cert:high; graphic:p018_r14;}" comments="[underline 0-12] underline graphic p018_r14; span approximate" index="2">
+        <Coords points="242,821 2312,821 2312,910 242,910"/>
+        <Baseline points="242,884 2311,884"/>
+        <TextEquiv index="1" comments="reviewed model reading (not human-verified)">
+          <Unicode>വിശേഷതയാണു്. യൂറോപ്പിൽ നിന്നു വന്ന അധിനിവേശകരുടെയും അവരുടെ</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.644" comments="raw Tesseract 5.3.4 tessdata_best output (own encoding)">
+          <Unicode>വിശേഷതയാണു്‌. യൂറോപ്പില്‍ നിന്നു വന്ന അധിനിവേശകരുടെയും അവരുടെ 4</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p018_r04_l004" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:3;} unclear {offset:44; length:20; cert:medium;}" comments="[unclear 44-64] first syllable printed as ക with a detached colon-like mark; read as കു (cf. existing OCR); standard word would be കരുപ്പിടിപ്പിച്ചതും" index="3">
+        <Coords points="244,910 2311,910 2311,1002 244,1002"/>
+        <Baseline points="244,976 2310,976"/>
+        <TextEquiv index="1" comments="reviewed model reading (not human-verified)">
+          <Unicode>പരമ്പരകളുടെയും ഭാഗധേയങ്ങൾ രൂപപ്പെടുത്തിയതും കുരുപ്പിടിപ്പിച്ചതും അവർ</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.783" comments="raw Tesseract 5.3.4 tessdata_best output (own encoding)">
+          <Unicode>പരമ്പരകളടെയും ഭാഗധേയങ്ങടം രൂപപ്പെടുത്തിയതും കരുപ്പിടിപ്പിച്ചതും അവന്‍</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p018_r04_l005" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:4;} unclear {offset:0; length:8; cert:medium;}" comments="[unclear 0-8] u-sign under പ്പ is faint; could be പാർപ്പ്" index="4">
+        <Coords points="242,988 2312,988 2312,1082 242,1082"/>
+        <Baseline points="242,1056 2311,1056"/>
+        <TextEquiv index="1" comments="reviewed model reading (not human-verified)">
+          <Unicode>പാർപ്പു് ഉറപ്പിച്ച ഭൂമിയാണു്. തങ്ങൾ എവിടെ താമസിക്കണമെന്നും ഏതു</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.749" comments="raw Tesseract 5.3.4 tessdata_best output (own encoding)">
+          <Unicode>പാര്‍പ്പു” ഉറപ്പിച്ച ഭൂമിയാണു. തങ്ങടം എവിടെ താമസിക്കണമെന്നും ഏതു</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p018_r04_l006" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:5;} unclear {offset:44; length:20; cert:medium;}" comments="[unclear 44-64] line-final ് (if any) lost in the stained right margin" index="5">
+        <Coords points="242,1068 2294,1068 2294,1160 242,1160"/>
+        <Baseline points="242,1134 2293,1134"/>
+        <TextEquiv index="1" comments="reviewed model reading (not human-verified)">
+          <Unicode>ജീവിതവൃത്തി കൈക്കൊള്ളണമെന്നും അവരെക്കൊണ്ടു് തീരുമാനമെടുപ്പിച്ചതു</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.669" comments="raw Tesseract 5.3.4 tessdata_best output (own encoding)">
+          <Unicode>ജീവിതവൃത്തി കൈക്കൊള്ളണമെന്നും അവരെക്കൊണ്ടു” തീരുമാനമെടപ്പിചതു</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p018_r04_l007" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:6;} hyphenEnd {offset:63; length:0; printed:false;}" comments="[hyphen_end] last word continues on the next line without a printed hyphen" index="6">
+        <Coords points="241,1150 2313,1150 2313,1241 241,1241"/>
+        <Baseline points="241,1215 2312,1215"/>
+        <TextEquiv index="1" comments="reviewed model reading (not human-verified)">
+          <Unicode>നാട്ടിന്റെ ഭൂപ്രകൃതിയും ശീതോഷ്ണാവസ്ഥയും ആണു്. ചില പ്രദേശങ്ങൾ അവ</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.713" comments="raw Tesseract 5.3.4 tessdata_best output (own encoding)">
+          <Unicode>നാട്ടിന്‍െറ ഭൂപ്രകൃതിയും ശീതോപഷ്ണാവസ്ഥയയം ആണു്‌. ചില പ്രദേശങ്ങടം അത,</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p018_r04_l008" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:7;} damage {offset:60; length:3; cert:medium;} hyphenEnd {offset:63; length:0; printed:false;}" comments="[damage 60-63] final ര partly lost at stained right edge | [hyphen_end] last word continues on the next line without a printed hyphen" index="7">
+        <Coords points="242,1225 2304,1225 2304,1323 242,1323"/>
+        <Baseline points="242,1297 2303,1297"/>
+        <TextEquiv index="1" comments="reviewed model reading (not human-verified)">
+          <Unicode>രെ ആകർഷിച്ചു. ചിലേടങ്ങൾ അവർക്കു് ഇഷ്ടപ്പെട്ടില്ല. ജീവിക്കാൻ തിര</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.494" comments="raw Tesseract 5.3.4 tessdata_best output (own encoding)">
+          <Unicode>OO ആകര്‍ഷിച്ചു. ചിലേടങ്ങരം അവക്കു: ഇഷ്ടപ്പെട്ടില്ല. ജീവിക്കാന്‍ തി</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p018_r04_l009" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:8;} hyphenEnd {offset:59; length:0; printed:false;}" comments="[hyphen_end] last word continues on the next line without a printed hyphen" index="8">
+        <Coords points="244,1306 2315,1306 2315,1394 244,1394"/>
+        <Baseline points="244,1368 2314,1368"/>
+        <TextEquiv index="1" comments="reviewed model reading (not human-verified)">
+          <Unicode>ഞ്ഞെടുത്ത പ്രദേശങ്ങൾ, പുതിയ ജീവിതചിന്തകളും ജീവിതശീലങ്ങളും അ</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.498" comments="raw Tesseract 5.3.4 tessdata_best output (own encoding)">
+          <Unicode>ഞ്ഞെടുത്ത പ്രദേശങ്ങ, പുതിയ. ജീവിതചിന്തകളും ജീവിതശീലങ്ങളും അ.</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p018_r04_l010" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:9;} hyphenEnd {offset:54; length:0; printed:false;}" comments="[hyphen_end] last word continues on the next line without a printed hyphen" index="9">
+        <Coords points="241,1389 2313,1389 2313,1477 241,1477"/>
+        <Baseline points="241,1451 2312,1451"/>
+        <TextEquiv index="1" comments="reviewed model reading (not human-verified)">
+          <Unicode>വർക്കു് നൽകി. അവ അധിനിവേശകരുടെ ജീവിതവീക്ഷണം തന്നെ പരിവ</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.841" comments="raw Tesseract 5.3.4 tessdata_best output (own encoding)">
+          <Unicode>വര്‍ക്ക്‌ നല്‍കീ. അവ അധിനിവേശകരുടെ ജീവിതവീക്ഷണം തന്നെ പരിവ</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p018_r04_l011" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:10;} unclear {offset:0; length:6; cert:medium;} underlined {offset:15; length:29; hand:blue-ink; cert:high; graphic:p018_r15;} underlined {offset:32; length:26; hand:blue-ink; cert:high; graphic:p018_r16;} hyphenEnd {offset:60; length:0; printed:false;}" comments="[unclear 0-6] line begins with the dot-reph of പരിവർത്തനം, split across the line break | [underline 15-44] underline graphic p018_r15; span approximate | [underline 32-58] underline graphic p018_r16; span approximate | [hyphen_end] last word continues on the next line without a printed hyphen" index="10">
+        <Coords points="242,1479 2314,1479 2314,1561 242,1561"/>
+        <Baseline points="242,1535 2313,1535"/>
+        <TextEquiv index="1" comments="reviewed model reading (not human-verified)">
+          <Unicode>ർത്തനം ചെയ്തു. ഇംഗ്ലീഷ്കാരനെയും ജർമൻകാരനെയും ഇറ്റാലിയനെയും അ</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.572" comments="raw Tesseract 5.3.4 tessdata_best output (own encoding)">
+          <Unicode>ത്തനം ചെയ്തു. _ഇംഗ്രീഷ*കാരനെയും ജര്‍മന്‍കാരനെയും ഇറോലിയനെയും ആ</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p018_r04_l012" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:11;} underlined {offset:0; length:49; hand:blue-ink; cert:high; graphic:p018_r17;} hyphenEnd {offset:62; length:0; printed:false;}" comments="[underline 0-49] underline graphic p018_r17; span approximate | [hyphen_end] last word continues on the next line without a printed hyphen" index="11">
+        <Coords points="242,1560 2313,1560 2313,1640 242,1640"/>
+        <Baseline points="242,1614 2312,1614"/>
+        <TextEquiv index="1" comments="reviewed model reading (not human-verified)">
+          <Unicode>യർലണ്ടുകാരനെയും റഷ്യക്കാരനെയും അമേരിക്കക്കാരാക്കി മാറ്റിയതു് ഐ</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.677" comments="raw Tesseract 5.3.4 tessdata_best output (own encoding)">
+          <Unicode>യര്‍ലണ്ടുകാരനെയും റഷ്യക്കാരനെയും അമേരിക്കക്കാരാക്കി മാററിയതു* ഐ</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p018_r04_l013" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:12;} underlined {offset:0; length:29; hand:blue-ink; cert:high; graphic:p018_r18;} underlined {offset:12; length:27; hand:blue-ink; cert:high; graphic:p018_r19;} underlined {offset:30; length:35; hand:blue-ink; cert:high; graphic:p018_r20;}" comments="[underline 0-29] underline graphic p018_r18; span approximate | [underline 12-39] underline graphic p018_r19; span approximate | [underline 30-65] underline graphic p018_r20; span approximate" index="12">
+        <Coords points="244,1634 2308,1634 2308,1722 244,1722"/>
+        <Baseline points="244,1696 2307,1696"/>
+        <TextEquiv index="1" comments="reviewed model reading (not human-verified)">
+          <Unicode>ക്യനാടിന്റെ ഭൂമിശാസ്ത്രമാണു്. അമേരിക്കൻ ചരിത്രത്തിന്റെ പശ്ചാത്തലം</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.563" comments="raw Tesseract 5.3.4 tessdata_best output (own encoding)">
+          <Unicode>ക്ൃനാടി ന്‍റ ഭൂമിശാസ്ത്രമാണു്‌. അമേരിക്കന്‍ ചരിത്രത്തിന്‍െറ പശ്ചാത്തലം</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p018_r04_l014" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:13;} underlined {offset:0; length:27; hand:blue-ink; cert:high; graphic:p018_r21;}" comments="[underline 0-27] underline graphic p018_r21; span approximate" index="13">
+        <Coords points="239,1725 1664,1725 1664,1804 239,1804"/>
+        <Baseline points="239,1778 1663,1778"/>
+        <TextEquiv index="1" comments="reviewed model reading (not human-verified)">
+          <Unicode>അമേരിക്കൻ ഭൂമിശാസ്ത്രമത്രെ.</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.290" comments="raw Tesseract 5.3.4 tessdata_best output (own encoding)">
+          <Unicode>അമേരിക്കല്‍ ഭൂമിശാസ്ത്ര -———SOCSCSC&lt;‘(C*«S*~&lt;;:~:*~*W</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextEquiv index="1" comments="lines joined with newline">
+        <Unicode>അമേരിക്കൻ സംസ്കാരം ആംഗലസംസ്കാരത്തിന്റെ വെറും പകർപ്പല്ലാതിരി
+ക്കുന്നതിന്റെ രണ്ടാമത്തെ കാരണം യു. എസ്. ഏ. യുടെ ഭൂമിശാസ്ത്രപരമായ സ
+വിശേഷതയാണു്. യൂറോപ്പിൽ നിന്നു വന്ന അധിനിവേശകരുടെയും അവരുടെ
+പരമ്പരകളുടെയും ഭാഗധേയങ്ങൾ രൂപപ്പെടുത്തിയതും കുരുപ്പിടിപ്പിച്ചതും അവർ
+പാർപ്പു് ഉറപ്പിച്ച ഭൂമിയാണു്. തങ്ങൾ എവിടെ താമസിക്കണമെന്നും ഏതു
+ജീവിതവൃത്തി കൈക്കൊള്ളണമെന്നും അവരെക്കൊണ്ടു് തീരുമാനമെടുപ്പിച്ചതു
+നാട്ടിന്റെ ഭൂപ്രകൃതിയും ശീതോഷ്ണാവസ്ഥയും ആണു്. ചില പ്രദേശങ്ങൾ അവ
+രെ ആകർഷിച്ചു. ചിലേടങ്ങൾ അവർക്കു് ഇഷ്ടപ്പെട്ടില്ല. ജീവിക്കാൻ തിര
+ഞ്ഞെടുത്ത പ്രദേശങ്ങൾ, പുതിയ ജീവിതചിന്തകളും ജീവിതശീലങ്ങളും അ
+വർക്കു് നൽകി. അവ അധിനിവേശകരുടെ ജീവിതവീക്ഷണം തന്നെ പരിവ
+ർത്തനം ചെയ്തു. ഇംഗ്ലീഷ്കാരനെയും ജർമൻകാരനെയും ഇറ്റാലിയനെയും അ
+യർലണ്ടുകാരനെയും റഷ്യക്കാരനെയും അമേരിക്കക്കാരാക്കി മാറ്റിയതു് ഐ
+ക്യനാടിന്റെ ഭൂമിശാസ്ത്രമാണു്. അമേരിക്കൻ ചരിത്രത്തിന്റെ പശ്ചാത്തലം
+അമേരിക്കൻ ഭൂമിശാസ്ത്രമത്രെ.</Unicode>
+      </TextEquiv>
+    </TextRegion>
+    <TextRegion id="p018_r05" custom="readingOrder {index:4;}" type="heading" readingDirection="left-to-right" textLineOrder="top-to-bottom" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" production="printed">
+      <Coords points="250,1835 2274,1835 2274,2015 250,2015"/>
+      <TextLine id="p018_r05_l001" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:0;}" index="0">
+        <Coords points="250,1835 1759,1835 1759,1936 250,1936"/>
+        <Baseline points="250,1910 1758,1910"/>
+        <TextEquiv index="1" comments="reviewed model reading (not human-verified)">
+          <Unicode>1. വലിപ്പം, ബാഹ്യപ്രകൃതി, ശീതോഷ്ണാവസ്ഥ,</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.676" comments="raw Tesseract 5.3.4 tessdata_best output (own encoding)">
+          <Unicode>1. വലിപ്പം, ബാഹ്യപ്രകൃതി, ശീതോഗഷ്ണാവസ്ഥ,</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p018_r05_l002" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:1;}" index="1">
+        <Coords points="366,1931 2274,1931 2274,2015 366,2015"/>
+        <Baseline points="366,1989 2273,1989"/>
+        <TextEquiv index="1" comments="reviewed model reading (not human-verified)">
+          <Unicode>പ്രകൃതിവിഭവങ്ങൾ</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.355" comments="raw Tesseract 5.3.4 tessdata_best output (own encoding)">
+          <Unicode>_പ്രൃതിവിഭവങ്ങരം = = oe</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextEquiv index="1" comments="lines joined with newline">
+        <Unicode>1. വലിപ്പം, ബാഹ്യപ്രകൃതി, ശീതോഷ്ണാവസ്ഥ,
+പ്രകൃതിവിഭവങ്ങൾ</Unicode>
+      </TextEquiv>
+    </TextRegion>
+    <TextRegion id="p018_r06" custom="readingOrder {index:5;}" type="paragraph" readingDirection="left-to-right" textLineOrder="top-to-bottom" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" production="printed">
+      <Coords points="227,2044 2320,2044 2320,3360 227,3360"/>
+      <TextLine id="p018_r06_l001" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:0;} underlined {offset:0; length:59; hand:blue-ink; cert:high; graphic:p018_r22;} hyphenEnd {offset:62; length:0; printed:false;}" comments="[underline 0-59] underline graphic p018_r22; span approximate | [hyphen_end] last word continues on the next line without a printed hyphen" index="0">
+        <Coords points="380,2044 2313,2044 2313,2133 380,2133"/>
+        <Baseline points="380,2107 2312,2107"/>
+        <TextEquiv index="1" comments="reviewed model reading (not human-verified)">
+          <Unicode>അമേരിക്കൻ ഭൂമിശാസ്ത്രത്തിന്റെ ശ്രദ്ധേയമായ പ്രത്യേകത അതിന്റെ വി</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.310" comments="raw Tesseract 5.3.4 tessdata_best output (own encoding)">
+          <Unicode>ee ee</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p018_r06_l002" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:1;} underlined {offset:0; length:12; hand:blue-ink; cert:high; graphic:p018_r23;}" comments="[underline 0-12] underline graphic p018_r23; span approximate" index="1">
+        <Coords points="247,2132 2315,2132 2315,2213 247,2213"/>
+        <Baseline points="247,2187 2314,2187"/>
+        <TextEquiv index="1" comments="reviewed model reading (not human-verified)">
+          <Unicode>സ്തൃതിയാണു്. വിശേഷിച്ചും, കുടിയേറ്റത്തിനു വന്നവരുടെ ജന്മഭൂമികളുടെ</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.414" comments="raw Tesseract 5.3.4 tessdata_best output (own encoding)">
+          <Unicode>as തിയാണ്‌ _രുശേഷിചും, കുടിയേററത്തിനു വണവരുടെ ജന്തമികളണെ a</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p018_r06_l003" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:2;} underlined {offset:47; length:9; hand:blue-ink; cert:high; graphic:p018_r07;} hyphenEnd {offset:59; length:0; printed:false;}" comments="[underline 47-56] underline graphic p018_r07; span approximate | [hyphen_end] last word continues on the next line without a printed hyphen" index="2">
+        <Coords points="247,2214 2320,2214 2320,2307 247,2307"/>
+        <Baseline points="247,2281 2319,2281"/>
+        <TextEquiv index="1" comments="reviewed model reading (not human-verified)">
+          <Unicode>വലിപ്പവുമായി താരതമ്യപ്പെടുത്തുമ്പോൾ. അലാസ്കയും ഹാവായിയും ഉൾ</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.371" comments="raw Tesseract 5.3.4 tessdata_best output (own encoding)">
+          <Unicode>വലിപ്പവുമായി താരതമൃപ്പെടത്തുമ്പോടം. അലാസ്‌*കയും .ഹാവായിയും. ഉല</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p018_r06_l004" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:3;} unclear {offset:32; length:7; cert:medium;}" comments="[unclear 32-39] fifth digit is a broken 0 (left side of the bowl missing); Tesseract read 9" index="3">
+        <Coords points="248,2288 2318,2288 2318,2389 248,2389"/>
+        <Baseline points="248,2363 2317,2363"/>
+        <TextEquiv index="1" comments="reviewed model reading (not human-verified)">
+          <Unicode>പ്പെടെ യു. എസ്. ഏ യുടെ വിസ്താരം 3554000 ചതുരശ്രമൈലാണു്. റഷ്യ</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.543" comments="raw Tesseract 5.3.4 tessdata_best output (own encoding)">
+          <Unicode>പ്പെടെ യു. എസ്‌. ഏ യുടെ വിസ്മാരം 8554000ചതുരശ്രമൈലാണു്‌? റഷ്യ.</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p018_r06_l005" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:4;}" index="4">
+        <Coords points="243,2369 2310,2369 2310,2470 243,2470"/>
+        <Baseline points="243,2444 2309,2444"/>
+        <TextEquiv index="1" comments="reviewed model reading (not human-verified)">
+          <Unicode>ഒഴികെയുള്ള യൂറോപ്പിന്റെ വിസ്തൃതി ഏതാണ്ടു് ഇതിൽ പകുതിയേ വരൂ.</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.455" comments="raw Tesseract 5.3.4 tessdata_best output (own encoding)">
+          <Unicode>ഒഴികെയുള്ള യയറോപ്പിഒന്‍റ വിസ്‌തൃതി ഏതാണ്ടു? ഇതില്‍ പകുതിയേ വരൂ.</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p018_r06_l006" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:5;} underlined {offset:0; length:46; hand:blue-ink; cert:high; graphic:p018_r24;} inkOver {offset:33; length:24; hand:blue-ink; cert:medium;} underlined {offset:33; length:39; hand:blue-ink; cert:high; graphic:p018_r25;}" comments="[underline 0-46] underline graphic p018_r24; span approximate | [ink-over 33-57] ink stroke drawn over the upper part of these words; reading supported by context and existing OCR | [underline 33-72] underline graphic p018_r25; span approximate" index="5">
+        <Coords points="247,2452 2313,2452 2313,2550 247,2550"/>
+        <Baseline points="247,2524 2312,2524"/>
+        <TextEquiv index="1" comments="reviewed model reading (not human-verified)">
+          <Unicode>ടെക്സാസ് എന്ന ഒറ്റ സ്റ്റേറ്റിനു് ഇംഗ്ലണ്ടിന്റെ അഞ്ചിരട്ടി വലിപ്പമുണ്ടു്. യു.</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.493" comments="raw Tesseract 5.3.4 tessdata_best output (own encoding)">
+          <Unicode>ടെക്‌സാസ്‌ ടെ കു എന്ന ഒററ സ്റ്റേററിനു്‌ ഇംഗ്ലണ്ട കും Echo താഞ്ചിര യുള്ള 1 വലിപ്പമുണ്ടു. വലു =| യ.</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p018_r06_l007" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:6;} inkOver {offset:5; length:17; hand:blue-ink; cert:high;}" comments="[ink-over 5-22] the sloping underline of the previous line crosses these words" index="6">
+        <Coords points="248,2533 2319,2533 2319,2622 248,2622"/>
+        <Baseline points="248,2596 2318,2596"/>
+        <TextEquiv index="1" comments="reviewed model reading (not human-verified)">
+          <Unicode>എസ്. വൻകരയുടെ കിഴക്കും പടിഞ്ഞാറും കിടക്കുന്ന കടൽതീരത്തിനു് 1500</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.397" comments="raw Tesseract 5.3.4 tessdata_best output (own encoding)">
+          <Unicode>ടെ കു കും യുള്ള വലു :</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p018_r06_l008" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:7;}" index="7">
+        <Coords points="245,2614 2315,2614 2315,2704 245,2704"/>
+        <Baseline points="245,2678 2314,2678"/>
+        <TextEquiv index="1" comments="reviewed model reading (not human-verified)">
+          <Unicode>മൈൽ വീതം നീളമുണ്ടു്. അതിന്റെ കനേഡിയൻ അതിർത്തിയുടെ നീളം 3,000</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.653" comments="raw Tesseract 5.3.4 tessdata_best output (own encoding)">
+          <Unicode>മൈല്‍ വീതം നീളമുണ്ടു്‌. അതിന്‍െറ കനേഡിയന്‍ അതിത്തിയുടെ നീളം ക 000</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p018_r06_l009" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:8;} damage {offset:59; length:5; cert:medium;}" comments="[damage 59-64] torn right margin; final ൾ partly lost" index="8">
+        <Coords points="246,2703 2320,2703 2320,2794 246,2794"/>
+        <Baseline points="246,2768 2319,2768"/>
+        <TextEquiv index="1" comments="reviewed model reading (not human-verified)">
+          <Unicode>മൈൽ വരും. എന്നാൽ ഒരു രാജ്യത്തിന്റെ വിസ്താരം കൊണ്ടു് മാത്രം ആളുകൾ</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.531" comments="raw Tesseract 5.3.4 tessdata_best output (own encoding)">
+          <Unicode>മൈല്‍ വരും. എന്നാല്‍ ഒരു രാജ്യത്തിന്‍െറ വിസ്കാരം കൊണ്ടു: താത്രം ആളുക.</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p018_r06_l010" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:9;} unclear {offset:22; length:14; cert:medium;} damage {offset:54; length:3; cert:medium;} hyphenEnd {offset:57; length:0; printed:false;}" comments="[unclear 22-36] സ്ത്ര ligature as in ഭൂമിശാസ്ത്രം; existing OCR has ആസ്ട്രേലിയയുടെ | [damage 54-57] torn right margin; തു partly lost | [hyphen_end] last word continues on the next line without a printed hyphen" index="9">
+        <Coords points="248,2775 2299,2775 2299,2878 248,2878"/>
+        <Baseline points="248,2852 2298,2852"/>
+        <TextEquiv index="1" comments="reviewed model reading (not human-verified)">
+          <Unicode>ആകർഷിക്കപ്പെടുകയില്ല. ആസ്ത്രേലിയയുടെ വിസ്തൃതി 3000000 ചതു</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.536" comments="raw Tesseract 5.3.4 tessdata_best output (own encoding)">
+          <Unicode>ആകര്‍ഷിക്കപ്പെടുകയിലു. _ ആസ്തേചിയയുടെ വിസ്‌*തൃതി 3000000 ചതു</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p018_r06_l011" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:10;} damage {offset:58; length:2; cert:low;} hyphenEnd {offset:60; length:0; printed:false;}" comments="[damage 58-60] at the torn edge; a following ാ (അതാ-യതു്) may have been lost — print shows only അത | [hyphen_end] last word continues on the next line without a printed hyphen" index="10">
+        <Coords points="245,2860 2300,2860 2300,2951 245,2951"/>
+        <Baseline points="245,2925 2299,2925"/>
+        <TextEquiv index="1" comments="reviewed model reading (not human-verified)">
+          <Unicode>രശ്രമൈലാണു്. എന്നാൽ 11000000 മാത്രമാണു് അവിടത്തെ ജനസംഖ്യ. അത</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p018_r06_l012" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:11;} damage {offset:58; length:2; cert:medium;} hyphenEnd {offset:60; length:0; printed:false;}" comments="[damage 58-60] last characters at torn edge | [hyphen_end] last word continues on the next line without a printed hyphen" index="11">
+        <Coords points="245,2949 2300,2949 2300,3043 245,3043"/>
+        <Baseline points="245,3017 2299,3017"/>
+        <TextEquiv index="1" comments="reviewed model reading (not human-verified)">
+          <Unicode>യതു് യു. എസ്. ഏ. യിലെ ജനസംഖ്യയുടെ ആറു ശതമാനം. യു. എസ്. ഏ. യു</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p018_r06_l013" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:12;} unclear {offset:23; length:14; cert:medium;} damage {offset:53; length:4; cert:medium;} hyphenEnd {offset:57; length:0; printed:false;}" comments="[unclear 23-37] ണ vs ണ്ണ not fully certain | [damage 53-57] subscript of മ്പ partly lost at torn edge | [hyphen_end] last word continues on the next line without a printed hyphen" index="12">
+        <Coords points="245,3031 2317,3031 2317,3119 245,3119"/>
+        <Baseline points="245,3093 2316,3093"/>
+        <TextEquiv index="1" comments="reviewed model reading (not human-verified)">
+          <Unicode>ടെ സമശീതോഷ്ണവും എന്നാൽ വൈവിധ്യപൂർണവും ആയ കാലാവസ്ഥയും സമ്പ</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.540" comments="raw Tesseract 5.3.4 tessdata_best output (own encoding)">
+          <Unicode>ടെ സമരീരതേ്പേവും എന്നാല്‍ ഞ്ചവിധ്യപൂര്‍ണവും. ആയ കാലാവസ്ഥയും സന</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p018_r06_l014" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:13;}" index="13">
+        <Coords points="247,3114 2297,3114 2297,3207 247,3207"/>
+        <Baseline points="247,3181 2296,3181"/>
+        <TextEquiv index="1" comments="reviewed model reading (not human-verified)">
+          <Unicode>ന്നമായ പ്രകൃതിവിഭവങ്ങളുമാണു് കുടിയേറ്റക്കാരെ അങ്ങോട്ടേക്കാകർഷിച്ചതു്</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p018_r06_l015" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:14;} hyphenEnd {offset:61; length:0; printed:false;}" comments="[hyphen_end] last word continues on the next line without a printed hyphen" index="14">
+        <Coords points="227,3188 2295,3188 2295,3287 227,3287"/>
+        <Baseline points="227,3261 2294,3261"/>
+        <TextEquiv index="1" comments="reviewed model reading (not human-verified)">
+          <Unicode>യു. എസ്. ഏ. യുടെ വികസനത്തിനും വളർച്ചയ്ക്കും സഹായകമായി നിന്ന ഘ</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.723" comments="raw Tesseract 5.3.4 tessdata_best output (own encoding)">
+          <Unicode>ശം എസ്‌. ഏയുടെ വികസനത്തിനും വളര്‍ച്ചയ്ക്കും സഹായകമായി നിന്ന ഘു</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p018_r06_l016" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:15;}" index="15">
+        <Coords points="239,3280 2295,3280 2295,3360 239,3360"/>
+        <Baseline points="239,3334 2294,3334"/>
+        <TextEquiv index="1" comments="reviewed model reading (not human-verified)">
+          <Unicode>ടകങ്ങളും ഇവ തന്നെയായിരുന്നു.</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextEquiv index="1" comments="lines joined with newline">
+        <Unicode>അമേരിക്കൻ ഭൂമിശാസ്ത്രത്തിന്റെ ശ്രദ്ധേയമായ പ്രത്യേകത അതിന്റെ വി
+സ്തൃതിയാണു്. വിശേഷിച്ചും, കുടിയേറ്റത്തിനു വന്നവരുടെ ജന്മഭൂമികളുടെ
+വലിപ്പവുമായി താരതമ്യപ്പെടുത്തുമ്പോൾ. അലാസ്കയും ഹാവായിയും ഉൾ
+പ്പെടെ യു. എസ്. ഏ യുടെ വിസ്താരം 3554000 ചതുരശ്രമൈലാണു്. റഷ്യ
+ഒഴികെയുള്ള യൂറോപ്പിന്റെ വിസ്തൃതി ഏതാണ്ടു് ഇതിൽ പകുതിയേ വരൂ.
+ടെക്സാസ് എന്ന ഒറ്റ സ്റ്റേറ്റിനു് ഇംഗ്ലണ്ടിന്റെ അഞ്ചിരട്ടി വലിപ്പമുണ്ടു്. യു.
+എസ്. വൻകരയുടെ കിഴക്കും പടിഞ്ഞാറും കിടക്കുന്ന കടൽതീരത്തിനു് 1500
+മൈൽ വീതം നീളമുണ്ടു്. അതിന്റെ കനേഡിയൻ അതിർത്തിയുടെ നീളം 3,000
+മൈൽ വരും. എന്നാൽ ഒരു രാജ്യത്തിന്റെ വിസ്താരം കൊണ്ടു് മാത്രം ആളുകൾ
+ആകർഷിക്കപ്പെടുകയില്ല. ആസ്ത്രേലിയയുടെ വിസ്തൃതി 3000000 ചതു
+രശ്രമൈലാണു്. എന്നാൽ 11000000 മാത്രമാണു് അവിടത്തെ ജനസംഖ്യ. അത
+യതു് യു. എസ്. ഏ. യിലെ ജനസംഖ്യയുടെ ആറു ശതമാനം. യു. എസ്. ഏ. യു
+ടെ സമശീതോഷ്ണവും എന്നാൽ വൈവിധ്യപൂർണവും ആയ കാലാവസ്ഥയും സമ്പ
+ന്നമായ പ്രകൃതിവിഭവങ്ങളുമാണു് കുടിയേറ്റക്കാരെ അങ്ങോട്ടേക്കാകർഷിച്ചതു്
+യു. എസ്. ഏ. യുടെ വികസനത്തിനും വളർച്ചയ്ക്കും സഹായകമായി നിന്ന ഘ
+ടകങ്ങളും ഇവ തന്നെയായിരുന്നു.</Unicode>
+      </TextEquiv>
+    </TextRegion>
+    <GraphicRegion id="p018_r07" custom="hand {ink:blue-ink;}" comments="short curved underline under ഹാവായിയും (p018_r06_l003)" type="handwritten-annotation" embText="false">
+      <Coords points="1800,2265 1975,2265 1975,2305 1800,2305"/>
+    </GraphicRegion>
+    <GraphicRegion id="p018_r08" custom="hand {ink:dark-ink;}" comments="thin curved arc drawn across the starts of the last three lines (pencil or fine ink); text beneath is legible" type="handwritten-annotation" embText="false">
+      <Coords points="210,3150 790,3150 790,3360 210,3360"/>
+    </GraphicRegion>
+    <NoiseRegion id="p018_r09" custom="structure {type:damage;}" comments="brown staining / wear along the right edge near the top; line-final characters remain legible except as flagged">
+      <Coords points="2240,0 2374,0 2374,1300 2240,1300"/>
+    </NoiseRegion>
+    <NoiseRegion id="p018_r10" custom="structure {type:damage;}" comments="torn/stained right margin from the ആളുകൾ line (p018_r06_l009) to the bottom; some line-final characters partly lost (see damage flags)">
+      <Coords points="2290,2700 2374,2700 2374,3495 2290,3495"/>
+    </NoiseRegion>
+    <GraphicRegion id="p018_r11" custom="hand {ink:blue-ink;}" comments="reader underline under line p018_r04_l001" type="handwritten-annotation" embText="false">
+      <Coords points="614,744 1672,744 1672,763 614,763"/>
+    </GraphicRegion>
+    <GraphicRegion id="p018_r12" custom="hand {ink:blue-ink;}" comments="reader underline under line p018_r04_l002" type="handwritten-annotation" embText="false">
+      <Coords points="420,800 804,800 804,825 420,825"/>
+    </GraphicRegion>
+    <GraphicRegion id="p018_r13" custom="hand {ink:blue-ink;}" comments="reader underline under line p018_r04_l002" type="handwritten-annotation" embText="false">
+      <Coords points="923,800 1841,800 1841,818 923,818"/>
+    </GraphicRegion>
+    <GraphicRegion id="p018_r14" custom="hand {ink:blue-ink;}" comments="reader underline under line p018_r04_l003" type="handwritten-annotation" embText="false">
+      <Coords points="339,909 638,909 638,922 339,922"/>
+    </GraphicRegion>
+    <GraphicRegion id="p018_r15" custom="hand {ink:blue-ink;}" comments="reader underline under line p018_r04_l011" type="handwritten-annotation" embText="false">
+      <Coords points="752,1532 1651,1532 1651,1564 752,1564"/>
+    </GraphicRegion>
+    <GraphicRegion id="p018_r16" custom="hand {ink:blue-ink;}" comments="reader underline under line p018_r04_l011" type="handwritten-annotation" embText="false">
+      <Coords points="1640,1553 2081,1553 2081,1569 1640,1569"/>
+    </GraphicRegion>
+    <GraphicRegion id="p018_r17" custom="hand {ink:blue-ink;}" comments="reader underline under line p018_r04_l012" type="handwritten-annotation" embText="false">
+      <Coords points="379,1628 1478,1628 1478,1644 379,1644"/>
+    </GraphicRegion>
+    <GraphicRegion id="p018_r18" custom="hand {ink:blue-ink;}" comments="reader underline under line p018_r04_l013" type="handwritten-annotation" embText="false">
+      <Coords points="461,1728 685,1728 685,1738 461,1738"/>
+    </GraphicRegion>
+    <GraphicRegion id="p018_r19" custom="hand {ink:blue-ink;}" comments="reader underline under line p018_r04_l013" type="handwritten-annotation" embText="false">
+      <Coords points="765,1728 1296,1728 1296,1738 765,1738"/>
+    </GraphicRegion>
+    <GraphicRegion id="p018_r20" custom="hand {ink:blue-ink;}" comments="reader underline under line p018_r04_l013" type="handwritten-annotation" embText="false">
+      <Coords points="1300,1716 2050,1716 2050,1732 1300,1732"/>
+    </GraphicRegion>
+    <GraphicRegion id="p018_r21" custom="hand {ink:blue-ink;}" comments="reader underline under line p018_r04_l014" type="handwritten-annotation" embText="false">
+      <Coords points="442,1786 928,1786 928,1804 442,1804"/>
+    </GraphicRegion>
+    <GraphicRegion id="p018_r22" custom="hand {ink:blue-ink;}" comments="reader underline under line p018_r06_l001" type="handwritten-annotation" embText="false">
+      <Coords points="574,2103 2105,2103 2105,2155 574,2155"/>
+    </GraphicRegion>
+    <GraphicRegion id="p018_r23" custom="hand {ink:blue-ink;}" comments="reader underline under line p018_r06_l002" type="handwritten-annotation" embText="false">
+      <Coords points="350,2210 554,2210 554,2222 350,2222"/>
+    </GraphicRegion>
+    <GraphicRegion id="p018_r24" custom="hand {ink:blue-ink;}" comments="reader underline under line p018_r06_l006" type="handwritten-annotation" embText="false">
+      <Coords points="408,2512 1300,2512 1300,2569 408,2569"/>
+    </GraphicRegion>
+    <GraphicRegion id="p018_r25" custom="hand {ink:blue-ink;}" comments="reader underline under line p018_r06_l006" type="handwritten-annotation" embText="false">
+      <Coords points="1464,2512 2118,2512 2118,2547 1464,2547"/>
+    </GraphicRegion>
+  </Page>
+</PcGts>

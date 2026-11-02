@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Gpura Corpus</title>
+<meta name="description" content="A proposal and working specimen for a structured, standards-based text corpus of the Granthappura digital archive.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:wght@500;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Noto+Serif+Malayalam:wght@400;600&display=swap">
+<style>
+/* Layout: short landing column; three entry cards in reading order (why → how → evidence) */
+:root{--bg:#F4F5F3;--surface:#FFFFFF;--sunk:#E9ECE8;--fg:#1B2220;--muted:#5A6662;--line:#D3D9D5;--accent:#2B6A8A;--page:#A35A16;--tei:#674A96;
+  --f-display:"Spectral",Georgia,serif;--f-body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;--f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;--f-ml:"Noto Serif Malayalam","Manjari","Rachana",serif}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#141917;--surface:#1C2320;--sunk:#232B28;--fg:#E4EAE7;--muted:#9AA7A2;--line:#33403B;--accent:#7DB8D6;--page:#E3A266;--tei:#B79BE3;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#141917;--surface:#1C2320;--sunk:#232B28;--fg:#E4EAE7;--muted:#9AA7A2;--line:#33403B;--accent:#7DB8D6;--page:#E3A266;--tei:#B79BE3;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:16px;line-height:1.6}
+.wrap{max-width:900px;margin:0 auto;padding-block:56px 80px;padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px));display:flex;flex-direction:column;gap:44px}
+h1,h2,h3{margin:0;line-height:1.2;text-wrap:balance}
+h1{font-family:var(--f-display);font-size:clamp(2.2rem,6vw,3.2rem);font-weight:700}
+h2{font-family:var(--f-display);font-size:1.35rem}
+h3{font-size:1.05rem;font-weight:600}
+p{margin:0;max-width:66ch}
+a{color:var(--accent)}
+.ml{font-family:var(--f-ml)}
+.eyebrow{font-size:.75rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.lede{font-size:1.12rem;color:var(--muted)}
+.entries{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
+.entry{display:flex;flex-direction:column;gap:8px;padding:18px;background:var(--surface);border:1px solid var(--line);border-radius:8px;text-decoration:none;color:var(--fg);min-width:0}
+.entry:hover,.entry:focus-visible{border-color:var(--fg);outline:none}
+.entry p{font-size:.92rem;color:var(--muted)}
+.entry .go{margin-top:auto;font-size:.88rem;color:var(--accent);font-weight:500}
+.layers{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0;border-top:2px solid var(--fg)}
+.layers div{padding:14px 14px 14px 0;display:flex;flex-direction:column;gap:4px}
+.layers b{font-family:var(--f-mono);font-size:.82rem}
+.layers p{font-size:.9rem;color:var(--muted)}
+pre{margin:0;background:var(--sunk);border-radius:6px;padding:12px 14px;overflow-x:auto;font-family:var(--f-mono);font-size:.82rem;line-height:1.6}
+.foot{font-size:.85rem;color:var(--muted);border-top:1px solid var(--line);padding-top:16px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header style="display:flex;flex-direction:column;gap:14px">
+    <span class="eyebrow">Proposal · <span class="ml">ഗ്രന്ഥപ്പുര</span> (Granthappura)</span>
+    <h1>Gpura Corpus</h1>
+    <p class="lede">A structured, machine-readable companion to Gpura’s scans: for every item, a standards-based edition that records not only the words but where and how they appear on the page, linked to the page images Gpura already serves through IIIF.</p>
+  </header>
+
+  <nav class="entries" aria-label="Contents">
+    <a class="entry" href="proposal/"><span class="eyebrow">Why</span><h3>The proposal</h3><p>Two paragraphs, in English and Malayalam: what the corpus is and why Gpura should build it.</p><span class="go">Read the proposal →</span></a>
+    <a class="entry" href="walkthrough/"><span class="eyebrow">How</span><h3>Walkthrough</h3><p>Three pages of a 1971 book: what the current transcription misses, and how the corpus records it.</p><span class="go">Explore the findings →</span></a>
+    <a class="entry" href="specimen/american-aikyanadu-1971/"><span class="eyebrow">Evidence</span><h3>Working specimen</h3><p>The same three pages encoded end to end: scan with layout overlay, reading view, and the raw PAGE-XML, ALTO and TEI.</p><span class="go">Open the specimen →</span></a>
+  </nav>
+
+  <section style="display:flex;flex-direction:column;gap:16px" aria-labelledby="ly">
+    <h2 id="ly">Three layers, one set of IDs</h2>
+    <div class="layers">
+      <div><b style="color:var(--accent)">IIIF</b><p>Page images and manifests. Already in place at Gpura.</p></div>
+      <div><b style="color:var(--page)">PAGE-XML</b><p>Where every region and line sits on the scan, printed or handwritten, in reading order. ALTO exported from it.</p></div>
+      <div><b style="color:var(--tei)">TEI P5</b><p>The edition: structure, metadata, reader annotations, damage, uncertainty, each line pointing back to its place on the image.</p></div>
+    </div>
+  </section>
+
+  <section style="display:flex;flex-direction:column;gap:12px" aria-labelledby="hn">
+    <h2 id="hn">The harness</h2>
+    <p>The <a href="https://github.com/beniza/gpura-corpus">repository</a> holds the pipeline that produced the specimen. Each item is a folder of images and reviewed line data; one command rebuilds every encoding, validates it against the official PAGE, ALTO and TEI schemas, and regenerates the specimen page.</p>
+    <pre>python3 run.py items/american-aikyanadu-1971</pre>
+  </section>
+
+  <p class="foot">Source material: Gpura (gpura.org), Indic Digital Archive Foundation; the items used here are in the public domain. Transcriptions in the specimen are model-made and await human verification. This is an independent proposal, not a Gpura publication.</p>
+</div>
+</body>
+</html>

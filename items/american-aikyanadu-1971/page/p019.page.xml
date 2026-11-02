@@ -1,0 +1,238 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<PcGts xmlns="http://schema.primaresearch.org/PAGE/gts/pagecontent/2019-07-15" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schema.primaresearch.org/PAGE/gts/pagecontent/2019-07-15 http://schema.primaresearch.org/PAGE/gts/pagecontent/2019-07-15/pagecontent.xsd" pcGtsId="p019_pcgts">
+  <Metadata>
+    <Creator>Gpura digitisation pipeline demo - layout-encoding stage (page/json2page.py, lxml)</Creator>
+    <Created>2026-11-02T16:09:13+00:00</Created>
+    <LastChange>2026-11-02T16:09:13+00:00</LastChange>
+    <Comments>Source: 'American Aikyanadinte Charithram' (Malayalam, 1971), Gpura archive, IIIF canvas 19, printed page 3. Layout and readings come from ocr/p019.lines.json: regions/lines drawn by the OCR stage; TextEquiv index=1 is a careful MODEL-MADE reading from zoomed line images, NOT human-verified ground truth; TextEquiv index=2 (where present) is raw Tesseract 5.3.4 (tessdata_best) output with its mean word confidence. Coordinates are pixels of the full-resolution scan (2374 x 3495) assumed identical to the IIIF full/max image. Line-level flags (underlined/unclear/damage/inkOver/hyphenEnd) are in TextLine/@custom (Transkribus-style 'tag {offset:N; length:M; ...}' code-point offsets) with notes in @comments.</Comments>
+    <MetadataItem type="other" name="iiif-canvas" value="https://artifacts.gpura.org/public/1971-american-aikyanadinte-charithram/canvas/19"/>
+    <MetadataItem type="other" name="printed-page-number" value="3"/>
+  </Metadata>
+  <Page imageFilename="https://iiif.gpura.org/iiif/3/1971-american-aikyanadinte-charithram__0019.jpg/full/max/0/default.jpg" imageWidth="2374" imageHeight="3495" type="content" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" textLineOrder="top-to-bottom">
+    <!-- IIIF canvas: https://artifacts.gpura.org/public/1971-american-aikyanadinte-charithram/canvas/19 -->
+    <ReadingOrder>
+      <OrderedGroup id="p019_ro" caption="printed text flow (lines.json reading_order)">
+        <RegionRefIndexed index="0" regionRef="p019_r01"/>
+        <RegionRefIndexed index="1" regionRef="p019_r02"/>
+        <RegionRefIndexed index="2" regionRef="p019_r03"/>
+        <RegionRefIndexed index="3" regionRef="p019_r04"/>
+        <RegionRefIndexed index="4" regionRef="p019_r05"/>
+        <UnorderedGroupIndexed id="p019_ro_marginalia" index="5" caption="handwritten reader marginalia (no reading order)">
+          <RegionRef regionRef="p019_r14"/>
+          <RegionRef regionRef="p019_r15"/>
+        </UnorderedGroupIndexed>
+        <UnorderedGroupIndexed id="p019_ro_maplabels" index="6" caption="labels printed on the map (no reading order)">
+          <RegionRef regionRef="p019_r06"/>
+          <RegionRef regionRef="p019_r07"/>
+          <RegionRef regionRef="p019_r08"/>
+          <RegionRef regionRef="p019_r09"/>
+          <RegionRef regionRef="p019_r10"/>
+          <RegionRef regionRef="p019_r11"/>
+          <RegionRef regionRef="p019_r12"/>
+          <RegionRef regionRef="p019_r13"/>
+        </UnorderedGroupIndexed>
+      </OrderedGroup>
+    </ReadingOrder>
+    <Relations>
+      <Relation id="p019_rel01" type="link" comments="caption of the map/image">
+        <SourceRegionRef regionRef="p019_r04"/>
+        <TargetRegionRef regionRef="p019_r03"/>
+      </Relation>
+      <Relation id="p019_rel02" type="link" comments="legend of the map/image">
+        <SourceRegionRef regionRef="p019_r05"/>
+        <TargetRegionRef regionRef="p019_r03"/>
+      </Relation>
+    </Relations>
+    <TextRegion id="p019_r01" custom="readingOrder {index:0;}" type="header" readingDirection="left-to-right" textLineOrder="top-to-bottom" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" production="printed">
+      <Coords points="1086,261 1258,261 1258,324 1086,324"/>
+      <TextLine id="p019_r01_l001" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:0;} unclear {offset:0; length:9; cert:medium;}" comments="[unclear 0-9] faint print, partly overwritten by the handwritten 'Trueman' stroke; existing OCR gives പ്രകൃതി (drops ഭൂ)" index="0">
+        <Coords points="1086,261 1258,261 1258,324 1086,324"/>
+        <Baseline points="1086,318 1258,318"/>
+        <TextEquiv index="1" comments="reviewed model reading (not human-verified)">
+          <Unicode>ഭൂപ്രകൃതി</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.521" comments="raw Tesseract 5.3.4 tessdata_best output (own encoding)">
+          <Unicode>തി</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextEquiv index="1" comments="lines joined with newline">
+        <Unicode>ഭൂപ്രകൃതി</Unicode>
+      </TextEquiv>
+    </TextRegion>
+    <TextRegion id="p019_r02" custom="readingOrder {index:1;}" type="page-number" readingDirection="left-to-right" textLineOrder="top-to-bottom" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" production="printed">
+      <Coords points="2203,259 2238,259 2238,298 2203,298"/>
+      <TextLine id="p019_r02_l001" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:0;}" index="0">
+        <Coords points="2203,259 2238,259 2238,298 2203,298"/>
+        <Baseline points="2203,292 2238,292"/>
+        <TextEquiv index="1" comments="reviewed model reading (not human-verified)">
+          <Unicode>3</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.385" comments="raw Tesseract 5.3.4 tessdata_best output (own encoding)">
+          <Unicode>3 [</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextEquiv index="1" comments="lines joined with newline">
+        <Unicode>3</Unicode>
+      </TextEquiv>
+    </TextRegion>
+    <ImageRegion id="p019_r03" comments="relief map of the USA printed rotated 90 deg (north toward the left edge of the page; read upright by rotating the page 90 deg clockwise), inside a ruled frame; elevation shading, rivers, state/region boundaries and place labels. Polygon = frame rectangle." orientation="90" colourDepth="greyscale" embText="true">
+      <Coords points="183,386 2120,386 2120,3401 183,3401"/>
+    </ImageRegion>
+    <TextRegion id="p019_r04" custom="readingOrder {index:3;}" comments="caption outside the right edge of the map frame; text runs bottom-to-top" orientation="90" type="caption" readingDirection="left-to-right" textLineOrder="top-to-bottom" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" production="printed">
+      <Coords points="2160,1395 2232,1395 2232,2505 2160,2505"/>
+      <TextLine id="p019_r04_l001" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:0;}" index="0">
+        <Coords points="2160,1395 2232,1395 2232,2505 2160,2505"/>
+        <Baseline points="2217,2505 2217,1395"/>
+        <TextEquiv index="1" comments="reviewed model reading (not human-verified)">
+          <Unicode>അമേരിക്കൻ ഐക്യനാടിന്റെ ഭൂപ്രകൃതി</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.552" comments="raw Tesseract 5.3.4 tessdata_best output (own encoding)">
+          <Unicode>1 അമേരിക്കന്‍ ഐക്യനാടിനെറ ഭൂപ്രകൃതി</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextEquiv index="1" comments="lines joined with newline">
+        <Unicode>അമേരിക്കൻ ഐക്യനാടിന്റെ ഭൂപ്രകൃതി</Unicode>
+      </TextEquiv>
+    </TextRegion>
+    <TextRegion id="p019_r05" custom="readingOrder {index:4;} structure {type:legend;}" comments="three elevation bands, each with a shading swatch (swatches at about y 1800-2000, toward the page bottom = left of the text when upright); Tesseract output for the whole legend is in the line-1 text_tesseract; it is junk" orientation="90" type="other" readingDirection="left-to-right" textLineOrder="top-to-bottom" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" production="printed">
+      <Coords points="1855,1140 2095,1140 2095,2010 1855,2010"/>
+      <TextLine id="p019_r05_l001" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:0;} unclear {offset:0; length:1; cert:low;}" comments="[unclear 0-1] first digit faint/broken; looks most like 6 but could be 5 or 8; Tesseract gave nothing usable. അ. = abbreviation of അടി (feet)." index="0">
+        <Coords points="1860,1150 1948,1150 1948,1800 1860,1800"/>
+        <Baseline points="1930,1800 1930,1150"/>
+        <TextEquiv index="1" comments="reviewed model reading (not human-verified)">
+          <Unicode>6000 അ. മുകളിൽ</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.374" comments="raw Tesseract 5.3.4 tessdata_best output (own encoding)">
+          <Unicode>2 ൪്ഭ.ഭുകളില്‍ 1200 (a7a. . ഴം.</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p019_r05_l002" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:1;} unclear {offset:8; length:2; cert:medium;}" comments="[unclear 8-10] ditto marks (〃) under മുകളിൽ, transcribed as two commas" index="1">
+        <Coords points="1955,1265 2017,1265 2017,1800 1955,1800"/>
+        <Baseline points="2004,1800 2004,1265"/>
+        <TextEquiv index="1" comments="reviewed model reading (not human-verified)">
+          <Unicode>3000 അ. ,,</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p019_r05_l003" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:2;} unclear {offset:8; length:2; cert:medium;}" comments="[unclear 8-10] ditto marks (〃) under മുകളിൽ, transcribed as two commas" index="2">
+        <Coords points="2025,1265 2087,1265 2087,1800 2025,1800"/>
+        <Baseline points="2074,1800 2074,1265"/>
+        <TextEquiv index="1" comments="reviewed model reading (not human-verified)">
+          <Unicode>1200 അ. ,,</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextEquiv index="1" comments="lines joined with newline">
+        <Unicode>6000 അ. മുകളിൽ
+3000 അ. ,,
+1200 അ. ,,</Unicode>
+      </TextEquiv>
+    </TextRegion>
+    <TextRegion id="p019_r06" custom="structure {type:map-label;}" comments="St. Louis; NTA glyph encoded ന്റ" orientation="90" type="other" readingDirection="left-to-right" textLineOrder="top-to-bottom" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" production="printed">
+      <Coords points="1200,1544 1260,1544 1260,1974 1200,1974"/>
+      <TextLine id="p019_r06_l001" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:0;} unclear {offset:0; length:13; cert:medium;}" comments="[unclear 0-13] St. Louis; NTA glyph encoded ന്റ" index="0">
+        <Coords points="1200,1544 1260,1544 1260,1974 1200,1974"/>
+        <Baseline points="1248,1974 1248,1544"/>
+        <TextEquiv index="1" comments="reviewed model reading (not human-verified)">
+          <Unicode>സെന്റ് ലൂയിസ്</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextEquiv index="1" comments="lines joined with newline">
+        <Unicode>സെന്റ് ലൂയിസ്</Unicode>
+      </TextEquiv>
+    </TextRegion>
+    <TextRegion id="p019_r07" custom="structure {type:map-label;}" comments="Chicago" orientation="90" type="other" readingDirection="left-to-right" textLineOrder="top-to-bottom" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" production="printed">
+      <Coords points="880,1524 960,1524 960,1884 880,1884"/>
+      <TextLine id="p019_r07_l001" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:0;} unclear {offset:0; length:8; cert:medium;}" comments="[unclear 0-8] Chicago" index="0">
+        <Coords points="880,1524 960,1524 960,1884 880,1884"/>
+        <Baseline points="944,1884 944,1524"/>
+        <TextEquiv index="1" comments="reviewed model reading (not human-verified)">
+          <Unicode>ചിക്കാഗോ</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextEquiv index="1" comments="lines joined with newline">
+        <Unicode>ചിക്കാഗോ</Unicode>
+      </TextEquiv>
+    </TextRegion>
+    <TextRegion id="p019_r08" custom="structure {type:map-label;}" comments="probably Boston (ബോസ്റ്റൺ?) — too faint to transcribe reliably" orientation="90" type="other" readingDirection="left-to-right" textLineOrder="top-to-bottom" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" production="printed">
+      <Coords points="745,484 815,484 815,824 745,824"/>
+      <TextLine id="p019_r08_l001" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:0;} unclear {offset:0; length:0; cert:low;}" comments="[unclear 0-0] probably Boston (ബോസ്റ്റൺ?) — too faint to transcribe reliably" index="0">
+        <Coords points="745,484 815,484 815,824 745,824"/>
+        <Baseline points="801,824 801,484"/>
+        <!-- NOT TRANSCRIBED: label too faint/illegible; no TextEquiv emitted on purpose (see @comments for a cautious identification) -->
+      </TextLine>
+    </TextRegion>
+    <TextRegion id="p019_r09" custom="structure {type:map-label;}" comments="probably New York (…യോർക്ക്?) — too faint to transcribe reliably" orientation="90" type="other" readingDirection="left-to-right" textLineOrder="top-to-bottom" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" production="printed">
+      <Coords points="890,624 950,624 950,864 890,864"/>
+      <TextLine id="p019_r09_l001" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:0;} unclear {offset:0; length:0; cert:low;}" comments="[unclear 0-0] probably New York (…യോർക്ക്?) — too faint to transcribe reliably" index="0">
+        <Coords points="890,624 950,624 950,864 890,864"/>
+        <Baseline points="938,864 938,624"/>
+        <!-- NOT TRANSCRIBED: label too faint/illegible; no TextEquiv emitted on purpose (see @comments for a cautious identification) -->
+      </TextLine>
+    </TextRegion>
+    <TextRegion id="p019_r10" custom="structure {type:map-label;}" comments="label near the lower-left (= north-west when upright), probably കൊളംബിയ (Columbia river); diagonal; not transcribed" orientation="90" type="other" readingDirection="left-to-right" textLineOrder="top-to-bottom" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" production="printed">
+      <Coords points="220,3224 480,3224 480,3384 220,3384"/>
+      <TextLine id="p019_r10_l001" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:0;} unclear {offset:0; length:0; cert:low;}" comments="[unclear 0-0] label near the lower-left (= north-west when upright), probably കൊളംബിയ (Columbia river); diagonal; not transcribed" index="0">
+        <Coords points="220,3224 480,3224 480,3384 220,3384"/>
+        <Baseline points="428,3384 428,3224"/>
+        <!-- NOT TRANSCRIBED: label too faint/illegible; no TextEquiv emitted on purpose (see @comments for a cautious identification) -->
+      </TextLine>
+    </TextRegion>
+    <TextRegion id="p019_r11" custom="structure {type:map-label;}" comments="curved label along the Rocky Mountains band (probably റോക്കി പർവ്വതം/…), on a curved ribbon; illegible" orientation="90" type="other" readingDirection="left-to-right" textLineOrder="top-to-bottom" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" production="printed">
+      <Coords points="600,2434 1560,2434 1560,2754 600,2754"/>
+      <TextLine id="p019_r11_l001" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:0;} unclear {offset:0; length:0; cert:low;}" comments="[unclear 0-0] curved label along the Rocky Mountains band (probably റോക്കി പർവ്വതം/…), on a curved ribbon; illegible" index="0">
+        <Coords points="600,2434 1560,2434 1560,2754 600,2754"/>
+        <Baseline points="1368,2754 1368,2434"/>
+        <!-- NOT TRANSCRIBED: label too faint/illegible; no TextEquiv emitted on purpose (see @comments for a cautious identification) -->
+      </TextLine>
+    </TextRegion>
+    <TextRegion id="p019_r12" custom="structure {type:map-label;}" comments="two labels near the Ohio / Wabash rivers; illegible" orientation="90" type="other" readingDirection="left-to-right" textLineOrder="top-to-bottom" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" production="printed">
+      <Coords points="1460,1714 1650,1714 1650,2034 1460,2034"/>
+      <TextLine id="p019_r12_l001" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:0;} unclear {offset:0; length:0; cert:low;}" comments="[unclear 0-0] two labels near the Ohio / Wabash rivers; illegible" index="0">
+        <Coords points="1460,1714 1650,1714 1650,2034 1460,2034"/>
+        <Baseline points="1612,2034 1612,1714"/>
+        <!-- NOT TRANSCRIBED: label too faint/illegible; no TextEquiv emitted on purpose (see @comments for a cautious identification) -->
+      </TextLine>
+    </TextRegion>
+    <TextRegion id="p019_r13" custom="structure {type:map-label;}" comments="diagonal labels along the Appalachians (probably അപ്പലേച്ചിയൻ …); illegible" orientation="90" type="other" readingDirection="left-to-right" textLineOrder="top-to-bottom" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" production="printed">
+      <Coords points="1250,1044 1650,1044 1650,1594 1250,1594"/>
+      <TextLine id="p019_r13_l001" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:0;} unclear {offset:0; length:0; cert:low;}" comments="[unclear 0-0] diagonal labels along the Appalachians (probably അപ്പലേച്ചിയൻ …); illegible" index="0">
+        <Coords points="1250,1044 1650,1044 1650,1594 1250,1594"/>
+        <Baseline points="1570,1594 1570,1044"/>
+        <!-- NOT TRANSCRIBED: label too faint/illegible; no TextEquiv emitted on purpose (see @comments for a cautious identification) -->
+      </TextLine>
+    </TextRegion>
+    <TextRegion id="p019_r14" custom="hand {ink:blue-ink;}" comments="reader's blue-ink handwriting across the top, slanting upward to the right" type="marginalia" readingDirection="left-to-right" textLineOrder="top-to-bottom" primaryLanguage="English" primaryScript="Latn - Latin" production="handwritten-cursive">
+      <Coords points="920,15 2090,15 2090,255 920,255"/>
+      <TextLine id="p019_r14_l001" primaryLanguage="English" primaryScript="Latn - Latin" readingDirection="left-to-right" production="handwritten-cursive" custom="readingOrder {index:0;} unclear {offset:0; length:7; hand:blue-ink; cert:medium;} unclear {offset:8; length:8; hand:blue-ink; cert:medium;}" comments="[unclear 0-7] first word read as 'Trueman' (= Truman, misspelt); the existing OCR's 'Freeman' is possible from the letter shapes but the initial looks like a T with a long cross-bar | [unclear 8-16] 'Doctrine' with the i undotted/merged; written on a rising slant" index="0">
+        <Coords points="920,15 2090,15 2090,255 920,255"/>
+        <Baseline points="930,240 2080,110"/>
+        <TextEquiv index="1" comments="reviewed model reading (not human-verified)">
+          <Unicode>Trueman Doctrine</Unicode>
+        </TextEquiv>
+        <TextStyle textColour="blue"/>
+      </TextLine>
+      <TextEquiv index="1" comments="lines joined with newline">
+        <Unicode>Trueman Doctrine</Unicode>
+      </TextEquiv>
+    </TextRegion>
+    <TextRegion id="p019_r15" custom="hand {ink:blue-ink;}" comments="written just below the printed running head ഭൂപ്രകൃതി, slanting upward" type="marginalia" readingDirection="left-to-right" textLineOrder="top-to-bottom" primaryLanguage="English" primaryScript="Latn - Latin" production="handwritten-cursive">
+      <Coords points="960,250 1495,250 1495,440 960,440"/>
+      <TextLine id="p019_r15_l001" primaryLanguage="English" primaryScript="Latn - Latin" readingDirection="left-to-right" production="handwritten-cursive" custom="readingOrder {index:0;} unclear {offset:7; length:1; hand:blue-ink; cert:low;}" comments="[unclear 7-8] trailing dot may be a pen mark" index="0">
+        <Coords points="960,250 1495,250 1495,440 960,440"/>
+        <Baseline points="965,435 1490,300"/>
+        <TextEquiv index="1" comments="reviewed model reading (not human-verified)">
+          <Unicode>Kennedy.</Unicode>
+        </TextEquiv>
+        <TextStyle textColour="blue"/>
+      </TextLine>
+      <TextEquiv index="1" comments="lines joined with newline">
+        <Unicode>Kennedy.</Unicode>
+      </TextEquiv>
+    </TextRegion>
+    <GraphicRegion id="p019_r16" custom="hand {ink:blue-ink;}" comments="blue-ink tracing along the map's (Gulf/Atlantic) coastline; bbox approximate (colour mask percentiles)" type="handwritten-annotation" embText="false">
+      <Coords points="190,1835 2060,1835 2060,2695 190,2695"/>
+    </GraphicRegion>
+    <GraphicRegion id="p019_r17" custom="hand {ink:dark-ink;}" comments="dark marks in the bottom-right corner outside the frame; origin uncertain (ink marks or soiling)" type="handwritten-annotation" embText="false">
+      <Coords points="2050,3150 2374,3150 2374,3495 2050,3495"/>
+    </GraphicRegion>
+  </Page>
+</PcGts>

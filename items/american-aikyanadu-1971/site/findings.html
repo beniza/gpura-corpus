@@ -1,0 +1,36 @@
+<section style="display:flex;flex-direction:column;gap:16px" aria-labelledby="fx">
+    <span class="eyebrow">What the pipeline showed</span>
+    <h2 id="fx">Findings from these three pages</h2>
+    <div class="facts">
+      <div class="card"><div class="hd"><h3>OCR comparison</h3><span class="mono" style="color:var(--muted)">CER / WER</span></div>
+        <div class="bd"><div class="tw"><table>
+          <thead><tr><th>Page</th><th>Fresh Tesseract</th><th>Gpura's current text</th></tr></thead>
+          <tbody>
+            <tr><td>p. 1</td><td class="n">22.2% / 52.8%</td><td class="n">0.8% / 3.9%</td></tr>
+            <tr><td>p. 2</td><td class="n">24.7% / 56.6%</td><td class="n">0.5% / 3.6%</td></tr>
+            <tr><td>p. 3 (map)</td><td class="n">52.9% / 81.3%</td><td class="n">80.4% / 100%</td></tr>
+          </tbody></table></div>
+          <p class="empty">Measured against the reviewed reading, with conjunct encoding normalised. The reviewer had Gpura's text open, so its low error rate partly reflects agreement rather than independent accuracy. Page 3 has only about 100 reference characters.</p></div></div>
+      <div class="card"><div class="hd"><h3>What the comparison means</h3></div>
+        <div class="bd"><ul class="notes">
+          <li>Gpura's current AI OCR reads body text very well. Re-running OCR is not where the value lies.</li>
+          <li>Its failures are structural: a reader's "CMS" fused into the chapter title, handwriting presented as a printed paragraph, a running head reworded, and a footnote on p. 3 that does not exist on the page.</li>
+          <li>Open-source Tesseract is much weaker on this 1971 type, mostly where reader underlines cross the text.</li>
+          <li>So the corpus pipeline should keep the good AI text, align it to detected lines, and add the layout, provenance and review the AI output lacks.</li>
+        </ul></div></div>
+      <div class="card"><div class="hd"><h3>PAGE-XML or ALTO?</h3></div>
+        <div class="bd"><ul class="notes">
+          <li>PAGE-XML kept everything: reading order with unordered groups for marginalia and map labels, printed vs handwritten, rotated regions, links from marks to the lines they touch, and alternative readings with confidence.</li>
+          <li>The ALTO export validates but flattens: word boxes had to be estimated, handwriting becomes a tag, unordered groups and most links vanish, and many alternative readings could not be kept.</li>
+          <li>Recommendation: PAGE-XML as the master layout format, with ALTO generated for partners that need it.</li>
+        </ul></div></div>
+      <div class="card"><div class="hd"><h3>Encoding decisions to agree on</h3></div>
+        <div class="bd"><ul class="notes">
+          <li>The print uses 1971 reformed-script glyph shapes. ൻറ-shaped NTA is encoded ന്റ, and ററ-shaped TTA is encoded റ്റ: the same characters as modern text, so search works.</li>
+          <li>Samvruthokaram is kept as printed (ഉണ്ടു്). Spelling is diplomatic; nothing is modernised.</li>
+          <li>Reader notes read as "Trueman Doctrine" and "Kennedy", with uncertainty marked. Untranscribed map labels are left as gaps, not guessed.</li>
+        </ul></div></div>
+    </div>
+  </section>
+
+  <p class="foot">Source: Gpura item “1971 - American Aikyanadinte Charithram” (viewer pages 17–19), Kottayam Public Library copy, public domain. Pipeline run 2 November 2026: Tesseract 5.3.4 (mal, tessdata_best) plus model review; PAGE-XML validated with the PRImA 2019-07-15 XSD; ALTO with altoxml 4.4 XSD; TEI with tei_all.rng compiled from TEI P5 4.12.0 sources and checked with jing. All readings await human verification.</p>

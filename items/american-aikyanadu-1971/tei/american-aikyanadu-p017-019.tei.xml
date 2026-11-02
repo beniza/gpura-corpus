@@ -1,0 +1,642 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?xml-model href="../../../schemas/tei/tei_all.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="ml">
+  <teiHeader xml:lang="en">
+    <fileDesc>
+      <titleStmt>
+        <title type="main" xml:lang="ml">അമേരിക്കൻ ഐക്യനാടിന്റെ ചരിത്രം</title>
+        <title type="sub">Extract: printed pages 1–3 (Gpura viewer pages 17–19): a demonstration TEI encoding</title>
+        <author>
+          <persName xml:lang="en">C.P. Hill</persName>
+          <persName xml:lang="ml">സി.പി. ഹിൽ</persName>
+        </author>
+        <respStmt>
+          <resp>translated into Malayalam by</resp>
+          <persName xml:lang="en">Kuttanad K. Ramakrishna Pillai</persName>
+          <persName xml:lang="ml">കുട്ടനാട് കെ. രാമകൃഷ്ണപിള്ള</persName>
+        </respStmt>
+        <respStmt xml:id="pipeline">
+          <resp>OCR (Tesseract 5.3.4), model-made reading review (Claude, Anthropic) and TEI encoding, as an automated digitisation-pipeline demonstration; not human-verified</resp>
+          <name>Gpura digitisation pipeline demo</name>
+        </respStmt>
+      </titleStmt>
+      <extent>
+        <measure unit="pages" quantity="3">3 printed pages (pp. 1–3 of 420)</measure>
+      </extent>
+      <publicationStmt>
+        <authority>Unpublished demonstration encoding produced by a digitisation pipeline demo. This is not a Gpura publication and has not been reviewed or released by Gpura or by Kottayam Public Library.</authority>
+        <availability>
+          <p>The source volume is in the public domain according to its Gpura item record. No separate licence has been assigned to this demonstration encoding.</p>
+        </availability>
+        <date when="2026-11-02">2026-11-02</date>
+      </publicationStmt>
+      <notesStmt>
+        <note type="extent">This file encodes an extract only: the opening of the chapter ഭൂപ്രകൃതി, printed pages 1–3 (viewer pages 17–19), ending after the map on p. 3. The text continues on p. 4, which is not encoded.</note>
+      </notesStmt>
+      <sourceDesc>
+        <biblStruct>
+          <monogr>
+            <author>
+              <persName xml:lang="en">C.P. Hill</persName>
+              <persName xml:lang="ml">സി.പി. ഹിൽ</persName>
+            </author>
+            <title level="m" xml:lang="ml">അമേരിക്കൻ ഐക്യനാടിന്റെ ചരിത്രം</title>
+            <respStmt>
+              <resp>translator</resp>
+              <persName xml:lang="en">Kuttanad K. Ramakrishna Pillai</persName>
+              <persName xml:lang="ml">കുട്ടനാട് കെ. രാമകൃഷ്ണപിള്ള</persName>
+            </respStmt>
+            <respStmt>
+              <resp>printer</resp>
+              <orgName>Balan Press, Trivandrum</orgName>
+            </respStmt>
+            <imprint>
+              <pubPlace>
+                <placeName xml:lang="en">Trivandrum</placeName>
+                <placeName xml:lang="ml">തിരുവനന്തപുരം</placeName>
+              </pubPlace>
+              <publisher>
+                <orgName xml:lang="en">State Institute of Languages</orgName>
+                <orgName xml:lang="ml">കേരള ഭാഷാ ഇൻസ്റ്റിറ്റ്യൂട്ട്</orgName>
+              </publisher>
+              <date when="1971">1971</date>
+            </imprint>
+            <extent>
+              <measure unit="pages" quantity="420">420 pages</measure>
+            </extent>
+          </monogr>
+        </biblStruct>
+        <msDesc xml:id="copy">
+          <msIdentifier>
+            <settlement>Kottayam</settlement>
+            <repository>Kottayam Public Library</repository>
+            <altIdentifier type="digital">
+              <repository>Gpura (Granthappura)</repository>
+              <idno type="URI">https://gpura.org/item/1971-american-aikyanadinte-charithram</idno>
+            </altIdentifier>
+            <altIdentifier type="iiif-manifest">
+              <idno type="URI">https://gpura.org/iiif-presentation/3/item/38951/manifest</idno>
+            </altIdentifier>
+          </msIdentifier>
+          <physDesc>
+            <objectDesc form="codex">
+              <supportDesc>
+                <extent>420 pages; <dimensions unit="cm" type="leaf">
+                    <height quantity="20.5">20.5</height>
+                    <width quantity="15">15</width>
+                  </dimensions> (20.5 × 15 cm)</extent>
+                <condition>
+                  <p>In the encoded pages: a crease or tear along the lower left margin of p. 1; brown staining along the upper right edge and a torn, stained lower right margin on p. 2, which partly obscure some line-final characters; show-through from the other side of the leaf on p. 3. Damage areas are recorded as facsimile zones of type 'damage'.</p>
+                </condition>
+              </supportDesc>
+            </objectDesc>
+            <handDesc>
+              <summary>Later reader annotations in two inks. Ink colour was classified automatically from pixel colour and then checked by eye, so the two hands are distinguished by ink only. Whether the annotations are by one reader or by several is unknown.</summary>
+              <handNote xml:id="blue-ink" medium="blue-ink" scope="minor">
+                <p>Blue or violet ballpoint: most of the underlining on pp. 1–2; the letters 'CMS' beside the chapter title and a circled numeral '1' on p. 1; the notes 'Trueman Doctrine' and 'Kennedy.' across the top of p. 3; and a tracing of the Gulf and Atlantic coastline on the map. Attribution to one or more readers is unknown.</p>
+              </handNote>
+              <handNote xml:id="dark-ink" medium="dark-ink" scope="minor">
+                <p>Dark (brown or black) ink, possibly pencil in places: some underlining on p. 1, a thin arc over the starts of the last three lines of p. 2, and stray strokes. Attribution to one or more readers, and its relation to the blue-ink hand, is unknown.</p>
+              </handNote>
+            </handDesc>
+          </physDesc>
+          <additional>
+            <surrogates>
+              <p>Digitized on <date when="2026-10-22">2026-10-22</date> at the Kottayam Public Library Centre. Gpura item: <ref target="https://gpura.org/item/1971-american-aikyanadinte-charithram">https://gpura.org/item/1971-american-aikyanadinte-charithram</ref>; IIIF manifest: <ref target="https://gpura.org/iiif-presentation/3/item/38951/manifest">https://gpura.org/iiif-presentation/3/item/38951/manifest</ref>. Page images and canvases for pages 17–19 are referenced from &lt;facsimile&gt;.</p>
+            </surrogates>
+          </additional>
+        </msDesc>
+      </sourceDesc>
+    </fileDesc>
+    <encodingDesc>
+      <projectDesc>
+        <p>A demonstration of a digitisation pipeline for the Gpura (Granthappura) archive: page images go through OCR and a model-made reading review, and are then encoded both as PAGE-XML (a separate stage) and as this TEI P5 file. The two encodings share region and line identifiers (for example p018_r03_l001), which are used here as the xml:id values of facsimile zones.</p>
+        <p>Generated by tei/make_tei.py from ocr/p017.lines.json, ocr/p018.lines.json and ocr/p019.lines.json. Those files are the source of every reading, coordinate and identifier in this file.</p>
+      </projectDesc>
+      <samplingDecl>
+        <p>Only viewer pages 17–19 (printed pages 1–3) are encoded. On p. 3, only the clearly legible map labels are transcribed. Other labels are present as zones and as &lt;label&gt; elements containing &lt;gap/&gt;. Many small labels (states, rivers) were not inventoried at all. Show-through and soiling are not recorded.</p>
+      </samplingDecl>
+      <editorialDecl>
+        <correction status="unknown">
+          <p>Readings are model-made: Tesseract 5.3.4 OCR, followed by a reading by Claude from zoomed line images, with the archive's existing OCR open for comparison. No human has verified them. Nothing has been corrected. Points of doubt are marked with &lt;unclear&gt; and @cert, and the review notes are kept in the &lt;back&gt;.</p>
+        </correction>
+        <normalization method="markup">
+          <p>Diplomatic transcription: wording, spelling, abbreviations (e.g. യു. എസ്. ഏ.) and spacing around punctuation follow the print, and nothing is modernised (e.g. ബ്രിട്ടന്റെതിനോടു്, ജർമൻകാർ, ആസ്ത്രേലിയ).</p>
+          <p>Character encoding, not spelling: this 1971 print uses the reformed-script glyphs for NTA (drawn as ൻ+റ) and TTA (drawn as റ+റ). They are encoded as the standard sequences ന്റ (U+0D28 U+0D4D U+0D31) and റ്റ (U+0D31 U+0D4D U+0D31). These are glyph-shape conventions, not spelling differences. Standalone chillus are atomic (U+0D7A–U+0D7E). The dot-reph form of ർ printed before a consonant is also encoded as atomic ർ (U+0D7C), not U+0D4E. Visible-virama shapes inside words are encoded as ordinary conjuncts.</p>
+          <p>Samvruthokaram: the word-final u-sign plus chandrakkala is encoded as printed with U+0D41 U+0D4D (e.g. ഉണ്ടു്). A chandrakkala on a bare consonant is plain U+0D4D (e.g. എസ്). No samvruthokaram has been added or removed; words printed without it (e.g. കൊണ്ടു, നിന്നു) stay as printed. Ditto marks in the map legend are transcribed as two commas (,,).</p>
+        </normalization>
+        <hyphenation eol="none">
+          <p>The print breaks words at line end without a hyphen. Each printed line begins with &lt;lb facs='#lineID'/&gt;. A line that continues a word from the previous line has &lt;lb break='no'/&gt;, with no whitespace before it. The word split across pp. 1–2 (പതി|പ്പിച്ചിട്ടുണ്ടു്) uses &lt;pb break='no'/&gt; followed by the running head and page number (&lt;fw&gt;) and then &lt;lb break='no'/&gt;. Whitespace before an &lt;lb/&gt; without @break is a word boundary.</p>
+        </hyphenation>
+        <segmentation>
+          <p>Each region in the OCR inventory has a &lt;zone&gt; with the same xml:id, and each line has a &lt;zone&gt; nested inside its region's zone. Text elements point to the zones with @facs: &lt;p&gt;, &lt;head&gt;, &lt;fw&gt;, &lt;figure&gt;, &lt;list&gt;, &lt;label&gt; and handwritten &lt;note&gt;/&lt;add&gt; point to regions, and &lt;lb&gt; to lines. Handwritten regions have one line each. Their line zones are nested in the region zone, and the region is what the text element points to. A paragraph that runs across a page break points to both of its regions.</p>
+        </segmentation>
+        <interpretation>
+          <p>Reader marks: underlines are &lt;hi rend='underline' hand='#blue-ink|#dark-ink'&gt;, and @facs points to the annotation-graphic zone of the stroke. Strokes drawn through printed characters are &lt;hi rend='overdrawn'&gt;; where geometry identifies the stroke, @facs points to it. Underline extents were mapped from stroke x-extent onto the text and snapped to word boundaries, so they are approximate (about ±1 word). Where two such spans overlap, the later span is split at the boundary into fragments linked by @next/@prev. Damage to the paper is &lt;damage&gt;, with @agent where the review note says (crease, tear, stain) and @facs to the damage zone. Uncertain readings are &lt;unclear @reason @cert&gt;. The reason vocabulary: faint, damage, print-defect (broken type), glyph-form (ambiguous print form or encoding decision), small-print (map labels), handwriting.</p>
+          <p>Free-standing handwritten notes are &lt;note type='annotation' hand=... place=...&gt;. The circled numeral inserted between words on p. 1 is &lt;add hand='#blue-ink' place='inline' rend='circled'&gt;, placed directly after ഒന്നാമതു്. Removing it restores the printed text exactly. Non-textual reader marks (stray strokes, the arc on p. 2, marks in the corner of p. 3) are recorded as zones and described by notes in the &lt;back&gt;. The coastline tracing on the map is a nested &lt;figure type='reader-mark'&gt;.</p>
+          <p>Zones on p. 3 that are printed rotated have @rotate='270'. TEI's @rotate gives the clockwise rotation of the zone relative to the surface. The OCR inventory's orientation 90 (PAGE-XML semantics: rotate 90° clockwise to read upright) therefore corresponds to TEI rotate 270, i.e. text printed rotated 90° anticlockwise and running bottom-to-top.</p>
+        </interpretation>
+      </editorialDecl>
+      <tagsDecl>
+        <rendition xml:id="underline" scheme="css">text-decoration: underline;</rendition>
+        <rendition xml:id="overdrawn" scheme="free">A reader's pen stroke runs through the printed characters (usually an underline of the line above); the text remains legible.</rendition>
+        <rendition xml:id="circled" scheme="free">Handwritten character enclosed in a circle.</rendition>
+        <rendition xml:id="rot-ccw90" scheme="css">transform: rotate(-90deg); /* printed rotated 90° anticlockwise; read by turning the page 90° clockwise */</rendition>
+        <namespace name="http://www.tei-c.org/ns/1.0">
+          <tagUsage gi="hi">@rend values: 'underline' (= #underline), 'overdrawn' (= #overdrawn). @hand always points to a handNote.</tagUsage>
+          <tagUsage gi="add">@rend 'circled' (= #circled).</tagUsage>
+        </namespace>
+      </tagsDecl>
+      <appInfo>
+        <application ident="tesseract" version="5.3.4">
+          <label>Tesseract OCR (tessdata_best; raw output kept in ocr/, not used for this edition)</label>
+        </application>
+        <application ident="make_tei" version="1.0">
+          <label>tei/make_tei.py</label>
+        </application>
+      </appInfo>
+    </encodingDesc>
+    <profileDesc>
+      <langUsage>
+        <language ident="ml" usage="98">Malayalam, in Malayalam script (1971 reformed orthography)</language>
+        <language ident="en" usage="2">English: the reader's handwritten notes, and the editorial metadata, descriptions and notes</language>
+      </langUsage>
+    </profileDesc>
+    <revisionDesc>
+      <change when="2026-11-02" who="#pipeline">First demonstration encoding, generated by tei/make_tei.py from the reviewed OCR inventories for pages 17–19.</change>
+    </revisionDesc>
+  </teiHeader>
+  <facsimile>
+    <surface xml:id="p017" n="17" ulx="0" uly="0" lrx="2374" lry="3495" corresp="https://artifacts.gpura.org/public/1971-american-aikyanadinte-charithram/canvas/17">
+      <graphic url="https://iiif.gpura.org/iiif/3/1971-american-aikyanadinte-charithram__0017.jpg/full/max/0/default.jpg" width="2374px" height="3495px" mimeType="image/jpeg"/>
+      <zone xml:id="p017_r01" type="page-number" subtype="printed" ulx="2073" uly="332" lrx="2099" lry="438" points="2073,332 2099,332 2099,438 2073,438">
+        <zone xml:id="p017_r01_l001" type="line" ulx="2073" uly="332" lrx="2099" lry="438" points="2073,332 2099,332 2099,438 2073,438">
+          <path type="baseline" points="2073,434 2099,434"/>
+        </zone>
+      </zone>
+      <zone xml:id="p017_r02" type="heading" subtype="printed" ulx="920" uly="690" lrx="1300" lry="830" points="920,690 1300,690 1300,830 920,830">
+        <zone xml:id="p017_r02_l001" type="line" ulx="920" uly="690" lrx="1300" lry="830" points="920,690 1300,690 1300,830 920,830">
+          <path type="baseline" points="920,826 1300,826"/>
+        </zone>
+      </zone>
+      <zone xml:id="p017_r03" type="paragraph" subtype="printed" ulx="85" uly="1090" lrx="2170" lry="2298" points="85,1090 2170,1090 2170,2298 85,2298">
+        <zone xml:id="p017_r03_l001" type="line" ulx="212" uly="1090" lrx="2152" lry="1170" points="212,1090 2152,1090 2152,1170 212,1170">
+          <path type="baseline" points="212,1144 2151,1144"/>
+        </zone>
+        <zone xml:id="p017_r03_l002" type="line" ulx="85" uly="1172" lrx="2144" lry="1252" points="85,1172 2144,1172 2144,1252 85,1252">
+          <path type="baseline" points="85,1226 2143,1226"/>
+        </zone>
+        <zone xml:id="p017_r03_l003" type="line" ulx="89" uly="1253" lrx="2149" lry="1333" points="89,1253 2149,1253 2149,1333 89,1333">
+          <path type="baseline" points="89,1307 2148,1307"/>
+        </zone>
+        <zone xml:id="p017_r03_l004" type="line" ulx="86" uly="1333" lrx="2150" lry="1413" points="86,1333 2150,1333 2150,1413 86,1413">
+          <path type="baseline" points="86,1387 2149,1387"/>
+        </zone>
+        <zone xml:id="p017_r03_l005" type="line" ulx="88" uly="1415" lrx="2160" lry="1496" points="88,1415 2160,1415 2160,1496 88,1496">
+          <path type="baseline" points="88,1470 2159,1470"/>
+        </zone>
+        <zone xml:id="p017_r03_l006" type="line" ulx="92" uly="1496" lrx="2154" lry="1576" points="92,1496 2154,1496 2154,1576 92,1576">
+          <path type="baseline" points="92,1550 2153,1550"/>
+        </zone>
+        <zone xml:id="p017_r03_l007" type="line" ulx="90" uly="1575" lrx="2163" lry="1656" points="90,1575 2163,1575 2163,1656 90,1656">
+          <path type="baseline" points="90,1630 2162,1630"/>
+        </zone>
+        <zone xml:id="p017_r03_l008" type="line" ulx="94" uly="1655" lrx="2164" lry="1736" points="94,1655 2164,1655 2164,1736 94,1736">
+          <path type="baseline" points="94,1710 2163,1710"/>
+        </zone>
+        <zone xml:id="p017_r03_l009" type="line" ulx="95" uly="1736" lrx="2162" lry="1816" points="95,1736 2162,1736 2162,1816 95,1816">
+          <path type="baseline" points="95,1790 2161,1790"/>
+        </zone>
+        <zone xml:id="p017_r03_l010" type="line" ulx="93" uly="1817" lrx="2165" lry="1896" points="93,1817 2165,1817 2165,1896 93,1896">
+          <path type="baseline" points="93,1870 2164,1870"/>
+        </zone>
+        <zone xml:id="p017_r03_l011" type="line" ulx="95" uly="1897" lrx="2165" lry="1977" points="95,1897 2165,1897 2165,1977 95,1977">
+          <path type="baseline" points="95,1951 2164,1951"/>
+        </zone>
+        <zone xml:id="p017_r03_l012" type="line" ulx="100" uly="1978" lrx="2170" lry="2058" points="100,1978 2170,1978 2170,2058 100,2058">
+          <path type="baseline" points="100,2032 2169,2032"/>
+        </zone>
+        <zone xml:id="p017_r03_l013" type="line" ulx="98" uly="2057" lrx="2165" lry="2137" points="98,2057 2165,2057 2165,2137 98,2137">
+          <path type="baseline" points="98,2111 2164,2111"/>
+        </zone>
+        <zone xml:id="p017_r03_l014" type="line" ulx="100" uly="2138" lrx="2165" lry="2218" points="100,2138 2165,2138 2165,2218 100,2218">
+          <path type="baseline" points="100,2192 2164,2192"/>
+        </zone>
+        <zone xml:id="p017_r03_l015" type="line" ulx="101" uly="2219" lrx="2042" lry="2298" points="101,2219 2042,2219 2042,2298 101,2298">
+          <path type="baseline" points="101,2272 2041,2272"/>
+        </zone>
+      </zone>
+      <zone xml:id="p017_r04" type="paragraph" subtype="printed" ulx="98" uly="2338" lrx="2197" lry="3318" points="98,2338 2197,2338 2197,3318 98,3318">
+        <zone xml:id="p017_r04_l001" type="line" ulx="235" uly="2338" lrx="2175" lry="2418" points="235,2338 2175,2338 2175,2418 235,2418">
+          <path type="baseline" points="235,2392 2174,2392"/>
+        </zone>
+        <zone xml:id="p017_r04_l002" type="line" ulx="107" uly="2417" lrx="2175" lry="2499" points="107,2417 2175,2417 2175,2499 107,2499">
+          <path type="baseline" points="107,2473 2174,2473"/>
+        </zone>
+        <zone xml:id="p017_r04_l003" type="line" ulx="107" uly="2501" lrx="2174" lry="2581" points="107,2501 2174,2501 2174,2581 107,2581">
+          <path type="baseline" points="107,2555 2173,2555"/>
+        </zone>
+        <zone xml:id="p017_r04_l004" type="line" ulx="112" uly="2581" lrx="2180" lry="2662" points="112,2581 2180,2581 2180,2662 112,2662">
+          <path type="baseline" points="112,2636 2179,2636"/>
+        </zone>
+        <zone xml:id="p017_r04_l005" type="line" ulx="110" uly="2665" lrx="2180" lry="2744" points="110,2665 2180,2665 2180,2744 110,2744">
+          <path type="baseline" points="110,2718 2179,2718"/>
+        </zone>
+        <zone xml:id="p017_r04_l006" type="line" ulx="111" uly="2741" lrx="2186" lry="2822" points="111,2741 2186,2741 2186,2822 111,2822">
+          <path type="baseline" points="111,2796 2185,2796"/>
+        </zone>
+        <zone xml:id="p017_r04_l007" type="line" ulx="112" uly="2827" lrx="2197" lry="2906" points="112,2827 2197,2827 2197,2906 112,2906">
+          <path type="baseline" points="112,2880 2196,2880"/>
+        </zone>
+        <zone xml:id="p017_r04_l008" type="line" ulx="112" uly="2905" lrx="2182" lry="2989" points="112,2905 2182,2905 2182,2989 112,2989">
+          <path type="baseline" points="112,2963 2181,2963"/>
+        </zone>
+        <zone xml:id="p017_r04_l009" type="line" ulx="112" uly="2992" lrx="2179" lry="3073" points="112,2992 2179,2992 2179,3073 112,3073">
+          <path type="baseline" points="112,3047 2178,3047"/>
+        </zone>
+        <zone xml:id="p017_r04_l010" type="line" ulx="98" uly="3066" lrx="2177" lry="3154" points="98,3066 2177,3066 2177,3154 98,3154">
+          <path type="baseline" points="98,3128 2176,3128"/>
+        </zone>
+        <zone xml:id="p017_r04_l011" type="line" ulx="119" uly="3152" lrx="2189" lry="3237" points="119,3152 2189,3152 2189,3237 119,3237">
+          <path type="baseline" points="119,3211 2188,3211"/>
+        </zone>
+        <zone xml:id="p017_r04_l012" type="line" ulx="122" uly="3237" lrx="2178" lry="3318" points="122,3237 2178,3237 2178,3318 122,3318">
+          <path type="baseline" points="122,3292 2177,3292"/>
+        </zone>
+      </zone>
+      <zone xml:id="p017_r05" type="marginalia" subtype="handwritten" ulx="1560" uly="668" lrx="1660" lry="780" points="1560,668 1660,668 1660,780 1560,780">
+        <zone xml:id="p017_r05_l001" type="line" ulx="1560" uly="668" lrx="1660" lry="780" points="1560,668 1660,668 1660,780 1560,780">
+          <path type="baseline" points="1560,780 1660,780"/>
+        </zone>
+      </zone>
+      <zone xml:id="p017_r06" type="marginalia" subtype="handwritten" ulx="800" uly="2638" lrx="856" lry="2720" points="800,2638 856,2638 856,2720 800,2720">
+        <zone xml:id="p017_r06_l001" type="line" ulx="800" uly="2638" lrx="856" lry="2720" points="800,2638 856,2638 856,2720 800,2720">
+          <path type="baseline" points="800,2720 856,2720"/>
+        </zone>
+      </zone>
+      <zone xml:id="p017_r07" type="annotation-graphic" subtype="handwritten" ulx="2000" uly="3160" lrx="2190" lry="3180" points="2000,3160 2190,3160 2190,3180 2000,3180"/>
+      <zone xml:id="p017_r08" type="damage" subtype="none" ulx="40" uly="2950" lrx="180" lry="3495" points="40,2950 180,2950 180,3495 40,3495"/>
+      <zone xml:id="p017_r09" type="annotation-graphic" subtype="handwritten" ulx="1118" uly="1648" lrx="2037" lry="1665" points="1118,1648 2037,1648 2037,1665 1118,1665"/>
+      <zone xml:id="p017_r10" type="annotation-graphic" subtype="handwritten" ulx="270" uly="1708" lrx="1507" lry="1736" points="270,1708 1507,1708 1507,1736 270,1736"/>
+      <zone xml:id="p017_r11" type="annotation-graphic" subtype="handwritten" ulx="400" uly="2286" lrx="570" lry="2310" points="400,2286 570,2286 570,2310 400,2310"/>
+      <zone xml:id="p017_r12" type="annotation-graphic" subtype="handwritten" ulx="616" uly="2390" lrx="2053" lry="2443" points="616,2390 2053,2390 2053,2443 616,2443"/>
+      <zone xml:id="p017_r13" type="annotation-graphic" subtype="handwritten" ulx="259" uly="2471" lrx="2117" lry="2518" points="259,2471 2117,2471 2117,2518 259,2518"/>
+      <zone xml:id="p017_r14" type="annotation-graphic" subtype="handwritten" ulx="210" uly="2553" lrx="2010" lry="2587" points="210,2553 2010,2553 2010,2587 210,2587"/>
+      <zone xml:id="p017_r15" type="annotation-graphic" subtype="handwritten" ulx="214" uly="2640" lrx="1357" lry="2691" points="214,2640 1357,2640 1357,2691 214,2691"/>
+      <zone xml:id="p017_r16" type="annotation-graphic" subtype="handwritten" ulx="880" uly="2815" lrx="2058" lry="2853" points="880,2815 2058,2815 2058,2853 880,2853"/>
+      <zone xml:id="p017_r17" type="annotation-graphic" subtype="handwritten" ulx="243" uly="2886" lrx="1498" lry="2912" points="243,2886 1498,2886 1498,2912 243,2912"/>
+    </surface>
+    <surface xml:id="p018" n="18" ulx="0" uly="0" lrx="2374" lry="3495" corresp="https://artifacts.gpura.org/public/1971-american-aikyanadinte-charithram/canvas/18">
+      <graphic url="https://iiif.gpura.org/iiif/3/1971-american-aikyanadinte-charithram__0018.jpg/full/max/0/default.jpg" width="2374px" height="3495px" mimeType="image/jpeg"/>
+      <zone xml:id="p018_r01" type="page-number" subtype="printed" ulx="241" uly="173" lrx="270" lry="215" points="241,173 270,173 270,215 241,215">
+        <zone xml:id="p018_r01_l001" type="line" ulx="241" uly="173" lrx="270" lry="215" points="241,173 270,173 270,215 241,215">
+          <path type="baseline" points="241,211 270,211"/>
+        </zone>
+      </zone>
+      <zone xml:id="p018_r02" type="header" subtype="printed" ulx="769" uly="178" lrx="1793" lry="237" points="769,178 1793,178 1793,237 769,237">
+        <zone xml:id="p018_r02_l001" type="line" ulx="769" uly="178" lrx="1793" lry="237" points="769,178 1793,178 1793,237 769,237">
+          <path type="baseline" points="769,233 1793,233"/>
+        </zone>
+      </zone>
+      <zone xml:id="p018_r03" type="paragraph" subtype="printed" ulx="241" uly="313" lrx="2320" lry="637" points="241,313 2320,313 2320,637 241,637">
+        <zone xml:id="p018_r03_l001" type="line" ulx="241" uly="313" lrx="2320" lry="404" points="241,313 2320,313 2320,404 241,404">
+          <path type="baseline" points="241,378 2319,378"/>
+        </zone>
+        <zone xml:id="p018_r03_l002" type="line" ulx="246" uly="395" lrx="2310" lry="484" points="246,395 2310,395 2310,484 246,484">
+          <path type="baseline" points="246,458 2309,458"/>
+        </zone>
+        <zone xml:id="p018_r03_l003" type="line" ulx="242" uly="474" lrx="2310" lry="556" points="242,474 2310,474 2310,556 242,556">
+          <path type="baseline" points="242,530 2309,530"/>
+        </zone>
+        <zone xml:id="p018_r03_l004" type="line" ulx="243" uly="557" lrx="910" lry="637" points="243,557 910,557 910,637 243,637">
+          <path type="baseline" points="243,611 909,611"/>
+        </zone>
+      </zone>
+      <zone xml:id="p018_r04" type="paragraph" subtype="printed" ulx="239" uly="666" lrx="2315" lry="1804" points="239,666 2315,666 2315,1804 239,1804">
+        <zone xml:id="p018_r04_l001" type="line" ulx="376" uly="666" lrx="2306" lry="757" points="376,666 2306,666 2306,757 376,757">
+          <path type="baseline" points="376,731 2305,731"/>
+        </zone>
+        <zone xml:id="p018_r04_l002" type="line" ulx="245" uly="748" lrx="2312" lry="829" points="245,748 2312,748 2312,829 245,829">
+          <path type="baseline" points="245,803 2311,803"/>
+        </zone>
+        <zone xml:id="p018_r04_l003" type="line" ulx="242" uly="821" lrx="2312" lry="910" points="242,821 2312,821 2312,910 242,910">
+          <path type="baseline" points="242,884 2311,884"/>
+        </zone>
+        <zone xml:id="p018_r04_l004" type="line" ulx="244" uly="910" lrx="2311" lry="1002" points="244,910 2311,910 2311,1002 244,1002">
+          <path type="baseline" points="244,976 2310,976"/>
+        </zone>
+        <zone xml:id="p018_r04_l005" type="line" ulx="242" uly="988" lrx="2312" lry="1082" points="242,988 2312,988 2312,1082 242,1082">
+          <path type="baseline" points="242,1056 2311,1056"/>
+        </zone>
+        <zone xml:id="p018_r04_l006" type="line" ulx="242" uly="1068" lrx="2294" lry="1160" points="242,1068 2294,1068 2294,1160 242,1160">
+          <path type="baseline" points="242,1134 2293,1134"/>
+        </zone>
+        <zone xml:id="p018_r04_l007" type="line" ulx="241" uly="1150" lrx="2313" lry="1241" points="241,1150 2313,1150 2313,1241 241,1241">
+          <path type="baseline" points="241,1215 2312,1215"/>
+        </zone>
+        <zone xml:id="p018_r04_l008" type="line" ulx="242" uly="1225" lrx="2304" lry="1323" points="242,1225 2304,1225 2304,1323 242,1323">
+          <path type="baseline" points="242,1297 2303,1297"/>
+        </zone>
+        <zone xml:id="p018_r04_l009" type="line" ulx="244" uly="1306" lrx="2315" lry="1394" points="244,1306 2315,1306 2315,1394 244,1394">
+          <path type="baseline" points="244,1368 2314,1368"/>
+        </zone>
+        <zone xml:id="p018_r04_l010" type="line" ulx="241" uly="1389" lrx="2313" lry="1477" points="241,1389 2313,1389 2313,1477 241,1477">
+          <path type="baseline" points="241,1451 2312,1451"/>
+        </zone>
+        <zone xml:id="p018_r04_l011" type="line" ulx="242" uly="1479" lrx="2314" lry="1561" points="242,1479 2314,1479 2314,1561 242,1561">
+          <path type="baseline" points="242,1535 2313,1535"/>
+        </zone>
+        <zone xml:id="p018_r04_l012" type="line" ulx="242" uly="1560" lrx="2313" lry="1640" points="242,1560 2313,1560 2313,1640 242,1640">
+          <path type="baseline" points="242,1614 2312,1614"/>
+        </zone>
+        <zone xml:id="p018_r04_l013" type="line" ulx="244" uly="1634" lrx="2308" lry="1722" points="244,1634 2308,1634 2308,1722 244,1722">
+          <path type="baseline" points="244,1696 2307,1696"/>
+        </zone>
+        <zone xml:id="p018_r04_l014" type="line" ulx="239" uly="1725" lrx="1664" lry="1804" points="239,1725 1664,1725 1664,1804 239,1804">
+          <path type="baseline" points="239,1778 1663,1778"/>
+        </zone>
+      </zone>
+      <zone xml:id="p018_r05" type="heading" subtype="printed" ulx="250" uly="1835" lrx="2274" lry="2015" points="250,1835 2274,1835 2274,2015 250,2015">
+        <zone xml:id="p018_r05_l001" type="line" ulx="250" uly="1835" lrx="1759" lry="1936" points="250,1835 1759,1835 1759,1936 250,1936">
+          <path type="baseline" points="250,1910 1758,1910"/>
+        </zone>
+        <zone xml:id="p018_r05_l002" type="line" ulx="366" uly="1931" lrx="2274" lry="2015" points="366,1931 2274,1931 2274,2015 366,2015">
+          <path type="baseline" points="366,1989 2273,1989"/>
+        </zone>
+      </zone>
+      <zone xml:id="p018_r06" type="paragraph" subtype="printed" ulx="227" uly="2044" lrx="2320" lry="3360" points="227,2044 2320,2044 2320,3360 227,3360">
+        <zone xml:id="p018_r06_l001" type="line" ulx="380" uly="2044" lrx="2313" lry="2133" points="380,2044 2313,2044 2313,2133 380,2133">
+          <path type="baseline" points="380,2107 2312,2107"/>
+        </zone>
+        <zone xml:id="p018_r06_l002" type="line" ulx="247" uly="2132" lrx="2315" lry="2213" points="247,2132 2315,2132 2315,2213 247,2213">
+          <path type="baseline" points="247,2187 2314,2187"/>
+        </zone>
+        <zone xml:id="p018_r06_l003" type="line" ulx="247" uly="2214" lrx="2320" lry="2307" points="247,2214 2320,2214 2320,2307 247,2307">
+          <path type="baseline" points="247,2281 2319,2281"/>
+        </zone>
+        <zone xml:id="p018_r06_l004" type="line" ulx="248" uly="2288" lrx="2318" lry="2389" points="248,2288 2318,2288 2318,2389 248,2389">
+          <path type="baseline" points="248,2363 2317,2363"/>
+        </zone>
+        <zone xml:id="p018_r06_l005" type="line" ulx="243" uly="2369" lrx="2310" lry="2470" points="243,2369 2310,2369 2310,2470 243,2470">
+          <path type="baseline" points="243,2444 2309,2444"/>
+        </zone>
+        <zone xml:id="p018_r06_l006" type="line" ulx="247" uly="2452" lrx="2313" lry="2550" points="247,2452 2313,2452 2313,2550 247,2550">
+          <path type="baseline" points="247,2524 2312,2524"/>
+        </zone>
+        <zone xml:id="p018_r06_l007" type="line" ulx="248" uly="2533" lrx="2319" lry="2622" points="248,2533 2319,2533 2319,2622 248,2622">
+          <path type="baseline" points="248,2596 2318,2596"/>
+        </zone>
+        <zone xml:id="p018_r06_l008" type="line" ulx="245" uly="2614" lrx="2315" lry="2704" points="245,2614 2315,2614 2315,2704 245,2704">
+          <path type="baseline" points="245,2678 2314,2678"/>
+        </zone>
+        <zone xml:id="p018_r06_l009" type="line" ulx="246" uly="2703" lrx="2320" lry="2794" points="246,2703 2320,2703 2320,2794 246,2794">
+          <path type="baseline" points="246,2768 2319,2768"/>
+        </zone>
+        <zone xml:id="p018_r06_l010" type="line" ulx="248" uly="2775" lrx="2299" lry="2878" points="248,2775 2299,2775 2299,2878 248,2878">
+          <path type="baseline" points="248,2852 2298,2852"/>
+        </zone>
+        <zone xml:id="p018_r06_l011" type="line" ulx="245" uly="2860" lrx="2300" lry="2951" points="245,2860 2300,2860 2300,2951 245,2951">
+          <path type="baseline" points="245,2925 2299,2925"/>
+        </zone>
+        <zone xml:id="p018_r06_l012" type="line" ulx="245" uly="2949" lrx="2300" lry="3043" points="245,2949 2300,2949 2300,3043 245,3043">
+          <path type="baseline" points="245,3017 2299,3017"/>
+        </zone>
+        <zone xml:id="p018_r06_l013" type="line" ulx="245" uly="3031" lrx="2317" lry="3119" points="245,3031 2317,3031 2317,3119 245,3119">
+          <path type="baseline" points="245,3093 2316,3093"/>
+        </zone>
+        <zone xml:id="p018_r06_l014" type="line" ulx="247" uly="3114" lrx="2297" lry="3207" points="247,3114 2297,3114 2297,3207 247,3207">
+          <path type="baseline" points="247,3181 2296,3181"/>
+        </zone>
+        <zone xml:id="p018_r06_l015" type="line" ulx="227" uly="3188" lrx="2295" lry="3287" points="227,3188 2295,3188 2295,3287 227,3287">
+          <path type="baseline" points="227,3261 2294,3261"/>
+        </zone>
+        <zone xml:id="p018_r06_l016" type="line" ulx="239" uly="3280" lrx="2295" lry="3360" points="239,3280 2295,3280 2295,3360 239,3360">
+          <path type="baseline" points="239,3334 2294,3334"/>
+        </zone>
+      </zone>
+      <zone xml:id="p018_r07" type="annotation-graphic" subtype="handwritten" ulx="1800" uly="2265" lrx="1975" lry="2305" points="1800,2265 1975,2265 1975,2305 1800,2305"/>
+      <zone xml:id="p018_r08" type="annotation-graphic" subtype="handwritten" ulx="210" uly="3150" lrx="790" lry="3360" points="210,3150 790,3150 790,3360 210,3360"/>
+      <zone xml:id="p018_r09" type="damage" subtype="none" ulx="2240" uly="0" lrx="2374" lry="1300" points="2240,0 2374,0 2374,1300 2240,1300"/>
+      <zone xml:id="p018_r10" type="damage" subtype="none" ulx="2290" uly="2700" lrx="2374" lry="3495" points="2290,2700 2374,2700 2374,3495 2290,3495"/>
+      <zone xml:id="p018_r11" type="annotation-graphic" subtype="handwritten" ulx="614" uly="744" lrx="1672" lry="763" points="614,744 1672,744 1672,763 614,763"/>
+      <zone xml:id="p018_r12" type="annotation-graphic" subtype="handwritten" ulx="420" uly="800" lrx="804" lry="825" points="420,800 804,800 804,825 420,825"/>
+      <zone xml:id="p018_r13" type="annotation-graphic" subtype="handwritten" ulx="923" uly="800" lrx="1841" lry="818" points="923,800 1841,800 1841,818 923,818"/>
+      <zone xml:id="p018_r14" type="annotation-graphic" subtype="handwritten" ulx="339" uly="909" lrx="638" lry="922" points="339,909 638,909 638,922 339,922"/>
+      <zone xml:id="p018_r15" type="annotation-graphic" subtype="handwritten" ulx="752" uly="1532" lrx="1651" lry="1564" points="752,1532 1651,1532 1651,1564 752,1564"/>
+      <zone xml:id="p018_r16" type="annotation-graphic" subtype="handwritten" ulx="1640" uly="1553" lrx="2081" lry="1569" points="1640,1553 2081,1553 2081,1569 1640,1569"/>
+      <zone xml:id="p018_r17" type="annotation-graphic" subtype="handwritten" ulx="379" uly="1628" lrx="1478" lry="1644" points="379,1628 1478,1628 1478,1644 379,1644"/>
+      <zone xml:id="p018_r18" type="annotation-graphic" subtype="handwritten" ulx="461" uly="1728" lrx="685" lry="1738" points="461,1728 685,1728 685,1738 461,1738"/>
+      <zone xml:id="p018_r19" type="annotation-graphic" subtype="handwritten" ulx="765" uly="1728" lrx="1296" lry="1738" points="765,1728 1296,1728 1296,1738 765,1738"/>
+      <zone xml:id="p018_r20" type="annotation-graphic" subtype="handwritten" ulx="1300" uly="1716" lrx="2050" lry="1732" points="1300,1716 2050,1716 2050,1732 1300,1732"/>
+      <zone xml:id="p018_r21" type="annotation-graphic" subtype="handwritten" ulx="442" uly="1786" lrx="928" lry="1804" points="442,1786 928,1786 928,1804 442,1804"/>
+      <zone xml:id="p018_r22" type="annotation-graphic" subtype="handwritten" ulx="574" uly="2103" lrx="2105" lry="2155" points="574,2103 2105,2103 2105,2155 574,2155"/>
+      <zone xml:id="p018_r23" type="annotation-graphic" subtype="handwritten" ulx="350" uly="2210" lrx="554" lry="2222" points="350,2210 554,2210 554,2222 350,2222"/>
+      <zone xml:id="p018_r24" type="annotation-graphic" subtype="handwritten" ulx="408" uly="2512" lrx="1300" lry="2569" points="408,2512 1300,2512 1300,2569 408,2569"/>
+      <zone xml:id="p018_r25" type="annotation-graphic" subtype="handwritten" ulx="1464" uly="2512" lrx="2118" lry="2547" points="1464,2512 2118,2512 2118,2547 1464,2547"/>
+    </surface>
+    <surface xml:id="p019" n="19" ulx="0" uly="0" lrx="2374" lry="3495" corresp="https://artifacts.gpura.org/public/1971-american-aikyanadinte-charithram/canvas/19">
+      <graphic url="https://iiif.gpura.org/iiif/3/1971-american-aikyanadinte-charithram__0019.jpg/full/max/0/default.jpg" width="2374px" height="3495px" mimeType="image/jpeg"/>
+      <zone xml:id="p019_r01" type="header" subtype="printed" ulx="1086" uly="261" lrx="1258" lry="324" points="1086,261 1258,261 1258,324 1086,324">
+        <zone xml:id="p019_r01_l001" type="line" ulx="1086" uly="261" lrx="1258" lry="324" points="1086,261 1258,261 1258,324 1086,324">
+          <path type="baseline" points="1086,318 1258,318"/>
+        </zone>
+      </zone>
+      <zone xml:id="p019_r02" type="page-number" subtype="printed" ulx="2203" uly="259" lrx="2238" lry="298" points="2203,259 2238,259 2238,298 2203,298">
+        <zone xml:id="p019_r02_l001" type="line" ulx="2203" uly="259" lrx="2238" lry="298" points="2203,259 2238,259 2238,298 2203,298">
+          <path type="baseline" points="2203,292 2238,292"/>
+        </zone>
+      </zone>
+      <zone xml:id="p019_r03" type="image" subtype="printed" ulx="183" uly="386" lrx="2120" lry="3401" points="183,386 2120,386 2120,3401 183,3401" rotate="270"/>
+      <zone xml:id="p019_r04" type="caption" subtype="printed" ulx="2160" uly="1395" lrx="2232" lry="2505" points="2160,1395 2232,1395 2232,2505 2160,2505" rotate="270">
+        <zone xml:id="p019_r04_l001" type="line" ulx="2160" uly="1395" lrx="2232" lry="2505" points="2160,1395 2232,1395 2232,2505 2160,2505" rotate="270">
+          <path type="baseline" points="2217,2505 2217,1395"/>
+        </zone>
+      </zone>
+      <zone xml:id="p019_r05" type="legend" subtype="printed" ulx="1855" uly="1140" lrx="2095" lry="2010" points="1855,1140 2095,1140 2095,2010 1855,2010" rotate="270">
+        <zone xml:id="p019_r05_l001" type="line" ulx="1860" uly="1150" lrx="1948" lry="1800" points="1860,1150 1948,1150 1948,1800 1860,1800" rotate="270">
+          <path type="baseline" points="1930,1800 1930,1150"/>
+        </zone>
+        <zone xml:id="p019_r05_l002" type="line" ulx="1955" uly="1265" lrx="2017" lry="1800" points="1955,1265 2017,1265 2017,1800 1955,1800" rotate="270">
+          <path type="baseline" points="2004,1800 2004,1265"/>
+        </zone>
+        <zone xml:id="p019_r05_l003" type="line" ulx="2025" uly="1265" lrx="2087" lry="1800" points="2025,1265 2087,1265 2087,1800 2025,1800" rotate="270">
+          <path type="baseline" points="2074,1800 2074,1265"/>
+        </zone>
+      </zone>
+      <zone xml:id="p019_r06" type="map-label" subtype="printed" ulx="1200" uly="1544" lrx="1260" lry="1974" points="1200,1544 1260,1544 1260,1974 1200,1974" rotate="270">
+        <zone xml:id="p019_r06_l001" type="line" ulx="1200" uly="1544" lrx="1260" lry="1974" points="1200,1544 1260,1544 1260,1974 1200,1974" rotate="270">
+          <path type="baseline" points="1248,1974 1248,1544"/>
+        </zone>
+      </zone>
+      <zone xml:id="p019_r07" type="map-label" subtype="printed" ulx="880" uly="1524" lrx="960" lry="1884" points="880,1524 960,1524 960,1884 880,1884" rotate="270">
+        <zone xml:id="p019_r07_l001" type="line" ulx="880" uly="1524" lrx="960" lry="1884" points="880,1524 960,1524 960,1884 880,1884" rotate="270">
+          <path type="baseline" points="944,1884 944,1524"/>
+        </zone>
+      </zone>
+      <zone xml:id="p019_r08" type="map-label" subtype="printed" ulx="745" uly="484" lrx="815" lry="824" points="745,484 815,484 815,824 745,824" rotate="270">
+        <zone xml:id="p019_r08_l001" type="line" ulx="745" uly="484" lrx="815" lry="824" points="745,484 815,484 815,824 745,824" rotate="270">
+          <path type="baseline" points="801,824 801,484"/>
+        </zone>
+      </zone>
+      <zone xml:id="p019_r09" type="map-label" subtype="printed" ulx="890" uly="624" lrx="950" lry="864" points="890,624 950,624 950,864 890,864" rotate="270">
+        <zone xml:id="p019_r09_l001" type="line" ulx="890" uly="624" lrx="950" lry="864" points="890,624 950,624 950,864 890,864" rotate="270">
+          <path type="baseline" points="938,864 938,624"/>
+        </zone>
+      </zone>
+      <zone xml:id="p019_r10" type="map-label" subtype="printed" ulx="220" uly="3224" lrx="480" lry="3384" points="220,3224 480,3224 480,3384 220,3384" rotate="270">
+        <zone xml:id="p019_r10_l001" type="line" ulx="220" uly="3224" lrx="480" lry="3384" points="220,3224 480,3224 480,3384 220,3384" rotate="270">
+          <path type="baseline" points="428,3384 428,3224"/>
+        </zone>
+      </zone>
+      <zone xml:id="p019_r11" type="map-label" subtype="printed" ulx="600" uly="2434" lrx="1560" lry="2754" points="600,2434 1560,2434 1560,2754 600,2754" rotate="270">
+        <zone xml:id="p019_r11_l001" type="line" ulx="600" uly="2434" lrx="1560" lry="2754" points="600,2434 1560,2434 1560,2754 600,2754" rotate="270">
+          <path type="baseline" points="1368,2754 1368,2434"/>
+        </zone>
+      </zone>
+      <zone xml:id="p019_r12" type="map-label" subtype="printed" ulx="1460" uly="1714" lrx="1650" lry="2034" points="1460,1714 1650,1714 1650,2034 1460,2034" rotate="270">
+        <zone xml:id="p019_r12_l001" type="line" ulx="1460" uly="1714" lrx="1650" lry="2034" points="1460,1714 1650,1714 1650,2034 1460,2034" rotate="270">
+          <path type="baseline" points="1612,2034 1612,1714"/>
+        </zone>
+      </zone>
+      <zone xml:id="p019_r13" type="map-label" subtype="printed" ulx="1250" uly="1044" lrx="1650" lry="1594" points="1250,1044 1650,1044 1650,1594 1250,1594" rotate="270">
+        <zone xml:id="p019_r13_l001" type="line" ulx="1250" uly="1044" lrx="1650" lry="1594" points="1250,1044 1650,1044 1650,1594 1250,1594" rotate="270">
+          <path type="baseline" points="1570,1594 1570,1044"/>
+        </zone>
+      </zone>
+      <zone xml:id="p019_r14" type="marginalia" subtype="handwritten" ulx="920" uly="15" lrx="2090" lry="255" points="920,15 2090,15 2090,255 920,255">
+        <zone xml:id="p019_r14_l001" type="line" ulx="920" uly="15" lrx="2090" lry="255" points="920,15 2090,15 2090,255 920,255">
+          <path type="baseline" points="930,240 2080,110"/>
+        </zone>
+      </zone>
+      <zone xml:id="p019_r15" type="marginalia" subtype="handwritten" ulx="960" uly="250" lrx="1495" lry="440" points="960,250 1495,250 1495,440 960,440">
+        <zone xml:id="p019_r15_l001" type="line" ulx="960" uly="250" lrx="1495" lry="440" points="960,250 1495,250 1495,440 960,440">
+          <path type="baseline" points="965,435 1490,300"/>
+        </zone>
+      </zone>
+      <zone xml:id="p019_r16" type="annotation-graphic" subtype="handwritten" ulx="190" uly="1835" lrx="2060" lry="2695" points="190,1835 2060,1835 2060,2695 190,2695"/>
+      <zone xml:id="p019_r17" type="annotation-graphic" subtype="handwritten" ulx="2050" uly="3150" lrx="2374" lry="3495" points="2050,3150 2374,3150 2374,3495 2050,3495"/>
+    </surface>
+  </facsimile>
+  <text>
+    <body>
+      <pb n="1" facs="#p017"/>
+      <fw type="pageNum" place="top-right" facs="#p017_r01"><lb facs="#p017_r01_l001"/>1</fw>
+      <div type="chapter">
+        <head facs="#p017_r02"><lb facs="#p017_r02_l001"/>ഭൂപ്രകൃതി</head>
+        <note type="annotation" hand="#blue-ink" place="right" facs="#p017_r05" xml:lang="en"><unclear reason="handwriting" cert="medium" xml:id="f-p017_r05_l001-1">CMS</unclear></note>
+        <p facs="#p017_r03">
+          <lb facs="#p017_r03_l001"/>അമേരിക്കൻ ഐക്യനാട്ടിലെ (യു. എസ്. ഏ.) ബഹുഭൂരിപക്ഷം ആളുകളും ഇ<lb facs="#p017_r03_l002" break="no"/>ന്നു്, സ്വന്തം മാതൃഭാഷയെന്ന പോലെ തന്നെ ഇംഗ്ലീഷ് സംസാരിക്കുന്നവരാണു്.
+          <lb facs="#p017_r03_l003"/>എങ്കിലും അവരുടെ ഉച്ചാരണത്തിൽ പ്രകടമായ അനുനാസികത്വം ഉണ്ടു്. അവരു<lb facs="#p017_r03_l004" break="no"/>ടെ ശൈലികളും കല്പനകളും ആംഗലേയരിൽ <unclear reason="glyph-form" cert="medium" xml:id="f-p017_r03_l004-1">പലർക്കും</unclear> മനസ്സിലാക്കാൻ പ്രയാസം.
+          <lb facs="#p017_r03_l005"/>ഭാഷയൊന്നു തന്നെ, എങ്കിലും വ്യത്യസ്തം. പല അമേരിക്കൻ ആശയങ്ങളും സ്ഥാ<lb facs="#p017_r03_l006" break="no"/>പനങ്ങളും ഇംഗ്ലണ്ടിന്റെ ആശയങ്ങളും സ്ഥാപനങ്ങളും പോലെ <unclear reason="faint" cert="medium" xml:id="f-p017_r03_l006-1">തന്നെയാണു്;</unclear>
+          <lb facs="#p017_r03_l007"/>എങ്കിലും വ്യത്യാസമുണ്ടു്. <hi rend="underline" hand="#blue-ink" facs="#p017_r09" cert="high" xml:id="f-p017_r03_l007-1">ഉദാഹരണത്തിനു് ഇംഗ്ലണ്ടിലെ പാർലമെന്റിനു</hi> തു<lb facs="#p017_r03_l008" break="no"/><hi rend="underline" hand="#blue-ink" facs="#p017_r10" cert="high" xml:id="f-p017_r03_l008-1">ല്യമാണു് യുണൈറ്റഡ് സ്റ്റേറ്റ്സിലെ കോൺഗ്രസ്.</hi> ബ്രിട്ടീഷ് കോമൺസ്
+          <lb facs="#p017_r03_l009"/>സഭ പോലെ അതു് ജനങ്ങളുടെ പ്രാതിനിധ്യം വഹിക്കുന്നു. ജനങ്ങളുടെ വോട്ടു്
+          <lb facs="#p017_r03_l010"/>കൊണ്ടു് അതിലെ അംഗങ്ങളെ തിരഞ്ഞെടുക്കുന്നു. അങ്ങനെ തിരഞ്ഞെടുക്കപ്പെ<lb facs="#p017_r03_l011" break="no"/>ടുന്ന അംഗങ്ങൾ രാഷ്ട്രീയകക്ഷികളിൽ പെട്ടവരാണു താനും. എന്നാലും, കോൺ<lb facs="#p017_r03_l012" break="no"/>ഗ്രസ്സിന്റെയും കോമൺസഭയുടെയും പ്രവർത്തനവിധങ്ങൾ തമ്മിൽ വലിയ വ്യ<lb facs="#p017_r03_l013" break="no"/>ത്യാസം ഉണ്ടു്. ഒരു ഉദാഹരണം : അമേരിക്കൻ മന്ത്രിസഭയിലെ അംഗങ്ങൾക്കു്
+          <lb facs="#p017_r03_l014"/>കോൺഗ്രസ്സിൽ സംബന്ധിക്കുവാൻ അവകാശമില്ല. അമേരിക്കയിലെയും ബ്രി<lb facs="#p017_r03_l015" break="no"/><hi rend="underline" hand="#dark-ink" facs="#p017_r11" cert="high" xml:id="f-p017_r03_l015-1">ട്ടനിലെയും രാഷ്ട്രീയകക്ഷികളുടെ</hi> ലക്ഷ്യങ്ങൾ തന്നെ വളരെ വിഭിന്നമാണു്.
+        </p>
+        <p facs="#p017_r04 #p018_r03">
+          <lb facs="#p017_r04_l001"/>യു. എസ്. ഏ <hi rend="underline" hand="#blue-ink" facs="#p017_r12" cert="high" xml:id="f-p017_r04_l001-1">യിലെ ആദ്യത്തെ അധിനിവേശകരിലധികവും ബ്രിട്ടീഷു</hi><lb facs="#p017_r04_l002" break="no"/><hi rend="underline" hand="#blue-ink" facs="#p017_r13" cert="high" xml:id="f-p017_r04_l002-1">കാരായി<hi rend="overdrawn" hand="#blue-ink" facs="#p017_r12" cert="high" xml:id="f-p017_r04_l002-2">രുന്നതു കൊണ്ടാണു്</hi> അവിടത്തെ ഭാഷ ഇംഗ്ലീഷായി തീർന്നതു്. അതേ</hi>
+          <lb facs="#p017_r04_l003"/><hi rend="underline" hand="#blue-ink" facs="#p017_r14" cert="high" xml:id="f-p017_r04_l003-1">കാരണം കൊണ്ടു തന്നെ അമേരിക്കയിലെ ആശയഗതികളും സ്ഥാപനമാതൃകകളും</hi>
+          <lb facs="#p017_r04_l004"/><hi rend="underline" hand="#blue-ink" facs="#p017_r15" cert="high" xml:id="f-p017_r04_l004-2"><unclear reason="glyph-form" cert="medium" xml:id="f-p017_r04_l004-1">ബ്രിട്ടന്റെതിനോടു്</unclear> സാദൃശ്യമുള്ളതായിത്തീർന്നു.</hi> വ്യത്യാസം ഉണ്ടായതു് രണ്ടു കാര<lb facs="#p017_r04_l005" break="no"/>ണത്താലാണു്. ഒന്നാമതു്<add hand="#blue-ink" place="inline" rend="circled" facs="#p017_r06"><unclear reason="handwriting" cert="medium" xml:id="f-p017_r06_l001-1">1</unclear></add> മറ്റു പല രാജ്യക്കാരും യു. എസ്. ഏ യുടെ <unclear reason="glyph-form" cert="medium" xml:id="f-p017_r04_l005-1">വളർച്ച</unclear><lb facs="#p017_r04_l006" break="no"/>യ്ക്കു് <hi rend="underline" hand="#blue-ink" facs="#p017_r16" cert="high" xml:id="f-p017_r04_l006-1">സഹായിച്ചിട്ടുണ്ടു്. സ്പെയിൻകാരും ഫ്രഞ്ചുകാരും ആയിരുന്നു വടക്കെ</hi> അമേ<lb facs="#p017_r04_l007" break="no"/><hi rend="underline" hand="#blue-ink" facs="#p017_r17" cert="high" xml:id="f-p017_r04_l007-1">രിക്കയിലെത്തിയ ആദ്യത്തെ അന്വേഷകസംഘങ്ങൾ.</hi> പതിനേഴും പതിനെ<lb facs="#p017_r04_l008" break="no"/>ട്ടും ശതാബ്ദങ്ങളിൽ ആയിരക്കണക്കിനു് ആഫ്രിക്കൻ നീഗ്രോകളെ അമേരിക്ക<lb facs="#p017_r04_l009" break="no"/>യിൽ അടിമകളായി കൊണ്ടു വന്നു. പത്തൊൻപതാം ശതകത്തിൽ യൂറോപ്പിൽ
+          <lb facs="#p017_r04_l010"/>നിന്നു് അമേരിക്കയിലേക്കു് പ്രവഹിച്ച അധിനിവേശകരിൽ ഐർലൻഡുകാർ,
+          <lb facs="#p017_r04_l011"/><unclear reason="glyph-form damage" cert="medium" xml:id="f-p017_r04_l011-2"><damage agent="crease" facs="#p017_r08" cert="medium" xml:id="f-p017_r04_l011-1">ജ</damage>ർമൻകാർ</unclear>, സ്കാൻഡിനേവിയക്കാർ, ഇറ്റാലിയൻമാർ, സ്ലാവുകൾ എന്നിവ<lb facs="#p017_r04_l012" break="no"/>രെല്ലാം ഉൾപ്പെട്ടിരുന്നു. അവരെല്ലാം തങ്ങളുടെ മുദ്രകൾ അവിടെ പതി<pb n="2" facs="#p018" break="no"/><fw type="pageNum" place="top-left" facs="#p018_r01"><lb facs="#p018_r01_l001"/>2</fw><fw type="header" place="top-centre" facs="#p018_r02"><lb facs="#p018_r02_l001"/>അമേരിക്കൻ ഐക്യനാടിന്റെ ചരിത്രം</fw><lb facs="#p018_r03_l001" break="no"/>പ്പിച്ചിട്ടുണ്ടു്. സുപരിചിതവും ശ്രദ്ധേയവും ആയ രണ്ടു് ഉദാഹരണം പറയാം.
+          <lb facs="#p018_r03_l002"/>കാലിഫോർണിയയിലെ ഏറ്റവും വലിയ രണ്ടു നഗരങ്ങൾക്കു് ഇപ്പോഴും സ്പാ<lb facs="#p018_r03_l003" break="no"/>നിഷ് പേരാണു്. മധ്യപശ്ചിമദേശത്തെ ഒരു വലിയ പട്ടണത്തിന്റെ പേരു്
+          <lb facs="#p018_r03_l004"/>സെന്റു് ലൂയിസ് എന്നും.
+        </p>
+        <p facs="#p018_r04">
+          <lb facs="#p018_r04_l001"/><hi rend="underline" hand="#blue-ink" facs="#p018_r11" cert="high" xml:id="f-p018_r04_l001-1">അമേരിക്കൻ സംസ്കാരം ആംഗലസംസ്കാരത്തിന്റെ വെറും</hi> പകർപ്പല്ലാതിരി<lb facs="#p018_r04_l002" break="no"/><hi rend="underline" hand="#blue-ink" facs="#p018_r12" cert="high" xml:id="f-p018_r04_l002-1">ക്കുന്നതിന്റെ <hi rend="underline" hand="#blue-ink" facs="#p018_r13" cert="high" xml:id="f-p018_r04_l002-3-a" next="#f-p018_r04_l002-3-b"><hi rend="overdrawn" hand="#blue-ink" facs="#p018_r11" cert="high" xml:id="f-p018_r04_l002-2-a" next="#f-p018_r04_l002-2-b">രണ്ടാമത്തെ</hi></hi></hi><hi rend="underline" hand="#blue-ink" facs="#p018_r13" cert="high" xml:id="f-p018_r04_l002-3-b" prev="#f-p018_r04_l002-3-a"><hi rend="overdrawn" hand="#blue-ink" facs="#p018_r11" cert="high" xml:id="f-p018_r04_l002-2-b" prev="#f-p018_r04_l002-2-a"> കാരണം</hi> യു. എസ്. ഏ. യുടെ ഭൂമിശാസ്ത്രപരമായ</hi> സ<lb facs="#p018_r04_l003" break="no"/><hi rend="underline" hand="#blue-ink" facs="#p018_r14" cert="high" xml:id="f-p018_r04_l003-1">വിശേഷതയാണു്.</hi> യൂറോപ്പിൽ നിന്നു വന്ന അധിനിവേശകരുടെയും അവരുടെ
+          <lb facs="#p018_r04_l004"/>പരമ്പരകളുടെയും ഭാഗധേയങ്ങൾ രൂപപ്പെടുത്തിയതും <unclear reason="glyph-form" cert="medium" xml:id="f-p018_r04_l004-1">കുരുപ്പിടിപ്പിച്ചതും</unclear> അവർ
+          <lb facs="#p018_r04_l005"/><unclear reason="faint" cert="medium" xml:id="f-p018_r04_l005-1">പാർപ്പു്</unclear> ഉറപ്പിച്ച ഭൂമിയാണു്. തങ്ങൾ എവിടെ താമസിക്കണമെന്നും ഏതു
+          <lb facs="#p018_r04_l006"/>ജീവിതവൃത്തി കൈക്കൊള്ളണമെന്നും അവരെക്കൊണ്ടു് <unclear reason="damage" cert="medium" xml:id="f-p018_r04_l006-1">തീരുമാനമെടുപ്പിച്ചതു</unclear>
+          <lb facs="#p018_r04_l007"/>നാട്ടിന്റെ ഭൂപ്രകൃതിയും ശീതോഷ്ണാവസ്ഥയും ആണു്. ചില പ്രദേശങ്ങൾ അവ<lb facs="#p018_r04_l008" break="no"/>രെ ആകർഷിച്ചു. ചിലേടങ്ങൾ അവർക്കു് ഇഷ്ടപ്പെട്ടില്ല. ജീവിക്കാൻ <damage agent="stain" facs="#p018_r09" cert="medium" xml:id="f-p018_r04_l008-1">തിര</damage><lb facs="#p018_r04_l009" break="no"/>ഞ്ഞെടുത്ത പ്രദേശങ്ങൾ, പുതിയ ജീവിതചിന്തകളും ജീവിതശീലങ്ങളും അ<lb facs="#p018_r04_l010" break="no"/>വർക്കു് നൽകി. അവ അധിനിവേശകരുടെ ജീവിതവീക്ഷണം തന്നെ പരിവ<lb facs="#p018_r04_l011" break="no"/><unclear reason="glyph-form" cert="medium" xml:id="f-p018_r04_l011-1">ർത്തനം</unclear> ചെയ്തു. <hi rend="underline" hand="#blue-ink" facs="#p018_r15" cert="high" xml:id="f-p018_r04_l011-2">ഇംഗ്ലീഷ്കാരനെയും <hi rend="underline" hand="#blue-ink" facs="#p018_r16" cert="high" xml:id="f-p018_r04_l011-3-a" next="#f-p018_r04_l011-3-b">ജർമൻകാരനെയും</hi></hi><hi rend="underline" hand="#blue-ink" facs="#p018_r16" cert="high" xml:id="f-p018_r04_l011-3-b" prev="#f-p018_r04_l011-3-a"> ഇറ്റാലിയനെയും</hi> അ<lb facs="#p018_r04_l012" break="no"/><hi rend="underline" hand="#blue-ink" facs="#p018_r17" cert="high" xml:id="f-p018_r04_l012-1">യർലണ്ടുകാരനെയും റഷ്യക്കാരനെയും അമേരിക്കക്കാരാക്കി</hi> മാറ്റിയതു് ഐ<lb facs="#p018_r04_l013" break="no"/><hi rend="underline" hand="#blue-ink" facs="#p018_r18" cert="high" xml:id="f-p018_r04_l013-1">ക്യനാടിന്റെ <hi rend="underline" hand="#blue-ink" facs="#p018_r19" cert="high" xml:id="f-p018_r04_l013-2-a" next="#f-p018_r04_l013-2-b">ഭൂമിശാസ്ത്രമാണു്.</hi></hi><hi rend="underline" hand="#blue-ink" facs="#p018_r19" cert="high" xml:id="f-p018_r04_l013-2-b" prev="#f-p018_r04_l013-2-a"> <hi rend="underline" hand="#blue-ink" facs="#p018_r20" cert="high" xml:id="f-p018_r04_l013-3-a" next="#f-p018_r04_l013-3-b">അമേരിക്കൻ</hi></hi><hi rend="underline" hand="#blue-ink" facs="#p018_r20" cert="high" xml:id="f-p018_r04_l013-3-b" prev="#f-p018_r04_l013-3-a"> ചരിത്രത്തിന്റെ പശ്ചാത്തലം</hi>
+          <lb facs="#p018_r04_l014"/><hi rend="underline" hand="#blue-ink" facs="#p018_r21" cert="high" xml:id="f-p018_r04_l014-1">അമേരിക്കൻ ഭൂമിശാസ്ത്രമത്രെ.</hi>
+        </p>
+        <div type="section" n="1">
+          <head facs="#p018_r05"><lb facs="#p018_r05_l001"/>1. വലിപ്പം, ബാഹ്യപ്രകൃതി, ശീതോഷ്ണാവസ്ഥ,
+          <lb facs="#p018_r05_l002"/>പ്രകൃതിവിഭവങ്ങൾ</head>
+          <p facs="#p018_r06">
+            <lb facs="#p018_r06_l001"/><hi rend="underline" hand="#blue-ink" facs="#p018_r22" cert="high" xml:id="f-p018_r06_l001-1">അമേരിക്കൻ ഭൂമിശാസ്ത്രത്തിന്റെ ശ്രദ്ധേയമായ പ്രത്യേകത അതിന്റെ</hi> വി<lb facs="#p018_r06_l002" break="no"/><hi rend="underline" hand="#blue-ink" facs="#p018_r23" cert="high" xml:id="f-p018_r06_l002-1">സ്തൃതിയാണു്.</hi> വിശേഷിച്ചും, കുടിയേറ്റത്തിനു വന്നവരുടെ ജന്മഭൂമികളുടെ
+            <lb facs="#p018_r06_l003"/>വലിപ്പവുമായി താരതമ്യപ്പെടുത്തുമ്പോൾ. അലാസ്കയും <hi rend="underline" hand="#blue-ink" facs="#p018_r07" cert="high" xml:id="f-p018_r06_l003-1">ഹാവായിയും</hi> ഉൾ<lb facs="#p018_r06_l004" break="no"/>പ്പെടെ യു. എസ്. ഏ യുടെ വിസ്താരം <unclear reason="print-defect" cert="medium" xml:id="f-p018_r06_l004-1">3554000</unclear> ചതുരശ്രമൈലാണു്. റഷ്യ
+            <lb facs="#p018_r06_l005"/>ഒഴികെയുള്ള യൂറോപ്പിന്റെ വിസ്തൃതി ഏതാണ്ടു് ഇതിൽ പകുതിയേ വരൂ.
+            <lb facs="#p018_r06_l006"/><hi rend="underline" hand="#blue-ink" facs="#p018_r24" cert="high" xml:id="f-p018_r06_l006-1">ടെക്സാസ് എന്ന ഒറ്റ സ്റ്റേറ്റിനു് <hi rend="underline" hand="#blue-ink" facs="#p018_r25" cert="high" xml:id="f-p018_r06_l006-3-a" next="#f-p018_r06_l006-3-b"><hi rend="overdrawn" hand="#blue-ink" cert="medium" xml:id="f-p018_r06_l006-2-a" next="#f-p018_r06_l006-2-b">ഇംഗ്ലണ്ടിന്റെ</hi></hi></hi><hi rend="underline" hand="#blue-ink" facs="#p018_r25" cert="high" xml:id="f-p018_r06_l006-3-b" prev="#f-p018_r06_l006-3-a"><hi rend="overdrawn" hand="#blue-ink" cert="medium" xml:id="f-p018_r06_l006-2-b" prev="#f-p018_r06_l006-2-a"> അഞ്ചിരട്ടി</hi> വലിപ്പമുണ്ടു്.</hi> യു.
+            <lb facs="#p018_r06_l007"/>എസ്. <hi rend="overdrawn" hand="#blue-ink" facs="#p018_r24" cert="high" xml:id="f-p018_r06_l007-1">വൻകരയുടെ കിഴക്കും</hi> പടിഞ്ഞാറും കിടക്കുന്ന കടൽതീരത്തിനു് 1500
+            <lb facs="#p018_r06_l008"/>മൈൽ വീതം നീളമുണ്ടു്. അതിന്റെ കനേഡിയൻ അതിർത്തിയുടെ നീളം 3,000
+            <lb facs="#p018_r06_l009"/>മൈൽ വരും. എന്നാൽ ഒരു രാജ്യത്തിന്റെ വിസ്താരം കൊണ്ടു് മാത്രം <damage agent="tear" facs="#p018_r10" cert="medium" xml:id="f-p018_r06_l009-1">ആളുകൾ</damage>
+            <lb facs="#p018_r06_l010"/>ആകർഷിക്കപ്പെടുകയില്ല. <unclear reason="glyph-form" cert="medium" xml:id="f-p018_r06_l010-1">ആസ്ത്രേലിയയുടെ</unclear> വിസ്തൃതി 3000000 <damage agent="tear" facs="#p018_r10" cert="medium" xml:id="f-p018_r06_l010-2">ചതു</damage><lb facs="#p018_r06_l011" break="no"/>രശ്രമൈലാണു്. എന്നാൽ 11000000 മാത്രമാണു് അവിടത്തെ ജനസംഖ്യ. <damage agent="tear" facs="#p018_r10" cert="low" xml:id="f-p018_r06_l011-1">അത</damage><lb facs="#p018_r06_l012" break="no"/>യതു് യു. എസ്. ഏ. യിലെ ജനസംഖ്യയുടെ ആറു ശതമാനം. യു. എസ്. ഏ. <damage agent="tear" facs="#p018_r10" cert="medium" xml:id="f-p018_r06_l012-1">യു</damage><lb facs="#p018_r06_l013" break="no"/>ടെ സമശീതോഷ്ണവും എന്നാൽ <unclear reason="glyph-form" cert="medium" xml:id="f-p018_r06_l013-1">വൈവിധ്യപൂർണവും</unclear> ആയ കാലാവസ്ഥയും <damage agent="tear" facs="#p018_r10" cert="medium" xml:id="f-p018_r06_l013-2">സമ്പ</damage><lb facs="#p018_r06_l014" break="no"/>ന്നമായ പ്രകൃതിവിഭവങ്ങളുമാണു് കുടിയേറ്റക്കാരെ അങ്ങോട്ടേക്കാകർഷിച്ചതു്
+            <lb facs="#p018_r06_l015"/>യു. എസ്. ഏ. യുടെ വികസനത്തിനും വളർച്ചയ്ക്കും സഹായകമായി നിന്ന ഘ<lb facs="#p018_r06_l016" break="no"/>ടകങ്ങളും ഇവ തന്നെയായിരുന്നു.
+          </p>
+          <pb n="3" facs="#p019"/>
+          <fw type="header" place="top-centre" facs="#p019_r01"><lb facs="#p019_r01_l001"/><unclear reason="faint" cert="medium" xml:id="f-p019_r01_l001-1">ഭൂപ്രകൃതി</unclear></fw>
+          <fw type="pageNum" place="top-right" facs="#p019_r02"><lb facs="#p019_r02_l001"/>3</fw>
+          <note type="annotation" hand="#blue-ink" place="top" facs="#p019_r14" xml:lang="en"><unclear reason="handwriting" cert="medium" xml:id="f-p019_r14_l001-1">Trueman</unclear> <unclear reason="handwriting" cert="medium" xml:id="f-p019_r14_l001-2">Doctrine</unclear></note>
+          <note type="annotation" hand="#blue-ink" place="top" facs="#p019_r15" xml:lang="en">Kennedy<unclear reason="handwriting" cert="low" xml:id="f-p019_r15_l001-1">.</unclear></note>
+          <figure type="map" facs="#p019_r03" rendition="#rot-ccw90">
+            <head type="caption" facs="#p019_r04" rendition="#rot-ccw90"><lb facs="#p019_r04_l001"/>അമേരിക്കൻ ഐക്യനാടിന്റെ ഭൂപ്രകൃതി</head>
+            <figDesc xml:lang="en">Relief map of the United States, printed rotated 90° on the page (north towards the left edge; read upright by turning the page 90° clockwise) inside a ruled frame. It shows elevation shading in three bands, rivers, state and regional boundaries, and place labels. The caption is printed outside the right edge of the frame.</figDesc>
+            <list type="legend" facs="#p019_r05" rendition="#rot-ccw90">
+              <item><lb facs="#p019_r05_l001"/><unclear reason="faint" cert="low" xml:id="f-p019_r05_l001-1">6</unclear>000 അ. മുകളിൽ</item>
+              <item><lb facs="#p019_r05_l002"/>3000 അ. <unclear reason="glyph-form" cert="medium" xml:id="f-p019_r05_l002-1">,,</unclear></item>
+              <item><lb facs="#p019_r05_l003"/>1200 അ. <unclear reason="glyph-form" cert="medium" xml:id="f-p019_r05_l003-1">,,</unclear></item>
+            </list>
+            <label type="map-label" facs="#p019_r06" rendition="#rot-ccw90"><lb facs="#p019_r06_l001"/><unclear reason="small-print" cert="medium" xml:id="f-p019_r06_l001-1">സെന്റ് ലൂയിസ്</unclear></label>
+            <label type="map-label" facs="#p019_r07" rendition="#rot-ccw90"><lb facs="#p019_r07_l001"/><unclear reason="small-print" cert="medium" xml:id="f-p019_r07_l001-1">ചിക്കാഗോ</unclear></label>
+            <label type="map-label" facs="#p019_r08" rendition="#rot-ccw90"><lb facs="#p019_r08_l001"/><gap xml:id="gap-p019_r08_l001" reason="illegible"/></label>
+            <label type="map-label" facs="#p019_r09" rendition="#rot-ccw90"><lb facs="#p019_r09_l001"/><gap xml:id="gap-p019_r09_l001" reason="illegible"/></label>
+            <label type="map-label" facs="#p019_r10" rendition="#rot-ccw90"><lb facs="#p019_r10_l001"/><gap xml:id="gap-p019_r10_l001" reason="illegible"/></label>
+            <label type="map-label" facs="#p019_r11" rendition="#rot-ccw90"><lb facs="#p019_r11_l001"/><gap xml:id="gap-p019_r11_l001" reason="illegible"/></label>
+            <label type="map-label" facs="#p019_r12" rendition="#rot-ccw90"><lb facs="#p019_r12_l001"/><gap xml:id="gap-p019_r12_l001" reason="illegible"/></label>
+            <label type="map-label" facs="#p019_r13" rendition="#rot-ccw90"><lb facs="#p019_r13_l001"/><gap xml:id="gap-p019_r13_l001" reason="illegible"/></label>
+            <figure type="reader-mark" facs="#p019_r16" corresp="#blue-ink"><figDesc xml:lang="en">Reader's blue-ink tracing along the map's Gulf and Atlantic coastline (hand: blue-ink).</figDesc></figure>
+          </figure>
+        </div>
+      </div>
+    </body>
+    <back xml:lang="en">
+      <div type="transcription-notes">
+        <head>Notes from the OCR review stage (copied from ocr/p0NN.lines.json)</head>
+        <note type="ocr-unclear" target="#f-p017_r05_l001-1">reader's handwritten initials/letters right of the title; letter forms read as C-M-S (last letter could be a 3 or a looped S)</note>
+        <note type="ocr-unclear" target="#f-p017_r03_l004-1">ർ is a small dot-reph over ക്ക in this print; read as പലർക്കും</note>
+        <note type="ocr-unclear" target="#f-p017_r03_l006-1">final mark faint: ് and semicolon read from Tesseract shape + image</note>
+        <note type="ocr-ink-over" target="#f-p017_r04_l002-2">reader's underline stroke runs through the upper half of these characters; text still legible</note>
+        <note type="ocr-unclear" target="#f-p017_r04_l004-1">printed with the short e-sign (െ) before ൻറ, i.e. ബ്രിട്ടന്റെതിനോടു്; the standard spelling would be ബ്രിട്ടന്റേതിനോടു് (long േ); transcribed as printed. Existing OCR's ബ്രിട്ടനെറതിനോടു് is the same glyphs in visual-order encoding</note>
+        <note type="ocr-unclear" target="#f-p017_r06_l001-1">circled numeral written between ഒന്നാമതു് and മറ്റു (line p017_r04_l005), marking 'firstly'</note>
+        <note type="ocr-unclear" target="#f-p017_r04_l005-1">ർ printed as dot-reph above ച്ച</note>
+        <note type="ocr-damage" target="#f-p017_r04_l011-1">left margin crease/tear partly obscures the first character</note>
+        <note type="ocr-unclear" target="#f-p017_r04_l011-2">single മ (ജർമൻ) as printed; existing OCR has ജർമ്മൻകാർ</note>
+        <note type="ocr-ink-over" target="#f-p018_r04_l002-2-a">underline stroke from the line above is drawn through these words; still legible</note>
+        <note type="ocr-unclear" target="#f-p018_r04_l004-1">first syllable printed as ക with a detached colon-like mark; read as കു (cf. existing OCR); standard word would be കരുപ്പിടിപ്പിച്ചതും</note>
+        <note type="ocr-unclear" target="#f-p018_r04_l005-1">u-sign under പ്പ is faint; could be പാർപ്പ്</note>
+        <note type="ocr-unclear" target="#f-p018_r04_l006-1">line-final ് (if any) lost in the stained right margin</note>
+        <note type="ocr-damage" target="#f-p018_r04_l008-1">final ര partly lost at stained right edge</note>
+        <note type="ocr-unclear" target="#f-p018_r04_l011-1">line begins with the dot-reph of പരിവർത്തനം, split across the line break</note>
+        <note type="ocr-unclear" target="#f-p018_r06_l004-1">fifth digit is a broken 0 (left side of the bowl missing); Tesseract read 9</note>
+        <note type="ocr-ink-over" target="#f-p018_r06_l006-2-a">ink stroke drawn over the upper part of these words; reading supported by context and existing OCR</note>
+        <note type="ocr-ink-over" target="#f-p018_r06_l007-1">the sloping underline of the previous line crosses these words</note>
+        <note type="ocr-damage" target="#f-p018_r06_l009-1">torn right margin; final ൾ partly lost</note>
+        <note type="ocr-unclear" target="#f-p018_r06_l010-1">സ്ത്ര ligature as in ഭൂമിശാസ്ത്രം; existing OCR has ആസ്ട്രേലിയയുടെ</note>
+        <note type="ocr-damage" target="#f-p018_r06_l010-2">torn right margin; തു partly lost</note>
+        <note type="ocr-damage" target="#f-p018_r06_l011-1">at the torn edge; a following ാ (അതാ-യതു്) may have been lost — print shows only അത</note>
+        <note type="ocr-damage" target="#f-p018_r06_l012-1">last characters at torn edge</note>
+        <note type="ocr-unclear" target="#f-p018_r06_l013-1">ണ vs ണ്ണ not fully certain</note>
+        <note type="ocr-damage" target="#f-p018_r06_l013-2">subscript of മ്പ partly lost at torn edge</note>
+        <note type="ocr-unclear" target="#f-p019_r01_l001-1">faint print, partly overwritten by the handwritten 'Trueman' stroke; existing OCR gives പ്രകൃതി (drops ഭൂ)</note>
+        <note type="ocr-unclear" target="#f-p019_r14_l001-1">first word read as 'Trueman' (= Truman, misspelt); the existing OCR's 'Freeman' is possible from the letter shapes but the initial looks like a T with a long cross-bar</note>
+        <note type="ocr-unclear" target="#f-p019_r14_l001-2">'Doctrine' with the i undotted/merged; written on a rising slant</note>
+        <note type="ocr-unclear" target="#f-p019_r15_l001-1">trailing dot may be a pen mark</note>
+        <note type="ocr-unclear" target="#f-p019_r05_l001-1">first digit faint/broken; looks most like 6 but could be 5 or 8; Tesseract gave nothing usable. അ. = abbreviation of അടി (feet).</note>
+        <note type="ocr-unclear" target="#f-p019_r05_l002-1">ditto marks (〃) under മുകളിൽ, transcribed as two commas</note>
+        <note type="ocr-unclear" target="#f-p019_r05_l003-1">ditto marks (〃) under മുകളിൽ, transcribed as two commas</note>
+        <note type="ocr-unclear" target="#f-p019_r06_l001-1">St. Louis; NTA glyph encoded ന്റ</note>
+        <note type="ocr-unclear" target="#f-p019_r07_l001-1">Chicago</note>
+        <note type="ocr-untranscribed" target="#gap-p019_r08_l001">Not transcribed. Tentative identification from the OCR review, not a reading: probably Boston (ബോസ്റ്റൺ?) — too faint to transcribe reliably</note>
+        <note type="ocr-untranscribed" target="#gap-p019_r09_l001">Not transcribed. Tentative identification from the OCR review, not a reading: probably New York (…യോർക്ക്?) — too faint to transcribe reliably</note>
+        <note type="ocr-untranscribed" target="#gap-p019_r10_l001">Not transcribed. Tentative identification from the OCR review, not a reading: label near the lower-left (= north-west when upright), probably കൊളംബിയ (Columbia river); diagonal; not transcribed</note>
+        <note type="ocr-untranscribed" target="#gap-p019_r11_l001">Not transcribed. Tentative identification from the OCR review, not a reading: curved label along the Rocky Mountains band (probably റോക്കി പർവ്വതം/…), on a curved ribbon; illegible</note>
+        <note type="ocr-untranscribed" target="#gap-p019_r12_l001">Not transcribed. Tentative identification from the OCR review, not a reading: two labels near the Ohio / Wabash rivers; illegible</note>
+        <note type="ocr-untranscribed" target="#gap-p019_r13_l001">Not transcribed. Tentative identification from the OCR review, not a reading: diagonal labels along the Appalachians (probably അപ്പലേച്ചിയൻ …); illegible</note>
+        <head type="sub">Non-textual reader marks (described, not transcribed)</head>
+        <note type="reader-mark" target="#p017_r07" corresp="#dark-ink">Short stray stroke right of the text block, not under any text (hand: dark-ink).</note>
+        <note type="reader-mark" target="#p018_r08" corresp="#dark-ink">Thin curved arc drawn across the starts of the last three lines (pencil or fine ink); text beneath is legible (hand: dark-ink).</note>
+        <note type="reader-mark" target="#p019_r17" corresp="#dark-ink">Dark marks in the bottom-right corner outside the frame; origin uncertain (ink marks or soiling) (hand: dark-ink).</note>
+      </div>
+    </back>
+  </text>
+</TEI>

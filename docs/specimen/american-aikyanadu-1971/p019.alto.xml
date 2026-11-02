@@ -1,0 +1,284 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<alto xmlns="http://www.loc.gov/standards/alto/ns-v4#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.loc.gov/standards/alto/ns-v4# http://www.loc.gov/standards/alto/v4/alto-4-4.xsd" SCHEMAVERSION="4.4">
+  <Description>
+    <MeasurementUnit>pixel</MeasurementUnit>
+    <sourceImageInformation>
+      <fileName>https://iiif.gpura.org/iiif/3/1971-american-aikyanadinte-charithram__0019.jpg/full/max/0/default.jpg</fileName>
+      <fileIdentifier fileIdentifierLocation="IIIF Presentation canvas">https://artifacts.gpura.org/public/1971-american-aikyanadinte-charithram/canvas/19</fileIdentifier>
+    </sourceImageInformation>
+    <Processing ID="proc_ocr">
+      <processingCategory>contentGeneration</processingCategory>
+      <processingStepDescription>Layout and line readings from the OCR stage (ocr/*.lines.json): model-made reading from zoomed line images, NOT human-verified; ALTERNATIVE = raw Tesseract 5.3.4 tessdata_best.</processingStepDescription>
+      <processingSoftware>
+        <softwareName>Tesseract 5.3.4 + model review</softwareName>
+      </processingSoftware>
+    </Processing>
+    <Processing ID="proc_conv">
+      <processingCategory>other</processingCategory>
+      <processingDateTime>2026-11-02T16:09:13+00:00</processingDateTime>
+      <processingStepDescription>PAGE 2019-07-15 -&gt; ALTO 4.4 from page/p019.page.xml; word boxes estimated (tag geom_est).</processingStepDescription>
+      <processingSoftware>
+        <softwareName>page/page2alto.py (Gpura pipeline demo)</softwareName>
+      </processingSoftware>
+    </Processing>
+  </Description>
+  <Styles>
+    <TextStyle ID="ts_blue" FONTCOLOR="0000FF"/>
+  </Styles>
+  <Tags>
+    <LayoutTag ID="lt_header" TYPE="structure" LABEL="header" DESCRIPTION="PAGE TextRegion/@type=header"/>
+    <LayoutTag ID="lt_page-number" TYPE="structure" LABEL="page-number" DESCRIPTION="PAGE TextRegion/@type=page-number"/>
+    <LayoutTag ID="lt_caption" TYPE="structure" LABEL="caption" DESCRIPTION="PAGE TextRegion/@type=caption"/>
+    <LayoutTag ID="lt_legend" TYPE="structure" LABEL="legend" DESCRIPTION="PAGE TextRegion/@type=other, custom structure legend"/>
+    <LayoutTag ID="lt_map-label" TYPE="structure" LABEL="map-label" DESCRIPTION="PAGE TextRegion/@type=other, custom structure map-label"/>
+    <LayoutTag ID="lt_marginalia" TYPE="structure" LABEL="marginalia" DESCRIPTION="PAGE TextRegion/@type=marginalia"/>
+    <OtherTag ID="prod_printed" TYPE="production" LABEL="printed" DESCRIPTION="PAGE @production=printed"/>
+    <OtherTag ID="geom_est" TYPE="geometry" LABEL="estimated word boxes" DESCRIPTION="PAGE source is line-level; String HPOS/VPOS/WIDTH/HEIGHT were estimated by splitting the line box along the baseline in proportion to code-point counts. Do not use for word-level highlighting precision."/>
+    <OtherTag ID="p019_r01_l001_t01" TYPE="unclear" LABEL="unclear (medium)" DESCRIPTION="unclear on code points 0-9 (end-exclusive) of TextLine p019_r01_l001; cert=medium; note: faint print, partly overwritten by the handwritten 'Trueman' stroke; existing OCR gives പ്രകൃതി (drops ഭൂ)"/>
+    <OtherTag ID="p019_r03_note" TYPE="note" LABEL="note" DESCRIPTION="relief map of the USA printed rotated 90 deg (north toward the left edge of the page; read upright by rotating the page 90 deg clockwise), inside a ruled frame; elevation shading, rivers, state/region boundaries and place labels. Polygon = frame rectangle."/>
+    <OtherTag ID="p019_r04_note" TYPE="note" LABEL="note" DESCRIPTION="caption outside the right edge of the map frame; text runs bottom-to-top"/>
+    <OtherTag ID="p019_r05_note" TYPE="note" LABEL="note" DESCRIPTION="three elevation bands, each with a shading swatch (swatches at about y 1800-2000, toward the page bottom = left of the text when upright); Tesseract output for the whole legend is in the line-1 text_tesseract; it is junk"/>
+    <OtherTag ID="p019_r05_l001_t01" TYPE="unclear" LABEL="unclear (low)" DESCRIPTION="unclear on code points 0-1 (end-exclusive) of TextLine p019_r05_l001; cert=low; note: first digit faint/broken; looks most like 6 but could be 5 or 8; Tesseract gave nothing usable. അ. = abbreviation of അടി (feet)."/>
+    <OtherTag ID="p019_r05_l002_t01" TYPE="unclear" LABEL="unclear (medium)" DESCRIPTION="unclear on code points 8-10 (end-exclusive) of TextLine p019_r05_l002; cert=medium; note: ditto marks (〃) under മുകളിൽ, transcribed as two commas"/>
+    <OtherTag ID="p019_r05_l003_t01" TYPE="unclear" LABEL="unclear (medium)" DESCRIPTION="unclear on code points 8-10 (end-exclusive) of TextLine p019_r05_l003; cert=medium; note: ditto marks (〃) under മുകളിൽ, transcribed as two commas"/>
+    <OtherTag ID="p019_r06_note" TYPE="note" LABEL="note" DESCRIPTION="St. Louis; NTA glyph encoded ന്റ"/>
+    <OtherTag ID="p019_r06_l001_t01" TYPE="unclear" LABEL="unclear (medium)" DESCRIPTION="unclear on code points 0-13 (end-exclusive) of TextLine p019_r06_l001; cert=medium; note: St. Louis; NTA glyph encoded ന്റ"/>
+    <OtherTag ID="p019_r07_note" TYPE="note" LABEL="note" DESCRIPTION="Chicago"/>
+    <OtherTag ID="p019_r07_l001_t01" TYPE="unclear" LABEL="unclear (medium)" DESCRIPTION="unclear on code points 0-8 (end-exclusive) of TextLine p019_r07_l001; cert=medium; note: Chicago"/>
+    <OtherTag ID="p019_r08_note" TYPE="note" LABEL="note" DESCRIPTION="probably Boston (ബോസ്റ്റൺ?) — too faint to transcribe reliably"/>
+    <OtherTag ID="not_transcribed" TYPE="transcription" LABEL="not transcribed" DESCRIPTION="Line geometry only; label too faint/illegible to transcribe. CONTENT is deliberately empty."/>
+    <OtherTag ID="p019_r08_l001_t01" TYPE="unclear" LABEL="unclear (low)" DESCRIPTION="unclear on code points 0-0 (end-exclusive) of TextLine p019_r08_l001; cert=low; note: probably Boston (ബോസ്റ്റൺ?) — too faint to transcribe reliably"/>
+    <OtherTag ID="p019_r09_note" TYPE="note" LABEL="note" DESCRIPTION="probably New York (…യോർക്ക്?) — too faint to transcribe reliably"/>
+    <OtherTag ID="p019_r09_l001_t01" TYPE="unclear" LABEL="unclear (low)" DESCRIPTION="unclear on code points 0-0 (end-exclusive) of TextLine p019_r09_l001; cert=low; note: probably New York (…യോർക്ക്?) — too faint to transcribe reliably"/>
+    <OtherTag ID="p019_r10_note" TYPE="note" LABEL="note" DESCRIPTION="label near the lower-left (= north-west when upright), probably കൊളംബിയ (Columbia river); diagonal; not transcribed"/>
+    <OtherTag ID="p019_r10_l001_t01" TYPE="unclear" LABEL="unclear (low)" DESCRIPTION="unclear on code points 0-0 (end-exclusive) of TextLine p019_r10_l001; cert=low; note: label near the lower-left (= north-west when upright), probably കൊളംബിയ (Columbia river); diagonal; not transcribed"/>
+    <OtherTag ID="p019_r11_note" TYPE="note" LABEL="note" DESCRIPTION="curved label along the Rocky Mountains band (probably റോക്കി പർവ്വതം/…), on a curved ribbon; illegible"/>
+    <OtherTag ID="p019_r11_l001_t01" TYPE="unclear" LABEL="unclear (low)" DESCRIPTION="unclear on code points 0-0 (end-exclusive) of TextLine p019_r11_l001; cert=low; note: curved label along the Rocky Mountains band (probably റോക്കി പർവ്വതം/…), on a curved ribbon; illegible"/>
+    <OtherTag ID="p019_r12_note" TYPE="note" LABEL="note" DESCRIPTION="two labels near the Ohio / Wabash rivers; illegible"/>
+    <OtherTag ID="p019_r12_l001_t01" TYPE="unclear" LABEL="unclear (low)" DESCRIPTION="unclear on code points 0-0 (end-exclusive) of TextLine p019_r12_l001; cert=low; note: two labels near the Ohio / Wabash rivers; illegible"/>
+    <OtherTag ID="p019_r13_note" TYPE="note" LABEL="note" DESCRIPTION="diagonal labels along the Appalachians (probably അപ്പലേച്ചിയൻ …); illegible"/>
+    <OtherTag ID="p019_r13_l001_t01" TYPE="unclear" LABEL="unclear (low)" DESCRIPTION="unclear on code points 0-0 (end-exclusive) of TextLine p019_r13_l001; cert=low; note: diagonal labels along the Appalachians (probably അപ്പലേച്ചിയൻ …); illegible"/>
+    <OtherTag ID="prod_handwritten-cursive" TYPE="production" LABEL="handwritten-cursive" DESCRIPTION="PAGE @production=handwritten-cursive"/>
+    <OtherTag ID="hand_blue-ink" TYPE="hand" LABEL="blue-ink" DESCRIPTION="ink colour of the reader's hand (automatic, indicative only)"/>
+    <OtherTag ID="p019_r14_note" TYPE="note" LABEL="note" DESCRIPTION="reader's blue-ink handwriting across the top, slanting upward to the right"/>
+    <OtherTag ID="p019_r14_l001_t01" TYPE="unclear" LABEL="unclear (medium)" DESCRIPTION="unclear on code points 0-7 (end-exclusive) of TextLine p019_r14_l001; hand=blue-ink; cert=medium; note: first word read as 'Trueman' (= Truman, misspelt); the existing OCR's 'Freeman' is possible from the letter shapes but the initial looks like a T with a long cross-bar"/>
+    <OtherTag ID="p019_r14_l001_t02" TYPE="unclear" LABEL="unclear (medium)" DESCRIPTION="unclear on code points 8-16 (end-exclusive) of TextLine p019_r14_l001; hand=blue-ink; cert=medium; note: 'Doctrine' with the i undotted/merged; written on a rising slant"/>
+    <OtherTag ID="p019_r15_note" TYPE="note" LABEL="note" DESCRIPTION="written just below the printed running head ഭൂപ്രകൃതി, slanting upward"/>
+    <OtherTag ID="p019_r15_l001_t01" TYPE="unclear" LABEL="unclear (low)" DESCRIPTION="unclear on code points 7-8 (end-exclusive) of TextLine p019_r15_l001; hand=blue-ink; cert=low; note: trailing dot may be a pen mark"/>
+    <OtherTag ID="p019_r16_note" TYPE="note" LABEL="note" DESCRIPTION="blue-ink tracing along the map's (Gulf/Atlantic) coastline; bbox approximate (colour mask percentiles)"/>
+    <OtherTag ID="hand_dark-ink" TYPE="hand" LABEL="dark-ink" DESCRIPTION="ink colour of the reader's hand (automatic, indicative only)"/>
+    <OtherTag ID="p019_r17_note" TYPE="note" LABEL="note" DESCRIPTION="dark marks in the bottom-right corner outside the frame; origin uncertain (ink marks or soiling)"/>
+    <OtherTag ID="map_group" TYPE="structure" LABEL="map group" DESCRIPTION="map image with its caption, legend and printed labels"/>
+  </Tags>
+  <Layout>
+    <Page ID="p019" PAGECLASS="content" PHYSICAL_IMG_NR="19" PRINTED_IMG_NR="3" WIDTH="2374" HEIGHT="3495" PROCESSINGREFS="proc_ocr proc_conv">
+      <PrintSpace ID="p019_ps" HPOS="0" VPOS="0" WIDTH="2374" HEIGHT="3495">
+        <TextBlock ID="p019_r01" HPOS="1086" VPOS="261" WIDTH="172" HEIGHT="63" LANG="ml" TAGREFS="lt_header prod_printed" IDNEXT="p019_r02">
+          <Shape>
+            <Polygon POINTS="1086,261 1258,261 1258,324 1086,324"/>
+          </Shape>
+          <TextLine ID="p019_r01_l001" HPOS="1086" VPOS="261" WIDTH="172" HEIGHT="63" BASELINE="1086,318 1258,318" LANG="ml" TAGREFS="geom_est">
+            <Shape>
+              <Polygon POINTS="1086,261 1258,261 1258,324 1086,324"/>
+            </Shape>
+            <String ID="p019_r01_l001_w001" CONTENT="ഭൂപ്രകൃതി" HPOS="1086" VPOS="261" WIDTH="172" HEIGHT="63" TAGREFS="p019_r01_l001_t01">
+              <ALTERNATIVE PURPOSE="Tesseract 5.3.4 tessdata_best raw reading">തി</ALTERNATIVE>
+            </String>
+          </TextLine>
+        </TextBlock>
+        <TextBlock ID="p019_r02" HPOS="2203" VPOS="259" WIDTH="35" HEIGHT="39" LANG="ml" TAGREFS="lt_page-number prod_printed" IDNEXT="p019_r03">
+          <Shape>
+            <Polygon POINTS="2203,259 2238,259 2238,298 2203,298"/>
+          </Shape>
+          <TextLine ID="p019_r02_l001" HPOS="2203" VPOS="259" WIDTH="35" HEIGHT="39" BASELINE="2203,292 2238,292" LANG="ml" TAGREFS="geom_est">
+            <Shape>
+              <Polygon POINTS="2203,259 2238,259 2238,298 2203,298"/>
+            </Shape>
+            <String ID="p019_r02_l001_w001" CONTENT="3" HPOS="2203" VPOS="259" WIDTH="35" HEIGHT="39"/>
+          </TextLine>
+        </TextBlock>
+        <ComposedBlock ID="p019_map" TYPE="map" HPOS="183" VPOS="386" WIDTH="2049" HEIGHT="3015" ROTATION="90" TAGREFS="map_group">
+          <Illustration ID="p019_r03" TYPE="map" HPOS="183" VPOS="386" WIDTH="1937" HEIGHT="3015" ROTATION="90" TAGREFS="p019_r03_note" IDNEXT="p019_r04">
+            <Shape>
+              <Polygon POINTS="183,386 2120,386 2120,3401 183,3401"/>
+            </Shape>
+          </Illustration>
+          <TextBlock ID="p019_r04" HPOS="2160" VPOS="1395" WIDTH="72" HEIGHT="1110" ROTATION="90" LANG="ml" TAGREFS="lt_caption prod_printed p019_r04_note" IDNEXT="p019_r05">
+            <Shape>
+              <Polygon POINTS="2160,1395 2232,1395 2232,2505 2160,2505"/>
+            </Shape>
+            <TextLine ID="p019_r04_l001" HPOS="2160" VPOS="1395" WIDTH="72" HEIGHT="1110" BASELINE="2217,2505 2217,1395" LANG="ml" TAGREFS="geom_est">
+              <Shape>
+                <Polygon POINTS="2160,1395 2232,1395 2232,2505 2160,2505"/>
+              </Shape>
+              <String ID="p019_r04_l001_w001" CONTENT="അമേരിക്കൻ" HPOS="2160" VPOS="2193" WIDTH="72" HEIGHT="312"/>
+              <SP HPOS="2160" VPOS="2158" WIDTH="72" HEIGHT="35"/>
+              <String ID="p019_r04_l001_w002" CONTENT="ഐക്യനാടിന്റെ" HPOS="2160" VPOS="1742" WIDTH="72" HEIGHT="416"/>
+              <SP HPOS="2160" VPOS="1707" WIDTH="72" HEIGHT="35"/>
+              <String ID="p019_r04_l001_w003" CONTENT="ഭൂപ്രകൃതി" HPOS="2160" VPOS="1395" WIDTH="72" HEIGHT="312"/>
+            </TextLine>
+          </TextBlock>
+          <TextBlock ID="p019_r05" HPOS="1855" VPOS="1140" WIDTH="240" HEIGHT="870" ROTATION="90" LANG="ml" TAGREFS="lt_legend prod_printed p019_r05_note">
+            <Shape>
+              <Polygon POINTS="1855,1140 2095,1140 2095,2010 1855,2010"/>
+            </Shape>
+            <TextLine ID="p019_r05_l001" HPOS="1860" VPOS="1150" WIDTH="88" HEIGHT="650" BASELINE="1930,1800 1930,1150" LANG="ml" TAGREFS="geom_est">
+              <Shape>
+                <Polygon POINTS="1860,1150 1948,1150 1948,1800 1860,1800"/>
+              </Shape>
+              <String ID="p019_r05_l001_w001" CONTENT="6000" HPOS="1860" VPOS="1614" WIDTH="88" HEIGHT="186" TAGREFS="p019_r05_l001_t01"/>
+              <SP HPOS="1860" VPOS="1568" WIDTH="88" HEIGHT="46"/>
+              <String ID="p019_r05_l001_w002" CONTENT="അ." HPOS="1860" VPOS="1475" WIDTH="88" HEIGHT="93"/>
+              <SP HPOS="1860" VPOS="1429" WIDTH="88" HEIGHT="46"/>
+              <String ID="p019_r05_l001_w003" CONTENT="മുകളിൽ" HPOS="1860" VPOS="1150" WIDTH="88" HEIGHT="279"/>
+            </TextLine>
+            <TextLine ID="p019_r05_l002" HPOS="1955" VPOS="1265" WIDTH="62" HEIGHT="535" BASELINE="2004,1800 2004,1265" LANG="ml" TAGREFS="geom_est">
+              <Shape>
+                <Polygon POINTS="1955,1265 2017,1265 2017,1800 1955,1800"/>
+              </Shape>
+              <String ID="p019_r05_l002_w001" CONTENT="3000" HPOS="1955" VPOS="1586" WIDTH="62" HEIGHT="214"/>
+              <SP HPOS="1955" VPOS="1532" WIDTH="62" HEIGHT="54"/>
+              <String ID="p019_r05_l002_w002" CONTENT="അ." HPOS="1955" VPOS="1426" WIDTH="62" HEIGHT="107"/>
+              <SP HPOS="1955" VPOS="1372" WIDTH="62" HEIGHT="54"/>
+              <String ID="p019_r05_l002_w003" CONTENT=",," HPOS="1955" VPOS="1265" WIDTH="62" HEIGHT="107" TAGREFS="p019_r05_l002_t01"/>
+            </TextLine>
+            <TextLine ID="p019_r05_l003" HPOS="2025" VPOS="1265" WIDTH="62" HEIGHT="535" BASELINE="2074,1800 2074,1265" LANG="ml" TAGREFS="geom_est">
+              <Shape>
+                <Polygon POINTS="2025,1265 2087,1265 2087,1800 2025,1800"/>
+              </Shape>
+              <String ID="p019_r05_l003_w001" CONTENT="1200" HPOS="2025" VPOS="1586" WIDTH="62" HEIGHT="214"/>
+              <SP HPOS="2025" VPOS="1532" WIDTH="62" HEIGHT="54"/>
+              <String ID="p019_r05_l003_w002" CONTENT="അ." HPOS="2025" VPOS="1426" WIDTH="62" HEIGHT="107"/>
+              <SP HPOS="2025" VPOS="1372" WIDTH="62" HEIGHT="54"/>
+              <String ID="p019_r05_l003_w003" CONTENT=",," HPOS="2025" VPOS="1265" WIDTH="62" HEIGHT="107" TAGREFS="p019_r05_l003_t01"/>
+            </TextLine>
+          </TextBlock>
+          <TextBlock ID="p019_r06" HPOS="1200" VPOS="1544" WIDTH="60" HEIGHT="430" ROTATION="90" LANG="ml" TAGREFS="lt_map-label prod_printed p019_r06_note">
+            <Shape>
+              <Polygon POINTS="1200,1544 1260,1544 1260,1974 1200,1974"/>
+            </Shape>
+            <TextLine ID="p019_r06_l001" HPOS="1200" VPOS="1544" WIDTH="60" HEIGHT="430" BASELINE="1248,1974 1248,1544" LANG="ml" TAGREFS="geom_est">
+              <Shape>
+                <Polygon POINTS="1200,1544 1260,1544 1260,1974 1200,1974"/>
+              </Shape>
+              <String ID="p019_r06_l001_w001" CONTENT="സെന്റ്" HPOS="1200" VPOS="1776" WIDTH="60" HEIGHT="198" TAGREFS="p019_r06_l001_t01"/>
+              <SP HPOS="1200" VPOS="1742" WIDTH="60" HEIGHT="33"/>
+              <String ID="p019_r06_l001_w002" CONTENT="ലൂയിസ്" HPOS="1200" VPOS="1544" WIDTH="60" HEIGHT="198" TAGREFS="p019_r06_l001_t01"/>
+            </TextLine>
+          </TextBlock>
+          <TextBlock ID="p019_r07" HPOS="880" VPOS="1524" WIDTH="80" HEIGHT="360" ROTATION="90" LANG="ml" TAGREFS="lt_map-label prod_printed p019_r07_note">
+            <Shape>
+              <Polygon POINTS="880,1524 960,1524 960,1884 880,1884"/>
+            </Shape>
+            <TextLine ID="p019_r07_l001" HPOS="880" VPOS="1524" WIDTH="80" HEIGHT="360" BASELINE="944,1884 944,1524" LANG="ml" TAGREFS="geom_est">
+              <Shape>
+                <Polygon POINTS="880,1524 960,1524 960,1884 880,1884"/>
+              </Shape>
+              <String ID="p019_r07_l001_w001" CONTENT="ചിക്കാഗോ" HPOS="880" VPOS="1524" WIDTH="80" HEIGHT="360" TAGREFS="p019_r07_l001_t01"/>
+            </TextLine>
+          </TextBlock>
+          <TextBlock ID="p019_r08" HPOS="745" VPOS="484" WIDTH="70" HEIGHT="340" ROTATION="90" LANG="ml" TAGREFS="lt_map-label prod_printed p019_r08_note">
+            <Shape>
+              <Polygon POINTS="745,484 815,484 815,824 745,824"/>
+            </Shape>
+            <TextLine ID="p019_r08_l001" HPOS="745" VPOS="484" WIDTH="70" HEIGHT="340" BASELINE="801,824 801,484" LANG="ml" TAGREFS="not_transcribed">
+              <Shape>
+                <Polygon POINTS="745,484 815,484 815,824 745,824"/>
+              </Shape>
+              <String ID="p019_r08_l001_w001" CONTENT="" HPOS="745" VPOS="484" WIDTH="70" HEIGHT="340" TAGREFS="p019_r08_l001_t01"/>
+            </TextLine>
+          </TextBlock>
+          <TextBlock ID="p019_r09" HPOS="890" VPOS="624" WIDTH="60" HEIGHT="240" ROTATION="90" LANG="ml" TAGREFS="lt_map-label prod_printed p019_r09_note">
+            <Shape>
+              <Polygon POINTS="890,624 950,624 950,864 890,864"/>
+            </Shape>
+            <TextLine ID="p019_r09_l001" HPOS="890" VPOS="624" WIDTH="60" HEIGHT="240" BASELINE="938,864 938,624" LANG="ml" TAGREFS="not_transcribed">
+              <Shape>
+                <Polygon POINTS="890,624 950,624 950,864 890,864"/>
+              </Shape>
+              <String ID="p019_r09_l001_w001" CONTENT="" HPOS="890" VPOS="624" WIDTH="60" HEIGHT="240" TAGREFS="p019_r09_l001_t01"/>
+            </TextLine>
+          </TextBlock>
+          <TextBlock ID="p019_r10" HPOS="220" VPOS="3224" WIDTH="260" HEIGHT="160" ROTATION="90" LANG="ml" TAGREFS="lt_map-label prod_printed p019_r10_note">
+            <Shape>
+              <Polygon POINTS="220,3224 480,3224 480,3384 220,3384"/>
+            </Shape>
+            <TextLine ID="p019_r10_l001" HPOS="220" VPOS="3224" WIDTH="260" HEIGHT="160" BASELINE="428,3384 428,3224" LANG="ml" TAGREFS="not_transcribed">
+              <Shape>
+                <Polygon POINTS="220,3224 480,3224 480,3384 220,3384"/>
+              </Shape>
+              <String ID="p019_r10_l001_w001" CONTENT="" HPOS="220" VPOS="3224" WIDTH="260" HEIGHT="160" TAGREFS="p019_r10_l001_t01"/>
+            </TextLine>
+          </TextBlock>
+          <TextBlock ID="p019_r11" HPOS="600" VPOS="2434" WIDTH="960" HEIGHT="320" ROTATION="90" LANG="ml" TAGREFS="lt_map-label prod_printed p019_r11_note">
+            <Shape>
+              <Polygon POINTS="600,2434 1560,2434 1560,2754 600,2754"/>
+            </Shape>
+            <TextLine ID="p019_r11_l001" HPOS="600" VPOS="2434" WIDTH="960" HEIGHT="320" BASELINE="1368,2754 1368,2434" LANG="ml" TAGREFS="not_transcribed">
+              <Shape>
+                <Polygon POINTS="600,2434 1560,2434 1560,2754 600,2754"/>
+              </Shape>
+              <String ID="p019_r11_l001_w001" CONTENT="" HPOS="600" VPOS="2434" WIDTH="960" HEIGHT="320" TAGREFS="p019_r11_l001_t01"/>
+            </TextLine>
+          </TextBlock>
+          <TextBlock ID="p019_r12" HPOS="1460" VPOS="1714" WIDTH="190" HEIGHT="320" ROTATION="90" LANG="ml" TAGREFS="lt_map-label prod_printed p019_r12_note">
+            <Shape>
+              <Polygon POINTS="1460,1714 1650,1714 1650,2034 1460,2034"/>
+            </Shape>
+            <TextLine ID="p019_r12_l001" HPOS="1460" VPOS="1714" WIDTH="190" HEIGHT="320" BASELINE="1612,2034 1612,1714" LANG="ml" TAGREFS="not_transcribed">
+              <Shape>
+                <Polygon POINTS="1460,1714 1650,1714 1650,2034 1460,2034"/>
+              </Shape>
+              <String ID="p019_r12_l001_w001" CONTENT="" HPOS="1460" VPOS="1714" WIDTH="190" HEIGHT="320" TAGREFS="p019_r12_l001_t01"/>
+            </TextLine>
+          </TextBlock>
+          <TextBlock ID="p019_r13" HPOS="1250" VPOS="1044" WIDTH="400" HEIGHT="550" ROTATION="90" LANG="ml" TAGREFS="lt_map-label prod_printed p019_r13_note">
+            <Shape>
+              <Polygon POINTS="1250,1044 1650,1044 1650,1594 1250,1594"/>
+            </Shape>
+            <TextLine ID="p019_r13_l001" HPOS="1250" VPOS="1044" WIDTH="400" HEIGHT="550" BASELINE="1570,1594 1570,1044" LANG="ml" TAGREFS="not_transcribed">
+              <Shape>
+                <Polygon POINTS="1250,1044 1650,1044 1650,1594 1250,1594"/>
+              </Shape>
+              <String ID="p019_r13_l001_w001" CONTENT="" HPOS="1250" VPOS="1044" WIDTH="400" HEIGHT="550" TAGREFS="p019_r13_l001_t01"/>
+            </TextLine>
+          </TextBlock>
+        </ComposedBlock>
+        <TextBlock ID="p019_r14" HPOS="920" VPOS="15" WIDTH="1170" HEIGHT="240" LANG="en" STYLEREFS="ts_blue" TAGREFS="lt_marginalia prod_handwritten-cursive hand_blue-ink p019_r14_note">
+          <Shape>
+            <Polygon POINTS="920,15 2090,15 2090,255 920,255"/>
+          </Shape>
+          <TextLine ID="p019_r14_l001" HPOS="920" VPOS="15" WIDTH="1170" HEIGHT="240" BASELINE="930,240 2080,110" LANG="en" TAGREFS="geom_est">
+            <Shape>
+              <Polygon POINTS="920,15 2090,15 2090,255 920,255"/>
+            </Shape>
+            <String ID="p019_r14_l001_w001" CONTENT="Trueman" HPOS="920" VPOS="15" WIDTH="512" HEIGHT="240" TAGREFS="p019_r14_l001_t01"/>
+            <SP HPOS="1432" VPOS="15" WIDTH="73" HEIGHT="240"/>
+            <String ID="p019_r14_l001_w002" CONTENT="Doctrine" HPOS="1505" VPOS="15" WIDTH="585" HEIGHT="240" TAGREFS="p019_r14_l001_t02"/>
+          </TextLine>
+        </TextBlock>
+        <TextBlock ID="p019_r15" HPOS="960" VPOS="250" WIDTH="535" HEIGHT="190" LANG="en" STYLEREFS="ts_blue" TAGREFS="lt_marginalia prod_handwritten-cursive hand_blue-ink p019_r15_note">
+          <Shape>
+            <Polygon POINTS="960,250 1495,250 1495,440 960,440"/>
+          </Shape>
+          <TextLine ID="p019_r15_l001" HPOS="960" VPOS="250" WIDTH="535" HEIGHT="190" BASELINE="965,435 1490,300" LANG="en" TAGREFS="geom_est">
+            <Shape>
+              <Polygon POINTS="960,250 1495,250 1495,440 960,440"/>
+            </Shape>
+            <String ID="p019_r15_l001_w001" CONTENT="Kennedy." HPOS="960" VPOS="250" WIDTH="535" HEIGHT="190" TAGREFS="p019_r15_l001_t01"/>
+          </TextLine>
+        </TextBlock>
+        <Illustration ID="p019_r16" TYPE="handwritten-annotation" HPOS="190" VPOS="1835" WIDTH="1870" HEIGHT="860" TAGREFS="hand_blue-ink p019_r16_note">
+          <Shape>
+            <Polygon POINTS="190,1835 2060,1835 2060,2695 190,2695"/>
+          </Shape>
+        </Illustration>
+        <Illustration ID="p019_r17" TYPE="handwritten-annotation" HPOS="2050" VPOS="3150" WIDTH="324" HEIGHT="345" TAGREFS="hand_dark-ink p019_r17_note">
+          <Shape>
+            <Polygon POINTS="2050,3150 2374,3150 2374,3495 2050,3495"/>
+          </Shape>
+        </Illustration>
+      </PrintSpace>
+    </Page>
+  </Layout>
+</alto>
