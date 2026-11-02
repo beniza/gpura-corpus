@@ -21,7 +21,7 @@ For every item, keep three linked layers that share one set of IDs:
 ```bash
 pip install -r requirements.txt
 bash pipeline/tools/fetch_models.sh          # Malayalam + English Tesseract models → .cache/tessdata
-python3 run.py https://gpura.org/item/1950-narayana-vamana-thilak --pages 20-22
+python3 run.py https://gpura.org/item/1957-sir-isaac-newton --pages 15-17
 ```
 
 Give it a Gpura item link (or just the slug). Without `--pages` it encodes every page. It creates
@@ -50,10 +50,11 @@ Needs Tesseract 5 on `PATH`, or set `GPURA_TESSERACT`. On Windows: `winget insta
 - 0.83% character error rate on those lines;
 - word-split estimate agrees with the review on 55 of 62 lines.
 
-On *നാരായണ വാമന തിലക്* (1950), viewer pages 20–22, 88 of Gpura's 89 text lines were placed.
+On *നാരായണ വാമന തിലക്* (1950), viewer pages 20–22, 88 of Gpura's 89 text lines were placed (that test item is in the git history, commit 7adf224).
 
 **Not handled yet:** multi-column pages, maps and illustrations, tables, and reader handwriting. Some
-Gpura items have no OCR text; for those, every line is a Tesseract reading marked unclear.
+Gpura items have no OCR text; for those, every line is a Tesseract reading marked unclear unless the
+optional AI step (below) is run, as for *സർ ഐസക്ക് ന്യൂട്ടൻ* (1957), viewer pages 15–17.
 
 ## Repository layout
 
@@ -131,4 +132,4 @@ Where Gpura has no text for a printed line, the automatic path falls back to Tes
     GPURA_ITEM_DIR=items/<item> python3 pipeline/ai/import_readings.py --model "Claude Sonnet 5.5"
     python3 run.py items/<item>                           # rebuild; readings are kept in ocr/ai_readings.json
 
-Each reading is tied to its line's box and used only while the box is unchanged. In TEI such a line is `<unclear cert="medium" reason="ai-reading" resp="#ai">`, with the model named in the header; PAGE-XML labels it the same way. On a 60-line test against Gpura's text, Claude Sonnet got 1.6% of characters wrong (Haiku 3.2%, Tesseract 12.7%). Very short fragments read badly without the rest of the line.
+Each reading is tied to its line's box and used only while the box is unchanged. In TEI such a line is `<unclear cert="medium" reason="ai-reading" resp="#ai">`, with the model named in the header; PAGE-XML labels it the same way. On a 60-line test against Gpura's text (two pages of *നാരായണ വാമന തിലക്*), Claude Sonnet got 1.6% of characters wrong (Haiku 3.2%, Tesseract 12.7%). Very short fragments read badly without the rest of the line.
