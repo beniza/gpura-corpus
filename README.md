@@ -85,3 +85,10 @@ text matches the reviewed inventory, and every flag is encoded.
 
 Page images and archive text: Gpura (gpura.org), Indic Digital Archive Foundation. The items used are
 in the public domain. This is an independent proposal, not a Gpura publication.
+
+## Licence
+
+- Code (`run.py`, `pipeline/`): MIT. See `LICENSE`.
+- Data and encodings (`items/*/` transcriptions, PAGE, ALTO, TEI, `lines.json`) and the site text in
+  `docs/`: CC0 1.0. See `LICENSE-data`.
+- Vendored schemas in `schemas/` keep their own licences. Page images remain Gpura's and are public domain.
