@@ -37,6 +37,8 @@ from common import ITEM, REPO, canvas_no, item_dir, page_id, page_image  # noqa:
 ROOT = item_dir()
 _ai = ROOT / "ocr" / "ai_readings.json"          # AI readings for lines Gpura has no text for (pipeline/ai/)
 AI_READINGS = json.loads(_ai.read_text(encoding="utf-8")) if _ai.exists() else {}
+# the same reading found by its box: a line ID changes when region grouping changes, its box does not
+AI_BY_BOX = {(k.split("_")[0], tuple(v["bbox"])): v for k, v in AI_READINGS.items()}
 TESSDATA = os.environ.get("GPURA_TESSDATA") or str(REPO / ".cache" / "tessdata")
 NON_TEXT_CONF = 0.45  # a page with no Gpura text and a median Tesseract confidence below this is not text
 MIN_SIM = 35          # below this a detected line and an archive line are never paired
@@ -163,6 +165,7 @@ def detect_lines(img):
     # right edge of the text, repeated on 3 or more bands with aligned right edges, is a column of the
     # same row, not a separate line.  Keep the row as one line.  Running heads (one band) are unaffected.
     tw = x1 - x0
+    rows_ = set()
     tails = [(bi, sg[-1][1]) for bi, sg in enumerate(band_segs)
              if len(sg) > 1 and sg[-1][1] - sg[-1][0] < 0.25 * tw and sg[-1][1] > 0.75 * tw]
     if len(tails) >= 3:
@@ -171,6 +174,8 @@ def detect_lines(img):
         if len(rows_) >= 3:
             for bi in rows_:
                 band_segs[bi] = [(band_segs[bi][0][0], band_segs[bi][-1][1])]
+        else:
+            rows_ = set()
     lines = []
     for bi, (s, e) in enumerate(out):
         segs = band_segs[bi]
@@ -182,10 +187,161 @@ def detect_lines(img):
             ys, ye = s + int(r[0]), s + int(r[-1]) + 1
             prof = sub.sum(axis=1)
             base = s + int(np.where(prof > 0.35 * prof.max())[0][-1])
-            lines.append({"band": bi, "bbox": [x0 + int(cs), ys, int(ce - cs), ye - ys], "baseline_y": min(max(base, ys), ye)})
+            lines.append({"band": bi, "bbox": [x0 + int(cs), ys, int(ce - cs), ye - ys], "baseline_y": min(max(base, ys), ye),
+                          "table_row": bi in rows_})
     for l in lines:
         l["pitch"] = med
     return lines, ink
+
+
+# --------------------------------------------------------------------------- complex pages and Surya
+SURYA_VENVS = ("venv-surya-gpu", "venv-surya")       # set up with pipeline/tools/setup_bench.sh
+
+
+def page_complexity(lines, ink):
+    """Reasons our projection-profile detector is likely wrong on this page (empty list: simple page).
+
+    It reads a page as horizontal stripes of ink, so it fails where something stands beside the text:
+    a second column, a picture, an advertisement box.  Two symptoms show it: boxes much taller than a
+    line (lines glued together by a picture or a neighbouring column), and a vertical gap through the
+    text block (columns).  A contents page whose rows were recognised is left to our detector: a
+    neural detector cuts its rows into cells.
+    """
+    if not lines:
+        return []
+    from scipy import ndimage
+    H, W = ink.shape
+    # character height from connected components: independent of how well the lines were found
+    sl = ndimage.find_objects(ndimage.label(ink)[0])
+    hs = np.array([s[0].stop - s[0].start for s in sl]); ws = np.array([s[1].stop - s[1].start for s in sl])
+    ok = (hs >= 0.004 * H) & (hs < 0.05 * H) & (ws < 0.1 * W)
+    if ok.sum() < 50:
+        return []                                      # too little text to judge
+    ch = float(np.median(hs[ok]))
+    pitch = lines[0]["pitch"]
+    reasons = []
+    if pitch > 4 * ch:                                 # simple pages: 2.1-2.8 character heights per line
+        reasons.append(f"detected lines are {pitch / ch:.0f} character heights tall (lines glued together "
+                       f"by columns, pictures or ornament)")
+    xs0 = min(l["bbox"][0] for l in lines); xs1 = max(l["bbox"][0] + l["bbox"][2] for l in lines)
+    ys0 = min(l["bbox"][1] for l in lines); ys1 = max(l["bbox"][1] + l["bbox"][3] for l in lines)
+    block = ink[ys0:ys1, xs0:xs1]
+    if block.size and (xs1 - xs0) > 40 * ch:           # a contents page's page-number column sits at the edge
+        prof = smooth(block.sum(axis=0).astype(float), max(3, int(ch)))
+        med = np.median(prof)
+        for s, e in runs(prof < 0.08 * med):
+            left, right = s / len(prof), 1 - e / len(prof)
+            if e - s >= 0.4 * ch and left > 0.2 and right > 0.2:     # text on both sides: columns
+                reasons.append("a vertical gap runs through the text block (columns)")
+                break
+    return reasons
+
+
+def surya_python():
+    for v in SURYA_VENVS:
+        for sub in ("Scripts/python.exe", "bin/python"):
+            f = REPO / ".cache" / v / sub
+            if f.exists():
+                return f
+    return None
+
+
+def surya_boxes(pids):
+    """Surya line boxes for these pages, cached per page in ocr/<page>.surya.json."""
+    out, todo = {}, []
+    for pid in pids:
+        c = ROOT / "ocr" / f"{pid}.surya.json"
+        if c.exists():
+            out[pid] = json.loads(c.read_text(encoding="utf-8"))
+        else:
+            todo.append(pid)
+    if todo:
+        py = surya_python()
+        if not py:
+            return out
+        tmp = ROOT / "ocr" / "_surya_batch.json"
+        paths = [str(page_image(p)) for p in todo]
+        print(f"  surya: detecting lines on {len(todo)} complex page(s)", flush=True)
+        subprocess.run([str(py), str(REPO / "pipeline" / "align" / "surya_lines.py"), str(tmp)] + paths, check=True,
+                       stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        res = json.loads(tmp.read_text(encoding="utf-8"))
+        tmp.unlink()
+        for pid, p in zip(todo, paths):
+            rec = {"surya": res["surya"], "boxes": res["pages"][p]}
+            (ROOT / "ocr" / f"{pid}.surya.json").write_text(json.dumps(rec) + "\n", encoding="utf-8", newline="\n")
+            out[pid] = rec
+    return out
+
+
+def xycut(boxes):
+    """Reading order by recursive XY-cut: split at a full-width horizontal gap (top to bottom) or, failing
+    that, a full-height vertical gap (left to right); boxes are [x, y, w, h]."""
+    if len(boxes) <= 1:
+        return list(boxes)
+    for axis in (1, 0):
+        iv = sorted(((b[axis], b[axis] + b[axis + 2]) for b in boxes))
+        end, cut = iv[0][1], None
+        for s, e in iv[1:]:
+            if s > end:
+                cut = end
+                break
+            end = max(end, e)
+        if cut is not None:
+            a = [b for b in boxes if b[axis] + b[axis + 2] <= cut]
+            return xycut(a) + xycut([b for b in boxes if b[axis] + b[axis + 2] > cut])
+    # no clean cut (a headline or box crosses the column gaps): columns by left edge, then top to bottom
+    span = max(b[0] + b[2] for b in boxes) - min(b[0] for b in boxes)
+    xs = sorted(b[0] for b in boxes)
+    starts = [xs[0]] + [x for p, x in zip(xs, xs[1:]) if x - p > 0.04 * span]
+    col = lambda b: max(i for i, s in enumerate(starts) if s <= b[0])
+    return sorted(boxes, key=lambda b: (col(b), b[1], b[0]))
+
+
+def lines_from_surya(rec, W):
+    """Surya boxes -> our line records: drop specks, rejoin contents rows split into cells, order."""
+    boxes = [[x1, y1, x2 - x1, y2 - y1] for x1, y1, x2, y2 in rec["boxes"] if x2 > x1 and y2 > y1]
+    if not boxes:
+        return []
+    med = float(np.median([b[3] for b in boxes]))
+    boxes = [b for b in boxes if b[3] >= 0.4 * med and b[2] >= 0.6 * med]       # border ornaments, specks
+    # rows: boxes sharing most of their height
+    rows = []
+    for b in sorted(boxes, key=lambda b: (b[1] + b[3] / 2, b[0])):
+        cy = b[1] + b[3] / 2
+        for r in rows:
+            if abs(r["cy"] - cy) < 0.5 * med and all(o[0] + o[2] <= b[0] or b[0] + b[2] <= o[0] for o in r["boxes"]):
+                r["boxes"].append(b)
+                break
+        else:
+            rows.append({"cy": cy, "boxes": [b]})
+    # a contents row cut into cells (number | title | page number): the same rule as detect_lines, a narrow
+    # last cell ending on an aligned right edge on 3+ rows.  Rows of a multi-column page are not touched.
+    xs0 = min(b[0] for b in boxes); tw = max(b[0] + b[2] for b in boxes) - xs0
+    tails = []
+    for i, r in enumerate(rows):
+        r["boxes"].sort(key=lambda b: b[0])
+        last = r["boxes"][-1]
+        if len(r["boxes"]) > 1 and last[2] < 0.25 * tw and last[0] + last[2] - xs0 > 0.75 * tw:
+            tails.append((i, last[0] + last[2]))
+    merged = set()
+    if len(tails) >= 3:
+        edge = float(np.median([e for _, e in tails]))
+        merged = {i for i, e in tails if abs(e - edge) < 0.04 * tw}
+        if len(merged) < 3:
+            merged = set()
+    out = []
+    for i, r in enumerate(rows):
+        if i in merged:
+            bs = r["boxes"]
+            x0_ = min(b[0] for b in bs); y0_ = min(b[1] for b in bs)
+            out.append([x0_, y0_, max(b[0] + b[2] for b in bs) - x0_, max(b[1] + b[3] for b in bs) - y0_])
+        else:
+            out.extend(r["boxes"])
+    lines = []
+    for bi, (x, y, w, h) in enumerate(xycut(out)):
+        lines.append({"band": bi, "bbox": [int(x), int(y), int(w), int(h)], "baseline_y": int(y + 0.8 * h),
+                      "pitch": med, "table_row": False})
+    return lines
 
 
 # --------------------------------------------------------------------------- tesseract
@@ -328,11 +484,11 @@ def word_split(a_line, b_line):
 
 
 # --------------------------------------------------------------------------- page -> lines.json
-def build_page(pid, prev_tail):
+def build_page(pid, prev_tail, det):
     n = canvas_no(pid)
     img = Image.open(page_image(pid))
     W, H = img.size
-    lines, _ = detect_lines(img)
+    lines = det["lines"]
     ocr_lines(img, lines, pid)
     arch = archive_lines(n)
     pairs = align(lines, arch)
@@ -348,7 +504,8 @@ def build_page(pid, prev_tail):
             kept.append(l)                             # printed line Gpura's text lacks
     confs = sorted(l["conf"] or 0 for l in kept)      # the same lines the AI export measures
     non_text = None
-    if not arch and confs and confs[len(confs) // 2] < NON_TEXT_CONF:
+    surya_text = det["info"]["name"] == "surya" and len(kept) >= 15   # Surya finds text, not texture
+    if not arch and confs and confs[len(confs) // 2] < NON_TEXT_CONF and not surya_text:
         non_text = round(confs[len(confs) // 2], 2)   # cover, endpaper or plate: Tesseract reads only noise
         kept = []
     used = {pairs[i][0] for i in pairs}
@@ -361,8 +518,11 @@ def build_page(pid, prev_tail):
     for l in kept:
         x, y, w, h = l["bbox"]
         alone = sum(1 for o in kept if o["band"] == l["band"]) > 1
-        if cur is None or alone or cur["alone"] or l["block"] != cur["block"] or \
-                y - (cur["lines"][-1]["bbox"][1] + cur["lines"][-1]["bbox"][3]) > 0.9 * pitch:
+        prev = cur["lines"][-1]["bbox"] if cur else None
+        new_column = det["info"]["name"] == "surya" and prev is not None and \
+            (y < prev[1] or min(x + w, prev[0] + prev[2]) - max(x, prev[0]) < 0.5 * min(w, prev[2]))
+        if cur is None or alone or cur["alone"] or new_column or l["block"] != cur["block"] or \
+                y - (prev[1] + prev[3]) > 0.9 * pitch:
             cur = {"lines": [], "block": l["block"], "alone": alone}
             regions.append(cur)
         cur["lines"].append(l)
@@ -391,6 +551,8 @@ def build_page(pid, prev_tail):
             x, y, w, h = l["bbox"]
             lid = f"{rid}_l{li:03d}"
             flags, ai = [], AI_READINGS.get(lid)
+            if not ai or list(ai["bbox"]) != [int(x), int(y), int(w), int(h)]:
+                ai = AI_BY_BOX.get((pid, (int(x), int(y), int(w), int(h))))
             if l["raw"] is None and ai and list(ai["bbox"]) == [int(x), int(y), int(w), int(h)]:
                 if not ai["text"].strip():
                     continue                      # the model saw no text: a rule, border or speck, not a line
@@ -434,14 +596,16 @@ def build_page(pid, prev_tail):
 
     data = {"page": pid, "canvas": n, "printed_page": next((r["lines"][0]["text"] for r in out_regions
                                                              if r["type"] == "page-number"), None),
-            "width": W, "height": H, "automatic": True,
+            "width": W, "height": H, "automatic": True, "detector": det["info"],
             "regions": out_regions, "unplaced": unplaced,
             **({"non_text": f"No lines encoded: Gpura has no text for this page and Tesseract's median confidence "
                             f"is {non_text} (below {NON_TEXT_CONF}), so it is treated as a cover, endpaper or plate."}
                if non_text is not None else {}),
             "notes": [
                 "AUTOMATIC, NOT REVIEWED. Coordinates are pixels in the full-resolution scan, origin top-left; bbox = [x, y, w, h].",
-                "Line boxes: projection profiles on dark, low-chroma pixels (coloured reader ink ignored). Baselines are estimated.",
+                ("Line boxes: Surya text-line detector (complex page: " + "; ".join(det["info"]["reasons"]) + "); "
+                 "reading order by XY-cut. Baselines are estimated." if det["info"]["name"] == "surya" else
+                 "Line boxes: projection profiles on dark, low-chroma pixels (coloured reader ink ignored). Baselines are estimated."),
                 "text = Gpura's existing OCR line, aligned to the detected line by fuzzy match against Tesseract (mal+eng, psm 6); "
                 "text_archive keeps Gpura's original where the corpus encoding rules changed it; match = similarity 0-100.",
                 "Encoding rules applied to Gpura's text: NFC; chillu+ZWJ and dot reph -> atomic chillus; NTA (ൻറ, ൻ്റ) -> ന്റ; TTA (ററ) -> റ്റ.",
@@ -453,14 +617,40 @@ def build_page(pid, prev_tail):
 
 def main():
     pages = sys.argv[1:] or [page_id(n) for n in ITEM.get("canvases_encoded", [])]
+    # detector: "auto" (default) uses ours and switches a page to Surya when it looks complex;
+    # "ours" or "surya" forces one.  Set in item.json ("detector") or GPURA_DETECTOR.
+    mode = os.environ.get("GPURA_DETECTOR") or ITEM.get("detector", "auto")
+    reviewed = {pid for pid in pages if (ROOT / "ocr" / f"{pid}.lines.json").exists() and
+                not json.loads((ROOT / "ocr" / f"{pid}.lines.json").read_text(encoding="utf-8")).get("automatic")}
+    dets = {}
+    for pid in pages:
+        if pid in reviewed:
+            continue
+        lines, ink = detect_lines(Image.open(page_image(pid)))
+        reasons = ["forced (detector = surya)"] if mode == "surya" else page_complexity(lines, ink) if mode == "auto" else []
+        dets[pid] = {"lines": lines, "info": {"name": "projection-profiles"}, "reasons": reasons}
+    complex_ = [pid for pid, d in dets.items() if d["reasons"]]
+    if complex_:
+        found = surya_boxes(complex_)
+        missing = [pid for pid in complex_ if pid not in found]
+        if missing:
+            print(f"  surya not installed (bash pipeline/tools/setup_bench.sh surya): {len(missing)} complex page(s) "
+                  f"keep the projection-profile lines: {', '.join(missing)}")
+        for pid in complex_:
+            d = dets[pid]
+            if pid in found:
+                d["lines"] = lines_from_surya(found[pid], Image.open(page_image(pid)).size[0])
+                d["info"] = {"name": "surya", "version": found[pid]["surya"], "reasons": d["reasons"]}
+            else:
+                d["info"]["looks_complex"] = d["reasons"]
     tail, done = None, []
     for pid in pages:
         out = ROOT / "ocr" / f"{pid}.lines.json"
-        if out.exists() and not json.loads(out.read_text(encoding="utf-8")).get("automatic"):
+        if pid in reviewed:
             print(f"  {pid}: reviewed lines.json present, left untouched")
             tail = None
             continue
-        data, tail = build_page(pid, tail)
+        data, tail = build_page(pid, tail, dets[pid])
         done.append((out, data))      # written at the end: the next page can still set this page's last hyphen_end
     for out, data in done:
         out.write_text(json.dumps(data, ensure_ascii=False, indent=1, default=int) + "\n", encoding="utf-8", newline="\n")
@@ -468,7 +658,7 @@ def main():
         nl = sum(len(r["lines"]) for r in data["regions"])
         na = sum(1 for r in data["regions"] for l in r["lines"] if l.get("source") == "ai")
         nt = sum(1 for r in data["regions"] for l in r["lines"] if "match" not in l) - na
-        print(f"  {pid}: {len(data['regions'])} regions, {nl} lines ({nt} Tesseract-only, {na} AI), "
+        print(f"  {pid}: [{data['detector']['name']}] {len(data['regions'])} regions, {nl} lines ({nt} Tesseract-only, {na} AI), "
               f"{len(data['unplaced'])} archive lines unplaced")
 
 

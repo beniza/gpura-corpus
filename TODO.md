@@ -19,23 +19,33 @@
 Tesseract only matches Gpura's text to detected lines; replacing it would not change text quality. The
 open questions are line/layout detection and text for books Gpura has no text for.
 
-- [ ] **Line and layout detection benchmark** (`pipeline/tools/bench_lines.py`): our projection-profile
-  detector vs **Kraken** (baseline segmentation, writes PAGE-XML, trainable on our reviewed pages) vs
-  **Surya** (lines, layout incl. tables, reading order; claims 90+ languages). Pages with a known answer:
-  the reviewed 1971 pages, the Newton contents page, ordinary text pages, and a multi-column page (still
-  to choose). Score lines found (IoU ≥ 0.5), extra detections, and contents rows kept whole.
-  - First run (3 Nov 2026; `bash pipeline/tools/setup_bench.sh`, then `python pipeline/tools/bench_lines.py`):
+- [x] **Line and layout detection benchmark** (`pipeline/tools/bench_lines.py`, `bench_overlay.py`):
+  our projection-profile detector vs **Kraken** 7.1 (default model) vs **Surya** 0.23 on 17 pages: the
+  reviewed 1971 pages (scored), and newspapers, a two/four-column weekly, pictures, contents pages and
+  ruled tables (judged from side-by-side overlays).
 
-    | Detector | 1971 p. 17 (29) | 1971 p. 18 (38) | Newton contents (14 rows) | s/page (CPU) |
-    |---|---|---|---|---|
-    | ours | 29, 3 extra | 36, 1 extra | 14, 1 extra | < 1 |
-    | Kraken 7.1 default model | 28, 0 extra | 34, 1 extra | 8, 19 extra, 4 split | 27–33 |
-    | Surya detection | 28, 1 extra | 35, 3 extra | 7, 32 extra, 1 split | 14–17 |
+  | Page type | ours | Kraken | Surya |
+  |---|---|---|---|
+  | Plain prose (scored, 67 lines) | 65 found | 62 | 63 |
+  | Newspaper (3) | fails: bands across all columns | partial, misses small print | **good** |
+  | Multi-column weekly (3) | fails / lines cross the gap | partial | **good** |
+  | Pictures (3) | fails: lines through pictures | good | **good** |
+  | Contents (4) | **rows whole on 3**, fails on a bordered cover | rows broken | rows whole only with dotted leaders, else cells |
+  | Ruled tables (2) | cells merged across columns | one box per cell | one box per cell |
 
-    On body text all three are close. On the contents page Surya finds each **cell** (number, title, page
-    number) as its own line, and Kraken mixes whole rows and cells. Surya's cells could feed table
-    recognition, combined with our row grouping. Still to add: a multi-column page, Surya's layout model
-    (table regions), and Kraken retrained on our reviewed pages.
+  Speed: ours < 1 s/page; Surya ~6 s/page plus ~10 s start-up (Surya 0.23 barely uses the GPU: its time is
+  pre- and post-processing); Kraken ~30 s/page. Kraken's default model is not worth adding.
+- [x] **Surya in the pipeline, switched on automatically** for complex pages (`auto_lines.py`
+  `page_complexity`): a page goes to Surya when our detected lines are over 4 character heights tall
+  (glued by columns, pictures or ornament) or a vertical gap with text on both sides runs through the text
+  block. On 62 test pages it sent every newspaper, column, picture and decorated page to Surya and kept
+  every plain text and contents page (except one dotted-leader contents page, which Surya handles well).
+  Surya cells in contents rows are rejoined into rows; reading order by XY-cut with a column fallback.
+  `detector` in item.json or `GPURA_DETECTOR` = auto | ours | surya.
+- [ ] Multi-column reading order and regions: on a four-column weekly page some Surya lines bridge a
+  narrow column gap, so a few regions span columns. Needs a column/region step (Surya's layout model).
+- [ ] Ruled-table pages are not flagged as complex (our detector merges their cells across columns).
+- [ ] Hand-checked answers for 2–3 complex pages (newspaper, table, picture) so the comparison is scored.
 - [ ] **Sarvam Vision** for books with no Gpura text: Indic document model (22 languages + English) with
   layout blocks, reading order and tables. Company-reported Malayalam word accuracy 91.6 vs Gemini 3 Pro
   87.1, Google Cloud Vision 88.3, Surya 83.8, Claude Opus 4.5 82.9 (Sarvam Indic OCR Bench). Test on pages
@@ -61,5 +71,5 @@ The corpus and pipeline will be described in a technical paper. Challenges met s
   certain it is; AI readings are tied to a line's box and dropped if detection changes.
 - **Script encoding.** Pre-reform and reformed glyph shapes (ൻറ, ററ, dot reph) encoded as standard
   Unicode sequences; samvruthokaram kept.
-- **Tool comparison.** Results of the line-detection benchmark (ours vs Kraken vs Surya) and of Sarvam
-  Vision vs Claude on Malayalam print, once run.
+- **Tool comparison.** Line detection on 17 pages of six types (ours vs Kraken vs Surya; see above) and the
+  automatic switch to Surya for complex pages; Sarvam Vision vs Claude on Malayalam print still to run.

@@ -143,3 +143,19 @@ Where Gpura has no text for a printed line, the automatic path falls back to Tes
     python3 run.py items/<item>                           # rebuild; readings are kept in ocr/ai_readings.json
 
 Each reading is tied to its line's box and used only while the box is unchanged. In TEI such a line is `<unclear cert="medium" reason="ai-reading" resp="#ai">`, with the model named in the header; PAGE-XML labels it the same way. On a 60-line test against Gpura's text (two pages of *നാരായണ വാമന തിലക്*), Claude Sonnet got 1.6% of characters wrong (Haiku 3.2%, Tesseract 12.7%). Very short fragments read badly without the rest of the line.
+
+## Complex pages: Surya, switched on automatically
+
+Our line detector reads a page as horizontal stripes of ink. That is fast and right for single-column
+books, but newspapers, multi-column periodicals and pages with pictures defeat it. For those pages the
+align stage switches to [Surya](https://github.com/datalab-to/surya)'s text-line detector:
+
+    bash pipeline/tools/setup_bench.sh surya        # or surya-gpu: reuses an installed CUDA PyTorch
+
+A page is sent to Surya when our detected lines are more than four character heights tall (lines glued
+together by columns, pictures or ornament) or a vertical gap with text on both sides runs through the
+text block. Contents rows that Surya cuts into cells are rejoined; reading order is by XY-cut. Each
+page's `lines.json` records the detector and the reason (`"detector"`). Force a detector with
+`"detector": "ours" | "surya"` in `item.json` or `GPURA_DETECTOR`. Without Surya installed, complex pages
+keep our lines and the run says which pages they are. Benchmark: `pipeline/tools/bench_lines.py`; results
+in `TODO.md`.

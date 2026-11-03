@@ -144,7 +144,11 @@ def main():
 
     full = out / "ocr" / "gpura_full.txt"
     if "text/plain" in rendering and not full.exists():
-        full.write_text(unicodedata.normalize("NFC", get(rendering["text/plain"])), encoding="utf-8", newline="\n")
+        try:      # some manifests advertise a full-text file that does not exist; per-page text still works
+            full.write_text(unicodedata.normalize("NFC", get(rendering["text/plain"], tries=1)), encoding="utf-8",
+                            newline="\n")
+        except SystemExit as e:
+            print(f"  note: full text not available ({e}); continuing with per-page text", flush=True)
     for n in pages:
         c = canvases[n - 1]
         img = out / "images" / f"p{n:03d}.jpg"
