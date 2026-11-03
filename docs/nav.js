@@ -38,7 +38,8 @@
     a.href = u(href);
     a.textContent = text;
     if (cls) a.className = cls;
-    if (a.href.replace(/index\.html$/, '') === here) a.setAttribute('aria-current', 'page');
+    if (a.href.replace(/index\.html$/, '') === here || (href === 'showcase/' && /\/specimen\//.test(here)))
+      a.setAttribute('aria-current', 'page');
     return a;
   }
   inner.appendChild(link('', 'Gpura Corpus', 'brand'));
@@ -46,58 +47,9 @@
   inner.appendChild(link('paper/', 'Paper'));
   inner.appendChild(link('walkthrough/', 'Walkthrough'));
 
-  // Showcase: one encoded page per layout type (docs/showcase.json), then every book (specimen/index.json)
-  var dd = document.createElement('details');
-  var sm = document.createElement('summary');
-  sm.textContent = 'Showcase';
-  var menu = document.createElement('div');
-  menu.className = 'menu';
-  dd.appendChild(sm);
-  dd.appendChild(menu);
-  inner.appendChild(dd);
+  // Showcase: an index page (showcase/) introduces each layout type and lists every book
+  inner.appendChild(link('showcase/', 'Showcase'));
   inner.appendChild(Object.assign(document.createElement('a'), { href: 'https://github.com/beniza/gpura-corpus', textContent: 'Code' }));
-
-  document.addEventListener('click', function (e) { if (!dd.contains(e.target)) dd.open = false; });
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') dd.open = false; });
-
-  function head(text) {
-    var h = document.createElement('div');
-    h.className = 'mh';
-    h.textContent = text;
-    menu.appendChild(h);
-  }
-  function entry(href, title, note, ml) {
-    var a = link(href, '');
-    var t = document.createElement('span');
-    if (ml) t.className = 'ml';
-    t.textContent = title;
-    var s = document.createElement('small');
-    s.textContent = note;
-    a.appendChild(t);
-    a.appendChild(s);
-    menu.appendChild(a);
-    if (a.href.split('#')[0].replace(/index\.html$/, '') === here) sm.style.color = 'var(--accent,#2b6a8a)';
-  }
-  Promise.all([
-    fetch(u('showcase.json')).then(function (r) { return r.json(); }).catch(function () { return []; }),
-    fetch(u('specimen/index.json')).then(function (r) { return r.json(); }).catch(function () { return []; })
-  ]).then(function (res) {
-    var show = res[0], books = res[1];
-    var byItem = {};
-    books.forEach(function (b) { byItem[b.item] = b; });
-    if (show.length) head('By page layout');
-    show.forEach(function (s) {
-      var b = byItem[s.item] || {};
-      entry('specimen/' + s.item + '/#' + s.page, s.layout,
-        [b.title_en || s.item, b.date, 'p. ' + parseInt(s.page.slice(1), 10), s.text].filter(Boolean).join(' · '));
-    });
-    if (books.length) head('All books');
-    books.forEach(function (b) {
-      entry('specimen/' + b.item + '/', b.title,
-        [b.title_en, b.date, b.pages + (b.pages === 1 ? ' page' : ' pages'), b.automatic ? 'automatic' : 'reviewed'].filter(Boolean).join(' · '), true);
-    });
-    if (!show.length && !books.length) dd.remove();
-  });
 
   // Malayalam script style: old (traditional orthography, RIT Rachana) or new (reformed, Noto Serif Malayalam).
   // Same Unicode text either way: only the font changes, so search and copy are unaffected.

@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Gpura Corpus Showcase</title>
+<meta name="description" content="One encoded page per layout type — prose, reader marks, maps, title and contents pages, tables, pictures, magazines and newspapers — and a complete book, each with how well the corpus reproduces it.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:wght@500;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Noto+Serif+Malayalam:wght@400;600&display=swap">
+<script src="../nav.js" defer></script>
+<style>
+/* Layout: intro, a grid of layout cards (thumbnail, introduction, scores), then the list of books */
+:root{--bg:#F4F5F3;--surface:#FFFFFF;--sunk:#E9ECE8;--fg:#1B2220;--muted:#5A6662;--line:#D3D9D5;--accent:#2B6A8A;--good:#2F7A4F;--part:#9A6A12;--weak:#A1372C;
+  --f-display:"Spectral",Georgia,serif;--f-body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;--f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;--f-ml:"Noto Serif Malayalam",serif}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#141917;--surface:#1C2320;--sunk:#232B28;--fg:#E4EAE7;--muted:#9AA7A2;--line:#33403B;--accent:#7DB8D6;--good:#7CC79A;--part:#E0B060;--weak:#F08A7E;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#141917;--surface:#1C2320;--sunk:#232B28;--fg:#E4EAE7;--muted:#9AA7A2;--line:#33403B;--accent:#7DB8D6;--good:#7CC79A;--part:#E0B060;--weak:#F08A7E;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:16px;line-height:1.6}
+.wrap{max-width:1120px;margin:0 auto;padding-block:44px 80px;padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px));display:flex;flex-direction:column;gap:36px}
+h1{font-family:var(--f-display);font-size:clamp(2rem,5vw,2.8rem);margin:0;line-height:1.15}
+h2{font-family:var(--f-display);font-size:1.4rem;margin:0}
+p{margin:0;max-width:72ch}
+a{color:var(--accent)}
+.ml{font-family:var(--f-ml)}
+.eyebrow{font-size:.75rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.lede{color:var(--muted);font-size:1.05rem}
+.legend{display:flex;gap:18px;flex-wrap:wrap;font-size:.85rem;color:var(--muted)}
+.legend b{color:var(--fg);font-weight:600}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px}
+.card{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden;min-width:0}
+.card:hover,.card:focus-within{border-color:var(--fg)}
+.thumb{display:block;aspect-ratio:4/3;background:var(--sunk);overflow:hidden}
+.thumb img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.body{padding:14px 16px 16px;display:flex;flex-direction:column;gap:8px;flex:1}
+.card h3{margin:0;font-size:1.05rem;line-height:1.3}
+.card h3 a{color:var(--fg);text-decoration:none}
+.card h3 a::after{content:"";position:absolute;inset:0}
+.card{position:relative}
+.book{font-size:.82rem;color:var(--muted)}
+.about{font-size:.9rem}
+.scores{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:auto;padding-top:6px}
+.score{background:var(--sunk);border-radius:6px;padding:6px 8px;display:flex;flex-direction:column}
+.score b{font-family:var(--f-mono);font-size:.95rem}
+.score span{font-size:.7rem;color:var(--muted);line-height:1.2}
+.score.good b{color:var(--good)} .score.part b{color:var(--part)} .score.weak b{color:var(--weak)}
+.note{font-size:.75rem;color:var(--muted)}
+.foot{display:flex;gap:10px;flex-wrap:wrap;font-size:.82rem;position:relative;z-index:1}
+.chip{display:inline-block;font-size:.72rem;border:1px solid var(--line);border-radius:999px;padding:1px 8px;color:var(--muted)}
+.books{display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.books a.row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;align-items:baseline;padding:12px 4px;border-bottom:1px solid var(--line);text-decoration:none;color:var(--fg)}
+.books a.row:hover{background:var(--sunk)}
+.books small{display:block;color:var(--muted);font-size:.82rem}
+.books .n{font-family:var(--f-mono);font-size:.82rem;color:var(--muted);white-space:nowrap}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <header style="display:flex;flex-direction:column;gap:12px">
+    <span class="eyebrow">Showcase</span>
+    <h1>Page layouts the corpus encodes</h1>
+    <p class="lede">One page for each kind of layout in Gpura's collection, and one complete book. Each card says where the text came from and how much of the page the corpus files reproduce. Open a card to see the page with its encoded lines; every book also has a PDF view that re-typesets each page from the encoding beside the scan.</p>
+    <div class="legend">
+      <span><b>Ink</b> printed text inside encoded lines</span>
+      <span><b>Text</b> the page's known text reproduced</span>
+      <span><b>Order</b> reading order kept</span>
+    </div>
+  </header>
+
+  <section aria-labelledby="h-layouts" style="display:flex;flex-direction:column;gap:14px">
+    <h2 id="h-layouts">By layout</h2>
+    <div class="grid" id="grid"><p class="lede">Loading…</p></div>
+  </section>
+
+  <section aria-labelledby="h-books" style="display:flex;flex-direction:column;gap:14px">
+    <h2 id="h-books">All books in the corpus</h2>
+    <div class="books" id="books"></div>
+  </section>
+</main>
+<script>
+(async function () {
+  const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const [show, books] = await Promise.all([
+    fetch('../showcase.json').then(r => r.json()),
+    fetch('../specimen/index.json').then(r => r.json())
+  ]);
+  const byItem = Object.fromEntries(books.map(b => [b.item, b]));
+  const grade = v => v == null ? '' : v >= 95 ? 'good' : v >= 75 ? 'part' : 'weak';
+  const score = (v, label) => `<div class="score ${grade(v)}"><b>${v == null ? '–' : (Math.round(v * 10) / 10).toString() + '%'}</b><span>${label}</span></div>`;
+  document.getElementById('grid').innerHTML = show.map(s => {
+    const b = byItem[s.item] || {};
+    const n = parseInt(s.page.slice(1), 10);
+    const href = `../specimen/${s.item}/#${s.page}`;
+    const sc = s.scores || {};
+    return `<article class="card">
+      <a class="thumb" href="${href}" tabindex="-1" aria-hidden="true"><img loading="lazy" src="../specimen/${s.item}/${s.page}.jpg" alt=""></a>
+      <div class="body">
+        <h3><a href="${href}">${esc(s.layout)}</a></h3>
+        <div class="book"><span class="ml">${esc(b.title || s.item)}</span>${b.date ? ' · ' + esc(b.date) : ''} · page ${n}</div>
+        <p class="about">${esc(s.about)}</p>
+        <div><span class="chip">text: ${esc(s.text)}</span></div>
+        <div class="scores">${score(sc.ink, 'Ink')}${score(sc.text, 'Text')}${score(sc.order, 'Order')}</div>
+        ${sc.note ? `<div class="note">${esc(sc.note)}</div>` : ''}
+        <div class="foot"><a href="../print.html?item=${encodeURIComponent(s.item)}&pages=${n}">PDF view of this page</a></div>
+      </div>
+    </article>`;
+  }).join('');
+  document.getElementById('books').innerHTML = books.map(b => `
+    <a class="row" href="../specimen/${b.item}/">
+      <span><span class="ml">${esc(b.title)}</span><small>${esc([b.title_en, b.date].filter(Boolean).join(' · '))}</small></span>
+      <span class="n">${b.pages} ${b.pages === 1 ? 'page' : 'pages'} · ${b.automatic ? 'automatic' : 'reviewed'}</span>
+    </a>`).join('');
+})().catch(e => { document.getElementById('grid').innerHTML = '<p>Could not load the showcase: ' + e.message + '</p>'; });
+</script>
+</body>
+</html>
