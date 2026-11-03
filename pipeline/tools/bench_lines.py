@@ -17,6 +17,10 @@ Scores per page and detector:
 
 Kraken and Surya run from their own virtual environments (see pipeline/tools/setup_bench.sh), so their
 dependencies never touch the pipeline's.  A detector that is not installed is skipped.
+Unscored pages: any image in .cache/bench/pages/ (complex layouts with no known answer: newspapers,
+contents pages, tables, pictures) is run too; its detections are saved for overlays
+(pipeline/tools/bench_overlay.py) and simple layout checks, but not scored.
+Every run saves the detections: .cache/bench/<detector>/<page>/boxes.json.
 Results: .cache/bench/results.json and a table on stdout.
 """
 import argparse
@@ -141,24 +145,30 @@ def main():
     a = ap.parse_args()
     OUT.mkdir(parents=True, exist_ok=True)
     results = []
+    pages = [(f"{item}_{page}", image_path(item, page), reference(item, page), kind) for item, page, kind in BENCH]
+    pages += [(f.stem, f, None, "unscored") for f in sorted((OUT / "pages").glob("*.jpg"))]
     for name in a.only.split(","):
-        for item, page, kind in BENCH:
-            work = OUT / name / f"{item}_{page}"
+        for key, img, ref, kind in pages:
+            work = OUT / name / key
             work.mkdir(parents=True, exist_ok=True)
             t = time.time()
             try:
-                det = DETECTORS[name](image_path(item, page), work)
+                det = DETECTORS[name](img, work)
             except subprocess.CalledProcessError as e:
                 print(f"  {name} failed on {item}/{page}: {e}")
                 det = None
             if det is None:
                 print(f"  {name}: not installed or failed, skipped (see pipeline/tools/setup_bench.sh)")
                 break
-            s = {"detector": name, "item": item, "page": page, "reference": kind,
-                 "seconds": round(time.time() - t, 1), **score(reference(item, page), det)}
+            (work / "boxes.json").write_text(json.dumps(det) + "\n", encoding="utf-8")
+            s = {"detector": name, "page": key, "reference": kind, "seconds": round(time.time() - t, 1),
+                 **(score(ref, det) if ref is not None else {"detections": len(det)})}
             results.append(s)
-            print(f"  {name:7} {item[:24]:24} {page}  found {s['found']:3}/{s['ref']:<3} extra {s['extra']:3}  "
-                  f"split {s['split']:2}  ({s['seconds']}s)", flush=True)
+            if ref is not None:
+                print(f"  {name:7} {key[:34]:34} found {s['found']:3}/{s['ref']:<3} extra {s['extra']:3}  "
+                      f"split {s['split']:2}  ({s['seconds']}s)", flush=True)
+            else:
+                print(f"  {name:7} {key[:34]:34} {len(det):4} detections (unscored)  ({s['seconds']}s)", flush=True)
     f = OUT / "results.json"                            # keep earlier runs of the other detectors
     ran = {r["detector"] for r in results}
     old = [r for r in (json.loads(f.read_text(encoding="utf-8")) if f.exists() else []) if r["detector"] not in ran]
