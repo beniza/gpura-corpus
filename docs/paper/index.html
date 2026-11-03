@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Gpura Corpus Paper</title>
+<meta name="description" content="A proposal, written as a paper: a standards-based structured corpus for the Gpura digital archive — encoding model, pipeline, experiments and challenges.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,500;0,700;1,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Noto+Serif+Malayalam:wght@400;600&display=swap">
+<script src="../nav.js" defer></script>
+<style>
+/* Layout: one reading column (paper), numbered sections, tables for measured results */
+:root{--bg:#F4F5F3;--surface:#FFFFFF;--sunk:#E9ECE8;--fg:#1B2220;--muted:#5A6662;--line:#D3D9D5;--accent:#2B6A8A;--page:#A35A16;--tei:#674A96;--warn:#8A5A00;
+  --f-display:"Spectral",Georgia,serif;--f-body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;--f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;--f-ml:"Noto Serif Malayalam","Manjari","Rachana",serif}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#141917;--surface:#1C2320;--sunk:#232B28;--fg:#E4EAE7;--muted:#9AA7A2;--line:#33403B;--accent:#7DB8D6;--page:#E3A266;--tei:#B79BE3;--warn:#E0B060;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#141917;--surface:#1C2320;--sunk:#232B28;--fg:#E4EAE7;--muted:#9AA7A2;--line:#33403B;--accent:#7DB8D6;--page:#E3A266;--tei:#B79BE3;--warn:#E0B060;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:16.5px;line-height:1.7}
+.wrap{max-width:780px;margin:0 auto;padding-block:48px 96px;padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+h1,h2,h3{line-height:1.25;text-wrap:balance}
+h1{font-family:var(--f-display);font-size:clamp(1.9rem,5vw,2.6rem);font-weight:700;margin:.2em 0 .3em}
+h2{font-family:var(--f-display);font-size:1.45rem;margin:2.4em 0 .5em;padding-top:.6em;border-top:1px solid var(--line)}
+h3{font-size:1.02rem;font-weight:600;margin:1.6em 0 .4em}
+p,li{max-width:70ch}
+p{margin:.7em 0}
+a{color:var(--accent)}
+.ml{font-family:var(--f-ml)}
+code,.mono{font-family:var(--f-mono);font-size:.86em}
+code{background:var(--sunk);padding:.08em .35em;border-radius:4px;overflow-wrap:anywhere}
+.eyebrow{font-size:.75rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.byline{color:var(--muted);font-size:.92rem}
+.status{display:inline-block;font-size:.78rem;font-weight:600;color:var(--warn);border:1px solid currentColor;border-radius:999px;padding:1px 10px;margin-top:6px}
+.abstract{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:16px 20px;margin:1.6em 0}
+.abstract p{margin:.4em 0}
+.toc{font-size:.92rem;columns:2 240px;gap:24px;padding-left:1.2em;margin:.6em 0 0}
+.toc li{break-inside:avoid}
+.tw{overflow-x:auto;margin:1em 0;border:1px solid var(--line);border-radius:8px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:.9rem;font-variant-numeric:tabular-nums}
+th,td{text-align:left;padding:8px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-weight:600;background:var(--sunk)}
+tr:last-child td{border-bottom:0}
+td.n,th.n{text-align:right;white-space:nowrap}
+.cap{font-size:.84rem;color:var(--muted);margin:-.4em 0 1.2em}
+.steps{list-style:none;padding:0;margin:1em 0;display:flex;flex-direction:column;gap:0;border-left:2px solid var(--line)}
+.steps li{position:relative;padding:4px 0 12px 18px;max-width:none}
+.steps li::before{content:"";position:absolute;left:-7px;top:12px;width:12px;height:12px;border-radius:50%;background:var(--surface);border:2px solid var(--accent)}
+.steps b{font-family:var(--f-mono);font-size:.86rem;color:var(--accent)}
+.layers{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin:1em 0}
+.layers div{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:12px 14px;font-size:.92rem}
+.layers b{display:block;font-family:var(--f-mono);font-size:.84rem;margin-bottom:2px}
+pre{background:var(--sunk);border-radius:6px;padding:12px 14px;overflow-x:auto;font-family:var(--f-mono);font-size:.8rem;line-height:1.6;margin:1em 0}
+.note{font-size:.9rem;color:var(--muted)}
+.refs{font-size:.9rem;padding-left:1.4em}
+.refs li{margin:.3em 0}
+@media print{nav.gnav{display:none}body{background:#fff;color:#000}.wrap{padding:0}a{color:inherit}}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <header>
+    <span class="eyebrow">Proposal to Gpura · draft paper</span>
+    <h1>A Structured, Standards-Based Corpus for Gpura</h1>
+    <p class="byline">Encoding model, pipeline and first experimental results · Proposal team (names to be added) · Draft, 3 November 2026</p>
+    <span class="status">Draft for discussion with the Gpura team</span>
+  </header>
+
+  <section class="abstract" aria-label="Abstract">
+    <p><b>Abstract.</b> Gpura (<span class="ml">ഗ്രന്ഥപ്പുര</span>, gpura.org) preserves public-domain Malayalam print as page images with machine-generated text. We propose a companion corpus that records, for every page, not only the words but where and how they appear: a PAGE-XML layout file as the master, an ALTO export, and a TEI P5 edition per item, all sharing one set of region and line identifiers and linked to the page images Gpura already serves through IIIF. We built a working pipeline that produces these files from a Gpura item link alone, validates them against the official schemas, and publishes a browsable specimen. On three reviewed pages, Gpura's existing text has 0.5–0.8% character error on body text against 22–25% for fresh open-source OCR, so the pipeline keeps Gpura's text and adds structure, provenance and checkability. For books Gpura has no text for, an AI model reading individual line images reached 1.6% character error on a 60-line test. We report what works, what does not yet (tables, multi-column pages, maps, handwriting), and what it costs.</p>
+  </section>
+
+  <nav aria-label="Contents">
+    <span class="eyebrow">Contents</span>
+    <ol class="toc">
+      <li><a href="#goal">Goal</a></li>
+      <li><a href="#source">What Gpura already provides</a></li>
+      <li><a href="#model">The encoding model</a></li>
+      <li><a href="#conventions">Encoding conventions</a></li>
+      <li><a href="#pipeline">The pipeline</a></li>
+      <li><a href="#experiments">Experiments and findings</a></li>
+      <li><a href="#cost">Cost and scalability</a></li>
+      <li><a href="#challenges">Challenges and limitations</a></li>
+      <li><a href="#plan">Proposed next steps</a></li>
+      <li><a href="#availability">Availability</a></li>
+    </ol>
+  </nav>
+
+  <h2 id="goal">1. Goal</h2>
+  <p>Scans preserve how a page looks, but their content stays locked in images. OCR text without structure loses layout, tables, notes and context, and gives no way to tell a reliable reading from a doubtful one. The goal of the corpus is that <b>nothing significant is lost in moving from paper to digital</b>: someone working only from the corpus files should be able to reconstruct what a page said, where it said it, and what the item is.</p>
+  <p>This serves Gpura's mission of preservation and open access. Open, standard formats outlive any particular website or software. Because Gpura's materials are in the public domain, the corpus can be released openly and mirrored by libraries and archives. It also widens use: full-text search, exact citation of passages, and reuse in research, education and Malayalam language technology.</p>
+  <p>All transcripts discussed here are machine-generated (OCR or AI). None has yet been verified by a person, and the encoding records that explicitly.</p>
+
+  <h2 id="source">2. What Gpura already provides</h2>
+  <p>The pipeline uses only Gpura's public interfaces:</p>
+  <ul>
+    <li><b>Omeka S API</b> for Dublin Core metadata (title, creator, publisher, date, holding library, rights).</li>
+    <li><b>IIIF Presentation 3 manifests</b> listing each item's canvases, with a IIIF Image service for every page.</li>
+    <li><b>Per-page text</b> attached to each canvas as a supplementing annotation, plus a full-text rendering. This text is AI-generated OCR and is already of high quality on body text (section 6.1). Some items have none.</li>
+  </ul>
+  <p>The corpus therefore does not need to store or re-host images: every layout coordinate points into Gpura's own IIIF images, and the pipeline downloads scans only as working copies.</p>
+
+  <h2 id="model">3. The encoding model</h2>
+  <p>Three layers, one set of identifiers. Every region and line gets a stable ID (<code>p017_r04_l012</code>: page, region, line) used identically in all layers, so a TEI line, a PAGE-XML line and its box on the IIIF image are the same object.</p>
+  <div class="layers">
+    <div><b style="color:var(--accent)">IIIF</b>Page images and manifests. Already in place at Gpura.</div>
+    <div><b style="color:var(--page)">PAGE-XML 2019 (master)</b>Where every region and line sits on the scan, in reading order; printed or handwritten; alternative readings with confidence and source.</div>
+    <div><b style="color:var(--page)">ALTO 4.4 (export)</b>Generated from PAGE-XML for libraries and tools that expect ALTO.</div>
+    <div><b style="color:var(--tei)">TEI P5 (edition)</b>Logical structure, metadata, reader annotations, damage and uncertainty; each line points back to its zone on the image.</div>
+  </div>
+  <h3>Why PAGE-XML, not ALTO, as the master</h3>
+  <p>On the reviewed specimen, PAGE-XML kept everything we needed: reading order with unordered groups for marginalia and map labels, printed versus handwritten text, rotated regions, links from reader marks to the lines they touch, and several alternative readings per line with their confidence. The ALTO export validates, but flattens: word boxes have to be estimated, handwriting becomes a tag, unordered groups and most links disappear, and many alternative readings cannot be kept. We therefore keep PAGE-XML as the master and generate ALTO for partners who need it.</p>
+  <h3>Provenance and certainty</h3>
+  <p>Every reading records where it came from and how far it can be trusted. In PAGE-XML each line carries up to three readings: the line text (Gpura's, or an AI reading where Gpura has none), the Tesseract reading used for alignment with its confidence, and Gpura's original string where the encoding rules changed it. In TEI a doubtful line is wrapped in <code>&lt;unclear&gt;</code> with a certainty and a reason (<code>no-archive-text</code>, <code>weak-match</code> or <code>ai-reading</code>) and a pointer to the responsible source, including the named AI model. Lines of Gpura's text that match nothing on the page are listed, not hidden.</p>
+
+  <h2 id="conventions">4. Encoding conventions</h2>
+  <ul>
+    <li><b>Diplomatic transcription.</b> Wording and spelling as printed; nothing is modernised or corrected.</li>
+    <li><b>Script forms.</b> Older and reformed printing draws some letters with glyph shapes that look like other sequences (ൻറ for NTA, ററ for TTA, the dot reph). These are encoded as the standard Unicode sequences (<span class="ml">ന്റ</span>, <span class="ml">റ്റ</span>, <span class="ml">ർ</span>) so the text is searchable. Atomic chillus; NFC normalisation. Where this changes Gpura's string, PAGE-XML keeps the original.</li>
+    <li><b>Samvruthokaram</b> kept as printed (<span class="ml">ഉണ്ടു്</span>).</li>
+    <li><b>Line and page breaks.</b> Every printed line is a TEI <code>&lt;lb/&gt;</code> pointing at its zone. A word broken across lines (the print uses no hyphen) is marked <code>&lt;lb break="no"/&gt;</code>; in automatic encodings this is an estimate from the book's own vocabulary and script rules. Page numbers and running heads are <code>&lt;fw&gt;</code>; a paragraph that continues over a page break stays one <code>&lt;p&gt;</code>.</li>
+    <li><b>Licences.</b> Code MIT; corpus data CC0 1.0. Page images remain Gpura's and are in the public domain.</li>
+  </ul>
+
+  <h2 id="pipeline">5. The pipeline</h2>
+  <p>One command turns a Gpura item link into validated corpus files and a browsable specimen:</p>
+  <pre>python3 run.py https://gpura.org/item/1957-sir-isaac-newton --pages 1-50</pre>
+  <ol class="steps">
+    <li><b>fetch</b> — metadata from the Omeka S API; canvases, image service and Gpura's per-page text from the IIIF manifest.</li>
+    <li><b>align</b> — find printed lines by projection profiles on dark, grey pixels (coloured reader ink such as ballpoint underlining is ignored); read the detected lines once with Tesseract; give each line <em>Gpura's</em> text by monotone fuzzy alignment against the Tesseract reading. Tesseract is used only to decide which line is which. Unmatched printed lines and unplaced lines of Gpura's text are both reported.</li>
+    <li><b>ai</b> (optional) — for lines Gpura has no text for, cut numbered image strips of just those lines, have a vision model transcribe them under diplomatic rules, and store each reading tied to its line's box. A reading is used only while the box is unchanged, so a later re-detection can never attach it to the wrong line.</li>
+    <li><b>page, alto, tei</b> — write PAGE-XML, export ALTO, build the TEI edition with facsimile zones for every region and line.</li>
+    <li><b>html, check, site</b> — render a reading view from TEI; validate PAGE-XML against the PRImA 2019-07-15 XSD, ALTO against the 4.4 XSD and TEI against <code>tei_all</code> (P5 4.12.0); run a contract check that every line has its zone and <code>&lt;lb&gt;</code>, the text round-trips, and every flag is accounted for; publish the specimen explorer.</li>
+  </ol>
+  <p>Runs are reproducible: generated files carry a pinned timestamp, so re-running an unchanged item gives byte-identical output. Page scans are not kept in the repository; missing ones are downloaded again from Gpura's IIIF service.</p>
+
+  <h2 id="experiments">6. Experiments and findings</h2>
+
+  <h3>6.1 A reviewed specimen: is re-running OCR worthwhile?</h3>
+  <p>Three pages of <span class="ml">അമേരിക്കൻ ഐക്യനാടിന്റെ ചരിത്രം</span> (1971; viewer pages 17–19): two text pages with reader underlining and handwriting, and a map. Each line was reviewed against the scan and encoded by hand.</p>
+  <div class="tw"><table>
+    <thead><tr><th>Page</th><th class="n">Fresh Tesseract (CER / WER)</th><th class="n">Gpura's current text (CER / WER)</th></tr></thead>
+    <tbody>
+      <tr><td>Printed p. 1</td><td class="n">22.2% / 52.8%</td><td class="n">0.8% / 3.9%</td></tr>
+      <tr><td>Printed p. 2</td><td class="n">24.7% / 56.6%</td><td class="n">0.5% / 3.6%</td></tr>
+      <tr><td>Printed p. 3 (map)</td><td class="n">52.9% / 81.3%</td><td class="n">80.4% / 100%</td></tr>
+    </tbody>
+  </table></div>
+  <p class="cap">Character and word error rates against the reviewed reading. The reviewer had Gpura's text open, so its low error partly reflects agreement rather than independent accuracy. The map page has only about 100 reference characters.</p>
+  <p>Gpura's text reads body type very well, so re-running OCR is not where the value lies. Its failures are <b>structural</b>: a reader's annotation (“CMS”) fused into a chapter title, handwriting presented as a printed paragraph, a running head reworded, and a footnote on the map page that does not exist on the page. A plain-text transcript cannot show any of these; a layout-linked encoding exposes all of them.</p>
+  <p>The automatic path, scored against this reviewed inventory, found 90% of the printed lines (93% and 92% on the two text pages; the map page is not handled), with 0.83% character error on those lines, and its estimate of words broken across lines agreed with the review on 55 of 62 lines. It also surfaced the invented footnote and the misread handwriting on its own, as lines of Gpura's text that match nothing printed on the page.</p>
+
+  <h3>6.2 A book Gpura has text for</h3>
+  <p>On <span class="ml">നാരായണ വാമന തിലക്</span> (1950), viewer pages 20–22, the automatic path placed 88 of Gpura's 89 text lines on detected printed lines. Across the first 27 pages, only 13 printed lines had no Gpura text: a pasted library rules slip in English, a few front-matter lines, and two printed rules that the AI step correctly reported as having no text.</p>
+
+  <h3>6.3 Reading lines Gpura has no text for</h3>
+  <p>We cut detected lines into numbered strips of six and asked models to transcribe them diplomatically, then scored the result against Gpura's aligned text on two pages that do have it (60 lines, 2,661 characters).</p>
+  <div class="tw"><table>
+    <thead><tr><th>Reader</th><th class="n">Character error</th></tr></thead>
+    <tbody>
+      <tr><td>Tesseract 5 (mal+eng, tessdata_best)</td><td class="n">12.7%</td></tr>
+      <tr><td>Claude Haiku</td><td class="n">3.2%</td></tr>
+      <tr><td>Claude Sonnet</td><td class="n"><b>1.6%</b></td></tr>
+    </tbody>
+  </table></div>
+  <p class="cap">Gpura's text is itself about 0.5–0.8% in error, so part of the AI figure is Gpura's error. Two pages of one typeface: a direction, not a guarantee.</p>
+  <p>Sonnet handled pre-reform letter shapes and samvruthokaram well. Its weak point was very short fragments seen without the rest of the line: a single-word fragment was misread entirely, and one contents entry (<span class="ml">ന്യൂട്ടനും</span>) was read as a different word. This is why every AI reading is marked as such and kept as unreviewed.</p>
+
+  <h3>6.4 A book Gpura has no text for</h3>
+  <p><span class="ml">സർ ഐസക്ക് ന്യൂട്ടൻ</span> (1957, 163 pages) has no Gpura text at all. We encoded viewer pages 1–50:</p>
+  <ul>
+    <li>Six pages (cover, endpapers, plates) read as noise. A simple rule recognises them: no Gpura text and a median Tesseract confidence below 0.45 (text pages were 0.6–0.7, these 0.2–0.38). No lines are encoded there and no AI is spent on them; the reason is recorded in the data.</li>
+    <li>On the 44 text pages, about 970 lines were read by AI and all validated. Two of 169 strips came back incomplete from the model; a line-count check caught both and they were re-read, with the different model recorded as their source.</li>
+    <li>Against Tesseract on the same lines the difference is plain, e.g. <span class="ml">ആഭട്വയകാലത്തുതന്നെ തികച്ഛം</span> (Tesseract) versus <span class="ml">ആദ്യകാലത്തുതന്നെ തികച്ചും</span> (AI). No reference text exists for this book, so its accuracy is not measured here.</li>
+  </ul>
+
+  <h2 id="cost">7. Cost and scalability</h2>
+  <p>The pipeline itself uses no AI: detection, alignment, encoding and validation run locally, at roughly 13 seconds per page including download. For books Gpura has text for, the cost of the corpus is therefore compute and review time, not model use.</p>
+  <p>AI is needed only for lines Gpura has no text for, so its cost grows with the number of such pages, not with the size of the collection.</p>
+  <div class="tw"><table>
+    <thead><tr><th>Route</th><th class="n">Per text page</th><th>Basis</th></tr></thead>
+    <tbody>
+      <tr><td>AI agents in an interactive tool (used in these experiments)</td><td class="n">≈ 12,500 tokens</td><td>Measured: 551k tokens for 44 pages</td></tr>
+      <tr><td>Direct API, Claude Sonnet</td><td class="n">≈ US$0.03</td><td>Estimate: ~7k input, ~2k output tokens</td></tr>
+      <tr><td>Direct API with the Batch discount</td><td class="n">≈ US$0.02</td><td>Estimate; results usually within an hour</td></tr>
+    </tbody>
+  </table></div>
+  <p class="cap">API figures are estimates from published prices and image sizes, not measurements; thinking tokens add to them. Prices change.</p>
+  <p>At scale the AI step should run as a batch job against the API rather than through interactive agents, whose fixed overhead dominated our measurements.</p>
+
+  <h2 id="challenges">8. Challenges and limitations</h2>
+  <ul>
+    <li><b>Tables and contents pages.</b> The line detector originally cut rows at wide gaps, and the automatic region typing knows only page numbers, running heads, headings and paragraphs. A contents page therefore lost its table structure even when every line was read correctly. Rows are now kept whole (a narrow right-hand column aligned on three or more rows marks a table row), but recognising the table itself — <code>TableRegion</code> in PAGE-XML, <code>&lt;list type="toc"&gt;</code> or <code>&lt;table&gt;</code> in TEI — is open work and needs examples from more books.</li>
+    <li><b>Layouts not yet handled automatically:</b> multi-column pages, maps, illustrations and reader handwriting. The reviewed specimen shows how they should be encoded; the automatic path does not yet produce that.</li>
+    <li><b>Line detection errors.</b> Occasionally two printed lines merge into one box.</li>
+    <li><b>Estimates, not facts.</b> Word breaks across lines and region types are estimated in automatic encodings.</li>
+    <li><b>References are themselves machine-made.</b> Error rates are measured against Gpura's text or a review made with Gpura's text in view, and samples are small (a few pages, three books).</li>
+    <li><b>No human verification yet.</b> Every reading in the corpus so far is machine-generated, and the files say so.</li>
+  </ul>
+
+  <h2 id="plan">9. Proposed next steps</h2>
+  <ol>
+    <li><b>Agree the encoding decisions</b> with the Gpura team: the three-layer model, the ID scheme, the script-form and samvruthokaram conventions, and how uncertainty and provenance are recorded.</li>
+    <li><b>Pilot across item types.</b> Run the pipeline on a sample chosen with Gpura to cover different periods, typefaces and layouts, including periodicals and books with tables, columns and illustrations, and measure where it fails.</li>
+    <li><b>Close the main layout gaps</b> found in the pilot, starting with tables and contents pages, then multi-column pages.</li>
+    <li><b>Batch AI reading</b> through the API for items Gpura has no text for, keeping every reading marked by model and certainty.</li>
+    <li><b>Review workflow.</b> A way for people to confirm or correct readings in the explorer, recorded as new readings with their reviewer, so corrections accumulate without losing the machine history.</li>
+    <li><b>Open release.</b> Publish the corpus files under CC0 in versioned releases that libraries and archives can mirror.</li>
+  </ol>
+  <p>Scope, staffing and funding are for the Gpura team and the proposal team to decide together; this paper describes what the technical work involves and what it has shown so far.</p>
+
+  <h2 id="availability">10. Availability</h2>
+  <ul>
+    <li>Code and data: <a href="https://github.com/beniza/gpura-corpus">github.com/beniza/gpura-corpus</a> (code MIT, data CC0 1.0). Open work is listed in <code>TODO.md</code>.</li>
+    <li>Reviewed specimen: <a href="../specimen/american-aikyanadu-1971/">1971, viewer pages 17–19</a>, with <a href="../walkthrough/">a walkthrough of the findings</a>.</li>
+    <li>Automatic encoding of a book with no Gpura text: <a href="../specimen/1957-sir-isaac-newton/">Sir Isaac Newton (1957), viewer pages 1–50</a>.</li>
+  </ul>
+
+  <h2 id="refs">References</h2>
+  <ol class="refs">
+    <li>PAGE (Page Analysis and Ground-truth Elements) format, 2019-07-15 schema. PRImA Research Lab. <a href="https://github.com/PRImA-Research-Lab/PAGE-XML">github.com/PRImA-Research-Lab/PAGE-XML</a></li>
+    <li>ALTO (Analyzed Layout and Text Object) 4.4. Library of Congress / ALTO Board. <a href="https://github.com/altoxml/schema">github.com/altoxml/schema</a></li>
+    <li>TEI P5: Guidelines for Electronic Text Encoding and Interchange, version 4.12.0. TEI Consortium. <a href="https://tei-c.org/guidelines/p5/">tei-c.org/guidelines/p5</a></li>
+    <li>IIIF Presentation API 3.0 and Image API 3.0. <a href="https://iiif.io/api/">iiif.io/api</a></li>
+    <li>Tesseract OCR 5, with <code>tessdata_best</code> Malayalam and English models. <a href="https://github.com/tesseract-ocr/tesseract">github.com/tesseract-ocr/tesseract</a></li>
+    <li>Gpura (<span class="ml">ഗ്രന്ഥപ്പുര</span>), Indic Digital Archive Foundation. <a href="https://gpura.org">gpura.org</a></li>
+  </ol>
+  <p class="note">Source material: Gpura (gpura.org); the items used are in the public domain. This is an independent proposal, not a Gpura publication.</p>
+</main>
+</body>
+</html>
