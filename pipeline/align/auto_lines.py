@@ -423,7 +423,10 @@ def archive_lines(n):
     """The page's existing text, one entry per printed line: Gpura's OCR, or where Gpura has none, the
     Sarvam Vision reading written by the sarvam stage (pipeline/fetch/sarvam_text.py)."""
     out, block = [], 0
-    for src, f in (("gpura", ROOT / "ocr" / f"gpura_existing_{n:04d}.txt"), ("sarvam", ROOT / "ocr" / f"sarvam_{n:04d}.txt")):
+    order = (("gpura", ROOT / "ocr" / f"gpura_existing_{n:04d}.txt"), ("sarvam", ROOT / "ocr" / f"sarvam_{n:04d}.txt"))
+    if ITEM.get("text_source") == "sarvam":          # e.g. Gpura's text for this book has lost its line breaks
+        order = order[::-1]
+    for src, f in order:
         if not f.exists() or not f.read_text(encoding="utf-8").strip():
             continue
         for raw in f.read_text(encoding="utf-8").splitlines():

@@ -89,7 +89,7 @@ a{color:var(--accent)}
   document.getElementById('grid').innerHTML = show.map(s => {
     const b = byItem[s.item] || {};
     const n = parseInt(s.page.slice(1), 10);
-    const href = `../specimen/${s.item}/#${s.page}`;
+    const href = s.href ? `../specimen/${s.item}/${s.href}` : `../specimen/${s.item}/#${s.page}`;
     const sc = s.scores || {};
     return `<article class="card">
       <a class="thumb" href="${href}" tabindex="-1" aria-hidden="true"><img loading="lazy" src="../specimen/${s.item}/${s.page}.jpg" alt=""></a>

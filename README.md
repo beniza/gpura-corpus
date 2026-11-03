@@ -183,3 +183,15 @@ and keeps the result (`ocr/sarvam_NNNN.json`, `.txt`). Its text is used exactly 
 labelled as Sarvam's in PAGE-XML and TEI. Sarvam's output matched Gpura's existing text character for
 character on the pages compared, so the corpus stays consistent. About 0.50 credits (₹0.50) per page.
 Reproduction benchmark: `python3 pipeline/tools/repro_bench.py` (cases in `pipeline/tools/repro_cases.json`).
+
+## Dictionary pages: entries and their parts (TEI dictionaries module)
+
+    GPURA_ITEM_DIR=items/<item> python3 pipeline/dict/entries_from_layout.py p300   # entries from hanging indent
+    # an AI model labels each entry's parts -> dict/p300.segments.json (see the prompt in the commit history)
+    GPURA_ITEM_DIR=items/<item> python3 pipeline/dict/make_dict_tei.py p300         # checked, validated TEI
+    GPURA_ITEM_DIR=items/<item> python3 pipeline/dict/dict_html.py                  # colour-coded entry view
+
+Every labelled part must be an exact, in-order piece of the printed text or the entry is kept unlabelled
+(`<entryFree>`), so labelling can never change the text. Parts: headword, transliteration, etymology,
+part of speech, sense number, gloss, example with its source, usage label, cross-reference (see / =),
+derived words as nested entries. Example: Gundert's dictionary (1872), p. 264, in the Showcase.

@@ -46,6 +46,8 @@ def to_text(result):
 
 
 def wanted(n, force):
+    if ITEM.get("text_source") == "sarvam":          # item.json: prefer Sarvam even where Gpura has text
+        return force or not (ROOT / "ocr" / f"sarvam_{n:04d}.json").exists()
     if (ROOT / "ocr" / f"gpura_existing_{n:04d}.txt").exists() and \
             (ROOT / "ocr" / f"gpura_existing_{n:04d}.txt").read_text(encoding="utf-8").strip():
         return False                                   # Gpura has text: never replace it

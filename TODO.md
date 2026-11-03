@@ -26,6 +26,18 @@
   and geometry instead of by Tesseract similarity.
 - [ ] Title pages with large display type: ink coverage 58 %.
 
+## Dictionaries (pipeline/dict/)
+
+- [x] One page of Gundert's Malayalam–English Dictionary (1872, p. 264) encoded with the TEI dictionaries
+  module: entries from the hanging indent, parts labelled by an AI model and checked to be exact in-order
+  substrings of the printed text, derived words nested, TEI valid. View: specimen/<item>/dictionary.html.
+- [ ] The layout rule "a main entry has a transliteration" is Gundert's; other dictionaries need their own
+  profile (Sabdatharavali: headword-definition with a hyphen; English–Malayalam: English headword).
+- [ ] Gundert p. 264: a proper-noun entry without transliteration (കന്ദൻ) is nested as a derived word, the
+  running head is caught inside one entry, and some derived words are nested one level too deep.
+- [ ] The Google scan of this edition trims the right column at the page edge; another copy may be better.
+- [ ] Label more pages: about 70,000 Claude tokens per page through an agent today; the API would be cheaper.
+
 ## Site
 
 - [ ] **Edit in the Reading (from TEI) view** (deferred, 3 Nov 2026): correct a line in the browser and
