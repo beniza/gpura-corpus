@@ -46,9 +46,10 @@
   inner.appendChild(link('paper/', 'Paper'));
   inner.appendChild(link('walkthrough/', 'Walkthrough'));
 
+  // Showcase: one encoded page per layout type (docs/showcase.json), then every book (specimen/index.json)
   var dd = document.createElement('details');
   var sm = document.createElement('summary');
-  sm.textContent = 'Books';
+  sm.textContent = 'Showcase';
   var menu = document.createElement('div');
   menu.className = 'menu';
   dd.appendChild(sm);
@@ -59,20 +60,87 @@
   document.addEventListener('click', function (e) { if (!dd.contains(e.target)) dd.open = false; });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') dd.open = false; });
 
-  fetch(u('specimen/index.json')).then(function (r) { return r.json(); }).then(function (books) {
-    books.forEach(function (b) {
-      var a = link('specimen/' + b.item + '/', '');
-      var t = document.createElement('span');
-      t.className = 'ml';
-      t.textContent = b.title;
-      var s = document.createElement('small');
-      s.textContent = [b.title_en, b.date, b.pages + ' pages', b.automatic ? 'automatic' : 'reviewed'].filter(Boolean).join(' · ');
-      a.appendChild(t);
-      a.appendChild(s);
-      menu.appendChild(a);
-      if (a.getAttribute('aria-current')) sm.style.color = 'var(--accent,#2b6a8a)';
+  function head(text) {
+    var h = document.createElement('div');
+    h.className = 'mh';
+    h.textContent = text;
+    menu.appendChild(h);
+  }
+  function entry(href, title, note, ml) {
+    var a = link(href, '');
+    var t = document.createElement('span');
+    if (ml) t.className = 'ml';
+    t.textContent = title;
+    var s = document.createElement('small');
+    s.textContent = note;
+    a.appendChild(t);
+    a.appendChild(s);
+    menu.appendChild(a);
+    if (a.href.split('#')[0].replace(/index\.html$/, '') === here) sm.style.color = 'var(--accent,#2b6a8a)';
+  }
+  Promise.all([
+    fetch(u('showcase.json')).then(function (r) { return r.json(); }).catch(function () { return []; }),
+    fetch(u('specimen/index.json')).then(function (r) { return r.json(); }).catch(function () { return []; })
+  ]).then(function (res) {
+    var show = res[0], books = res[1];
+    var byItem = {};
+    books.forEach(function (b) { byItem[b.item] = b; });
+    if (show.length) head('By page layout');
+    show.forEach(function (s) {
+      var b = byItem[s.item] || {};
+      entry('specimen/' + s.item + '/#' + s.page, s.layout,
+        [b.title_en || s.item, b.date, 'p. ' + parseInt(s.page.slice(1), 10), s.text].filter(Boolean).join(' · '));
     });
-  }).catch(function () { dd.remove(); });
+    if (books.length) head('All books');
+    books.forEach(function (b) {
+      entry('specimen/' + b.item + '/', b.title,
+        [b.title_en, b.date, b.pages + (b.pages === 1 ? ' page' : ' pages'), b.automatic ? 'automatic' : 'reviewed'].filter(Boolean).join(' · '), true);
+    });
+    if (!show.length && !books.length) dd.remove();
+  });
+
+  // Malayalam script style: old (traditional orthography, RIT Rachana) or new (reformed, Noto Serif Malayalam).
+  // Same Unicode text either way: only the font changes, so search and copy are unaffected.
+  var gf = document.createElement('link');
+  gf.rel = 'stylesheet';
+  gf.href = 'https://fonts.googleapis.com/css2?family=Noto+Serif+Malayalam:wght@400;600&display=swap';
+  document.head.appendChild(gf);
+  var lipiCss = document.createElement('style');
+  lipiCss.textContent =
+    '@font-face{font-family:"RIT Rachana";src:url("' + u('fonts/rit-rachana/RIT-Rachana-Regular.woff2') + '") format("woff2");font-weight:400;font-display:swap}' +
+    '@font-face{font-family:"RIT Rachana";src:url("' + u('fonts/rit-rachana/RIT-Rachana-Bold.woff2') + '") format("woff2");font-weight:700;font-display:swap}' +
+    'html[data-lipi="old"] :is(.ml,[lang="ml"],.reading,.tei-reading,.tei-text,.rt-line){font-family:"RIT Rachana","Noto Serif Malayalam",serif!important}' +
+    'html[data-lipi="new"] :is(.ml,[lang="ml"],.reading,.tei-reading,.tei-text,.rt-line){font-family:"Noto Serif Malayalam",serif!important}' +
+    'html :is([lang="ml"],.tei-reading) :is([lang="en"],.controls,.who){font-family:"IBM Plex Sans",system-ui,sans-serif!important}' +
+    '.gnav .lipi{margin-left:auto;display:inline-flex;border:1px solid var(--line,#ddd);border-radius:7px;overflow:hidden}' +
+    '.gnav .lipi button{font:inherit;font-size:.82rem;border:0;background:none;color:var(--muted,#5a6662);padding:5px 10px;cursor:pointer}' +
+    '.gnav .lipi button[aria-pressed="true"]{background:var(--fg,#1b2220);color:var(--bg,#fff)}' +
+    '.gnav .menu .mh{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted,#5a6662);padding:8px 10px 2px;font-weight:600}';
+  document.head.appendChild(lipiCss);
+  var lipi = 'new';
+  try { lipi = localStorage.getItem('gpura-lipi') || 'new'; } catch (e) {}
+  document.documentElement.dataset.lipi = lipi;
+  var seg = document.createElement('div');
+  seg.className = 'lipi';
+  seg.setAttribute('role', 'group');
+  seg.setAttribute('aria-label', 'Malayalam script style');
+  [['old', 'Old script', 'പഴയ ലിപി: traditional orthography (RIT Rachana)'],
+   ['new', 'New script', 'പുതിയ ലിപി: reformed orthography (Noto Serif Malayalam)']].forEach(function (o) {
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.textContent = o[1];
+    b.title = o[2];
+    b.setAttribute('aria-pressed', String(lipi === o[0]));
+    b.addEventListener('click', function () {
+      lipi = o[0];
+      document.documentElement.dataset.lipi = lipi;
+      try { localStorage.setItem('gpura-lipi', lipi); } catch (e) {}
+      seg.querySelectorAll('button').forEach(function (x) { x.setAttribute('aria-pressed', String(x === b)); });
+      document.dispatchEvent(new CustomEvent('gpura-lipi', { detail: lipi }));
+    });
+    seg.appendChild(b);
+  });
+  inner.appendChild(seg);
 
   document.body.insertBefore(nav, document.body.firstChild);
 })();

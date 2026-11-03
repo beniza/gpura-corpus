@@ -159,3 +159,16 @@ page's `lines.json` records the detector and the reason (`"detector"`). Force a 
 `"detector": "ours" | "surya"` in `item.json` or `GPURA_DETECTOR`. Without Surya installed, complex pages
 keep our lines and the run says which pages they are. Benchmark: `pipeline/tools/bench_lines.py`; results
 in `TODO.md`.
+
+## Site: Showcase, PDF view and script style
+
+- **Showcase** (navigation bar): one encoded page per layout type, listed in `docs/showcase.json`,
+  followed by every book. Pages with no Gpura text are AI-read, so none shows raw OCR.
+- **PDF view** (`docs/print.html`): A4 pages to print or save as PDF. `print.html?doc=paper` shows the
+  paper; `print.html?item=<book>[&pages=7,15-17]` shows a book as a *layout facsimile* (each page
+  re-typeset from its PAGE-XML coordinates, beside the scan) followed by a *reading edition* from TEI.
+  Pagination by [Paged.js](https://pagedjs.org/).
+- **Old script / New script** toggle (navigation bar and PDF view): the same Unicode text drawn in RIT
+  Rachana (traditional orthography; passes all of Glyph-Sleuth's Malayalam shaping checks) or Noto Serif
+  Malayalam (reformed orthography: detached ു/ൂ signs). RIT Rachana 1.5.2 is served from `docs/fonts/`
+  under its OFL licence (`docs/fonts/rit-rachana/LICENSE.txt`).

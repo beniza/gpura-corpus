@@ -14,6 +14,15 @@
 - [ ] Smaller site images (`docs/specimen/*/pNNN.jpg`, up to 0.8 MB each): lower quality or WebP.
 - [ ] Multi-column pages, maps, illustrations and reader handwriting (see README, "Not handled yet").
 
+## Site
+
+- [ ] **Edit in the Reading (from TEI) view** (deferred, 3 Nov 2026): correct a line in the browser and
+  export the corrections as a file the pipeline imports as reviewed readings with the reviewer's name.
+  A shared online database (several reviewers at once) would need a hosted service.
+- [ ] PDF view: the reading edition is left out when a page selection is given (`print.html?...&pages=`);
+  slice the TEI reading text by page instead.
+- [ ] PDF view of a whole long book is slow to lay out in the browser (Paged.js); offer per-chapter ranges.
+
 ## Evaluate other tools (research, 3 Nov 2026)
 
 Tesseract only matches Gpura's text to detected lines; replacing it would not change text quality. The

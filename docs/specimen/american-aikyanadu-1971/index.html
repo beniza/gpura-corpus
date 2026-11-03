@@ -134,7 +134,7 @@ body{margin:0}
 <body>
 <div class="wrap">
   <header style="display:flex;flex-direction:column;gap:12px">
-    <span class="eyebrow"><a href="../../" style="color:inherit">Gpura corpus</a> · working specimen · <span id="itemTitle" class="ml"></span></span>
+    <span class="eyebrow"><a href="../../" style="color:inherit">Gpura corpus</a> · working specimen · <span id="itemTitle" class="ml"></span> · <a id="pdfLink" href="../../print.html" style="color:var(--accent,inherit)">PDF view (layout facsimile + reading edition)</a></span>
     <h1 id="pagesHead">Three pages, encoded end to end</h1>
     <p class="lede">The scans were run through fresh OCR, reviewed line by line, then encoded as PAGE-XML (layout), exported to ALTO, and edited as TEI (text and structure). Every line in each format carries the same ID, so the image, the layout and the edition point at each other. Select any line on the scan to follow it through all three.</p>
     <div class="pills">
@@ -410,6 +410,7 @@ body{margin:0}
   getText('pages.json').then(t=>{
     const meta=JSON.parse(t); PAGES=meta.pages.map(p=>p.id);
     document.getElementById('itemTitle').textContent=meta.title||meta.item;
+    document.getElementById('pdfLink').href='../../print.html?item='+encodeURIComponent(meta.item);
     if(meta.tei) document.getElementById('teiName').textContent=meta.tei;
     const NUM=['','One page','Two pages','Three pages','Four pages','Five pages','Six pages'];
     document.getElementById('pagesHead').textContent=(NUM[meta.pages.length]||meta.pages.length+' pages')+', encoded end to end';
