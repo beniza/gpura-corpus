@@ -325,7 +325,9 @@ def main():
     style.text = CSS
     root.append(style)
     root.append(meta())
-    cb = H("input", id="tei-show-lines", type="checkbox")
+    # automatic encodings are mostly checked against the scan, so show the printed lines by default there
+    auto = str(ITEM.get("status", "")).startswith("Automatic")
+    cb = H("input", id="tei-show-lines", type="checkbox", checked="checked" if auto else None)
     root.append(cb)
     lab = H("label", "controls", " Show the printed line breaks", lang="en", for_="tei-show-lines")
     root.append(lab)

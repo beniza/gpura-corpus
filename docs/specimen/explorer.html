@@ -292,7 +292,7 @@ body{margin:0}
     if(k>=0){ const s=teiSrc.lastIndexOf('<',k); let e=teiSrc.indexOf('<lb',k+5); const e2=teiSrc.indexOf('</p>',k); if(e<0||(e2>0&&e2<e)) e=e2; if(e<0) e=k+400; txt=teiSrc.slice(s,Math.min(e,s+900)).trim(); }
     return (z?'<!-- facsimile -->\n'+z[0]+'\n\n':'')+(txt?'<!-- text -->\n'+txt:'');
   }
-  function select(id){
+  function select(id,from){
     sel=id;
     svg.querySelectorAll('.ln').forEach(el=>el.classList.toggle('on',el.dataset.id===id));
     const {doc}=cache[pg];
@@ -318,7 +318,7 @@ body{margin:0}
     const ts=teiSnippet(id);
     b+=`<div class="snip"><h3><span class="chip tei">TEI</span> zone and line</h3><pre>${ts?hl(ts):'<span class="xc">loading…</span>'}</pre></div>`;
     document.getElementById('lnBody').innerHTML=b;
-    if(view==='read') flashReading();
+    if(view==='read') flashReading(from!=='reading');
     if(['page','alto','tei'].includes(view)) markRaw(view);
   }
   function renderRaw(){
@@ -347,7 +347,7 @@ body{margin:0}
     else if(block) r.setEnd(block,block.childNodes.length); else r.setEndAfter(br);
     return r;
   }
-  function flashReading(){
+  function flashReading(scroll=true){
     const w=document.getElementById('readwrap');
     w.querySelectorAll('.lbmark').forEach(e=>e.remove());
     if(window.CSS&&CSS.highlights) CSS.highlights.delete('rline');
@@ -357,7 +357,9 @@ body{margin:0}
     const r=lineRange(br);
     if(window.CSS&&CSS.highlights&&window.Highlight) CSS.highlights.set('rline',new Highlight(r));
     else { const m=document.createElement('span'); m.className='lbmark'; br.parentNode.insertBefore(m,br.nextSibling); }
-    const box=(r.getClientRects()[0]||br.parentNode.getBoundingClientRect()), wb=w.getBoundingClientRect();
+    if(!scroll) return;                          // the reader clicked this line here: leave it where it is
+    const rects=[...r.getClientRects()].filter(b=>b.width>1), box=rects[0]||br.parentNode.getBoundingClientRect(), wb=w.getBoundingClientRect();
+    if(box.top>=wb.top+8 && box.bottom<=wb.bottom-8) return;   // already visible
     w.scrollTo({top:w.scrollTop+box.top-wb.top-w.clientHeight/3, behavior:'smooth'});
   }
   function lineAt(x,y){                          // the line whose text was clicked: last line break before the click
@@ -371,12 +373,12 @@ body{margin:0}
     if(window.getSelection&&String(window.getSelection()).length) return;   // let people select text to copy
     const id=lineAt(e.clientX,e.clientY); if(!id) return;
     const page=id.split('_')[0];
-    if(page!==pg && PAGES.includes(page)) await showPage(page);
-    select(id);
+    if(page!==pg && PAGES.includes(page)) await showPage(page,true);
+    select(id,'reading');
     const el=svg.querySelector(`.ln[data-id="${id}"]`);
     if(el){ const b=el.getBoundingClientRect(); if(b.bottom<0||b.top>innerHeight) el.scrollIntoView({block:'center',behavior:'smooth'}); }
   });
-  async function showPage(p){
+  async function showPage(p,quiet){
     pg=p;
     const i=PAGES.indexOf(p), sel=document.getElementById('pgSel');
     sel.value=p; document.getElementById('pgPrev').disabled=i<=0; document.getElementById('pgNext').disabled=i>=PAGES.length-1;
@@ -385,7 +387,7 @@ body{margin:0}
     try{
       await loadPage(p); draw(p); renderRaw();
       const pick=[...svg.querySelectorAll('.ln:not(.empty)')].find(el=>{const l=[...cache[p].doc.getElementsByTagNameNS(NS,'TextLine')].find(e=>e.getAttribute('id')===el.dataset.id); return l&&['heading','header','paragraph'].includes(l.parentNode.getAttribute('type'));})||svg.querySelector('.ln:not(.empty)');
-      if(pick) select(pick.dataset.id);
+      if(pick && !quiet) select(pick.dataset.id);   // quiet: the caller selects the line itself
     }catch(e){ document.getElementById('capL').textContent='Could not load '+p+' files: '+e.message; }
   }
   function setView(v){

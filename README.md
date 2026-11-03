@@ -103,6 +103,16 @@ text matches the inventory, and every flag is encoded.
   Its readings are model-made and **not yet human-verified**.
 - No automatic reading has been checked by a person.
 
+## Known issues
+
+- **Contents pages and tables lose their structure.** Each row is kept as one line (a narrow, aligned
+  right-hand column on three or more rows marks a table row), but the page is still encoded as headings
+  and paragraphs, not as a table or contents list. Example: Newton, viewer p. 7. See `TODO.md`.
+- AI readings are not reviewed; very short fragments can be misread (e.g. ന്യൂട്ടനും read as നൃത്തനം).
+- Line detection occasionally merges two printed lines into one box.
+
+The open work is listed in `TODO.md`.
+
 ## Encoding conventions
 
 - Diplomatic transcription: wording and spelling as printed.

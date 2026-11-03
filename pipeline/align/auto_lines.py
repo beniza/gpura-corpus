@@ -149,8 +149,8 @@ def detect_lines(img):
             out.append((lo, hi_))
     # horizontal segments within each band (page number | running head, table cells ...)
     gap = max(int(2.5 * med), int(0.06 * W))          # wider than any word space: page number | running head
-    lines = []
-    for bi, (s, e) in enumerate(out):
+    band_segs = []
+    for s, e in out:
         c = ink[s:e, x0:x1].sum(axis=0) > 0
         segs = []
         for cs, ce in runs(c):
@@ -158,6 +158,22 @@ def detect_lines(img):
                 segs[-1] = (segs[-1][0], ce)
             else:
                 segs.append((cs, ce))
+        band_segs.append(segs)
+    # table rows (a contents page: title ........ page number): a narrow last segment ending at the
+    # right edge of the text, repeated on 3 or more bands with aligned right edges, is a column of the
+    # same row, not a separate line.  Keep the row as one line.  Running heads (one band) are unaffected.
+    tw = x1 - x0
+    tails = [(bi, sg[-1][1]) for bi, sg in enumerate(band_segs)
+             if len(sg) > 1 and sg[-1][1] - sg[-1][0] < 0.25 * tw and sg[-1][1] > 0.75 * tw]
+    if len(tails) >= 3:
+        edge = float(np.median([r for _, r in tails]))
+        rows_ = {bi for bi, r in tails if abs(r - edge) < 0.04 * tw}
+        if len(rows_) >= 3:
+            for bi in rows_:
+                band_segs[bi] = [(band_segs[bi][0][0], band_segs[bi][-1][1])]
+    lines = []
+    for bi, (s, e) in enumerate(out):
+        segs = band_segs[bi]
         for cs, ce in segs:
             sub = ink[s:e, x0 + cs:x0 + ce]
             if sub.sum() < 0.05 * med * med:
