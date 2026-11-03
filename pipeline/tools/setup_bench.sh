@@ -25,6 +25,15 @@ for t in ${@:-kraken surya}; do
   case $t in
     kraken) setup kraken kraken ;;
     surya)  setup surya surya-ocr ;;
+    surya-gpu)   # reuse the system's CUDA PyTorch (no 3 GB download): needs torch>=2.7 with CUDA installed
+      v=.cache/venv-surya-gpu
+      [ -d "$v" ] || "$PY" -m venv --system-site-packages "$v"
+      "$v/$BIN/python" -m pip install -q surya-ocr
+      "$v/$BIN/python" -m pip uninstall -y -q torch torchvision      # pip pulls a CPU build; use the system's
+      tv=$("$PY" -c "import torch;v=torch.__version__.split('+')[0].split('.');print(f'0.{int(v[1])+15}.0')")
+      cu=$("$PY" -c "import torch;print('cu'+torch.version.cuda.replace('.',''))")
+      "$v/$BIN/python" -m pip install -q --no-deps "torchvision==$tv" --index-url "https://download.pytorch.org/whl/$cu"
+      "$v/$BIN/python" -c "import torch;assert torch.cuda.is_available();print('surya-gpu ready, CUDA', torch.version.cuda)" ;;
     *) echo "unknown tool $t" >&2; exit 1 ;;
   esac
 done

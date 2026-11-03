@@ -105,7 +105,7 @@ def det_kraken(img_path, work):
 
 
 def det_surya(img_path, work):
-    cli = venv_tool("surya", "surya_detect")
+    cli = venv_tool("surya-gpu", "surya_detect") or venv_tool("surya", "surya_detect")   # GPU build if set up
     if not cli:
         return None
     src = work / "surya_in"; src.mkdir(exist_ok=True)
