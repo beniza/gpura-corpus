@@ -30,7 +30,7 @@ open questions are line/layout detection and text for books Gpura has no text fo
     |---|---|---|---|---|
     | ours | 29, 3 extra | 36, 1 extra | 14, 1 extra | < 1 |
     | Kraken 7.1 default model | 28, 0 extra | 34, 1 extra | 8, 19 extra, 4 split | 27–33 |
-    | Surya detection | 28, 1 extra | 35, 3 extra | 7, 32 extra, 1 split | 15–72 |
+    | Surya detection | 28, 1 extra | 35, 3 extra | 7, 32 extra, 1 split | 14–17 |
 
     On body text all three are close. On the contents page Surya finds each **cell** (number, title, page
     number) as its own line, and Kraken mixes whole rows and cells. Surya's cells could feed table
