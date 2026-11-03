@@ -196,10 +196,18 @@ pre{background:var(--sunk);border-radius:6px;padding:12px 14px;overflow-x:auto;f
     <li><b>No human verification yet.</b> Every reading in the corpus so far is machine-generated, and the files say so.</li>
   </ul>
 
+  <h3>Tools under evaluation</h3>
+  <p>Tesseract plays a small part in the pipeline: it only decides which line of Gpura's text belongs to which detected line, so replacing it would not change the text. The open questions are elsewhere:</p>
+  <ul>
+    <li><b>Finding lines and layout.</b> Our detector is classical image processing (projection profiles, the kind of technique OpenCV provides). Neural tools may do better on tables, columns and maps: <b>Kraken</b>, whose baseline segmentation is widely used on historical print, writes PAGE-XML directly and can be retrained on our reviewed pages; and <b>Surya</b>, which detects lines, layout including tables, and reading order, and claims coverage of over 90 languages. A first benchmark on three pages with a known answer found all three close on body text (our detector 65 of 67 reviewed lines, Kraken 62, Surya 63), with ours far faster on a CPU (under a second per page, against 15–70 seconds). On the contents page our detector kept all 14 rows whole; Kraken kept 8 and Surya 7, because they detect cells (number, title, page number) rather than rows. Those cell detections may still help recognise tables. The benchmark is small and will be extended to multi-column pages.</li>
+    <li><b>Reading books with no Gpura text.</b> <b>Sarvam Vision</b>, a document model for 22 Indian languages and English, reports Malayalam word accuracy of 91.6 on its own benchmark, against 87.1 for Gemini 3 Pro, 88.3 for Google Cloud Vision, 83.8 for Surya and 82.9 for Claude Opus 4.5 [7]. These figures are company-reported and use a different measure from ours; we plan to test it on pages that have Gpura text, as we did for Claude.</li>
+  </ul>
+
   <h2 id="plan">9. Proposed next steps</h2>
   <ol>
     <li><b>Agree the encoding decisions</b> with the Gpura team: the three-layer model, the ID scheme, the script-form and samvruthokaram conventions, and how uncertainty and provenance are recorded.</li>
     <li><b>Pilot across item types.</b> Run the pipeline on a sample chosen with Gpura to cover different periods, typefaces and layouts, including periodicals and books with tables, columns and illustrations, and measure where it fails.</li>
+    <li><b>Compare tools before building more.</b> Benchmark line and layout detection (our detector, Kraken, Surya) and AI reading (Claude, Sarvam Vision) on pages with a known answer, and adopt what measurably helps.</li>
     <li><b>Close the main layout gaps</b> found in the pilot, starting with tables and contents pages, then multi-column pages.</li>
     <li><b>Batch AI reading</b> through the API for items Gpura has no text for, keeping every reading marked by model and certainty.</li>
     <li><b>Review workflow.</b> A way for people to confirm or correct readings in the explorer, recorded as new readings with their reviewer, so corrections accumulate without losing the machine history.</li>
@@ -222,6 +230,9 @@ pre{background:var(--sunk);border-radius:6px;padding:12px 14px;overflow-x:auto;f
     <li>IIIF Presentation API 3.0 and Image API 3.0. <a href="https://iiif.io/api/">iiif.io/api</a></li>
     <li>Tesseract OCR 5, with <code>tessdata_best</code> Malayalam and English models. <a href="https://github.com/tesseract-ocr/tesseract">github.com/tesseract-ocr/tesseract</a></li>
     <li>Gpura (<span class="ml">ഗ്രന്ഥപ്പുര</span>), Indic Digital Archive Foundation. <a href="https://gpura.org">gpura.org</a></li>
+    <li>Sarvam Vision and the Sarvam Indic OCR Bench. Sarvam AI, 2026. <a href="https://www.sarvam.ai/blogs/sarvam-vision">sarvam.ai/blogs/sarvam-vision</a>; <a href="https://www.sarvam.ai/blogs/sarvam-vision-2-1">Vision 2.1</a></li>
+    <li>Kraken: an OCR and layout analysis engine for historical documents. <a href="https://kraken.re/">kraken.re</a></li>
+    <li>Surya: OCR, layout, reading order and line detection. Datalab. <a href="https://github.com/datalab-to/surya">github.com/datalab-to/surya</a></li>
   </ol>
   <p class="note">Source material: Gpura (gpura.org); the items used are in the public domain. This is an independent proposal, not a Gpura publication.</p>
 </main>
