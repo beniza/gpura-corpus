@@ -174,7 +174,7 @@ pre{background:var(--sunk);border-radius:6px;padding:12px 14px;overflow-x:auto;f
   </ul>
 
   <h3>6.5 Sarvam Vision, and where Gpura's text comes from</h3>
-  <p>We ran Sarvam AI's Document AI <em>Parse</em> (Sarvam Vision 2.1) on the two pages used in the AI test above. Its output was <b>identical to Gpura's existing text, character for character and line for line</b> (0.0% difference over 2,750 characters). Independent OCR systems do not agree that closely, so Gpura's existing text was very likely produced with Sarvam Vision; this should be confirmed with the Gpura team. Two consequences: Gpura's text cannot serve as an independent yardstick for Sarvam, and using Sarvam for the pages Gpura has no text for keeps the whole corpus in one consistent reading. Parse returns typed blocks (heading, paragraph, table, image, page number) with coordinates and a reading order, keeps one printed line per text line, and returns tables as HTML rows and cells. It cost about 0.42 credits (rupees) and 8 seconds per page.</p>
+  <p>We ran Sarvam AI's Document AI <em>Parse</em> (Sarvam Vision 2.1) on the two pages used in the AI test above. Its output was <b>identical to Gpura's existing text, character for character and line for line</b> (0.0% difference over 2,750 characters). Independent OCR systems do not agree that closely, so Gpura's existing text was very likely produced with Sarvam Vision; this should be confirmed with the Gpura team. Two consequences: Gpura's text cannot serve as an independent yardstick for Sarvam, and using Sarvam for the pages Gpura has no text for keeps the whole corpus in one consistent reading. Parse returns typed blocks (heading, paragraph, table, image, page number) with coordinates and a reading order, keeps one printed line per text line, and returns tables as HTML rows and cells. It cost about 0.50 credits (rupees) and 8 seconds per page (85.5 credits for 171 pages).</p>
   <p>It also showed a failure that matters for an archive: on three pages of the Newton book that end half-way down, Sarvam added paragraphs of invented text (repetitive phrases, probably read from show-through on blank paper). None of it entered the corpus. Because the pipeline places text only on lines it detects on the page, the invented lines matched nothing and are listed as unplaced in the page's notes. Detecting the lines independently of the text is what makes this safe.</p>
 
   <h3>6.6 Can a page be rebuilt from the corpus?</h3>
@@ -209,7 +209,7 @@ pre{background:var(--sunk);border-radius:6px;padding:12px 14px;overflow-x:auto;f
     <thead><tr><th>Route</th><th class="n">Per text page</th><th>Basis</th></tr></thead>
     <tbody>
       <tr><td>AI agents in an interactive tool (used in these experiments)</td><td class="n">≈ 12,500 tokens</td><td>Measured: 551k tokens for 44 pages</td></tr>
-      <tr><td>Sarvam Vision (Document AI Parse), used for the Newton book</td><td class="n">≈ ₹0.42 (US$0.005)</td><td>Measured: 2.51 credits for 6 pages; 8 s per page</td></tr>
+      <tr><td>Sarvam Vision (Document AI Parse), used for the Newton book</td><td class="n">≈ ₹0.50 (US$0.006)</td><td>Measured: 85.5 credits for 171 pages; 8 s per page</td></tr>
       <tr><td>Direct API, Claude Sonnet</td><td class="n">≈ US$0.03</td><td>Estimate: ~7k input, ~2k output tokens</td></tr>
       <tr><td>Direct API with the Batch discount</td><td class="n">≈ US$0.02</td><td>Estimate; results usually within an hour</td></tr>
     </tbody>

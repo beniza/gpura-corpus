@@ -10,7 +10,7 @@ page whose ocr/gpura_existing_NNNN.txt is empty, this writes
   ocr/sarvam_NNNN.txt   the text in Gpura's shape: one printed line per line, a blank line between
                         blocks, table cells one per line; image blocks left out
 The align stage reads sarvam_NNNN.txt where Gpura has no text, and records Sarvam as the source.
-Needs SARVAM_API_KEY (environment or .env).  About 0.4 credits and 8 seconds per page.
+Needs SARVAM_API_KEY (environment or .env).  About 0.50 credits and 8 seconds per page.
 """
 import argparse
 import html

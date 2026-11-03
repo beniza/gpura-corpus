@@ -181,5 +181,5 @@ in `TODO.md`.
 The `sarvam` stage sends each page with no Gpura text to Sarvam AI's Document AI *Parse* (Sarvam Vision)
 and keeps the result (`ocr/sarvam_NNNN.json`, `.txt`). Its text is used exactly like Gpura's and is
 labelled as Sarvam's in PAGE-XML and TEI. Sarvam's output matched Gpura's existing text character for
-character on the pages compared, so the corpus stays consistent. About 0.42 credits per page.
+character on the pages compared, so the corpus stays consistent. About 0.50 credits (₹0.50) per page.
 Reproduction benchmark: `python3 pipeline/tools/repro_bench.py` (cases in `pipeline/tools/repro_cases.json`).
