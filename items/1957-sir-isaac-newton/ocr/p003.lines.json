@@ -12,13 +12,85 @@
    "detected lines are 7 character heights tall (lines glued together by columns, pictures or ornament)"
   ]
  },
- "regions": [],
- "unplaced": [],
- "non_text": "No lines encoded: Gpura has no text for this page and Tesseract's median confidence is 0.22 (below 0.45), so it is treated as a cover, endpaper or plate.",
+ "regions": [
+  {
+   "id": "p003_r01",
+   "type": "paragraph",
+   "production": "printed",
+   "orientation": 0,
+   "bbox": [
+    116,
+    2542,
+    177,
+    49
+   ],
+   "polygon": [
+    [
+     116,
+     2542
+    ],
+    [
+     293,
+     2542
+    ],
+    [
+     293,
+     2591
+    ],
+    [
+     116,
+     2591
+    ]
+   ],
+   "reading_order": 1,
+   "lines": [
+    {
+     "id": "p003_r01_l001",
+     "bbox": [
+      116,
+      2542,
+      177,
+      49
+     ],
+     "baseline": [
+      [
+       116,
+       2581
+      ],
+      [
+       293,
+       2581
+      ]
+     ],
+     "text_tesseract": "Se",
+     "conf": 0.22,
+     "text": "Se",
+     "hyphen_end": false,
+     "flags": [
+      {
+       "type": "unclear",
+       "start": 0,
+       "end": 2,
+       "cert": "low",
+       "note": "No line in Sarvam's text for this page matches this printed line; the reading is raw Tesseract output."
+      }
+     ]
+    }
+   ],
+   "continues": "p002_r01"
+  }
+ ],
+ "unplaced": [
+  {
+   "text": "This image does not contain any legible text. It appears to be a blurry, abstract shape or texture with no discernible characters.",
+   "archive_line": 1,
+   "source": "sarvam"
+  }
+ ],
  "notes": [
   "AUTOMATIC, NOT REVIEWED. Coordinates are pixels in the full-resolution scan, origin top-left; bbox = [x, y, w, h].",
   "Line boxes: Surya text-line detector (complex page: detected lines are 7 character heights tall (lines glued together by columns, pictures or ornament)); reading order by XY-cut. Baselines are estimated.",
-  "text = Gpura's existing OCR line, aligned to the detected line by fuzzy match against Tesseract (mal+eng, psm 6); text_archive keeps Gpura's original where the corpus encoding rules changed it; match = similarity 0-100.",
+  "text = Gpura's existing OCR line (or, where Gpura has none, Sarvam Vision's reading: source = sarvam), aligned to the detected line by fuzzy match against Tesseract (mal+eng, psm 6); text_archive keeps Gpura's original where the corpus encoding rules changed it; match = similarity 0-100.",
   "Encoding rules applied to Gpura's text: NFC; chillu+ZWJ and dot reph -> atomic chillus; NTA (ൻറ, ൻ്റ) -> ന്റ; TTA (ററ) -> റ്റ.",
   "hyphen_end is ESTIMATED from the book's own vocabulary (Gpura's full text) and Malayalam script rules; the print uses no hyphen.",
   "unplaced = Gpura text lines that matched no detected printed line: they may be mis-OCR, reader handwriting, or text that is not on the page."

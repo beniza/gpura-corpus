@@ -1,0 +1,333 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<PcGts xmlns="http://schema.primaresearch.org/PAGE/gts/pagecontent/2019-07-15" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schema.primaresearch.org/PAGE/gts/pagecontent/2019-07-15 http://schema.primaresearch.org/PAGE/gts/pagecontent/2019-07-15/pagecontent.xsd" pcGtsId="p108_pcgts">
+  <Metadata>
+    <Creator>Gpura digitisation pipeline demo - layout-encoding stage (page/json2page.py, lxml)</Creator>
+    <Created>2026-11-03T09:59:48+00:00</Created>
+    <LastChange>2026-11-03T09:59:48+00:00</LastChange>
+    <Comments>Source: 'Sir Isaac Newton' (Malayalam, 1957), Gpura archive, IIIF canvas 108, printed page 98. Layout and readings come from ocr/p108.lines.json: line boxes detected automatically (projection profiles); TextEquiv index=1 is Gpura's existing OCR text for the line, aligned automatically and NOT reviewed; index=2 is the Tesseract reading used for the alignment (mal+eng) with its mean word confidence; index=3 (where present) is Gpura's string before the corpus encoding rules were applied. Coordinates are pixels of the full-resolution scan (1751 x 2643) assumed identical to the IIIF full/max image. Line-level flags (underlined/unclear/damage/inkOver/hyphenEnd) are in TextLine/@custom (Transkribus-style 'tag {offset:N; length:M; ...}' code-point offsets) with notes in @comments.</Comments>
+    <MetadataItem type="other" name="iiif-canvas" value="https://artifacts.gpura.org/public/1957-sir-isaac-newton/canvas/108"/>
+    <MetadataItem type="other" name="printed-page-number" value="98"/>
+  </Metadata>
+  <Page imageFilename="https://iiif.gpura.org/iiif/3/1957-sir-isaac-newton__0108.jpg/full/max/0/default.jpg" imageWidth="1751" imageHeight="2643" type="content" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" textLineOrder="top-to-bottom">
+    <!-- IIIF canvas: https://artifacts.gpura.org/public/1957-sir-isaac-newton/canvas/108 -->
+    <ReadingOrder>
+      <OrderedGroup id="p108_ro" caption="printed text flow (lines.json reading_order)">
+        <RegionRefIndexed index="0" regionRef="p108_r01"/>
+        <RegionRefIndexed index="1" regionRef="p108_r02"/>
+        <RegionRefIndexed index="2" regionRef="p108_r03"/>
+        <RegionRefIndexed index="3" regionRef="p108_r04"/>
+        <RegionRefIndexed index="4" regionRef="p108_r05"/>
+        <RegionRefIndexed index="5" regionRef="p108_r06"/>
+      </OrderedGroup>
+    </ReadingOrder>
+    <TextRegion id="p108_r01" custom="readingOrder {index:0;}" type="page-number" readingDirection="left-to-right" textLineOrder="top-to-bottom" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" production="printed">
+      <Coords points="865,85 936,85 936,141 865,141"/>
+      <TextLine id="p108_r01_l001" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:0;} unclear {offset:0; length:2; cert:medium;}" comments="[unclear 0-2] Weak match between Gpura's line and the Tesseract reading of this line (similarity 50.0)." index="0">
+        <Coords points="865,85 936,85 936,141 865,141"/>
+        <Baseline points="865,139 936,139"/>
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
+          <Unicode>98</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.731" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>88</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextEquiv index="1" comments="lines joined with newline">
+        <Unicode>98</Unicode>
+      </TextEquiv>
+    </TextRegion>
+    <TextRegion id="p108_r02" custom="readingOrder {index:1;}" continuation="true" type="paragraph" readingDirection="left-to-right" textLineOrder="top-to-bottom" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" production="printed">
+      <!-- continues paragraph p107_r04 (p107.page.xml) -->
+      <Coords points="306,251 1651,251 1651,505 306,505"/>
+      <TextLine id="p108_r02_l001" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:0;}" index="0">
+        <Coords points="308,251 1651,251 1651,317 308,317"/>
+        <Baseline points="308,309 1651,309"/>
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
+          <Unicode>ണ്ടിയിരിക്കുന്നു. നിങ്ങൾക്ക് എന്റെ അടുത്തു</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.485" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>ണ്ടിയിരിക്കുന്നും നിങ്ങഠംക്ക* എന്‍െറ അടുത്തു</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p108_r02_l002" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:1;} hyphenEnd {offset:41; length:0; printed:false;}" comments="[hyphen_end] last word continues on the next line without a printed hyphen" index="1">
+        <Coords points="306,340 1649,340 1649,420 306,420"/>
+        <Baseline points="306,394 1649,394"/>
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
+          <Unicode>തന്നെ ഒരു പാപ്പിടവും കിട്ടുമെന്ന് ഞാൻ കരു</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.832" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>തന്നെ ഒരു പാപ്ലിടവും കിട്ടുമെന്നു” ഞാന്‍ കരു</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p108_r02_l003" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:2;}" index="2">
+        <Coords points="309,456 447,456 447,505 309,505"/>
+        <Baseline points="309,502 447,502"/>
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
+          <Unicode>തുന്നു,</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.955" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>തുന്നു.</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextEquiv index="1" comments="lines joined with newline">
+        <Unicode>ണ്ടിയിരിക്കുന്നു. നിങ്ങൾക്ക് എന്റെ അടുത്തു
+തന്നെ ഒരു പാപ്പിടവും കിട്ടുമെന്ന് ഞാൻ കരു
+തുന്നു,</Unicode>
+      </TextEquiv>
+    </TextRegion>
+    <TextRegion id="p108_r03" custom="readingOrder {index:2;}" type="heading" readingDirection="left-to-right" textLineOrder="top-to-bottom" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" production="printed">
+      <Coords points="1202,524 1409,524 1409,561 1202,561"/>
+      <TextLine id="p108_r03_l001" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:0;}" index="0">
+        <Coords points="1202,524 1409,524 1409,561 1202,561"/>
+        <Baseline points="1202,557 1409,557"/>
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
+          <Unicode>സ്വന്തം</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.135" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>സന്തം</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextEquiv index="1" comments="lines joined with newline">
+        <Unicode>സ്വന്തം</Unicode>
+      </TextEquiv>
+    </TextRegion>
+    <TextRegion id="p108_r04" custom="readingOrder {index:3;}" type="paragraph" readingDirection="left-to-right" textLineOrder="top-to-bottom" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" production="printed">
+      <Coords points="1055,672 1648,672 1648,732 1055,732"/>
+      <TextLine id="p108_r04_l001" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:0;} unclear {offset:0; length:17; cert:medium;}" comments="[unclear 0-17] Weak match between Gpura's line and the Tesseract reading of this line (similarity 40.0)." index="0">
+        <Coords points="1055,672 1648,672 1648,732 1055,732"/>
+        <Baseline points="1055,721 1648,721"/>
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
+          <Unicode>ചാറത്ത് മൊണ്ടെഗു.</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.288" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>aoe’ മൊണ്ടേതു.</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextEquiv index="1" comments="lines joined with newline">
+        <Unicode>ചാറത്ത് മൊണ്ടെഗു.</Unicode>
+      </TextEquiv>
+    </TextRegion>
+    <TextRegion id="p108_r05" custom="readingOrder {index:4;}" type="paragraph" readingDirection="left-to-right" textLineOrder="top-to-bottom" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" production="printed">
+      <Coords points="148,831 1652,831 1652,1710 148,1710"/>
+      <TextLine id="p108_r05_l001" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:0;} hyphenEnd {offset:43; length:0; printed:false;}" comments="[hyphen_end] last word continues on the next line without a printed hyphen" index="0">
+        <Coords points="304,831 1649,831 1649,922 304,922"/>
+        <Baseline points="304,886 1649,886"/>
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
+          <Unicode>ന്യൂട്ടനെ ഈ ജോലിക്കു് നിയമിക്കണമെന്നു് രാജാ</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.592" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>CERES ഈ ജോലിക്കു? നിയമിക്കണമെന്നു” രാജാ</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p108_r05_l002" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:1;} hyphenEnd {offset:41; length:0; printed:false;}" comments="[hyphen_end] last word continues on the next line without a printed hyphen" index="1">
+        <Coords points="148,922 1649,922 1649,994 148,994"/>
+        <Baseline points="148,976 1649,976"/>
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
+          <Unicode>വിനോടു് യഥാർത്ഥത്തിൽ ശുപാർശ ചെയ്തതു് സോമേ</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.691" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>വിനോടു” യഥാത്ഥത്തില്‍ ശുപാര്‍ശ ചെയ്തതു്‌ സോമേ</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p108_r05_l003" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:2;} hyphenEnd {offset:46; length:0; printed:false;}" comments="[hyphen_end] last word continues on the next line without a printed hyphen" index="2">
+        <Coords points="148,1010 1646,1010 1646,1085 148,1085"/>
+        <Baseline points="148,1062 1646,1062"/>
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
+          <Unicode>ഴ്സ്സു് ആയിരുന്നു എന്നും ഒരു പഴയ സ്നേഹിതൻ എന്ന</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.729" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>Fa’ ആയിരുന്നു എന്നും ഒരു പഴയ സ്റ്റേഹിതന്‍ എന്ന</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p108_r05_l004" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:3;} hyphenEnd {offset:46; length:0; printed:false;}" comments="[hyphen_end] last word continues on the next line without a printed hyphen" index="3">
+        <Coords points="148,1091 1648,1091 1648,1170 148,1170"/>
+        <Baseline points="148,1150 1648,1150"/>
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
+          <Unicode>നിലയ്ക്കു് മൊണ്ടേഗു അദ്ദേഹത്തെ വിവരം എഴുതി അറി</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.593" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>നിലയ” മൊണ്ടേഗു അദ്ദേഹത്തെ വിവരം എഴുതി അറി</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p108_r05_l005" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:4;}" index="4">
+        <Coords points="149,1186 1648,1186 1648,1264 149,1264"/>
+        <Baseline points="149,1252 1648,1252"/>
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
+          <Unicode>യിച്ചതേയുള്ളു എന്നും ഒരു പ്രസ്താവം ഉണ്ടു്. ഒരാൾ</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.691" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>യിച്ചതേയുള്ള എന്നും ഒരു പ്രസ്താവം Seg’, ഒരാഠം</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p108_r05_l006" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:5;}" index="5">
+        <Coords points="148,1281 1652,1281 1652,1381 148,1381"/>
+        <Baseline points="148,1332 1652,1332"/>
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
+          <Unicode>മൊണ്ടേഗുവിനോടു് എന്താണു് ഈ ജോലി ന്യൂട്ടനു</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.628" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>മൊണ്ടേഗുവിനോടു? ഘൃന്താണു* ഈ ജോലി വൂ</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p108_r05_l007" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:6;} hyphenEnd {offset:44; length:0; printed:false;}" comments="[hyphen_end] last word continues on the next line without a printed hyphen" index="6">
+        <Coords points="148,1381 1650,1381 1650,1451 148,1451"/>
+        <Baseline points="148,1420 1650,1420"/>
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
+          <Unicode>കൊടുക്കാനുള്ള കാരണം എന്നു ചോദിച്ചപ്പോൾ അദ്ദേ</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.450" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>കൊടുക്കാനുള്ള കരണം oF)om ലോഭ ചപ്പാ. അദ്ദേ</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p108_r05_l008" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:7;}" index="7">
+        <Coords points="152,1453 1648,1453 1648,1527 152,1527"/>
+        <Baseline points="152,1509 1648,1509"/>
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
+          <Unicode>ഹം പറഞ്ഞതു് ഇപ്രകാരമായിരുന്നു. "ധാരാളമായി</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.203" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>alo പറഞ്ഞതു" ഇപ്രകാരമായിരുന്നു. ലോരാളമാഴമി</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p108_r05_l009" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:8;} hyphenEnd {offset:44; length:0; printed:false;}" comments="[hyphen_end] last word continues on the next line without a printed hyphen" index="8">
+        <Coords points="153,1545 1652,1545 1652,1633 153,1633"/>
+        <Baseline points="153,1599 1652,1599"/>
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
+          <Unicode>വെളിച്ചം തരുന്ന ഒരു ദീപം എണ്ണയില്ലാതെ കെട്ടു</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.770" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>വെളിച്ചം തരുന്ന ഒരു ദീപം എണ്ണയിപ്ലാടതേ കെട്ട്‌</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p108_r05_l010" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:9;}" index="9">
+        <Coords points="152,1635 1028,1635 1028,1710 152,1710"/>
+        <Baseline points="152,1687 1028,1687"/>
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
+          <Unicode>പോകാൻ അനുവദിക്കരുതല്ലോ."</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.384" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>ഴപാക9ൻ അനുവടിക്കരുതല്ലോ.??</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextEquiv index="1" comments="lines joined with newline">
+        <Unicode>ന്യൂട്ടനെ ഈ ജോലിക്കു് നിയമിക്കണമെന്നു് രാജാ
+വിനോടു് യഥാർത്ഥത്തിൽ ശുപാർശ ചെയ്തതു് സോമേ
+ഴ്സ്സു് ആയിരുന്നു എന്നും ഒരു പഴയ സ്നേഹിതൻ എന്ന
+നിലയ്ക്കു് മൊണ്ടേഗു അദ്ദേഹത്തെ വിവരം എഴുതി അറി
+യിച്ചതേയുള്ളു എന്നും ഒരു പ്രസ്താവം ഉണ്ടു്. ഒരാൾ
+മൊണ്ടേഗുവിനോടു് എന്താണു് ഈ ജോലി ന്യൂട്ടനു
+കൊടുക്കാനുള്ള കാരണം എന്നു ചോദിച്ചപ്പോൾ അദ്ദേ
+ഹം പറഞ്ഞതു് ഇപ്രകാരമായിരുന്നു. "ധാരാളമായി
+വെളിച്ചം തരുന്ന ഒരു ദീപം എണ്ണയില്ലാതെ കെട്ടു
+പോകാൻ അനുവദിക്കരുതല്ലോ."</Unicode>
+      </TextEquiv>
+    </TextRegion>
+    <TextRegion id="p108_r06" custom="readingOrder {index:5;}" type="paragraph" readingDirection="left-to-right" textLineOrder="top-to-bottom" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" production="printed">
+      <Coords points="151,1797 1651,1797 1651,2585 151,2585"/>
+      <TextLine id="p108_r06_l001" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:0;}" index="0">
+        <Coords points="311,1797 1649,1797 1649,1881 311,1881"/>
+        <Baseline points="311,1848 1649,1848"/>
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
+          <Unicode>ഇങ്ങനെ തന്റെ 53-ാമത്തെ വയസ്സിൽ ന്യൂട്ടൻ</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.660" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>ഇങ്ങനെ തന്‍െറ 58 ടാമത്തെ വയസ്സ ob SER</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p108_r06_l002" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:1;} hyphenEnd {offset:40; length:0; printed:false;}" comments="[hyphen_end] last word continues on the next line without a printed hyphen" index="1">
+        <Coords points="151,1883 1651,1883 1651,1963 151,1963"/>
+        <Baseline points="151,1936 1651,1936"/>
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
+          <Unicode>തികച്ചും പുതിയതായ ഒരു ജീവിതസരണിയിൽ പ്രവേ</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.789" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>തികല്ലും പുതിയതായ ഒരു ജീവിതസരണിയിയ പ്രവേ</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p108_r06_l003" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:2;}" index="2">
+        <Coords points="151,1972 1647,1972 1647,2051 151,2051"/>
+        <Baseline points="151,2024 1647,2024"/>
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
+          <Unicode>ശിച്ചു. പലരും അദ്ദേഹം ഇങ്ങനെ ഒരു ജോലിയിൽ</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.625" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>മിച്ച. പലരും അട്ദേഫം ഇങ്ങനെ ഒരു ജോലി ല്‍</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p108_r06_l004" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:3;}" index="3">
+        <Coords points="153,2059 1643,2059 1643,2139 153,2139"/>
+        <Baseline points="153,2113 1643,2113"/>
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
+          <Unicode>ഏർപ്പെട്ടതിൽ പരിതപിച്ചിട്ടുണ്ടു്. അവരുടെ ദൃഷ്ടിയിൽ</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.524" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>ഏപ്ചെട്ടതില്‍ പരിതപിച്ചിട്ടുണ്ടു. അവരുടെ ദൂഷ്യ ൽ</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p108_r06_l005" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:4;}" index="4">
+        <Coords points="154,2147 1650,2147 1650,2227 154,2227"/>
+        <Baseline points="154,2200 1650,2200"/>
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
+          <Unicode>കമ്മട്ടം അധികൃതരായി സമർത്ഥന്മാരും യോഗ്യന്മാരുമായ</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.706" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>കമ്മട്ടം അധികൃതരായി സമത്ഥന്മാരും യോഗ്യന്മ യമായ</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p108_r06_l006" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:5;} hyphenEnd {offset:41; length:0; printed:false;}" comments="[hyphen_end] last word continues on the next line without a printed hyphen" index="5">
+        <Coords points="152,2238 1650,2238 1650,2314 152,2314"/>
+        <Baseline points="152,2290 1650,2290"/>
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
+          <Unicode>മറ്റാളുകളെ കിട്ടാൻ വിഷമമില്ല; എന്നാൽ ഗണിത</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.614" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>മററാള കളെ കിട്ടാന്‍ വിഷമമില്ല എന്നാല്‍ ഗണിത</Unicode>
+        </TextEquiv>
+        <TextEquiv index="3" comments="Gpura's original string, before encoding normalisation">
+          <Unicode>മററാളുകളെ കിട്ടാൻ വിഷമമില്ല; എന്നാൽ ഗണിത</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p108_r06_l007" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:6;}" index="6">
+        <Coords points="153,2329 1646,2329 1646,2418 153,2418"/>
+        <Baseline points="153,2380 1646,2380"/>
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
+          <Unicode>ജ്ഞനും തത്ത്വചിന്തകനുമായ ന്യൂട്ടൻ ഒരാൾ മാത്രമേ</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.550" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>ജ്ഞനും തത്ത്വചിന്തകനുമായ സ്ൂട്ടന്‍ ഒരാഠം മാത്രമ</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p108_r06_l008" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:7;} hyphenEnd {offset:47; length:0; printed:false;}" comments="[hyphen_end] last word continues on the next line without a printed hyphen" index="7">
+        <Coords points="156,2418 1644,2418 1644,2488 156,2488"/>
+        <Baseline points="156,2469 1644,2469"/>
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
+          <Unicode>യുള്ളു ; അദ്ദേഹത്തെ സ്വന്തം അഭിരുചികൾക്കു പുറമേ</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.591" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>യുള്ള ; അഭ്ദേഫത്തെ സന്തം അഭിരു ails Aa പുറമേ</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p108_r06_l009" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:8;} hyphenEnd {offset:45; length:0; printed:false;}" comments="[hyphen_end] last word continues on the next line without a printed hyphen" index="8">
+        <Coords points="152,2508 1644,2508 1644,2585 152,2585"/>
+        <Baseline points="152,2565 1644,2565"/>
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
+          <Unicode>യുള്ള ഒരു ജോലിയിൽ ഏർപ്പെടുത്തുന്നത് വലിയ നഷ്ട</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.713" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>യുള്ള ഒരു ജോലിയില്‍ ഏപ്പെടുത്തുന്നതു* വലിയ may</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextEquiv index="1" comments="lines joined with newline">
+        <Unicode>ഇങ്ങനെ തന്റെ 53-ാമത്തെ വയസ്സിൽ ന്യൂട്ടൻ
+തികച്ചും പുതിയതായ ഒരു ജീവിതസരണിയിൽ പ്രവേ
+ശിച്ചു. പലരും അദ്ദേഹം ഇങ്ങനെ ഒരു ജോലിയിൽ
+ഏർപ്പെട്ടതിൽ പരിതപിച്ചിട്ടുണ്ടു്. അവരുടെ ദൃഷ്ടിയിൽ
+കമ്മട്ടം അധികൃതരായി സമർത്ഥന്മാരും യോഗ്യന്മാരുമായ
+മറ്റാളുകളെ കിട്ടാൻ വിഷമമില്ല; എന്നാൽ ഗണിത
+ജ്ഞനും തത്ത്വചിന്തകനുമായ ന്യൂട്ടൻ ഒരാൾ മാത്രമേ
+യുള്ളു ; അദ്ദേഹത്തെ സ്വന്തം അഭിരുചികൾക്കു പുറമേ
+യുള്ള ഒരു ജോലിയിൽ ഏർപ്പെടുത്തുന്നത് വലിയ നഷ്ട</Unicode>
+      </TextEquiv>
+    </TextRegion>
+  </Page>
+</PcGts>

@@ -89,6 +89,10 @@ def header(tei):
     rs = E("respStmt", ts, id="tesseract")
     E("resp", rs, "fallback readings where Gpura's text has no matching line")
     E("name", rs, "Tesseract OCR (mal+eng)")
+    if any(l.get("source") == "sarvam" for d in DATA.values() for r in d["regions"] for l in r.get("lines", [])):
+        rs = E("respStmt", ts, id="sarvam")
+        E("resp", rs, "page text where Gpura has none (Document AI parse, aligned to the detected lines; not reviewed)")
+        E("name", rs, "Sarvam Vision 2.1 (Sarvam AI)")
     models = sorted({l["ai_model"] for d in DATA.values() for r in d["regions"] for l in r.get("lines", [])
                      if l.get("source") == "ai"})
     if models:
@@ -234,7 +238,7 @@ def body(tei, notes):
                 if f.get("note"):
                     notes.append((f"f-{l['id']}-{k}", f["type"], f["note"]))
         for u in d.get("unplaced", []):
-            notes.append((p, "unplaced", f"Line {u['archive_line']} of Gpura's text for this page matches no printed "
+            notes.append((p, "unplaced", f"Line {u['archive_line']} of {'Sarvam' if u.get('source') == 'sarvam' else 'Gpura'}'s text for this page matches no printed "
                                          f"line found on the page: «{u['text']}»"))
     # a trailing pb/fw with no following text is fine; empty div is not
     for div in bd.iter(f"{{{TEI}}}div"):

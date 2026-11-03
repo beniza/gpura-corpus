@@ -2,12 +2,165 @@
 <PcGts xmlns="http://schema.primaresearch.org/PAGE/gts/pagecontent/2019-07-15" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schema.primaresearch.org/PAGE/gts/pagecontent/2019-07-15 http://schema.primaresearch.org/PAGE/gts/pagecontent/2019-07-15/pagecontent.xsd" pcGtsId="p005_pcgts">
   <Metadata>
     <Creator>Gpura digitisation pipeline demo - layout-encoding stage (page/json2page.py, lxml)</Creator>
-    <Created>2026-11-03T04:33:25+00:00</Created>
-    <LastChange>2026-11-03T04:33:25+00:00</LastChange>
+    <Created>2026-11-03T09:59:48+00:00</Created>
+    <LastChange>2026-11-03T09:59:48+00:00</LastChange>
     <Comments>Source: 'Sir Isaac Newton' (Malayalam, 1957), Gpura archive, IIIF canvas 5, printed page None. Layout and readings come from ocr/p005.lines.json: line boxes detected automatically (projection profiles); TextEquiv index=1 is Gpura's existing OCR text for the line, aligned automatically and NOT reviewed; index=2 is the Tesseract reading used for the alignment (mal+eng) with its mean word confidence; index=3 (where present) is Gpura's string before the corpus encoding rules were applied. Coordinates are pixels of the full-resolution scan (1751 x 2643) assumed identical to the IIIF full/max image. Line-level flags (underlined/unclear/damage/inkOver/hyphenEnd) are in TextLine/@custom (Transkribus-style 'tag {offset:N; length:M; ...}' code-point offsets) with notes in @comments.</Comments>
     <MetadataItem type="other" name="iiif-canvas" value="https://artifacts.gpura.org/public/1957-sir-isaac-newton/canvas/5"/>
   </Metadata>
   <Page imageFilename="https://iiif.gpura.org/iiif/3/1957-sir-isaac-newton__0005.jpg/full/max/0/default.jpg" imageWidth="1751" imageHeight="2643" type="content" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" textLineOrder="top-to-bottom">
     <!-- IIIF canvas: https://artifacts.gpura.org/public/1957-sir-isaac-newton/canvas/5 -->
+    <ReadingOrder>
+      <OrderedGroup id="p005_ro" caption="printed text flow (lines.json reading_order)">
+        <RegionRefIndexed index="0" regionRef="p005_r01"/>
+        <RegionRefIndexed index="1" regionRef="p005_r02"/>
+        <RegionRefIndexed index="2" regionRef="p005_r03"/>
+        <RegionRefIndexed index="3" regionRef="p005_r04"/>
+        <RegionRefIndexed index="4" regionRef="p005_r05"/>
+        <RegionRefIndexed index="5" regionRef="p005_r06"/>
+        <RegionRefIndexed index="6" regionRef="p005_r07"/>
+      </OrderedGroup>
+    </ReadingOrder>
+    <TextRegion id="p005_r01" custom="readingOrder {index:0;}" type="header" readingDirection="left-to-right" textLineOrder="top-to-bottom" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" production="printed">
+      <Coords points="2,181 1517,181 1517,245 2,245"/>
+      <TextLine id="p005_r01_l001" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:0;}" index="0">
+        <Coords points="2,181 1517,181 1517,245 2,245"/>
+        <Baseline points="2,240 1517,240"/>
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
+          <Unicode>University Series No. 34</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.446" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>| University Series No. 34 | ലി മ ട്‌ പലം ജം</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextEquiv index="1" comments="lines joined with newline">
+        <Unicode>University Series No. 34</Unicode>
+      </TextEquiv>
+    </TextRegion>
+    <TextRegion id="p005_r02" custom="readingOrder {index:1;}" type="paragraph" readingDirection="left-to-right" textLineOrder="top-to-bottom" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" production="printed">
+      <Coords points="9,276 1216,276 1216,349 9,349"/>
+      <TextLine id="p005_r02_l001" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:0;} unclear {offset:0; length:16; cert:medium;}" comments="[unclear 0-16] Weak match between Gpura's line and the Tesseract reading of this line (similarity 35.3)." index="0">
+        <Coords points="9,276 1216,276 1216,349 9,349"/>
+        <Baseline points="9,348 1216,348"/>
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
+          <Unicode>സർ ഐസക് ന്യൂട്ടൻ</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.266" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>Ye ടിക ലായ ടം</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextEquiv index="1" comments="lines joined with newline">
+        <Unicode>സർ ഐസക് ന്യൂട്ടൻ</Unicode>
+      </TextEquiv>
+    </TextRegion>
+    <TextRegion id="p005_r03" custom="readingOrder {index:2;}" type="paragraph" readingDirection="left-to-right" textLineOrder="top-to-bottom" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" production="printed">
+      <Coords points="206,1104 1477,1104 1477,1169 206,1169"/>
+      <TextLine id="p005_r03_l001" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:0;}" index="0">
+        <Coords points="206,1104 1477,1104 1477,1169 206,1169"/>
+        <Baseline points="206,1160 1477,1160"/>
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
+          <Unicode>പി. ശ്രീധരൻപിള്ള ബി. എ.</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.640" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>ചവി. ശ്രിധരന൯ുപ]ള്ള ബ. എ.</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextEquiv index="1" comments="lines joined with newline">
+        <Unicode>പി. ശ്രീധരൻപിള്ള ബി. എ.</Unicode>
+      </TextEquiv>
+    </TextRegion>
+    <TextRegion id="p005_r04" custom="readingOrder {index:3;}" type="heading" readingDirection="left-to-right" textLineOrder="top-to-bottom" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" production="printed">
+      <Coords points="1160,1457 1544,1457 1544,1481 1160,1481"/>
+      <TextLine id="p005_r04_l001" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:0;} unclear {offset:0; length:23; cert:medium;}" comments="[unclear 0-23] Weak match between Gpura's line and the Tesseract reading of this line (similarity 0.0)." index="0">
+        <Coords points="1160,1457 1544,1457 1544,1481 1160,1481"/>
+        <Baseline points="1160,1477 1544,1477"/>
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
+          <Unicode>P. Sreedharan Pilla B A</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextEquiv index="1" comments="lines joined with newline">
+        <Unicode>P. Sreedharan Pilla B A</Unicode>
+      </TextEquiv>
+    </TextRegion>
+    <TextRegion id="p005_r05" custom="readingOrder {index:4;}" type="paragraph" readingDirection="left-to-right" textLineOrder="top-to-bottom" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" production="printed">
+      <Coords points="470,1502 1250,1502 1250,1649 470,1649"/>
+      <TextLine id="p005_r05_l001" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:0;}" index="0">
+        <Coords points="589,1502 1129,1502 1129,1553 589,1553"/>
+        <Baseline points="589,1539 1129,1539"/>
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
+          <Unicode>കേരളസവകലാശാല</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.581" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>കേരളസവകലാശാല</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p005_r05_l002" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:1;}" index="1">
+        <Coords points="470,1589 1250,1589 1250,1649 470,1649"/>
+        <Baseline points="470,1644 1250,1644"/>
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
+          <Unicode>പ്രസിദ്ധീകരണവകുപ്പ്</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.550" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>പ്രസിദ്ധീകരണവകല്പ*</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextEquiv index="1" comments="lines joined with newline">
+        <Unicode>കേരളസവകലാശാല
+പ്രസിദ്ധീകരണവകുപ്പ്</Unicode>
+      </TextEquiv>
+    </TextRegion>
+    <TextRegion id="p005_r06" custom="readingOrder {index:5;}" type="paragraph" readingDirection="left-to-right" textLineOrder="top-to-bottom" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" production="printed">
+      <Coords points="71,1978 1437,1978 1437,2204 71,2204"/>
+      <TextLine id="p005_r06_l001" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:0;}" index="0">
+        <Coords points="672,1978 1040,1978 1040,2023 672,2023"/>
+        <Baseline points="672,2021 1040,2021"/>
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
+          <Unicode>Printed at the</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.960" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>Printed at the</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p005_r06_l002" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:1;}" index="1">
+        <Coords points="373,2057 1372,2057 1372,2114 373,2114"/>
+        <Baseline points="373,2102 1372,2102"/>
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
+          <Unicode>Sridhara Printing House, Trivandrum,</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.936" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>Sridhara Printing House, Trivandrum,</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p005_r06_l003" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:2;}" index="2">
+        <Coords points="71,2152 1437,2152 1437,2204 71,2204"/>
+        <Baseline points="71,2200 1437,2200"/>
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
+          <Unicode>1957</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.749" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>| 1957 ട</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextEquiv index="1" comments="lines joined with newline">
+        <Unicode>Printed at the
+Sridhara Printing House, Trivandrum,
+1957</Unicode>
+      </TextEquiv>
+    </TextRegion>
+    <TextRegion id="p005_r07" custom="readingOrder {index:6;}" type="paragraph" readingDirection="left-to-right" textLineOrder="top-to-bottom" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" production="printed">
+      <Coords points="893,2364 1521,2364 1521,2431 893,2431"/>
+      <TextLine id="p005_r07_l001" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:0;}" index="0">
+        <Coords points="893,2364 1521,2364 1521,2431 893,2431"/>
+        <Baseline points="893,2418 1521,2418"/>
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
+          <Unicode>വില ത്ര. 1-25 ന. പ.</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.684" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>വില രൂ. 1-45 ന. aa.</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextEquiv index="1" comments="lines joined with newline">
+        <Unicode>വില ത്ര. 1-25 ന. പ.</Unicode>
+      </TextEquiv>
+    </TextRegion>
   </Page>
 </PcGts>

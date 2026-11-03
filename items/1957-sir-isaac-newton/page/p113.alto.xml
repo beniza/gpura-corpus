@@ -1,0 +1,384 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<alto xmlns="http://www.loc.gov/standards/alto/ns-v4#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.loc.gov/standards/alto/ns-v4# http://www.loc.gov/standards/alto/v4/alto-4-4.xsd" SCHEMAVERSION="4.4">
+  <Description>
+    <MeasurementUnit>pixel</MeasurementUnit>
+    <sourceImageInformation>
+      <fileName>https://iiif.gpura.org/iiif/3/1957-sir-isaac-newton__0113.jpg/full/max/0/default.jpg</fileName>
+      <fileIdentifier fileIdentifierLocation="IIIF Presentation canvas">https://artifacts.gpura.org/public/1957-sir-isaac-newton/canvas/113</fileIdentifier>
+    </sourceImageInformation>
+    <Processing ID="proc_ocr">
+      <processingCategory>contentGeneration</processingCategory>
+      <processingStepDescription>Line boxes detected automatically; line text is Gpura's existing OCR aligned to them (ocr/*.lines.json), not reviewed; ALTERNATIVE = Tesseract reading used for the alignment.</processingStepDescription>
+      <processingSoftware>
+        <softwareName>Gpura corpus pipeline (auto_lines.py) + Tesseract</softwareName>
+      </processingSoftware>
+    </Processing>
+    <Processing ID="proc_conv">
+      <processingCategory>other</processingCategory>
+      <processingDateTime>2026-11-03T09:50:08+00:00</processingDateTime>
+      <processingStepDescription>PAGE 2019-07-15 -&gt; ALTO 4.4 from page/p113.page.xml; word boxes estimated (tag geom_est).</processingStepDescription>
+      <processingSoftware>
+        <softwareName>page/page2alto.py (Gpura pipeline demo)</softwareName>
+      </processingSoftware>
+    </Processing>
+  </Description>
+  <Styles/>
+  <Tags>
+    <LayoutTag ID="lt_page-number" TYPE="structure" LABEL="page-number" DESCRIPTION="PAGE TextRegion/@type=page-number"/>
+    <LayoutTag ID="lt_paragraph" TYPE="structure" LABEL="paragraph" DESCRIPTION="PAGE TextRegion/@type=paragraph"/>
+    <OtherTag ID="prod_printed" TYPE="production" LABEL="printed" DESCRIPTION="PAGE @production=printed"/>
+    <OtherTag ID="geom_est" TYPE="geometry" LABEL="estimated word boxes" DESCRIPTION="PAGE source is line-level; String HPOS/VPOS/WIDTH/HEIGHT were estimated by splitting the line box along the baseline in proportion to code-point counts. Do not use for word-level highlighting precision."/>
+    <OtherTag ID="p113_r02_l007_t01" TYPE="unclear" LABEL="unclear (medium)" DESCRIPTION="unclear on code points 0-40 (end-exclusive) of TextLine p113_r02_l007; cert=medium; note: Weak match between Gpura's line and the Tesseract reading of this line (similarity 59.1)."/>
+  </Tags>
+  <Layout>
+    <Page ID="p113" PAGECLASS="content" PHYSICAL_IMG_NR="113" PRINTED_IMG_NR="103" WIDTH="1751" HEIGHT="2643" PROCESSINGREFS="proc_ocr proc_conv">
+      <PrintSpace ID="p113_ps" HPOS="0" VPOS="0" WIDTH="1751" HEIGHT="2643">
+        <TextBlock ID="p113_r01" HPOS="717" VPOS="63" WIDTH="219" HEIGHT="51" LANG="ml" TAGREFS="lt_page-number prod_printed" IDNEXT="p113_r02">
+          <Shape>
+            <Polygon POINTS="717,63 936,63 936,114 717,114"/>
+          </Shape>
+          <TextLine ID="p113_r01_l001" HPOS="717" VPOS="63" WIDTH="219" HEIGHT="51" BASELINE="717,112 936,112" LANG="ml" TAGREFS="geom_est">
+            <Shape>
+              <Polygon POINTS="717,63 936,63 936,114 717,114"/>
+            </Shape>
+            <String ID="p113_r01_l001_w001" CONTENT="103" HPOS="717" VPOS="63" WIDTH="219" HEIGHT="51">
+              <ALTERNATIVE PURPOSE="Tesseract reading used for alignment">108</ALTERNATIVE>
+            </String>
+          </TextLine>
+        </TextBlock>
+        <TextBlock ID="p113_r02" HPOS="0" VPOS="211" WIDTH="1659" HEIGHT="1679" LANG="ml" TAGREFS="lt_paragraph prod_printed" IDNEXT="p113_r03">
+          <Shape>
+            <Polygon POINTS="0,211 1659,211 1659,1890 0,1890"/>
+          </Shape>
+          <TextLine ID="p113_r02_l001" HPOS="305" VPOS="211" WIDTH="1354" HEIGHT="86" BASELINE="305,271 1659,271" LANG="ml" TAGREFS="geom_est">
+            <Shape>
+              <Polygon POINTS="305,211 1659,211 1659,297 305,297"/>
+            </Shape>
+            <String ID="p113_r02_l001_w001" CONTENT="1703-ൽ" HPOS="305" VPOS="211" WIDTH="203" HEIGHT="86"/>
+            <SP HPOS="508" VPOS="211" WIDTH="34" HEIGHT="86"/>
+            <String ID="p113_r02_l001_w002" CONTENT="ഉണ്ടായ" HPOS="542" VPOS="211" WIDTH="203" HEIGHT="86"/>
+            <SP HPOS="745" VPOS="211" WIDTH="34" HEIGHT="86"/>
+            <String ID="p113_r02_l001_w003" CONTENT="ഒരു" HPOS="779" VPOS="211" WIDTH="102" HEIGHT="86"/>
+            <SP HPOS="880" VPOS="211" WIDTH="34" HEIGHT="86"/>
+            <String ID="p113_r02_l001_w004" CONTENT="സംഭവം" HPOS="914" VPOS="211" WIDTH="169" HEIGHT="86"/>
+            <SP HPOS="1084" VPOS="211" WIDTH="34" HEIGHT="86"/>
+            <String ID="p113_r02_l001_w005" CONTENT="ന്യൂട്ടന്റെ" HPOS="1117" VPOS="211" WIDTH="372" HEIGHT="86"/>
+            <SP HPOS="1490" VPOS="211" WIDTH="34" HEIGHT="86"/>
+            <String ID="p113_r02_l001_w006" CONTENT="ജീവി" HPOS="1524" VPOS="211" WIDTH="135" HEIGHT="86" SUBS_TYPE="HypPart1" SUBS_CONTENT="ജീവിതത്തിലൊന്നു"/>
+          </TextLine>
+          <TextLine ID="p113_r02_l002" HPOS="3" VPOS="307" WIDTH="1655" HEIGHT="81" BASELINE="3,364 1658,364" LANG="ml" TAGREFS="geom_est">
+            <Shape>
+              <Polygon POINTS="3,307 1658,307 1658,388 3,388"/>
+            </Shape>
+            <String ID="p113_r02_l002_w001" CONTENT="തത്തിലൊന്നു" HPOS="3" VPOS="307" WIDTH="423" HEIGHT="81" SUBS_TYPE="HypPart2" SUBS_CONTENT="ജീവിതത്തിലൊന്നു"/>
+            <SP HPOS="426" VPOS="307" WIDTH="38" HEIGHT="81"/>
+            <String ID="p113_r02_l002_w002" CONTENT="മാത്രമല്ല" HPOS="465" VPOS="307" WIDTH="346" HEIGHT="81"/>
+            <SP HPOS="811" VPOS="307" WIDTH="38" HEIGHT="81"/>
+            <String ID="p113_r02_l002_w003" CONTENT="റോയൽ" HPOS="850" VPOS="307" WIDTH="154" HEIGHT="81"/>
+            <SP HPOS="1004" VPOS="307" WIDTH="38" HEIGHT="81"/>
+            <String ID="p113_r02_l002_w004" CONTENT="സൊസൈറ്റിയുടെ" HPOS="1042" VPOS="307" WIDTH="462" HEIGHT="81"/>
+            <SP HPOS="1504" VPOS="307" WIDTH="38" HEIGHT="81"/>
+            <String ID="p113_r02_l002_w005" CONTENT="ചരി" HPOS="1543" VPOS="307" WIDTH="115" HEIGHT="81" SUBS_TYPE="HypPart1" SUBS_CONTENT="ചരിത്രത്തിലും"/>
+          </TextLine>
+          <TextLine ID="p113_r02_l003" HPOS="138" VPOS="410" WIDTH="1518" HEIGHT="67" BASELINE="138,456 1656,456" LANG="ml" TAGREFS="geom_est">
+            <Shape>
+              <Polygon POINTS="138,410 1656,410 1656,477 138,477"/>
+            </Shape>
+            <String ID="p113_r02_l003_w001" CONTENT="ത്രത്തിലും" HPOS="138" VPOS="410" WIDTH="323" HEIGHT="67" SUBS_TYPE="HypPart2" SUBS_CONTENT="ചരിത്രത്തിലും">
+              <ALTERNATIVE PURPOSE="Tesseract reading used for alignment">തൂത്തലും</ALTERNATIVE>
+            </String>
+            <SP HPOS="461" VPOS="410" WIDTH="32" HEIGHT="67"/>
+            <String ID="p113_r02_l003_w002" CONTENT="ഒരു" HPOS="493" VPOS="410" WIDTH="97" HEIGHT="67"/>
+            <SP HPOS="590" VPOS="410" WIDTH="32" HEIGHT="67"/>
+            <String ID="p113_r02_l003_w003" CONTENT="പ്രതിസന്ധിഘട്ടത്തെ" HPOS="622" VPOS="410" WIDTH="581" HEIGHT="67"/>
+            <SP HPOS="1204" VPOS="410" WIDTH="32" HEIGHT="67"/>
+            <String ID="p113_r02_l003_w004" CONTENT="ഉളവാക്കി." HPOS="1236" VPOS="410" WIDTH="291" HEIGHT="67"/>
+            <SP HPOS="1527" VPOS="410" WIDTH="32" HEIGHT="67"/>
+            <String ID="p113_r02_l003_w005" CONTENT="റോബ" HPOS="1559" VPOS="410" WIDTH="97" HEIGHT="67" SUBS_TYPE="HypPart1" SUBS_CONTENT="റോബർട്ട്"/>
+          </TextLine>
+          <TextLine ID="p113_r02_l004" HPOS="139" VPOS="494" WIDTH="1518" HEIGHT="72" BASELINE="139,547 1657,547" LANG="ml" TAGREFS="geom_est">
+            <Shape>
+              <Polygon POINTS="139,494 1657,494 1657,566 139,566"/>
+            </Shape>
+            <String ID="p113_r02_l004_w001" CONTENT="ർട്ട്" HPOS="139" VPOS="494" WIDTH="165" HEIGHT="72" SUBS_TYPE="HypPart2" SUBS_CONTENT="റോബർട്ട്"/>
+            <SP HPOS="304" VPOS="494" WIDTH="33" HEIGHT="72"/>
+            <String ID="p113_r02_l004_w002" CONTENT="ഹൂക്കിന്റെ" HPOS="337" VPOS="494" WIDTH="330" HEIGHT="72"/>
+            <SP HPOS="667" VPOS="494" WIDTH="33" HEIGHT="72"/>
+            <String ID="p113_r02_l004_w003" CONTENT="മരണമായിരുന്നു" HPOS="700" VPOS="494" WIDTH="429" HEIGHT="72"/>
+            <SP HPOS="1129" VPOS="494" WIDTH="33" HEIGHT="72"/>
+            <String ID="p113_r02_l004_w004" CONTENT="അത്." HPOS="1162" VPOS="494" WIDTH="132" HEIGHT="72"/>
+            <SP HPOS="1294" VPOS="494" WIDTH="33" HEIGHT="72"/>
+            <String ID="p113_r02_l004_w005" CONTENT="ഹൂക്കുമായി" HPOS="1327" VPOS="494" WIDTH="330" HEIGHT="72"/>
+          </TextLine>
+          <TextLine ID="p113_r02_l005" HPOS="139" VPOS="588" WIDTH="1513" HEIGHT="75" BASELINE="139,639 1652,639" LANG="ml" TAGREFS="geom_est">
+            <Shape>
+              <Polygon POINTS="139,588 1652,588 1652,663 139,663"/>
+            </Shape>
+            <String ID="p113_r02_l005_w001" CONTENT="കുറച്ചുകാലം" HPOS="139" VPOS="588" WIDTH="354" HEIGHT="75"/>
+            <SP HPOS="493" VPOS="588" WIDTH="32" HEIGHT="75"/>
+            <String ID="p113_r02_l005_w002" CONTENT="മുൻപ്" HPOS="525" VPOS="588" WIDTH="161" HEIGHT="75">
+              <ALTERNATIVE PURPOSE="Tesseract reading used for alignment">മുന്‍പു”</ALTERNATIVE>
+            </String>
+            <SP HPOS="686" VPOS="588" WIDTH="32" HEIGHT="75"/>
+            <String ID="p113_r02_l005_w003" CONTENT="അടിക്കടി" HPOS="718" VPOS="588" WIDTH="258" HEIGHT="75"/>
+            <SP HPOS="976" VPOS="588" WIDTH="32" HEIGHT="75"/>
+            <String ID="p113_r02_l005_w004" CONTENT="ഉണ്ടായിക്കൊണ്ടിരുന്ന" HPOS="1008" VPOS="588" WIDTH="644" HEIGHT="75"/>
+          </TextLine>
+          <TextLine ID="p113_r02_l006" HPOS="136" VPOS="685" WIDTH="1520" HEIGHT="67" BASELINE="136,734 1656,734" LANG="ml" TAGREFS="geom_est">
+            <Shape>
+              <Polygon POINTS="136,685 1656,685 1656,752 136,752"/>
+            </Shape>
+            <String ID="p113_r02_l006_w001" CONTENT="ഏറ്റുമുട്ടലുകളുടെ" HPOS="136" VPOS="685" WIDTH="587" HEIGHT="67"/>
+            <SP HPOS="723" VPOS="685" WIDTH="35" HEIGHT="67"/>
+            <String ID="p113_r02_l006_w002" CONTENT="ഫലമായി" HPOS="758" VPOS="685" WIDTH="207" HEIGHT="67"/>
+            <SP HPOS="965" VPOS="685" WIDTH="35" HEIGHT="67"/>
+            <String ID="p113_r02_l006_w003" CONTENT="ലണ്ടനിൽ" HPOS="1000" VPOS="685" WIDTH="242" HEIGHT="67"/>
+            <SP HPOS="1241" VPOS="685" WIDTH="35" HEIGHT="67"/>
+            <String ID="p113_r02_l006_w004" CONTENT="താമസമാക്കിയ" HPOS="1276" VPOS="685" WIDTH="380" HEIGHT="67"/>
+          </TextLine>
+          <TextLine ID="p113_r02_l007" HPOS="0" VPOS="775" WIDTH="1650" HEIGHT="78" BASELINE="0,825 1650,825" LANG="ml" TAGREFS="geom_est">
+            <Shape>
+              <Polygon POINTS="0,775 1650,775 1650,853 0,853"/>
+            </Shape>
+            <String ID="p113_r02_l007_w001" CONTENT="ശേഷവും" HPOS="0" VPOS="775" WIDTH="248" HEIGHT="78" TAGREFS="p113_r02_l007_t01"/>
+            <SP HPOS="248" VPOS="775" WIDTH="41" HEIGHT="78"/>
+            <String ID="p113_r02_l007_w002" CONTENT="ന്യൂട്ടൻ" HPOS="289" VPOS="775" WIDTH="330" HEIGHT="78" TAGREFS="p113_r02_l007_t01"/>
+            <SP HPOS="619" VPOS="775" WIDTH="41" HEIGHT="78"/>
+            <String ID="p113_r02_l007_w003" CONTENT="റോയൽ" HPOS="660" VPOS="775" WIDTH="165" HEIGHT="78" TAGREFS="p113_r02_l007_t01"/>
+            <SP HPOS="825" VPOS="775" WIDTH="41" HEIGHT="78"/>
+            <String ID="p113_r02_l007_w004" CONTENT="സൊസൈറ്റിയുടെ" HPOS="866" VPOS="775" WIDTH="495" HEIGHT="78" TAGREFS="p113_r02_l007_t01"/>
+            <SP HPOS="1361" VPOS="775" WIDTH="41" HEIGHT="78"/>
+            <String ID="p113_r02_l007_w005" CONTENT="യോഗങ്ങ" HPOS="1402" VPOS="775" WIDTH="248" HEIGHT="78" TAGREFS="p113_r02_l007_t01" SUBS_TYPE="HypPart1" SUBS_CONTENT="യോഗങ്ങളിൽ"/>
+          </TextLine>
+          <TextLine ID="p113_r02_l008" HPOS="135" VPOS="866" WIDTH="1517" HEIGHT="77" BASELINE="135,920 1652,920" LANG="ml" TAGREFS="geom_est">
+            <Shape>
+              <Polygon POINTS="135,866 1652,866 1652,943 135,943"/>
+            </Shape>
+            <String ID="p113_r02_l008_w001" CONTENT="ളിൽ" HPOS="135" VPOS="866" WIDTH="103" HEIGHT="77" SUBS_TYPE="HypPart2" SUBS_CONTENT="യോഗങ്ങളിൽ"/>
+            <SP HPOS="238" VPOS="866" WIDTH="34" HEIGHT="77"/>
+            <String ID="p113_r02_l008_w002" CONTENT="പങ്കുകൊണ്ടിരുന്നില്ല." HPOS="273" VPOS="866" WIDTH="724" HEIGHT="77"/>
+            <SP HPOS="997" VPOS="866" WIDTH="34" HEIGHT="77"/>
+            <String ID="p113_r02_l008_w003" CONTENT="ഹൂക്കിന്റെ" HPOS="1031" VPOS="866" WIDTH="345" HEIGHT="77"/>
+            <SP HPOS="1376" VPOS="866" WIDTH="34" HEIGHT="77"/>
+            <String ID="p113_r02_l008_w004" CONTENT="മരണശേഷം" HPOS="1411" VPOS="866" WIDTH="241" HEIGHT="77"/>
+          </TextLine>
+          <TextLine ID="p113_r02_l009" HPOS="134" VPOS="970" WIDTH="1514" HEIGHT="62" BASELINE="134,1012 1648,1012" LANG="ml" TAGREFS="geom_est">
+            <Shape>
+              <Polygon POINTS="134,970 1648,970 1648,1032 134,1032"/>
+            </Shape>
+            <String ID="p113_r02_l009_w001" CONTENT="അദ്ദേഹം" HPOS="134" VPOS="970" WIDTH="236" HEIGHT="62">
+              <ALTERNATIVE PURPOSE="Tesseract reading used for alignment">അടഭ്ദേഫം</ALTERNATIVE>
+            </String>
+            <SP HPOS="370" VPOS="970" WIDTH="34" HEIGHT="62"/>
+            <String ID="p113_r02_l009_w002" CONTENT="എല്ലാ" HPOS="403" VPOS="970" WIDTH="168" HEIGHT="62"/>
+            <SP HPOS="571" VPOS="970" WIDTH="34" HEIGHT="62"/>
+            <String ID="p113_r02_l009_w003" CONTENT="സമ്മേളനങ്ങളിലും" HPOS="605" VPOS="970" WIDTH="505" HEIGHT="62"/>
+            <SP HPOS="1110" VPOS="970" WIDTH="34" HEIGHT="62"/>
+            <String ID="p113_r02_l009_w004" CONTENT="ശരിക്കു" HPOS="1143" VPOS="970" WIDTH="236" HEIGHT="62"/>
+            <SP HPOS="1379" VPOS="970" WIDTH="34" HEIGHT="62"/>
+            <String ID="p113_r02_l009_w005" CONTENT="ഹാജരാകു" HPOS="1412" VPOS="970" WIDTH="236" HEIGHT="62">
+              <ALTERNATIVE PURPOSE="Tesseract reading used for alignment">ഫാജരാക</ALTERNATIVE>
+            </String>
+          </TextLine>
+          <TextLine ID="p113_r02_l010" HPOS="12" VPOS="1055" WIDTH="1635" HEIGHT="88" BASELINE="12,1105 1647,1105" LANG="ml" TAGREFS="geom_est">
+            <Shape>
+              <Polygon POINTS="12,1055 1647,1055 1647,1143 12,1143"/>
+            </Shape>
+            <String ID="p113_r02_l010_w001" CONTENT="വാൻ" HPOS="12" VPOS="1055" WIDTH="107" HEIGHT="88"/>
+            <SP HPOS="119" VPOS="1055" WIDTH="36" HEIGHT="88"/>
+            <String ID="p113_r02_l010_w002" CONTENT="തുടങ്ങി." HPOS="154" VPOS="1055" WIDTH="284" HEIGHT="88"/>
+            <SP HPOS="439" VPOS="1055" WIDTH="36" HEIGHT="88"/>
+            <String ID="p113_r02_l010_w003" CONTENT="അക്കാലത്തെ" HPOS="474" VPOS="1055" WIDTH="355" HEIGHT="88"/>
+            <SP HPOS="830" VPOS="1055" WIDTH="36" HEIGHT="88"/>
+            <String ID="p113_r02_l010_w004" CONTENT="അദ്ധ്യക്ഷൻ" HPOS="865" VPOS="1055" WIDTH="355" HEIGHT="88"/>
+            <SP HPOS="1220" VPOS="1055" WIDTH="36" HEIGHT="88"/>
+            <String ID="p113_r02_l010_w005" CONTENT="ന്യൂട്ടന്റെ" HPOS="1256" VPOS="1055" WIDTH="391" HEIGHT="88"/>
+          </TextLine>
+          <TextLine ID="p113_r02_l011" HPOS="0" VPOS="1143" WIDTH="1645" HEIGHT="80" BASELINE="0,1199 1645,1199" LANG="ml" TAGREFS="geom_est">
+            <Shape>
+              <Polygon POINTS="0,1143 1645,1143 1645,1223 0,1223"/>
+            </Shape>
+            <String ID="p113_r02_l011_w001" CONTENT="ഉറ്റ" HPOS="0" VPOS="1143" WIDTH="164" HEIGHT="80"/>
+            <SP HPOS="164" VPOS="1143" WIDTH="41" HEIGHT="80"/>
+            <String ID="p113_r02_l011_w002" CONTENT="സ്നേഹിതനായ" HPOS="206" VPOS="1143" WIDTH="411" HEIGHT="80"/>
+            <SP HPOS="617" VPOS="1143" WIDTH="41" HEIGHT="80"/>
+            <String ID="p113_r02_l011_w003" CONTENT="സോമേഴ്സ്" HPOS="658" VPOS="1143" WIDTH="329" HEIGHT="80"/>
+            <SP HPOS="987" VPOS="1143" WIDTH="41" HEIGHT="80"/>
+            <String ID="p113_r02_l011_w004" CONTENT="പ്രഭു" HPOS="1028" VPOS="1143" WIDTH="206" HEIGHT="80"/>
+            <SP HPOS="1234" VPOS="1143" WIDTH="41" HEIGHT="80"/>
+            <String ID="p113_r02_l011_w005" CONTENT="ആയിരുന്നു" HPOS="1275" VPOS="1143" WIDTH="370" HEIGHT="80"/>
+          </TextLine>
+          <TextLine ID="p113_r02_l012" HPOS="0" VPOS="1242" WIDTH="1647" HEIGHT="55" BASELINE="0,1291 1647,1291" LANG="ml" TAGREFS="geom_est">
+            <Shape>
+              <Polygon POINTS="0,1242 1647,1242 1647,1297 0,1297"/>
+            </Shape>
+            <String ID="p113_r02_l012_w001" CONTENT="താനും." HPOS="0" VPOS="1242" WIDTH="282" HEIGHT="55"/>
+            <SP HPOS="282" VPOS="1242" WIDTH="47" HEIGHT="55"/>
+            <String ID="p113_r02_l012_w002" CONTENT="1703" HPOS="329" VPOS="1242" WIDTH="188" HEIGHT="55"/>
+            <SP HPOS="518" VPOS="1242" WIDTH="47" HEIGHT="55"/>
+            <String ID="p113_r02_l012_w003" CONTENT="നവംബറിൽ" HPOS="565" VPOS="1242" WIDTH="329" HEIGHT="55"/>
+            <SP HPOS="894" VPOS="1242" WIDTH="47" HEIGHT="55"/>
+            <String ID="p113_r02_l012_w004" CONTENT="സോമേഴ്സ്" HPOS="941" VPOS="1242" WIDTH="376" HEIGHT="55"/>
+            <SP HPOS="1318" VPOS="1242" WIDTH="47" HEIGHT="55"/>
+            <String ID="p113_r02_l012_w005" CONTENT="സ്ഥാനം" HPOS="1365" VPOS="1242" WIDTH="282" HEIGHT="55"/>
+          </TextLine>
+          <TextLine ID="p113_r02_l013" HPOS="0" VPOS="1319" WIDTH="1653" HEIGHT="98" BASELINE="0,1382 1653,1382" LANG="ml" TAGREFS="geom_est">
+            <Shape>
+              <Polygon POINTS="0,1319 1653,1319 1653,1417 0,1417"/>
+            </Shape>
+            <String ID="p113_r02_l013_w001" CONTENT="രാജിവയ്ക്കുകയും" HPOS="0" VPOS="1319" WIDTH="486" HEIGHT="98"/>
+            <SP HPOS="486" VPOS="1319" WIDTH="32" HEIGHT="98"/>
+            <String ID="p113_r02_l013_w002" CONTENT="ന്യൂട്ടനെ" HPOS="519" VPOS="1319" WIDTH="292" HEIGHT="98"/>
+            <SP HPOS="810" VPOS="1319" WIDTH="32" HEIGHT="98"/>
+            <String ID="p113_r02_l013_w003" CONTENT="തിരഞ്ഞെടുക്കുകയും" HPOS="843" VPOS="1319" WIDTH="551" HEIGHT="98"/>
+            <SP HPOS="1394" VPOS="1319" WIDTH="32" HEIGHT="98"/>
+            <String ID="p113_r02_l013_w004" CONTENT="ചെയ്തു." HPOS="1426" VPOS="1319" WIDTH="227" HEIGHT="98"/>
+          </TextLine>
+          <TextLine ID="p113_r02_l014" HPOS="133" VPOS="1423" WIDTH="1515" HEIGHT="79" BASELINE="133,1474 1648,1474" LANG="ml" TAGREFS="geom_est">
+            <Shape>
+              <Polygon POINTS="133,1423 1648,1423 1648,1502 133,1502"/>
+            </Shape>
+            <String ID="p113_r02_l014_w001" CONTENT="അതുമുതൽ" HPOS="133" VPOS="1423" WIDTH="287" HEIGHT="79">
+              <ALTERNATIVE PURPOSE="Tesseract reading used for alignment">അതുമുതല്‍</ALTERNATIVE>
+            </String>
+            <SP HPOS="420" VPOS="1423" WIDTH="41" HEIGHT="79"/>
+            <String ID="p113_r02_l014_w002" CONTENT="അദ്ദേഹത്തിന്റെ" HPOS="461" VPOS="1423" WIDTH="573" HEIGHT="79">
+              <ALTERNATIVE PURPOSE="Tesseract reading used for alignment">അഭദൃഹത്തിന്‍റെ</ALTERNATIVE>
+            </String>
+            <SP HPOS="1034" VPOS="1423" WIDTH="41" HEIGHT="79"/>
+            <String ID="p113_r02_l014_w003" CONTENT="അന്ത്യംവരെ" HPOS="1075" VPOS="1423" WIDTH="409" HEIGHT="79"/>
+            <SP HPOS="1484" VPOS="1423" WIDTH="41" HEIGHT="79"/>
+            <String ID="p113_r02_l014_w004" CONTENT="ഓരോ" HPOS="1525" VPOS="1423" WIDTH="123" HEIGHT="79" SUBS_TYPE="HypPart1" SUBS_CONTENT="ഓരോകൊല്ലവും">
+              <ALTERNATIVE PURPOSE="Tesseract reading used for alignment">ഓദരോ</ALTERNATIVE>
+            </String>
+          </TextLine>
+          <TextLine ID="p113_r02_l015" HPOS="130" VPOS="1518" WIDTH="1513" HEIGHT="79" BASELINE="130,1569 1643,1569" LANG="ml" TAGREFS="geom_est">
+            <Shape>
+              <Polygon POINTS="130,1518 1643,1518 1643,1597 130,1597"/>
+            </Shape>
+            <String ID="p113_r02_l015_w001" CONTENT="കൊല്ലവും" HPOS="130" VPOS="1518" WIDTH="310" HEIGHT="79" SUBS_TYPE="HypPart2" SUBS_CONTENT="ഓരോകൊല്ലവും"/>
+            <SP HPOS="440" VPOS="1518" WIDTH="39" HEIGHT="79"/>
+            <String ID="p113_r02_l015_w002" CONTENT="ന്യൂട്ടനെ" HPOS="479" VPOS="1518" WIDTH="349" HEIGHT="79"/>
+            <SP HPOS="828" VPOS="1518" WIDTH="39" HEIGHT="79"/>
+            <String ID="p113_r02_l015_w003" CONTENT="ആ" HPOS="867" VPOS="1518" WIDTH="39" HEIGHT="79">
+              <ALTERNATIVE PURPOSE="Tesseract reading used for alignment">൭</ALTERNATIVE>
+            </String>
+            <SP HPOS="906" VPOS="1518" WIDTH="39" HEIGHT="79"/>
+            <String ID="p113_r02_l015_w004" CONTENT="പണ്ഡിതസംഘം" HPOS="945" VPOS="1518" WIDTH="388" HEIGHT="79"/>
+            <SP HPOS="1333" VPOS="1518" WIDTH="39" HEIGHT="79"/>
+            <String ID="p113_r02_l015_w005" CONTENT="അതിന്റെ" HPOS="1371" VPOS="1518" WIDTH="272" HEIGHT="79">
+              <ALTERNATIVE PURPOSE="Tesseract reading used for alignment">അതിന്‍െറ</ALTERNATIVE>
+            </String>
+          </TextLine>
+          <TextLine ID="p113_r02_l016" HPOS="132" VPOS="1609" WIDTH="1510" HEIGHT="77" BASELINE="132,1661 1642,1661" LANG="ml" TAGREFS="geom_est">
+            <Shape>
+              <Polygon POINTS="132,1609 1642,1609 1642,1686 132,1686"/>
+            </Shape>
+            <String ID="p113_r02_l016_w001" CONTENT="പ്രസിഡണ്ടായി" HPOS="132" VPOS="1609" WIDTH="465" HEIGHT="77"/>
+            <SP HPOS="597" VPOS="1609" WIDTH="39" HEIGHT="77"/>
+            <String ID="p113_r02_l016_w002" CONTENT="ആവർത്തിച്ചു" HPOS="635" VPOS="1609" WIDTH="426" HEIGHT="77"/>
+            <SP HPOS="1061" VPOS="1609" WIDTH="39" HEIGHT="77"/>
+            <String ID="p113_r02_l016_w003" CONTENT="തിരഞ്ഞെടുത്തു," HPOS="1100" VPOS="1609" WIDTH="542" HEIGHT="77"/>
+          </TextLine>
+          <TextLine ID="p113_r02_l017" HPOS="0" VPOS="1702" WIDTH="1638" HEIGHT="87" BASELINE="0,1757 1638,1757" LANG="ml" TAGREFS="geom_est">
+            <Shape>
+              <Polygon POINTS="0,1702 1638,1702 1638,1789 0,1789"/>
+            </Shape>
+            <String ID="p113_r02_l017_w001" CONTENT="ഇങ്ങനെ" HPOS="0" VPOS="1702" WIDTH="240" HEIGHT="87"/>
+            <SP HPOS="240" VPOS="1702" WIDTH="40" HEIGHT="87"/>
+            <String ID="p113_r02_l017_w002" CONTENT="ഇരുപത്തിനാലുകൊല്ലം" HPOS="280" VPOS="1702" WIDTH="719" HEIGHT="87"/>
+            <SP HPOS="999" VPOS="1702" WIDTH="40" HEIGHT="87"/>
+            <String ID="p113_r02_l017_w003" CONTENT="തുടരെ" HPOS="1039" VPOS="1702" WIDTH="200" HEIGHT="87"/>
+            <SP HPOS="1238" VPOS="1702" WIDTH="40" HEIGHT="87"/>
+            <String ID="p113_r02_l017_w004" CONTENT="ന്യൂട്ടൻ." HPOS="1278" VPOS="1702" WIDTH="360" HEIGHT="87"/>
+          </TextLine>
+          <TextLine ID="p113_r02_l018" HPOS="0" VPOS="1795" WIDTH="1473" HEIGHT="95" BASELINE="0,1851 1473,1851" LANG="ml" TAGREFS="geom_est">
+            <Shape>
+              <Polygon POINTS="0,1795 1473,1795 1473,1890 0,1890"/>
+            </Shape>
+            <String ID="p113_r02_l018_w001" CONTENT="റോയൽ" HPOS="0" VPOS="1795" WIDTH="159" HEIGHT="95"/>
+            <SP HPOS="159" VPOS="1795" WIDTH="40" HEIGHT="95"/>
+            <String ID="p113_r02_l018_w002" CONTENT="സൊസൈറ്റിയുടെ" HPOS="199" VPOS="1795" WIDTH="478" HEIGHT="95"/>
+            <SP HPOS="677" VPOS="1795" WIDTH="40" HEIGHT="95"/>
+            <String ID="p113_r02_l018_w003" CONTENT="പ്രസിഡണ്ടായിരുന്നു." HPOS="717" VPOS="1795" WIDTH="756" HEIGHT="95"/>
+          </TextLine>
+        </TextBlock>
+        <TextBlock ID="p113_r03" HPOS="2" VPOS="2014" WIDTH="1635" HEIGHT="538" LANG="ml" TAGREFS="lt_paragraph prod_printed">
+          <Shape>
+            <Polygon POINTS="2,2014 1637,2014 1637,2552 2,2552"/>
+          </Shape>
+          <TextLine ID="p113_r03_l001" HPOS="239" VPOS="2014" WIDTH="1398" HEIGHT="86" BASELINE="239,2071 1637,2071" LANG="ml" TAGREFS="geom_est">
+            <Shape>
+              <Polygon POINTS="239,2014 1637,2014 1637,2100 239,2100"/>
+            </Shape>
+            <String ID="p113_r03_l001_w001" CONTENT="1704-ൽ" HPOS="239" VPOS="2014" WIDTH="195" HEIGHT="86"/>
+            <SP HPOS="434" VPOS="2014" WIDTH="33" HEIGHT="86"/>
+            <String ID="p113_r03_l001_w002" CONTENT="ന്യൂട്ടൻ" HPOS="467" VPOS="2014" WIDTH="260" HEIGHT="86"/>
+            <SP HPOS="727" VPOS="2014" WIDTH="33" HEIGHT="86"/>
+            <String ID="p113_r03_l001_w003" CONTENT="തന്റെ" HPOS="759" VPOS="2014" WIDTH="163" HEIGHT="86"/>
+            <SP HPOS="922" VPOS="2014" WIDTH="33" HEIGHT="86"/>
+            <String ID="p113_r03_l001_w004" CONTENT="ദശനശാസ്ത്രത്തെപ്പറ്റി" HPOS="954" VPOS="2014" WIDTH="683" HEIGHT="86"/>
+          </TextLine>
+          <TextLine ID="p113_r03_l002" HPOS="128" VPOS="2114" WIDTH="1505" HEIGHT="85" BASELINE="128,2173 1633,2173" LANG="ml" TAGREFS="geom_est">
+            <Shape>
+              <Polygon POINTS="128,2114 1633,2114 1633,2199 128,2199"/>
+            </Shape>
+            <String ID="p113_r03_l002_w001" CONTENT="യുള്ള" HPOS="128" VPOS="2114" WIDTH="164" HEIGHT="85"/>
+            <SP HPOS="292" VPOS="2114" WIDTH="33" HEIGHT="85"/>
+            <String ID="p113_r03_l002_w002" CONTENT="കയ്യെഴുത്തുഗ്രന്ഥം" HPOS="324" VPOS="2114" WIDTH="589" HEIGHT="85"/>
+            <SP HPOS="913" VPOS="2114" WIDTH="33" HEIGHT="85"/>
+            <String ID="p113_r03_l002_w003" CONTENT="സൊസൈറ്റിയെ" HPOS="946" VPOS="2114" WIDTH="327" HEIGHT="85"/>
+            <SP HPOS="1273" VPOS="2114" WIDTH="33" HEIGHT="85"/>
+            <String ID="p113_r03_l002_w004" CONTENT="ഏല്പിച്ചു." HPOS="1306" VPOS="2114" WIDTH="327" HEIGHT="85"/>
+          </TextLine>
+          <TextLine ID="p113_r03_l003" HPOS="128" VPOS="2199" WIDTH="1504" HEIGHT="88" BASELINE="128,2261 1632,2261" LANG="ml" TAGREFS="geom_est">
+            <Shape>
+              <Polygon POINTS="128,2199 1632,2199 1632,2287 128,2287"/>
+            </Shape>
+            <String ID="p113_r03_l003_w001" CONTENT="ഈ" HPOS="128" VPOS="2199" WIDTH="33" HEIGHT="88"/>
+            <SP HPOS="161" VPOS="2199" WIDTH="33" HEIGHT="88"/>
+            <String ID="p113_r03_l003_w002" CONTENT="ഗ്രന്ഥം" HPOS="193" VPOS="2199" WIDTH="229" HEIGHT="88"/>
+            <SP HPOS="422" VPOS="2199" WIDTH="33" HEIGHT="88"/>
+            <String ID="p113_r03_l003_w003" CONTENT="വളരെക്കാലമായി" HPOS="455" VPOS="2199" WIDTH="425" HEIGHT="88"/>
+            <SP HPOS="880" VPOS="2199" WIDTH="33" HEIGHT="88"/>
+            <String ID="p113_r03_l003_w004" CONTENT="പൂണ്ണരൂപം" HPOS="913" VPOS="2199" WIDTH="294" HEIGHT="88"/>
+            <SP HPOS="1207" VPOS="2199" WIDTH="33" HEIGHT="88"/>
+            <String ID="p113_r03_l003_w005" CONTENT="പ്രാപിച്ചിരി" HPOS="1240" VPOS="2199" WIDTH="392" HEIGHT="88" SUBS_TYPE="HypPart1" SUBS_CONTENT="പ്രാപിച്ചിരിക്കയായിരുന്നു"/>
+          </TextLine>
+          <TextLine ID="p113_r03_l004" HPOS="7" VPOS="2292" WIDTH="1625" HEIGHT="86" BASELINE="7,2355 1632,2355" LANG="ml" TAGREFS="geom_est">
+            <Shape>
+              <Polygon POINTS="7,2292 1632,2292 1632,2378 7,2378"/>
+            </Shape>
+            <String ID="p113_r03_l004_w001" CONTENT="ക്കയായിരുന്നു." HPOS="7" VPOS="2292" WIDTH="506" HEIGHT="86" SUBS_TYPE="HypPart2" SUBS_CONTENT="പ്രാപിച്ചിരിക്കയായിരുന്നു"/>
+            <SP HPOS="513" VPOS="2292" WIDTH="36" HEIGHT="86"/>
+            <String ID="p113_r03_l004_w002" CONTENT="എന്നാൽ" HPOS="549" VPOS="2292" WIDTH="217" HEIGHT="86"/>
+            <SP HPOS="765" VPOS="2292" WIDTH="36" HEIGHT="86"/>
+            <String ID="p113_r03_l004_w003" CONTENT="ഹുക്ക്" HPOS="801" VPOS="2292" WIDTH="217" HEIGHT="86"/>
+            <SP HPOS="1018" VPOS="2292" WIDTH="36" HEIGHT="86"/>
+            <String ID="p113_r03_l004_w004" CONTENT="മരിച്ചിട്ടല്ലാതെ" HPOS="1054" VPOS="2292" WIDTH="578" HEIGHT="86"/>
+          </TextLine>
+          <TextLine ID="p113_r03_l005" HPOS="2" VPOS="2380" WIDTH="1627" HEIGHT="105" BASELINE="2,2446 1629,2446" LANG="ml" TAGREFS="geom_est">
+            <Shape>
+              <Polygon POINTS="2,2380 1629,2380 1629,2485 2,2485"/>
+            </Shape>
+            <String ID="p113_r03_l005_w001" CONTENT="അതിനെ" HPOS="2" VPOS="2380" WIDTH="173" HEIGHT="105"/>
+            <SP HPOS="175" VPOS="2380" WIDTH="35" HEIGHT="105"/>
+            <String ID="p113_r03_l005_w002" CONTENT="പ്രസിദ്ധം" HPOS="210" VPOS="2380" WIDTH="312" HEIGHT="105"/>
+            <SP HPOS="521" VPOS="2380" WIDTH="35" HEIGHT="105"/>
+            <String ID="p113_r03_l005_w003" CONTENT="ചെയ്യുകയില്ലെന്ന്" HPOS="556" VPOS="2380" WIDTH="588" HEIGHT="105"/>
+            <SP HPOS="1144" VPOS="2380" WIDTH="35" HEIGHT="105"/>
+            <String ID="p113_r03_l005_w004" CONTENT="ന്യൂട്ടൻ" HPOS="1179" VPOS="2380" WIDTH="277" HEIGHT="105"/>
+            <SP HPOS="1456" VPOS="2380" WIDTH="35" HEIGHT="105"/>
+            <String ID="p113_r03_l005_w005" CONTENT="ശപഥം" HPOS="1491" VPOS="2380" WIDTH="138" HEIGHT="105"/>
+          </TextLine>
+          <TextLine ID="p113_r03_l006" HPOS="126" VPOS="2485" WIDTH="435" HEIGHT="67" BASELINE="126,2530 561,2530" LANG="ml" TAGREFS="geom_est">
+            <Shape>
+              <Polygon POINTS="126,2485 561,2485 561,2552 126,2552"/>
+            </Shape>
+            <String ID="p113_r03_l006_w001" CONTENT="ചെയ്തിരുന്നു." HPOS="126" VPOS="2485" WIDTH="435" HEIGHT="67"/>
+          </TextLine>
+        </TextBlock>
+      </PrintSpace>
+    </Page>
+  </Layout>
+</alto>

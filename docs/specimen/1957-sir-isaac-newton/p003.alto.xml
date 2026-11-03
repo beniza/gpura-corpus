@@ -15,7 +15,7 @@
     </Processing>
     <Processing ID="proc_conv">
       <processingCategory>other</processingCategory>
-      <processingDateTime>2026-11-03T04:33:25+00:00</processingDateTime>
+      <processingDateTime>2026-11-03T09:50:08+00:00</processingDateTime>
       <processingStepDescription>PAGE 2019-07-15 -&gt; ALTO 4.4 from page/p003.page.xml; word boxes estimated (tag geom_est).</processingStepDescription>
       <processingSoftware>
         <softwareName>page/page2alto.py (Gpura pipeline demo)</softwareName>
@@ -23,10 +23,27 @@
     </Processing>
   </Description>
   <Styles/>
-  <Tags/>
+  <Tags>
+    <LayoutTag ID="lt_paragraph" TYPE="structure" LABEL="paragraph" DESCRIPTION="PAGE TextRegion/@type=paragraph"/>
+    <OtherTag ID="prod_printed" TYPE="production" LABEL="printed" DESCRIPTION="PAGE @production=printed"/>
+    <OtherTag ID="geom_est" TYPE="geometry" LABEL="estimated word boxes" DESCRIPTION="PAGE source is line-level; String HPOS/VPOS/WIDTH/HEIGHT were estimated by splitting the line box along the baseline in proportion to code-point counts. Do not use for word-level highlighting precision."/>
+    <OtherTag ID="p003_r01_l001_t01" TYPE="unclear" LABEL="unclear (low)" DESCRIPTION="unclear on code points 0-2 (end-exclusive) of TextLine p003_r01_l001; cert=low; note: No line in Sarvam's text for this page matches this printed line; the reading is raw Tesseract output."/>
+  </Tags>
   <Layout>
     <Page ID="p003" PAGECLASS="content" PHYSICAL_IMG_NR="3" WIDTH="1751" HEIGHT="2643" PROCESSINGREFS="proc_ocr proc_conv">
-      <PrintSpace ID="p003_ps" HPOS="0" VPOS="0" WIDTH="1751" HEIGHT="2643"/>
+      <PrintSpace ID="p003_ps" HPOS="0" VPOS="0" WIDTH="1751" HEIGHT="2643">
+        <TextBlock ID="p003_r01" HPOS="116" VPOS="2542" WIDTH="177" HEIGHT="49" LANG="ml" TAGREFS="lt_paragraph prod_printed">
+          <Shape>
+            <Polygon POINTS="116,2542 293,2542 293,2591 116,2591"/>
+          </Shape>
+          <TextLine ID="p003_r01_l001" HPOS="116" VPOS="2542" WIDTH="177" HEIGHT="49" BASELINE="116,2581 293,2581" LANG="ml" TAGREFS="geom_est">
+            <Shape>
+              <Polygon POINTS="116,2542 293,2542 293,2591 116,2591"/>
+            </Shape>
+            <String ID="p003_r01_l001_w001" CONTENT="Se" HPOS="116" VPOS="2542" WIDTH="177" HEIGHT="49" TAGREFS="p003_r01_l001_t01"/>
+          </TextLine>
+        </TextBlock>
+      </PrintSpace>
     </Page>
   </Layout>
 </alto>

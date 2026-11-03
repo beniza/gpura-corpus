@@ -2,8 +2,8 @@
 <PcGts xmlns="http://schema.primaresearch.org/PAGE/gts/pagecontent/2019-07-15" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schema.primaresearch.org/PAGE/gts/pagecontent/2019-07-15 http://schema.primaresearch.org/PAGE/gts/pagecontent/2019-07-15/pagecontent.xsd" pcGtsId="p043_pcgts">
   <Metadata>
     <Creator>Gpura digitisation pipeline demo - layout-encoding stage (page/json2page.py, lxml)</Creator>
-    <Created>2026-11-03T04:33:25+00:00</Created>
-    <LastChange>2026-11-03T04:33:25+00:00</LastChange>
+    <Created>2026-11-03T09:59:48+00:00</Created>
+    <LastChange>2026-11-03T09:59:48+00:00</LastChange>
     <Comments>Source: 'Sir Isaac Newton' (Malayalam, 1957), Gpura archive, IIIF canvas 43, printed page 33. Layout and readings come from ocr/p043.lines.json: line boxes detected automatically (projection profiles); TextEquiv index=1 is Gpura's existing OCR text for the line, aligned automatically and NOT reviewed; index=2 is the Tesseract reading used for the alignment (mal+eng) with its mean word confidence; index=3 (where present) is Gpura's string before the corpus encoding rules were applied. Coordinates are pixels of the full-resolution scan (1751 x 2643) assumed identical to the IIIF full/max image. Line-level flags (underlined/unclear/damage/inkOver/hyphenEnd) are in TextLine/@custom (Transkribus-style 'tag {offset:N; length:M; ...}' code-point offsets) with notes in @comments.</Comments>
     <MetadataItem type="other" name="iiif-canvas" value="https://artifacts.gpura.org/public/1957-sir-isaac-newton/canvas/43"/>
     <MetadataItem type="other" name="printed-page-number" value="33"/>
@@ -18,10 +18,10 @@
     </ReadingOrder>
     <TextRegion id="p043_r01" custom="readingOrder {index:0;}" type="page-number" readingDirection="left-to-right" textLineOrder="top-to-bottom" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" production="printed">
       <Coords points="793,71 863,71 863,120 793,120"/>
-      <TextLine id="p043_r01_l001" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:0;} unclear {offset:0; length:2; cert:medium;}" comments="[unclear 0-2] Gpura has no text for this page; the reading was made by an AI model (Claude Sonnet 5.5) from the line image. Not reviewed." index="0">
+      <TextLine id="p043_r01_l001" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:0;} unclear {offset:0; length:2; cert:medium;}" comments="[unclear 0-2] Weak match between Gpura's line and the Tesseract reading of this line (similarity 0.0)." index="0">
         <Coords points="793,71 863,71 863,120 793,120"/>
         <Baseline points="793,118 863,118"/>
-        <TextEquiv index="1" comments="AI reading of the line image; Gpura has no matching text for this line (not reviewed) (Claude Sonnet 5.5)">
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
           <Unicode>33</Unicode>
         </TextEquiv>
         <TextEquiv index="2" conf="0.891" comments="Tesseract reading used for alignment (own encoding)">
@@ -35,250 +35,253 @@
     <TextRegion id="p043_r02" custom="readingOrder {index:1;}" continuation="true" type="paragraph" readingDirection="left-to-right" textLineOrder="top-to-bottom" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" production="printed">
       <!-- continues paragraph p042_r03 (p042.page.xml) -->
       <Coords points="0,223 1597,223 1597,2547 0,2547"/>
-      <TextLine id="p043_r02_l001" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:0;} unclear {offset:0; length:53; cert:medium;}" comments="[unclear 0-53] Gpura has no text for this page; the reading was made by an AI model (Claude Sonnet 5.5) from the line image. Not reviewed." index="0">
+      <TextLine id="p043_r02_l001" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:0;}" index="0">
         <Coords points="81,223 1583,223 1583,304 81,304"/>
         <Baseline points="81,278 1583,278"/>
-        <TextEquiv index="1" comments="AI reading of the line image; Gpura has no matching text for this line (not reviewed) (Claude Sonnet 5.5)">
-          <Unicode>മുഖ്യമായും തത്ത്വശാസ്ത്രമെന്നു കൊണ്ടാടിവന്നിരുന്നതു്.</Unicode>
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
+          <Unicode>മുഖ്യമായും തത്വശാസ്ത്രമെന്നു കൊണ്ടാടിവന്നിരുന്നതു്.</Unicode>
         </TextEquiv>
         <TextEquiv index="2" conf="0.580" comments="Tesseract reading used for alignment (own encoding)">
           <Unicode>മഖ്യമായും തത്വശംസ്രൂരമെന്നു കൊണ്ടടടിവന്നിരുന്നതു?.</Unicode>
         </TextEquiv>
       </TextLine>
-      <TextLine id="p043_r02_l002" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:1;} unclear {offset:0; length:40; cert:medium;} hyphenEnd {offset:40; length:0; printed:false;}" comments="[unclear 0-40] Gpura has no text for this page; the reading was made by an AI model (Claude Sonnet 5.5) from the line image. Not reviewed. | [hyphen_end] last word continues on the next line without a printed hyphen" index="1">
+      <TextLine id="p043_r02_l002" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:1;} hyphenEnd {offset:40; length:0; printed:false;}" comments="[hyphen_end] last word continues on the next line without a printed hyphen" index="1">
         <Coords points="79,324 1584,324 1584,387 79,387"/>
         <Baseline points="79,371 1584,371"/>
-        <TextEquiv index="1" comments="AI reading of the line image; Gpura has no matching text for this line (not reviewed) (Claude Sonnet 5.5)">
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
           <Unicode>എന്നാൽ മുൻപറഞ്ഞ കാലഘട്ടത്തിനു കുറേ മുൻപു</Unicode>
         </TextEquiv>
         <TextEquiv index="2" conf="0.813" comments="Tesseract reading used for alignment (own encoding)">
           <Unicode>എന്നാല്‍ മുന്‍പറഞ്ഞ കാലഘട്ടത്തിനു കുറേ മുന്‍പു</Unicode>
         </TextEquiv>
       </TextLine>
-      <TextLine id="p043_r02_l003" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:2;} unclear {offset:0; length:48; cert:medium;}" comments="[unclear 0-48] Gpura has no text for this page; the reading was made by an AI model (Claude Sonnet 5.5) from the line image. Not reviewed." index="2">
+      <TextLine id="p043_r02_l003" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:2;}" index="2">
         <Coords points="84,408 1584,408 1584,486 84,486"/>
         <Baseline points="84,462 1584,462"/>
-        <TextEquiv index="1" comments="AI reading of the line image; Gpura has no matching text for this line (not reviewed) (Claude Sonnet 5.5)">
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
           <Unicode>ചിന്തകന്മാർ ഒരു പുതിയ രീതി അല്പാല്പം സ്വീകരിക്കു</Unicode>
         </TextEquiv>
         <TextEquiv index="2" conf="0.810" comments="Tesseract reading used for alignment (own encoding)">
           <Unicode>ചിന്തകന്മാർ ഒരു പുതിയ രീതി അല്പാല്പം സ്വീകരിക്കു</Unicode>
         </TextEquiv>
       </TextLine>
-      <TextLine id="p043_r02_l004" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:3;} unclear {offset:0; length:40; cert:medium;}" comments="[unclear 0-40] Gpura has no text for this page; the reading was made by an AI model (Claude Sonnet 5.5) from the line image. Not reviewed." index="3">
+      <TextLine id="p043_r02_l004" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:3;}" index="3">
         <Coords points="82,498 1584,498 1584,575 82,575"/>
         <Baseline points="82,553 1584,553"/>
-        <TextEquiv index="1" comments="AI reading of the line image; Gpura has no matching text for this line (not reviewed) (Claude Sonnet 5.5)">
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
           <Unicode>വാൻ ആരംഭിച്ചിരുന്നു. ഇതു് എക്സ്പരിമെന്റൽ</Unicode>
         </TextEquiv>
         <TextEquiv index="2" conf="0.519" comments="Tesseract reading used for alignment (own encoding)">
           <Unicode>വാൻ ആരംഭിച്ചിരുന്നു. ഇതു? എക്‌സ്റ്റരിമെന്‍റല്‍</Unicode>
         </TextEquiv>
+        <TextEquiv index="3" comments="Gpura's original string, before encoding normalisation">
+          <Unicode>വാൻ ആരംഭിച്ചിരുന്നു. ഇതു് എക്സ്പരിമെൻറൽ</Unicode>
+        </TextEquiv>
       </TextLine>
-      <TextLine id="p043_r02_l005" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:4;} unclear {offset:0; length:42; cert:medium;}" comments="[unclear 0-42] Gpura has no text for this page; the reading was made by an AI model (Claude Sonnet 5.5) from the line image. Not reviewed." index="4">
+      <TextLine id="p043_r02_l005" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:4;}" index="4">
         <Coords points="81,594 1585,594 1585,668 81,668"/>
         <Baseline points="81,647 1585,647"/>
-        <TextEquiv index="1" comments="AI reading of the line image; Gpura has no matching text for this line (not reviewed) (Claude Sonnet 5.5)">
-          <Unicode>ഫിലാസഫി' അല്ലെങ്കിൽ പരീക്ഷണങ്ങൾ മുഖാന്തിരം</Unicode>
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
+          <Unicode>ഫിലാസഫി? അല്ലെങ്കിൽ പരീക്ഷണങ്ങൾ മുഖാന്തിരം</Unicode>
         </TextEquiv>
         <TextEquiv index="2" conf="0.583" comments="Tesseract reading used for alignment (own encoding)">
           <Unicode>ഫിലാസഫി? അല്ലെങ്കിൽ പരീക്ഷണങ്ങഠം മുഖാന്തിരം</Unicode>
         </TextEquiv>
       </TextLine>
-      <TextLine id="p043_r02_l006" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:5;} unclear {offset:0; length:49; cert:medium;}" comments="[unclear 0-49] Gpura has no text for this page; the reading was made by an AI model (Claude Sonnet 5.5) from the line image. Not reviewed." index="5">
+      <TextLine id="p043_r02_l006" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:5;}" index="5">
         <Coords points="83,686 1585,686 1585,755 83,755"/>
         <Baseline points="83,740 1585,740"/>
-        <TextEquiv index="1" comments="AI reading of the line image; Gpura has no matching text for this line (not reviewed) (Claude Sonnet 5.5)">
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
           <Unicode>തെളിയിക്കാവുന്ന സിദ്ധാന്തങ്ങൾക്കു് അനുക്രമമായുള്ള</Unicode>
         </TextEquiv>
         <TextEquiv index="2" conf="0.243" comments="Tesseract reading used for alignment (own encoding)">
           <Unicode>തെളിയിക്കാരുന്ന സിങ്ധാന്തങ്ങടംക്ക്‌ അന്‍ുക്രമമായുള്ള</Unicode>
         </TextEquiv>
       </TextLine>
-      <TextLine id="p043_r02_l007" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:6;} unclear {offset:0; length:46; cert:medium;} hyphenEnd {offset:46; length:0; printed:false;}" comments="[unclear 0-46] Gpura has no text for this page; the reading was made by an AI model (Claude Sonnet 5.5) from the line image. Not reviewed. | [hyphen_end] last word continues on the next line without a printed hyphen" index="6">
+      <TextLine id="p043_r02_l007" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:6;} hyphenEnd {offset:46; length:0; printed:false;}" comments="[hyphen_end] last word continues on the next line without a printed hyphen" index="6">
         <Coords points="83,781 1586,781 1586,866 83,866"/>
         <Baseline points="83,836 1586,836"/>
-        <TextEquiv index="1" comments="AI reading of the line image; Gpura has no matching text for this line (not reviewed) (Claude Sonnet 5.5)">
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
           <Unicode>തത്ത്വശാസ്ത്രം ആയിരുന്നു. ഇതിൽ പ്രവർത്തിച്ചിരു</Unicode>
         </TextEquiv>
         <TextEquiv index="2" conf="0.649" comments="Tesseract reading used for alignment (own encoding)">
           <Unicode>Comings ആയിരുന്നു. ഇതില്‍ പ്രവര്‍ത്തിച്ചിരു</Unicode>
         </TextEquiv>
       </TextLine>
-      <TextLine id="p043_r02_l008" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:7;} unclear {offset:0; length:43; cert:medium;} hyphenEnd {offset:43; length:0; printed:false;}" comments="[unclear 0-43] Gpura has no text for this page; the reading was made by an AI model (Claude Sonnet 5.5) from the line image. Not reviewed. | [hyphen_end] last word continues on the next line without a printed hyphen" index="7">
+      <TextLine id="p043_r02_l008" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:7;} hyphenEnd {offset:44; length:0; printed:false;}" comments="[hyphen_end] last word continues on the next line without a printed hyphen" index="7">
         <Coords points="91,879 1587,879 1587,961 91,961"/>
         <Baseline points="91,927 1587,927"/>
-        <TextEquiv index="1" comments="AI reading of the line image; Gpura has no matching text for this line (not reviewed) (Claude Sonnet 5.5)">
-          <Unicode>ന്നവർ വെറും മാനസികമായ സമത്ഥനങ്ങൾക്കും അഭ്യൂ</Unicode>
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
+          <Unicode>ന്നവർ വെറും മാനസികമായ സമർത്ഥനങ്ങൾക്കും അഭ്യു</Unicode>
         </TextEquiv>
         <TextEquiv index="2" conf="0.651" comments="Tesseract reading used for alignment (own encoding)">
           <Unicode>ന്നു വർ വെവം മാനസി കമായ സമത്ഥനങ്ങദക്കും അഭയം</Unicode>
         </TextEquiv>
       </TextLine>
-      <TextLine id="p043_r02_l009" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:8;} unclear {offset:0; length:51; cert:medium;}" comments="[unclear 0-51] Gpura has no text for this page; the reading was made by an AI model (Claude Sonnet 5.5) from the line image. Not reviewed." index="8">
+      <TextLine id="p043_r02_l009" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:8;}" index="8">
         <Coords points="86,971 1583,971 1583,1046 86,1046"/>
         <Baseline points="86,1022 1583,1022"/>
-        <TextEquiv index="1" comments="AI reading of the line image; Gpura has no matching text for this line (not reviewed) (Claude Sonnet 5.5)">
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
           <Unicode>ഹങ്ങൾക്കും അത്രമാത്രം തന്നെ വില കല്പിച്ചിരുന്നില്ല.</Unicode>
         </TextEquiv>
         <TextEquiv index="2" conf="0.705" comments="Tesseract reading used for alignment (own encoding)">
           <Unicode>ഹങ്ങറക്കും അത്രമാത്രം തന്നെ വില കല്ിച്ചിരുന്നില്ല.</Unicode>
         </TextEquiv>
       </TextLine>
-      <TextLine id="p043_r02_l010" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:9;} unclear {offset:0; length:41; cert:medium;}" comments="[unclear 0-41] Gpura has no text for this page; the reading was made by an AI model (Claude Sonnet 5.5) from the line image. Not reviewed." index="9">
+      <TextLine id="p043_r02_l010" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:9;}" index="9">
         <Coords points="0,1063 1586,1063 1586,1143 0,1143"/>
         <Baseline points="0,1114 1586,1114"/>
-        <TextEquiv index="1" comments="AI reading of the line image; Gpura has no matching text for this line (not reviewed) (Claude Sonnet 5.5)">
-          <Unicode>ഉദാഹരണത്തിനു്, മദ്ധ്യകാലങ്ങളിൽ യൂറോപ്പിലെ</Unicode>
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
+          <Unicode>ഉദാഹരണത്തിന്, മദ്ധ്യകാലങ്ങളിൽ യൂറോപ്പിലെ</Unicode>
         </TextEquiv>
         <TextEquiv index="2" conf="0.646" comments="Tesseract reading used for alignment (own encoding)">
           <Unicode>] ഉദാഹരണത്തിനു്‌; മങ്യകാലങ്ങളില്‍ യൂറോപ്പിലെ</Unicode>
         </TextEquiv>
       </TextLine>
-      <TextLine id="p043_r02_l011" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:10;} unclear {offset:0; length:50; cert:medium;}" comments="[unclear 0-50] Gpura has no text for this page; the reading was made by an AI model (Claude Sonnet 5.5) from the line image. Not reviewed." index="10">
+      <TextLine id="p043_r02_l011" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:10;}" index="10">
         <Coords points="90,1156 1587,1156 1587,1233 90,1233"/>
         <Baseline points="90,1206 1587,1206"/>
-        <TextEquiv index="1" comments="AI reading of the line image; Gpura has no matching text for this line (not reviewed) (Claude Sonnet 5.5)">
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
           <Unicode>ചിന്തകന്മാരെ വളരെ കുഴക്കിയിരുന്ന ഒരു പ്രശ്നത്തെപ്പ</Unicode>
         </TextEquiv>
         <TextEquiv index="2" conf="0.710" comments="Tesseract reading used for alignment (own encoding)">
           <Unicode>ചിന്തകുന്മാരെ വളരെ കുഴക്കിയിരുന്ന ഒരു soma]</Unicode>
         </TextEquiv>
       </TextLine>
-      <TextLine id="p043_r02_l012" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:11;} unclear {offset:0; length:42; cert:medium;} hyphenEnd {offset:42; length:0; printed:false;}" comments="[unclear 0-42] Gpura has no text for this page; the reading was made by an AI model (Claude Sonnet 5.5) from the line image. Not reviewed. | [hyphen_end] last word continues on the next line without a printed hyphen" index="11">
+      <TextLine id="p043_r02_l012" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:11;} hyphenEnd {offset:42; length:0; printed:false;}" comments="[hyphen_end] last word continues on the next line without a printed hyphen" index="11">
         <Coords points="0,1244 1590,1244 1590,1319 0,1319"/>
         <Baseline points="0,1298 1590,1298"/>
-        <TextEquiv index="1" comments="AI reading of the line image; Gpura has no matching text for this line (not reviewed) (Claude Sonnet 5.5)">
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
           <Unicode>റയാം. അതു് ഒരു ചത്ത മീനിനാണോ ജീവനുള്ള മീനി</Unicode>
         </TextEquiv>
         <TextEquiv index="2" conf="0.761" comments="Tesseract reading used for alignment (own encoding)">
           <Unicode>| റയാം, അതു? ഒരു ചത്ത മീനിനാണോ ജീവനുള്ള Al)</Unicode>
         </TextEquiv>
       </TextLine>
-      <TextLine id="p043_r02_l013" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:12;} unclear {offset:0; length:38; cert:medium;} hyphenEnd {offset:38; length:0; printed:false;}" comments="[unclear 0-38] Gpura has no text for this page; the reading was made by an AI model (Claude Sonnet 5.5) from the line image. Not reviewed. | [hyphen_end] last word continues on the next line without a printed hyphen" index="12">
+      <TextLine id="p043_r02_l013" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:12;} hyphenEnd {offset:38; length:0; printed:false;}" comments="[hyphen_end] last word continues on the next line without a printed hyphen" index="12">
         <Coords points="0,1320 1589,1320 1589,1410 0,1410"/>
         <Baseline points="0,1391 1589,1391"/>
-        <TextEquiv index="1" comments="AI reading of the line image; Gpura has no matching text for this line (not reviewed) (Claude Sonnet 5.5)">
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
           <Unicode>നാണോ തൂക്കം കൂടുതൽ എന്നതായിരുന്നു. അരി</Unicode>
         </TextEquiv>
         <TextEquiv index="2" conf="0.654" comments="Tesseract reading used for alignment (own encoding)">
           <Unicode>| നാണോ തുക്കം കൂടുതല്‍ എന്നതാധിരുന്നു. അരി</Unicode>
         </TextEquiv>
       </TextLine>
-      <TextLine id="p043_r02_l014" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:13;} unclear {offset:0; length:46; cert:medium;}" comments="[unclear 0-46] Gpura has no text for this page; the reading was made by an AI model (Claude Sonnet 5.5) from the line image. Not reviewed." index="13">
+      <TextLine id="p043_r02_l014" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:13;}" index="13">
         <Coords points="89,1431 1591,1431 1591,1515 89,1515"/>
         <Baseline points="89,1483 1591,1483"/>
-        <TextEquiv index="1" comments="AI reading of the line image; Gpura has no matching text for this line (not reviewed) (Claude Sonnet 5.5)">
-          <Unicode>സ്റ്റോട്ടിലിന്റെ മാനസികമായ അഭ്യൂഹം അനുസരിച്ചു്</Unicode>
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
+          <Unicode>സ്റ്റോട്ടിലിന്റെ മാനസികമായ അഭ്യൂഹം അനുസരിച്ച്</Unicode>
         </TextEquiv>
         <TextEquiv index="2" conf="0.289" comments="Tesseract reading used for alignment (own encoding)">
           <Unicode>സ്റ്റോട്ടിജിന്‍െറ മാനസികമായ അഭയം അനുസരിച്ച്‌</Unicode>
         </TextEquiv>
       </TextLine>
-      <TextLine id="p043_r02_l015" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:14;} unclear {offset:0; length:47; cert:medium;} hyphenEnd {offset:47; length:0; printed:false;}" comments="[unclear 0-47] Gpura has no text for this page; the reading was made by an AI model (Claude Sonnet 5.5) from the line image. Not reviewed. | [hyphen_end] last word continues on the next line without a printed hyphen" index="14">
+      <TextLine id="p043_r02_l015" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:14;} hyphenEnd {offset:47; length:0; printed:false;}" comments="[hyphen_end] last word continues on the next line without a printed hyphen" index="14">
         <Coords points="94,1522 1594,1522 1594,1596 94,1596"/>
         <Baseline points="94,1576 1594,1576"/>
-        <TextEquiv index="1" comments="AI reading of the line image; Gpura has no matching text for this line (not reviewed) (Claude Sonnet 5.5)">
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
           <Unicode>ചത്ത മീനിനു് ജീവനുള്ളതിനെക്കാൾ തൂക്കം കുറഞ്ഞിരി</Unicode>
         </TextEquiv>
         <TextEquiv index="2" conf="0.713" comments="Tesseract reading used for alignment (own encoding)">
           <Unicode>ചത്ത മീന്ദിനു ജീവനുള്ളതിനെക്കാഠം തൂക്കം കറഞ്ഞിരി</Unicode>
         </TextEquiv>
       </TextLine>
-      <TextLine id="p043_r02_l016" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:15;} unclear {offset:0; length:40; cert:medium;}" comments="[unclear 0-40] Gpura has no text for this page; the reading was made by an AI model (Claude Sonnet 5.5) from the line image. Not reviewed." index="15">
+      <TextLine id="p043_r02_l016" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:15;}" index="15">
         <Coords points="92,1615 1593,1615 1593,1685 92,1685"/>
         <Baseline points="92,1668 1593,1668"/>
-        <TextEquiv index="1" comments="AI reading of the line image; Gpura has no matching text for this line (not reviewed) (Claude Sonnet 5.5)">
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
           <Unicode>ക്കണം. എന്തെന്നാൽ ചാവുമ്പോൾ ജീവൻ പുറത്തു</Unicode>
         </TextEquiv>
         <TextEquiv index="2" conf="0.611" comments="Tesseract reading used for alignment (own encoding)">
           <Unicode>ക്കണം. മ്ൃന്തെന്നാല്‍ ചാവുമ്പോദം ജീവ൯ പുറത്തു</Unicode>
         </TextEquiv>
       </TextLine>
-      <TextLine id="p043_r02_l017" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:16;} unclear {offset:0; length:43; cert:medium;}" comments="[unclear 0-43] Gpura has no text for this page; the reading was made by an AI model (Claude Sonnet 5.5) from the line image. Not reviewed." index="16">
+      <TextLine id="p043_r02_l017" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:16;}" index="16">
         <Coords points="0,1709 1587,1709 1587,1786 0,1786"/>
         <Baseline points="0,1762 1587,1762"/>
-        <TextEquiv index="1" comments="AI reading of the line image; Gpura has no matching text for this line (not reviewed) (Claude Sonnet 5.5)">
-          <Unicode>പോകുന്നുണ്ടല്ലോ. ഇതു സംബന്ധിച്ചു് യൂറോപ്പിൽ</Unicode>
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
+          <Unicode>പോകുന്നുണ്ടല്ലോ. ഇതു സംബന്ധിച്ച് യൂറോപ്പിൽ</Unicode>
         </TextEquiv>
         <TextEquiv index="2" conf="0.535" comments="Tesseract reading used for alignment (own encoding)">
           <Unicode>I പോകുന്നുണ്ടല്ലോേ. ഇതു സംങബന്ധില്ല' യൂടറാപ്പില്‍</Unicode>
         </TextEquiv>
       </TextLine>
-      <TextLine id="p043_r02_l018" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:17;} unclear {offset:0; length:41; cert:medium;}" comments="[unclear 0-41] Gpura has no text for this page; the reading was made by an AI model (Claude Sonnet 5.5) from the line image. Not reviewed." index="17">
+      <TextLine id="p043_r02_l018" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:17;}" index="17">
         <Coords points="0,1802 1595,1802 1595,1890 0,1890"/>
         <Baseline points="0,1853 1595,1853"/>
-        <TextEquiv index="1" comments="AI reading of the line image; Gpura has no matching text for this line (not reviewed) (Claude Sonnet 5.5)">
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
           <Unicode>പല വിദ്യാകേന്ദ്രങ്ങളിലും വൻപിച്ച വാദകോലാഹ</Unicode>
         </TextEquiv>
         <TextEquiv index="2" conf="0.560" comments="Tesseract reading used for alignment (own encoding)">
           <Unicode>1 പല വിട്യാകേന്ദ്രങ്ങളിലും വന്‍പിച്ച വാടകോലാഫഥാ</Unicode>
         </TextEquiv>
       </TextLine>
-      <TextLine id="p043_r02_l019" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:18;} unclear {offset:0; length:45; cert:medium;}" comments="[unclear 0-45] Gpura has no text for this page; the reading was made by an AI model (Claude Sonnet 5.5) from the line image. Not reviewed." index="18">
+      <TextLine id="p043_r02_l019" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:18;}" index="18">
         <Coords points="10,1890 1597,1890 1597,1971 10,1971"/>
         <Baseline points="10,1945 1597,1945"/>
-        <TextEquiv index="1" comments="AI reading of the line image; Gpura has no matching text for this line (not reviewed) (Claude Sonnet 5.5)">
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
           <Unicode>ലങ്ങൾ നടന്നു. പണ്ഡിതന്മാർ രണ്ടു കക്ഷിയായിപ്പി</Unicode>
         </TextEquiv>
         <TextEquiv index="2" conf="0.522" comments="Tesseract reading used for alignment (own encoding)">
           <Unicode>” ലങ്ങാംം ടന്നു, ചണ്ഡിതന്മാർ രണ്ടു കക്ഷിയായിപ്പി</Unicode>
         </TextEquiv>
       </TextLine>
-      <TextLine id="p043_r02_l020" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:19;} unclear {offset:0; length:42; cert:medium;}" comments="[unclear 0-42] Gpura has no text for this page; the reading was made by an AI model (Claude Sonnet 5.5) from the line image. Not reviewed." index="19">
+      <TextLine id="p043_r02_l020" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:19;}" index="19">
         <Coords points="97,1986 1594,1986 1594,2067 97,2067"/>
         <Baseline points="97,2038 1594,2038"/>
-        <TextEquiv index="1" comments="AI reading of the line image; Gpura has no matching text for this line (not reviewed) (Claude Sonnet 5.5)">
-          <Unicode>രിഞ്ഞു് അന്യോന്യം കശ്നമായി എതുത്തു. എന്നാൽ</Unicode>
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
+          <Unicode>രിഞ്ഞു് അന്യോന്യം കർശനമായി എത്തുന്നു. എന്നാൽ</Unicode>
         </TextEquiv>
         <TextEquiv index="2" conf="0.403" comments="Tesseract reading used for alignment (own encoding)">
           <Unicode>olson) അബ്യോസ്യം കഗനുമായി എതുത്തു. എന്നാല്‍</Unicode>
         </TextEquiv>
       </TextLine>
-      <TextLine id="p043_r02_l021" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:20;} unclear {offset:0; length:43; cert:medium;}" comments="[unclear 0-43] Gpura has no text for this page; the reading was made by an AI model (Claude Sonnet 5.5) from the line image. Not reviewed." index="20">
+      <TextLine id="p043_r02_l021" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:20;}" index="20">
         <Coords points="94,2079 1594,2079 1594,2164 94,2164"/>
         <Baseline points="94,2133 1594,2133"/>
-        <TextEquiv index="1" comments="AI reading of the line image; Gpura has no matching text for this line (not reviewed) (Claude Sonnet 5.5)">
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
           <Unicode>ആർക്കും ഇതിന്റെ സത്യാവസ്ഥ ഒന്നു പരിശോധിച്ചു</Unicode>
         </TextEquiv>
         <TextEquiv index="2" conf="0.509" comments="Tesseract reading used for alignment (own encoding)">
           <Unicode>ആക്കും ഇതിന്‍െറ സത്യാവസ്ഥ ഒന്നു പരിശോധിച്ചു</Unicode>
         </TextEquiv>
       </TextLine>
-      <TextLine id="p043_r02_l022" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:21;} unclear {offset:0; length:40; cert:medium;}" comments="[unclear 0-40] Gpura has no text for this page; the reading was made by an AI model (Claude Sonnet 5.5) from the line image. Not reviewed." index="21">
+      <TextLine id="p043_r02_l022" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:21;}" index="21">
         <Coords points="96,2171 1594,2171 1594,2246 96,2246"/>
         <Baseline points="96,2223 1594,2223"/>
-        <TextEquiv index="1" comments="AI reading of the line image; Gpura has no matching text for this line (not reviewed) (Claude Sonnet 5.5)">
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
           <Unicode>നോക്കുവാൻ തോന്നിയില്ല. ഒടുവിൽ ഒരു ഗവേഷകൻ</Unicode>
         </TextEquiv>
         <TextEquiv index="2" conf="0.875" comments="Tesseract reading used for alignment (own encoding)">
           <Unicode>നോക്കുവാന്‍ തോന്നിയില്ല. ഒടുവില്‍ ഒരു ഗവേഷകന്‍</Unicode>
         </TextEquiv>
       </TextLine>
-      <TextLine id="p043_r02_l023" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:22;} unclear {offset:0; length:42; cert:medium;}" comments="[unclear 0-42] Gpura has no text for this page; the reading was made by an AI model (Claude Sonnet 5.5) from the line image. Not reviewed." index="22">
+      <TextLine id="p043_r02_l023" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:22;}" index="22">
         <Coords points="95,2250 1595,2250 1595,2343 95,2343"/>
         <Baseline points="95,2318 1595,2318"/>
-        <TextEquiv index="1" comments="AI reading of the line image; Gpura has no matching text for this line (not reviewed) (Claude Sonnet 5.5)">
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
           <Unicode>ഒരു മീനിനെ ജീവനോടെ പിടിച്ചു തൂക്കി നോക്കി;</Unicode>
         </TextEquiv>
         <TextEquiv index="2" conf="0.923" comments="Tesseract reading used for alignment (own encoding)">
           <Unicode>ഒരു മീനിനെ ജീവനോടെ പിടിച്ച തൂക്കി നോക്കിഃ</Unicode>
         </TextEquiv>
       </TextLine>
-      <TextLine id="p043_r02_l024" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:23;} unclear {offset:0; length:46; cert:medium;}" comments="[unclear 0-46] Gpura has no text for this page; the reading was made by an AI model (Claude Sonnet 5.5) from the line image. Not reviewed." index="23">
+      <TextLine id="p043_r02_l024" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:23;}" index="23">
         <Coords points="0,2364 1596,2364 1596,2440 0,2440"/>
         <Baseline points="0,2421 1596,2421"/>
-        <TextEquiv index="1" comments="AI reading of the line image; Gpura has no matching text for this line (not reviewed) (Claude Sonnet 5.5)">
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
           <Unicode>അതിനെ മുറിക്കാതെ കൊന്നും തൂക്കി നോക്കി. തൂക്കം</Unicode>
         </TextEquiv>
         <TextEquiv index="2" conf="0.760" comments="Tesseract reading used for alignment (own encoding)">
           <Unicode>[ അതിനെ മുറിക്കാതെ കൊന്നും തൂക്ക] നോക്കിം തൂക്കം</Unicode>
         </TextEquiv>
       </TextLine>
-      <TextLine id="p043_r02_l025" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:24;} unclear {offset:0; length:45; cert:medium;} hyphenEnd {offset:45; length:0; printed:false;}" comments="[unclear 0-45] Gpura has no text for this page; the reading was made by an AI model (Claude Sonnet 5.5) from the line image. Not reviewed. | [hyphen_end] last word continues on the next line without a printed hyphen" index="24">
+      <TextLine id="p043_r02_l025" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:24;} hyphenEnd {offset:45; length:0; printed:false;}" comments="[hyphen_end] last word continues on the next line without a printed hyphen" index="24">
         <Coords points="100,2464 1597,2464 1597,2547 100,2547"/>
         <Baseline points="100,2515 1597,2515"/>
-        <TextEquiv index="1" comments="AI reading of the line image; Gpura has no matching text for this line (not reviewed) (Claude Sonnet 5.5)">
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
           <Unicode>രണ്ടും തുല്യമായിരുന്നു. ഇങ്ങനെ ആ ഗംഭീരമായ വാദ</Unicode>
         </TextEquiv>
         <TextEquiv index="2" conf="0.822" comments="Tesseract reading used for alignment (own encoding)">
@@ -286,26 +289,26 @@
         </TextEquiv>
       </TextLine>
       <TextEquiv index="1" comments="lines joined with newline">
-        <Unicode>മുഖ്യമായും തത്ത്വശാസ്ത്രമെന്നു കൊണ്ടാടിവന്നിരുന്നതു്.
+        <Unicode>മുഖ്യമായും തത്വശാസ്ത്രമെന്നു കൊണ്ടാടിവന്നിരുന്നതു്.
 എന്നാൽ മുൻപറഞ്ഞ കാലഘട്ടത്തിനു കുറേ മുൻപു
 ചിന്തകന്മാർ ഒരു പുതിയ രീതി അല്പാല്പം സ്വീകരിക്കു
 വാൻ ആരംഭിച്ചിരുന്നു. ഇതു് എക്സ്പരിമെന്റൽ
-ഫിലാസഫി' അല്ലെങ്കിൽ പരീക്ഷണങ്ങൾ മുഖാന്തിരം
+ഫിലാസഫി? അല്ലെങ്കിൽ പരീക്ഷണങ്ങൾ മുഖാന്തിരം
 തെളിയിക്കാവുന്ന സിദ്ധാന്തങ്ങൾക്കു് അനുക്രമമായുള്ള
 തത്ത്വശാസ്ത്രം ആയിരുന്നു. ഇതിൽ പ്രവർത്തിച്ചിരു
-ന്നവർ വെറും മാനസികമായ സമത്ഥനങ്ങൾക്കും അഭ്യൂ
+ന്നവർ വെറും മാനസികമായ സമർത്ഥനങ്ങൾക്കും അഭ്യു
 ഹങ്ങൾക്കും അത്രമാത്രം തന്നെ വില കല്പിച്ചിരുന്നില്ല.
-ഉദാഹരണത്തിനു്, മദ്ധ്യകാലങ്ങളിൽ യൂറോപ്പിലെ
+ഉദാഹരണത്തിന്, മദ്ധ്യകാലങ്ങളിൽ യൂറോപ്പിലെ
 ചിന്തകന്മാരെ വളരെ കുഴക്കിയിരുന്ന ഒരു പ്രശ്നത്തെപ്പ
 റയാം. അതു് ഒരു ചത്ത മീനിനാണോ ജീവനുള്ള മീനി
 നാണോ തൂക്കം കൂടുതൽ എന്നതായിരുന്നു. അരി
-സ്റ്റോട്ടിലിന്റെ മാനസികമായ അഭ്യൂഹം അനുസരിച്ചു്
+സ്റ്റോട്ടിലിന്റെ മാനസികമായ അഭ്യൂഹം അനുസരിച്ച്
 ചത്ത മീനിനു് ജീവനുള്ളതിനെക്കാൾ തൂക്കം കുറഞ്ഞിരി
 ക്കണം. എന്തെന്നാൽ ചാവുമ്പോൾ ജീവൻ പുറത്തു
-പോകുന്നുണ്ടല്ലോ. ഇതു സംബന്ധിച്ചു് യൂറോപ്പിൽ
+പോകുന്നുണ്ടല്ലോ. ഇതു സംബന്ധിച്ച് യൂറോപ്പിൽ
 പല വിദ്യാകേന്ദ്രങ്ങളിലും വൻപിച്ച വാദകോലാഹ
 ലങ്ങൾ നടന്നു. പണ്ഡിതന്മാർ രണ്ടു കക്ഷിയായിപ്പി
-രിഞ്ഞു് അന്യോന്യം കശ്നമായി എതുത്തു. എന്നാൽ
+രിഞ്ഞു് അന്യോന്യം കർശനമായി എത്തുന്നു. എന്നാൽ
 ആർക്കും ഇതിന്റെ സത്യാവസ്ഥ ഒന്നു പരിശോധിച്ചു
 നോക്കുവാൻ തോന്നിയില്ല. ഒടുവിൽ ഒരു ഗവേഷകൻ
 ഒരു മീനിനെ ജീവനോടെ പിടിച്ചു തൂക്കി നോക്കി;

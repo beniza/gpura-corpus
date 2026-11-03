@@ -14,6 +14,18 @@
 - [ ] Smaller site images (`docs/specimen/*/pNNN.jpg`, up to 0.8 MB each): lower quality or WebP.
 - [ ] Multi-column pages, maps, illustrations and reader handwriting (see README, "Not handled yet").
 
+## Reproduction benchmark (pipeline/tools/repro_bench.py, repro_cases.json)
+
+- [ ] Many-column pages (weekly, newspaper): text placement 43–76 %. Our line boxes (Surya) and Sarvam's
+  lines disagree; use Sarvam's block coordinates and reading order for regions and columns.
+- [ ] Sarvam sometimes reflows a paragraph into one long line (English picture page, back cover): split it
+  over the detected lines, or fall back to the AI step for those lines.
+- [ ] Sarvam invents text on blank lower halves of pages (show-through); the pipeline already keeps it out
+  (unplaced). Exclude unplaced Sarvam blocks from the benchmark reference, or flag them as suspect.
+- [ ] Contents pages where Tesseract cannot read the rows (Narayana p. 14): place the source lines by order
+  and geometry instead of by Tesseract similarity.
+- [ ] Title pages with large display type: ink coverage 58 %.
+
 ## Site
 
 - [ ] **Edit in the Reading (from TEI) view** (deferred, 3 Nov 2026): correct a line in the browser and
@@ -55,7 +67,8 @@ open questions are line/layout detection and text for books Gpura has no text fo
   narrow column gap, so a few regions span columns. Needs a column/region step (Surya's layout model).
 - [ ] Ruled-table pages are not flagged as complex (our detector merges their cells across columns).
 - [ ] Hand-checked answers for 2–3 complex pages (newspaper, table, picture) so the comparison is scored.
-- [ ] **Sarvam Vision** for books with no Gpura text: Indic document model (22 languages + English) with
+- [x] **Sarvam Vision** for books with no Gpura text (done 3 Nov 2026: `sarvam` stage; output identical to
+  Gpura's own text; whole Newton book encoded with it; see the paper, sections 6.5–6.6). Original note:: Indic document model (22 languages + English) with
   layout blocks, reading order and tables. Company-reported Malayalam word accuracy 91.6 vs Gemini 3 Pro
   87.1, Google Cloud Vision 88.3, Surya 83.8, Claude Opus 4.5 82.9 (Sarvam Indic OCR Bench). Test on pages
   that have Gpura text (score like the Sonnet test), then on Newton. Needs an API key; price unknown;

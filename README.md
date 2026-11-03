@@ -172,3 +172,14 @@ in `TODO.md`.
   Rachana (traditional orthography; passes all of Glyph-Sleuth's Malayalam shaping checks) or Noto Serif
   Malayalam (reformed orthography: detached ു/ൂ signs). RIT Rachana 1.5.2 is served from `docs/fonts/`
   under its OFL licence (`docs/fonts/rit-rachana/LICENSE.txt`).
+
+## Text for pages Gpura has no text for: Sarvam Vision
+
+    bash: echo SARVAM_API_KEY=... > .env           # once; .env is git-ignored
+    python3 run.py items/<item> --stages sarvam,align,page,alto,tei,html,check,site
+
+The `sarvam` stage sends each page with no Gpura text to Sarvam AI's Document AI *Parse* (Sarvam Vision)
+and keeps the result (`ocr/sarvam_NNNN.json`, `.txt`). Its text is used exactly like Gpura's and is
+labelled as Sarvam's in PAGE-XML and TEI. Sarvam's output matched Gpura's existing text character for
+character on the pages compared, so the corpus stays consistent. About 0.42 credits per page.
+Reproduction benchmark: `python3 pipeline/tools/repro_bench.py` (cases in `pipeline/tools/repro_cases.json`).

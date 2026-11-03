@@ -35,6 +35,7 @@ AUTO_PROVENANCE = {
                     "string before the corpus encoding rules were applied.",
     "text1": "Gpura's existing OCR text, aligned automatically (not reviewed)",
     "text1_tesseract": "Tesseract reading (mal+eng); Gpura has no matching text for this line (not reviewed)",
+    "text1_sarvam": "Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)",
     "text1_ai": "AI reading of the line image; Gpura has no matching text for this line (not reviewed)",
     "text2": "Tesseract reading used for alignment (own encoding)",
     "text3": "Gpura's original string, before encoding normalisation",
@@ -44,7 +45,7 @@ AUTO_PROVENANCE = {
     "alto_software": "Gpura corpus pipeline (auto_lines.py) + Tesseract",
 }
 PROV = {**AUTO_PROVENANCE, **ITEM.get("provenance", {})}
-for _k in ("text1_tesseract", "text1_ai"):
+for _k in ("text1_tesseract", "text1_ai", "text1_sarvam"):
     PROV.setdefault(_k, AUTO_PROVENANCE[_k])
 
 

@@ -1,0 +1,448 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<PcGts xmlns="http://schema.primaresearch.org/PAGE/gts/pagecontent/2019-07-15" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schema.primaresearch.org/PAGE/gts/pagecontent/2019-07-15 http://schema.primaresearch.org/PAGE/gts/pagecontent/2019-07-15/pagecontent.xsd" pcGtsId="p008_pcgts">
+  <Metadata>
+    <Creator>Gpura digitisation pipeline demo - layout-encoding stage (page/json2page.py, lxml)</Creator>
+    <Created>2026-11-03T09:52:41+00:00</Created>
+    <LastChange>2026-11-03T09:52:41+00:00</LastChange>
+    <Comments>Source: 'Balavyakaranam' (Malayalam, 1903), Gpura archive, IIIF canvas 8, printed page 12.. Layout and readings come from ocr/p008.lines.json: line boxes detected automatically (projection profiles); TextEquiv index=1 is Gpura's existing OCR text for the line, aligned automatically and NOT reviewed; index=2 is the Tesseract reading used for the alignment (mal+eng) with its mean word confidence; index=3 (where present) is Gpura's string before the corpus encoding rules were applied. Coordinates are pixels of the full-resolution scan (1739 x 2746) assumed identical to the IIIF full/max image. Line-level flags (underlined/unclear/damage/inkOver/hyphenEnd) are in TextLine/@custom (Transkribus-style 'tag {offset:N; length:M; ...}' code-point offsets) with notes in @comments.</Comments>
+    <MetadataItem type="other" name="iiif-canvas" value="https://iiif.gpura.org/IDAF-BookReader/1903-balavyakaranam-glp/canvas/8"/>
+    <MetadataItem type="other" name="printed-page-number" value="12."/>
+  </Metadata>
+  <Page imageFilename="https://iiif.gpura.org/iiif/3/1903-balavyakaranam-glp__0008.jpg/full/max/0/default.jpg" imageWidth="1739" imageHeight="2746" type="content" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" textLineOrder="top-to-bottom">
+    <!-- IIIF canvas: https://iiif.gpura.org/IDAF-BookReader/1903-balavyakaranam-glp/canvas/8 -->
+    <ReadingOrder>
+      <OrderedGroup id="p008_ro" caption="printed text flow (lines.json reading_order)">
+        <RegionRefIndexed index="0" regionRef="p008_r01"/>
+        <RegionRefIndexed index="1" regionRef="p008_r02"/>
+        <RegionRefIndexed index="2" regionRef="p008_r03"/>
+        <RegionRefIndexed index="3" regionRef="p008_r04"/>
+        <RegionRefIndexed index="4" regionRef="p008_r05"/>
+        <RegionRefIndexed index="5" regionRef="p008_r06"/>
+        <RegionRefIndexed index="6" regionRef="p008_r07"/>
+      </OrderedGroup>
+    </ReadingOrder>
+    <TextRegion id="p008_r01" custom="readingOrder {index:0;}" type="header" readingDirection="left-to-right" textLineOrder="top-to-bottom" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" production="printed">
+      <Coords points="553,162 1094,162 1094,208 553,208"/>
+      <TextLine id="p008_r01_l001" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:0;}" index="0">
+        <Coords points="553,162 1094,162 1094,208 553,208"/>
+        <Baseline points="553,198 1094,198"/>
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
+          <Unicode>IV അനുക്രമണിക.</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.366" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>അനുക്രമണിക.,</Unicode>
+        </TextEquiv>
+        <TextEquiv index="3" comments="Gpura's original string, before encoding normalisation">
+          <Unicode>IV                                  അനുക്രമണിക.</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextEquiv index="1" comments="lines joined with newline">
+        <Unicode>IV അനുക്രമണിക.</Unicode>
+      </TextEquiv>
+    </TextRegion>
+    <TextRegion id="p008_r02" custom="readingOrder {index:1;}" type="paragraph" readingDirection="left-to-right" textLineOrder="top-to-bottom" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" production="printed">
+      <Coords points="176,237 302,237 302,264 176,264"/>
+      <TextLine id="p008_r02_l001" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:0;}" index="0">
+        <Coords points="176,237 302,237 302,264 176,264"/>
+        <Baseline points="176,258 302,258"/>
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
+          <Unicode>പാഠം.</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.801" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>പാഠം,</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextEquiv index="1" comments="lines joined with newline">
+        <Unicode>പാഠം.</Unicode>
+      </TextEquiv>
+    </TextRegion>
+    <TextRegion id="p008_r03" custom="readingOrder {index:2;}" type="paragraph" readingDirection="left-to-right" textLineOrder="top-to-bottom" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" production="printed">
+      <Coords points="1533,249 1659,249 1659,277 1533,277"/>
+      <TextLine id="p008_r03_l001" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:0;} unclear {offset:0; length:5; cert:low;}" comments="[unclear 0-5] No line in Sarvam's text for this page matches this printed line; the reading is raw Tesseract output." index="0">
+        <Coords points="1533,249 1659,249 1659,277 1533,277"/>
+        <Baseline points="1533,271 1659,271"/>
+        <TextEquiv index="1" comments="Tesseract reading (mal+eng); Gpura has no matching text for this line (not reviewed)">
+          <Unicode>ഭാഗം.</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.929" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>ഭാഗം.</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextEquiv index="1" comments="lines joined with newline">
+        <Unicode>ഭാഗം.</Unicode>
+      </TextEquiv>
+    </TextRegion>
+    <TextRegion id="p008_r04" custom="readingOrder {index:3;}" type="page-number" readingDirection="left-to-right" textLineOrder="top-to-bottom" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" production="printed">
+      <Coords points="198,290 286,290 286,332 198,332"/>
+      <TextLine id="p008_r04_l001" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:0;} unclear {offset:0; length:3; cert:low;}" comments="[unclear 0-3] No line in Sarvam's text for this page matches this printed line; the reading is raw Tesseract output." index="0">
+        <Coords points="198,290 286,290 286,332 198,332"/>
+        <Baseline points="198,323 286,323"/>
+        <TextEquiv index="1" comments="Tesseract reading (mal+eng); Gpura has no matching text for this line (not reviewed)">
+          <Unicode>12.</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.945" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>12.</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextEquiv index="1" comments="lines joined with newline">
+        <Unicode>12.</Unicode>
+      </TextEquiv>
+    </TextRegion>
+    <TextRegion id="p008_r05" custom="readingOrder {index:4;}" type="paragraph" readingDirection="left-to-right" textLineOrder="top-to-bottom" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" production="printed">
+      <Coords points="197,290 1657,290 1657,1957 197,1957"/>
+      <TextLine id="p008_r05_l001" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:0;}" index="0">
+        <Coords points="312,290 1656,290 1656,347 312,347"/>
+        <Baseline points="312,335 1656,335"/>
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
+          <Unicode>12. വാക്യം. A Sentence . . . . . . . . . . . . 25</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.545" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>വാക്യം. A Sentence. . . . . . . 95</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p008_r05_l002" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:1;}" index="1">
+        <Coords points="315,365 1656,365 1656,425 315,425"/>
+        <Baseline points="315,413 1656,413"/>
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
+          <Unicode>ആകാംക്ഷ. Expectancy . . . . . . . . . . . . 25</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.550" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>ആകാംക്ഷ. Hxpectancy . . . . . 95</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p008_r05_l003" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:2;}" index="2">
+        <Coords points="314,445 1656,445 1656,502 314,502"/>
+        <Baseline points="314,490 1656,490"/>
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
+          <Unicode>അദ്ധ്യാഹാരം. Ellipsis . . . . . . . . . . . . 25</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.689" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>അഭ്യ്യാഹാരം. Ellipsis . . . . . . . 95</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p008_r05_l004" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:3;}" index="3">
+        <Coords points="314,524 1654,524 1654,580 314,580"/>
+        <Baseline points="314,568 1654,568"/>
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
+          <Unicode>സംക്ഷിപുവാക്യം. Contracted Sentence . . . . . . 25</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.836" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>സംക്ഷിപ്യവാക്യം. Contracted Sentence . . . . . . , . 25</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p008_r05_l005" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:4;}" index="4">
+        <Coords points="311,601 1654,601 1654,656 311,656"/>
+        <Baseline points="311,645 1654,645"/>
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
+          <Unicode>ലൂപൂവാക്യം. Elliptic Sentence . . . . . . . . 25</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.709" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>ലുപ്യവാക്യം. Hlliptic Sentence . . . . . . . . . . . 2b</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p008_r05_l006" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:5;}" index="5">
+        <Coords points="197,674 1654,674 1654,732 197,732"/>
+        <Baseline points="197,720 1654,720"/>
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
+          <Unicode>13. ലിംഗം. Gender . . . . . . . . . . . . . . 28</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.763" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>18. ലിംഗം. Gender . . . . . . . . 58</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p008_r05_l007" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:6;}" index="6">
+        <Coords points="317,747 1653,747 1653,805 317,805"/>
+        <Baseline points="317,793 1653,793"/>
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
+          <Unicode>പുല്ലിംഗം. Masculine Gender . . . . . . . . . . 28</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.849" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>പുല്ലിംഗം, Masculine Gender. . , . . . . . . . . . 28</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p008_r05_l008" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:7;}" index="7">
+        <Coords points="313,820 1655,820 1655,889 313,889"/>
+        <Baseline points="313,875 1655,875"/>
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
+          <Unicode>സ്ത്രീലിംഗം. Feminine Gender . . . . . . . . . . 29</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.826" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>(സ്രീലിംഗം. Feminine Gender . . . . . . . . . . . 29</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p008_r05_l009" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:8;}" index="8">
+        <Coords points="314,903 1655,903 1655,958 314,958"/>
+        <Baseline points="314,947 1655,947"/>
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
+          <Unicode>നപുംസകലിംഗം. Neuter Gender . . . . . . . . . . 29</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.770" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>നപുംസകലിംഗം. Neuter Gender , . . . . = . . . . 29</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p008_r05_l010" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:9;}" index="9">
+        <Coords points="314,972 1657,972 1657,1038 314,1038"/>
+        <Baseline points="314,1024 1657,1024"/>
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
+          <Unicode>പ്രകൃതി. Base or Stem . . . . . . . . . . . . . 30</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.672" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>പ്രകൃതി. Baseor Stem. . . . . . . . . . . . . . 30</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p008_r05_l011" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:10;}" index="10">
+        <Coords points="314,1052 1656,1052 1656,1114 314,1114"/>
+        <Baseline points="314,1101 1656,1101"/>
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
+          <Unicode>പ്രത്യയം. Termination . . . . . . . . . . . . . 30</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.819" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>പ്രത്യയം. Termination. . . . . . . . . . . . . . 30</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p008_r05_l012" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:11;}" index="11">
+        <Coords points="315,1135 1656,1135 1656,1196 315,1196"/>
+        <Baseline points="315,1183 1656,1183"/>
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
+          <Unicode>ലിംഗപ്രത്യയങ്ങൾ. Terminations denoting Gender . . . . . 30</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.809" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>ലിംഗപ്രത്യയങ്ങന. Terminations denoting Gender. . . . . 30</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p008_r05_l013" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:12;}" index="12">
+        <Coords points="201,1215 1655,1215 1655,1265 201,1265"/>
+        <Baseline points="201,1255 1655,1255"/>
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
+          <Unicode>14. വചനം. Number . . . . . . . . . . . . . . 33</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.763" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>14, വചനം. Number . . . . , . . . . . . . . . . 38</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p008_r05_l014" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:13;}" index="13">
+        <Coords points="312,1287 1656,1287 1656,1340 312,1340"/>
+        <Baseline points="312,1329 1656,1329"/>
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
+          <Unicode>ഏകവചനം. Singular Number . . . . . . . . . . . 33</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.835" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>ഏകവചനം. Singular Number . . . . . . . . . . . 33</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p008_r05_l015" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:14;}" index="14">
+        <Coords points="314,1361 1656,1361 1656,1418 314,1418"/>
+        <Baseline points="314,1406 1656,1406"/>
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
+          <Unicode>ബഹുവചനം. Plural Number . . . . . . . . . . . . 33</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.772" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>ബലള്ളവചനം. Plural Namber . . . . . . . . . . . 33</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p008_r05_l016" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:15;}" index="15">
+        <Coords points="198,1437 1655,1437 1655,1496 198,1496"/>
+        <Baseline points="198,1484 1655,1484"/>
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
+          <Unicode>15. വിഭക്തി. Case . . . . . . . . . . . . . . . 35</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.568" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>15. ലിഭക്തി. Case . 88</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p008_r05_l017" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:16;}" index="16">
+        <Coords points="199,1528 1654,1528 1654,1572 199,1572"/>
+        <Baseline points="199,1563 1654,1563"/>
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
+          <Unicode>16. ബലക്രിയ. Strong Verb . . . . . . . . . . . . 40</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.722" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>16. ബലക്രിയ. Strong നം 40</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p008_r05_l018" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:17;}" index="17">
+        <Coords points="314,1597 1655,1597 1655,1651 314,1651"/>
+        <Baseline points="314,1640 1655,1640"/>
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
+          <Unicode>അബലക്രിയ. Weak Verb . . . . . . . . . . . . . 40</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.810" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>അബലക്രിയ. Weak Verb . . . . . . . . . . . . 40</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p008_r05_l019" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:18;}" index="18">
+        <Coords points="310,1677 1654,1677 1654,1729 310,1729"/>
+        <Baseline points="310,1718 1654,1718"/>
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
+          <Unicode>ധാതു, Root . . . . . . . . . . . . . . . . . . 40</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.574" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>wo, Root . . . . . . . . 0... . 40</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p008_r05_l020" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:19;}" index="19">
+        <Coords points="314,1759 1652,1759 1652,1806 314,1806"/>
+        <Baseline points="314,1796 1652,1796"/>
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
+          <Unicode>ത്രികാലങ്ങൾ. Three Tenses . . . . . . . . . . . . 41</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.771" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>രരികാലങ്ങ൦ം. Three Tenses . . . . . + . . . . . . 41</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p008_r05_l021" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:20;}" index="20">
+        <Coords points="198,1829 1654,1829 1654,1881 198,1881"/>
+        <Baseline points="198,1870 1654,1870"/>
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
+          <Unicode>17. പുരുഷന്മാർ. Persons . . . . . . . . . . . . . 45</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.740" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>17. പുരുഷന്മാര. Persons . . . . . . . . . . . . . . 4b</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p008_r05_l022" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:21;}" index="21">
+        <Coords points="315,1911 1654,1911 1654,1957 315,1957"/>
+        <Baseline points="315,1947 1654,1947"/>
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
+          <Unicode>വിധി. Imperative Mood . . . . . . . . . . . . . 45</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.824" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>aNd). Imperative Mood . . . . . . . . . . . . . 4b</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextEquiv index="1" comments="lines joined with newline">
+        <Unicode>12. വാക്യം. A Sentence . . . . . . . . . . . . 25
+ആകാംക്ഷ. Expectancy . . . . . . . . . . . . 25
+അദ്ധ്യാഹാരം. Ellipsis . . . . . . . . . . . . 25
+സംക്ഷിപുവാക്യം. Contracted Sentence . . . . . . 25
+ലൂപൂവാക്യം. Elliptic Sentence . . . . . . . . 25
+13. ലിംഗം. Gender . . . . . . . . . . . . . . 28
+പുല്ലിംഗം. Masculine Gender . . . . . . . . . . 28
+സ്ത്രീലിംഗം. Feminine Gender . . . . . . . . . . 29
+നപുംസകലിംഗം. Neuter Gender . . . . . . . . . . 29
+പ്രകൃതി. Base or Stem . . . . . . . . . . . . . 30
+പ്രത്യയം. Termination . . . . . . . . . . . . . 30
+ലിംഗപ്രത്യയങ്ങൾ. Terminations denoting Gender . . . . . 30
+14. വചനം. Number . . . . . . . . . . . . . . 33
+ഏകവചനം. Singular Number . . . . . . . . . . . 33
+ബഹുവചനം. Plural Number . . . . . . . . . . . . 33
+15. വിഭക്തി. Case . . . . . . . . . . . . . . . 35
+16. ബലക്രിയ. Strong Verb . . . . . . . . . . . . 40
+അബലക്രിയ. Weak Verb . . . . . . . . . . . . . 40
+ധാതു, Root . . . . . . . . . . . . . . . . . . 40
+ത്രികാലങ്ങൾ. Three Tenses . . . . . . . . . . . . 41
+17. പുരുഷന്മാർ. Persons . . . . . . . . . . . . . 45
+വിധി. Imperative Mood . . . . . . . . . . . . . 45</Unicode>
+      </TextEquiv>
+    </TextRegion>
+    <TextRegion id="p008_r06" custom="readingOrder {index:5;}" type="paragraph" readingDirection="left-to-right" textLineOrder="top-to-bottom" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" production="printed">
+      <Coords points="199,1992 285,1992 285,2028 199,2028"/>
+      <TextLine id="p008_r06_l001" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:0;} unclear {offset:0; length:3; cert:low;}" comments="[unclear 0-3] No line in Sarvam's text for this page matches this printed line; the reading is raw Tesseract output." index="0">
+        <Coords points="199,1992 285,1992 285,2028 199,2028"/>
+        <Baseline points="199,2020 285,2020"/>
+        <TextEquiv index="1" comments="Tesseract reading (mal+eng); Gpura has no matching text for this line (not reviewed)">
+          <Unicode>18.</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.957" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>18.</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextEquiv index="1" comments="lines joined with newline">
+        <Unicode>18.</Unicode>
+      </TextEquiv>
+    </TextRegion>
+    <TextRegion id="p008_r07" custom="readingOrder {index:6;}" type="paragraph" readingDirection="left-to-right" textLineOrder="top-to-bottom" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" production="printed">
+      <Coords points="310,1986 1656,1986 1656,2565 310,2565"/>
+      <TextLine id="p008_r07_l001" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:0;}" index="0">
+        <Coords points="310,1986 1654,1986 1654,2034 310,2034"/>
+        <Baseline points="310,2024 1654,2024"/>
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
+          <Unicode>18. ഭാവക്രിയ. Affirmative Verb . . . . . . . . . . 47</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.720" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>ഭാവക്രിയ. Affirmative Verb. . . . . . . . . . . . 47</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p008_r07_l002" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:1;}" index="1">
+        <Coords points="313,2062 1654,2062 1654,2110 313,2110"/>
+        <Baseline points="313,2100 1654,2100"/>
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
+          <Unicode>നിഷേധക്രിയ. Negative Verb . . . . . . . . . . . 47</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.718" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>നിഷേധക്രിയ. Negative Verb . . , . . , . . . . . 47</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p008_r07_l003" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:2;}" index="2">
+        <Coords points="311,2135 1654,2135 1654,2188 311,2188"/>
+        <Baseline points="311,2177 1654,2177"/>
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
+          <Unicode>പൂണ്ണക്രിയ. Finite Verb . . . . . . . . . . . . . 49</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.662" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>പൂണ്ണക്രിയ. Finite Verb . . . . . . . . . . . . . 49</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p008_r07_l004" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:3;}" index="3">
+        <Coords points="311,2211 1655,2211 1655,2265 311,2265"/>
+        <Baseline points="311,2254 1655,2254"/>
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
+          <Unicode>അപൂർണ്ണക്രിയ. Incomplete Verb . . . . . . . . . . . 49</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.746" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>അപൂണ്ണക്രീയ. Incomplete Verb. . . . . . . . . . , 49</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p008_r07_l005" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:4;}" index="4">
+        <Coords points="311,2284 1655,2284 1655,2343 311,2343"/>
+        <Baseline points="311,2331 1655,2331"/>
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
+          <Unicode>ശബ്ദന്യനം. Relative Participles . . . . . . . . . 49</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.494" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>Coen No. Relative Participles Cee ... 49</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p008_r07_l006" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:5;}" index="5">
+        <Coords points="311,2362 1656,2362 1656,2416 311,2416"/>
+        <Baseline points="311,2405 1656,2405"/>
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
+          <Unicode>ക്രിയാപുരുഷനാമം. Verbal Nouns of Agency . . . . . . 50</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.801" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>ക്രിയാപുരുഷനാമം. Verbal Nouns of Agency . . . . . . HO</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p008_r07_l007" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:6;}" index="6">
+        <Coords points="312,2430 1651,2430 1651,2510 312,2510"/>
+        <Baseline points="312,2494 1651,2494"/>
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
+          <Unicode>ക്രിയാന്യൂനം. Verbal Participles . . . . . . . . . . 51</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.704" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>ക്രിയാസ്കനം. Verbal Participles. . . . . ൦ bl</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextLine id="p008_r07_l008" primaryLanguage="Malayalam" primaryScript="Mlym - Malayalam" readingDirection="left-to-right" production="printed" custom="readingOrder {index:7;}" index="7">
+        <Coords points="314,2513 1655,2513 1655,2565 314,2565"/>
+        <Baseline points="314,2554 1655,2554"/>
+        <TextEquiv index="1" comments="Sarvam Vision (Document AI) reading of the page, aligned automatically; Gpura has no text for this page (not reviewed)">
+          <Unicode>സംഭാവന. Conditional . . . . . . . . . . . . . 52</Unicode>
+        </TextEquiv>
+        <TextEquiv index="2" conf="0.763" comments="Tesseract reading used for alignment (own encoding)">
+          <Unicode>സംഭാവന. Conditional . . . . . . . . . . . . . 59</Unicode>
+        </TextEquiv>
+      </TextLine>
+      <TextEquiv index="1" comments="lines joined with newline">
+        <Unicode>18. ഭാവക്രിയ. Affirmative Verb . . . . . . . . . . 47
+നിഷേധക്രിയ. Negative Verb . . . . . . . . . . . 47
+പൂണ്ണക്രിയ. Finite Verb . . . . . . . . . . . . . 49
+അപൂർണ്ണക്രിയ. Incomplete Verb . . . . . . . . . . . 49
+ശബ്ദന്യനം. Relative Participles . . . . . . . . . 49
+ക്രിയാപുരുഷനാമം. Verbal Nouns of Agency . . . . . . 50
+ക്രിയാന്യൂനം. Verbal Participles . . . . . . . . . . 51
+സംഭാവന. Conditional . . . . . . . . . . . . . 52</Unicode>
+      </TextEquiv>
+    </TextRegion>
+  </Page>
+</PcGts>

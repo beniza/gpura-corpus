@@ -15,7 +15,7 @@
     </Processing>
     <Processing ID="proc_conv">
       <processingCategory>other</processingCategory>
-      <processingDateTime>2026-11-03T04:33:25+00:00</processingDateTime>
+      <processingDateTime>2026-11-03T09:50:08+00:00</processingDateTime>
       <processingStepDescription>PAGE 2019-07-15 -&gt; ALTO 4.4 from page/p002.page.xml; word boxes estimated (tag geom_est).</processingStepDescription>
       <processingSoftware>
         <softwareName>page/page2alto.py (Gpura pipeline demo)</softwareName>
@@ -23,10 +23,28 @@
     </Processing>
   </Description>
   <Styles/>
-  <Tags/>
+  <Tags>
+    <LayoutTag ID="lt_paragraph" TYPE="structure" LABEL="paragraph" DESCRIPTION="PAGE TextRegion/@type=paragraph"/>
+    <OtherTag ID="prod_printed" TYPE="production" LABEL="printed" DESCRIPTION="PAGE @production=printed"/>
+    <OtherTag ID="geom_est" TYPE="geometry" LABEL="estimated word boxes" DESCRIPTION="PAGE source is line-level; String HPOS/VPOS/WIDTH/HEIGHT were estimated by splitting the line box along the baseline in proportion to code-point counts. Do not use for word-level highlighting precision."/>
+  </Tags>
   <Layout>
     <Page ID="p002" PAGECLASS="content" PHYSICAL_IMG_NR="2" WIDTH="1751" HEIGHT="2643" PROCESSINGREFS="proc_ocr proc_conv">
-      <PrintSpace ID="p002_ps" HPOS="0" VPOS="0" WIDTH="1751" HEIGHT="2643"/>
+      <PrintSpace ID="p002_ps" HPOS="0" VPOS="0" WIDTH="1751" HEIGHT="2643">
+        <TextBlock ID="p002_r01" HPOS="1279" VPOS="2568" WIDTH="147" HEIGHT="10" LANG="ml" TAGREFS="lt_paragraph prod_printed">
+          <Shape>
+            <Polygon POINTS="1279,2568 1426,2568 1426,2578 1279,2578"/>
+          </Shape>
+          <TextLine ID="p002_r01_l001" HPOS="1279" VPOS="2568" WIDTH="147" HEIGHT="10" BASELINE="1279,2577 1426,2577" LANG="ml" TAGREFS="geom_est">
+            <Shape>
+              <Polygon POINTS="1279,2568 1426,2568 1426,2578 1279,2578"/>
+            </Shape>
+            <String ID="p002_r01_l001_w001" CONTENT="191297" HPOS="1279" VPOS="2568" WIDTH="147" HEIGHT="10">
+              <ALTERNATIVE PURPOSE="Tesseract reading used for alignment">181287</ALTERNATIVE>
+            </String>
+          </TextLine>
+        </TextBlock>
+      </PrintSpace>
     </Page>
   </Layout>
 </alto>

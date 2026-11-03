@@ -218,6 +218,7 @@ def build(page_id, now):
                 if l["text"]:
                     tess_only = data.get("automatic") and any(f.get("type") == "unclear" and f.get("cert") == "low" for f in l.get("flags", []))
                     te = E(tl, "TextEquiv", index=1, comments=PROV["text1_ai"] + f" ({l['ai_model']})" if l.get("source") == "ai"
+                                 else PROV["text1_sarvam"] if l.get("source") == "sarvam"
                                  else PROV["text1_tesseract" if tess_only else "text1"])
                     E(te, "Unicode").text = l["text"]
                     if l.get("text_tesseract"):

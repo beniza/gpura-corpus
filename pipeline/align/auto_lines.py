@@ -370,15 +370,36 @@ def ocr_lines(img, lines, pid):
         y += c.height + pad
     key_ = json.dumps([l["bbox"] for l in lines], default=int)
     if not cache.exists() or not cache.with_suffix(".key").exists() or cache.with_suffix(".key").read_text() != key_:
-        strip = Image.new("L", (width, y + pad), 255)
-        for c, o in zip(crops, offs):
-            strip.paste(c, (pad, o))
+        # Tesseract cannot take an image taller than ~32k pixels (a newspaper page has 800+ lines), so the
+        # stack is read in chunks of at most 20,000 pixels; word tops are shifted back to strip coordinates
+        chunks, start = [], 0
+        for k, (c, o) in enumerate(zip(crops, offs)):
+            if o + c.height - offs[start] > 20000 and k > start:
+                chunks.append((start, k)); start = k
+        chunks.append((start, len(crops)))
+        header, rows_out = None, []
         tmp = ROOT / "ocr" / f"{pid}.strip.png"
-        strip.save(tmp)
-        r = subprocess.run([tesseract_bin(), str(tmp), "stdout", "--tessdata-dir", TESSDATA, "-l", "mal+eng",
-                            "--psm", "6", "-c", "tessedit_create_tsv=1"], capture_output=True, check=True)
-        tmp.unlink()
-        cache.write_bytes(r.stdout)
+        for a, b in chunks:
+            top = offs[a] - pad
+            strip = Image.new("L", (width, offs[b - 1] + crops[b - 1].height + pad - top), 255)
+            for c, o in zip(crops[a:b], offs[a:b]):
+                strip.paste(c, (pad, o - top))
+            strip.save(tmp)
+            r = subprocess.run([tesseract_bin(), str(tmp), "stdout", "--tessdata-dir", TESSDATA, "-l", "mal+eng",
+                                "--psm", "6", "-c", "tessedit_create_tsv=1"], capture_output=True, check=True)
+            out = r.stdout.decode("utf-8").splitlines()
+            if not out:
+                continue
+            header = header or out[0]
+            cols = out[0].split("\t")
+            ti = cols.index("top")
+            for row in out[1:]:
+                f = row.split("\t")
+                if len(f) == len(cols):
+                    f[ti] = str(int(f[ti]) + top)
+                    rows_out.append("\t".join(f))
+        tmp.unlink(missing_ok=True)
+        cache.write_text((header or "") + "\n" + "\n".join(rows_out) + "\n", encoding="utf-8", newline="\n")
         cache.with_suffix(".key").write_text(key_)
     rows = csv.DictReader(io.StringIO(cache.read_text(encoding="utf-8")), delimiter="	", quoting=csv.QUOTE_NONE)
     words = [w for w in rows if w["level"] == "5" and w["text"].strip()]
@@ -399,15 +420,18 @@ def ocr_lines(img, lines, pid):
 
 # --------------------------------------------------------------------------- archive text
 def archive_lines(n):
-    f = ROOT / "ocr" / f"gpura_existing_{n:04d}.txt"
+    """The page's existing text, one entry per printed line: Gpura's OCR, or where Gpura has none, the
+    Sarvam Vision reading written by the sarvam stage (pipeline/fetch/sarvam_text.py)."""
     out, block = [], 0
-    if not f.exists():
-        return out
-    for raw in f.read_text(encoding="utf-8").splitlines():
-        if not raw.strip():
-            block += 1
+    for src, f in (("gpura", ROOT / "ocr" / f"gpura_existing_{n:04d}.txt"), ("sarvam", ROOT / "ocr" / f"sarvam_{n:04d}.txt")):
+        if not f.exists() or not f.read_text(encoding="utf-8").strip():
             continue
-        out.append({"raw": raw.strip(), "text": encode(raw), "block": block})
+        for raw in f.read_text(encoding="utf-8").splitlines():
+            if not raw.strip():
+                block += 1
+                continue
+            out.append({"raw": raw.strip(), "text": encode(raw), "block": block, "src": src})
+        return out
     return out
 
 
@@ -439,6 +463,51 @@ def align(lines, arch):
             i -= 1
         else:
             j -= 1
+    return pairs
+
+
+def fill_gaps(lines, arch, pairs):
+    """Between two matched lines (and before the first / after the last), if as many detected lines as
+    source lines are left unmatched, pair them in order.  Tesseract reads some lines too badly to match
+    (contents rows full of leader dots), but the order and the count still say which is which.  Such
+    pairs keep their low similarity, so they are flagged as weak matches."""
+    anchors = sorted(pairs.items())
+    bounds = [(-1, -1)] + [(i, j) for i, (j, _) in anchors] + [(len(lines), len(arch))]
+    filled = dict(pairs)
+    for (i0, j0), (i1, j1) in zip(bounds, bounds[1:]):
+        di = list(range(i0 + 1, i1)); dj = list(range(j0 + 1, j1))
+        if not dj or not (0 <= len(di) - len(dj) <= 2):
+            continue
+        # every source line in the gap goes to one detected line, in order; up to two detected lines
+        # (a column label, a rule) are left out, choosing the placement with the highest total similarity
+        S = [[sim(lines[i]["text_tesseract"], arch[j]["text"]) for j in dj] for i in di]
+        n, m = len(di), len(dj)
+        f = [[-1e9] * (m + 1) for _ in range(n + 1)]
+        f[0][0] = 0
+        for a in range(1, n + 1):
+            for b in range(0, min(a, m) + 1):
+                f[a][b] = max(f[a - 1][b], f[a - 1][b - 1] + S[a - 1][b - 1] if b else -1e9)
+        a, b = n, m
+        while b:
+            if f[a][b] == f[a - 1][b - 1] + S[a - 1][b - 1]:
+                filled[di[a - 1]] = (dj[b - 1], S[a - 1][b - 1])
+                b -= 1
+            a -= 1
+    return filled
+
+
+def align_any_order(lines, arch):
+    """Best one-to-one matches regardless of order, for pages whose reading order is uncertain
+    (multi-column pages detected by Surya): pairs taken greedily, highest similarity first."""
+    cand = sorted(((sim(l["text_tesseract"], g["text"]), i, j) for i, l in enumerate(lines) for j, g in enumerate(arch)),
+                  reverse=True)
+    pairs, used = {}, set()
+    for s_, i, j in cand:
+        if s_ < MIN_SIM + 15:                              # stricter than the ordered alignment: no order to lean on
+            break
+        if i not in pairs and j not in used:
+            pairs[i] = (j, s_)
+            used.add(j)
     return pairs
 
 
@@ -491,15 +560,17 @@ def build_page(pid, prev_tail, det):
     lines = det["lines"]
     ocr_lines(img, lines, pid)
     arch = archive_lines(n)
-    pairs = align(lines, arch)
+    surya = det["info"]["name"] == "surya"
+    pairs = align_any_order(lines, arch) if surya else fill_gaps(lines, arch, align(lines, arch))
 
     kept = []
     for i, l in enumerate(lines):
         if i in pairs:
             j, s = pairs[i]
-            l.update(text=arch[j]["text"], raw=arch[j]["raw"], block=arch[j]["block"], score=round(s, 1), arch=j)
+            l.update(text=arch[j]["text"], raw=arch[j]["raw"], block=arch[j]["block"], score=round(s, 1), arch=j,
+                     src=arch[j]["src"])
             kept.append(l)
-        elif l["conf"] and (l["conf"] >= 0.6 or not arch) and len(key(l["text_tesseract"])) >= 2:
+        elif (surya or (l["conf"] and (l["conf"] >= 0.6 or not arch))) and len(key(l["text_tesseract"])) >= 2:
             l.update(text=encode(l["text_tesseract"]), raw=None, block=None, score=None, arch=None)
             kept.append(l)                             # printed line Gpura's text lacks
     confs = sorted(l["conf"] or 0 for l in kept)      # the same lines the AI export measures
@@ -509,7 +580,7 @@ def build_page(pid, prev_tail, det):
         non_text = round(confs[len(confs) // 2], 2)   # cover, endpaper or plate: Tesseract reads only noise
         kept = []
     used = {pairs[i][0] for i in pairs}
-    unplaced = [{"text": g["text"], "archive_line": j + 1} for j, g in enumerate(arch) if j not in used]
+    unplaced = [{"text": g["text"], "archive_line": j + 1, "source": g["src"]} for j, g in enumerate(arch) if j not in used]
 
     # regions: consecutive lines of one archive block, same column, no large vertical gap
     pitch = lines[0]["pitch"] if lines else 80
@@ -559,11 +630,13 @@ def build_page(pid, prev_tail, det):
                 l["text"] = encode(ai["text"])        # the box is unchanged, so the reading belongs to this line
                 flags.append({"type": "unclear", "start": 0, "end": len(l["text"]), "cert": "medium",
                               "source": "ai", "note": ("Gpura has no text for this page; " if not arch else
+                                       "No line in Sarvam's text for this page matches this printed line; " if arch[0]["src"] == "sarvam" else
                                                        "No line in Gpura's text matches this printed line; ") +
                               f"the reading was made by an AI model ({ai['model']}) from the line image. Not reviewed."})
             elif l["raw"] is None:
                 flags.append({"type": "unclear", "start": 0, "end": len(l["text"]), "cert": "low",
                               "note": ("Gpura has no text for this page; " if not arch else
+                                       "No line in Sarvam's text for this page matches this printed line; " if arch[0]["src"] == "sarvam" else
                                        "No line in Gpura's text matches this printed line; ") +
                                       "the reading is raw Tesseract output."})
             elif l["score"] < 60:
@@ -572,6 +645,8 @@ def build_page(pid, prev_tail, det):
             line = {"id": lid, "bbox": [x, y, w, h], "baseline": [[x, l["baseline_y"]], [x + w, l["baseline_y"]]],
                     "text_tesseract": l["text_tesseract"], "conf": l["conf"], "text": l["text"], "hyphen_end": False,
                     "flags": flags}
+            if l.get("src") == "sarvam":
+                line["source"] = "sarvam"                  # Gpura has no text here; Sarvam Vision's reading
             if l["raw"] and l["raw"] != l["text"]:
                 line["text_archive"] = l["raw"]
             if l["score"] is not None:
@@ -606,7 +681,7 @@ def build_page(pid, prev_tail, det):
                 ("Line boxes: Surya text-line detector (complex page: " + "; ".join(det["info"]["reasons"]) + "); "
                  "reading order by XY-cut. Baselines are estimated." if det["info"]["name"] == "surya" else
                  "Line boxes: projection profiles on dark, low-chroma pixels (coloured reader ink ignored). Baselines are estimated."),
-                "text = Gpura's existing OCR line, aligned to the detected line by fuzzy match against Tesseract (mal+eng, psm 6); "
+                "text = Gpura's existing OCR line (or, where Gpura has none, Sarvam Vision's reading: source = sarvam), aligned to the detected line by fuzzy match against Tesseract (mal+eng, psm 6); "
                 "text_archive keeps Gpura's original where the corpus encoding rules changed it; match = similarity 0-100.",
                 "Encoding rules applied to Gpura's text: NFC; chillu+ZWJ and dot reph -> atomic chillus; NTA (ൻറ, ൻ്റ) -> ന്റ; TTA (ററ) -> റ്റ.",
                 "hyphen_end is ESTIMATED from the book's own vocabulary (Gpura's full text) and Malayalam script rules; the print uses no hyphen.",

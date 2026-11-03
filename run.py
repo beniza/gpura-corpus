@@ -97,8 +97,8 @@ def build_site(item):
         return next(f for f in (item / "images" / f"{p}.png", item / "images" / f"{p}.jpg") if f.exists())
     for p in pages:
         im = Image.open(image(p)).convert("RGB")
-        w = 1400
-        im.resize((w, round(im.height * w / im.width)), Image.LANCZOS).save(out / f"{p}.jpg", quality=80, optimize=True, progressive=True)
+        w = 1200
+        im.resize((w, round(im.height * w / im.width)), Image.LANCZOS).save(out / f"{p}.jpg", quality=72, optimize=True, progressive=True)
         for ext in ("page.xml", "alto.xml"):
             shutil.copy(item / "page" / f"{p}.{ext}", out / f"{p}.{ext}")
         n = p[1:].zfill(4)
@@ -181,7 +181,7 @@ def main():
         item = Path(sh(args, REPO, capture=True).strip().splitlines()[-1]).resolve()
         stages = (a.stages or ",".join(DEFAULT)).split(",")
     stages = [s.strip() for s in stages if s.strip()]
-    if set(stages) & {"align", "ocr", "ai-export", "site"}:
+    if set(stages) & {"align", "ocr", "ai-export", "sarvam", "site"}:
         ensure_images(item)
     for s in stages:
         print(f"[{s}]", flush=True)
@@ -192,6 +192,7 @@ def main():
                + (["--pages", pages] if pages else []), item)
         elif s == "align": sh([py, PIPE / "align/auto_lines.py"], item)
         elif s == "ai-export": sh([py, PIPE / "ai/export_strips.py"], item)
+        elif s == "sarvam": sh([py, PIPE / "fetch/sarvam_text.py"], item)
         elif s == "ocr": sh([py, PIPE / "ocr/run_ocr.py"], item)
         elif s == "compare": sh([py, PIPE / "ocr/compare.py"], item)
         elif s == "page": sh([py, PIPE / "page/json2page.py"], item)

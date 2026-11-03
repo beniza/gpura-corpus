@@ -15,7 +15,7 @@
     </Processing>
     <Processing ID="proc_conv">
       <processingCategory>other</processingCategory>
-      <processingDateTime>2026-11-03T04:33:25+00:00</processingDateTime>
+      <processingDateTime>2026-11-03T09:50:08+00:00</processingDateTime>
       <processingStepDescription>PAGE 2019-07-15 -&gt; ALTO 4.4 from page/p008.page.xml; word boxes estimated (tag geom_est).</processingStepDescription>
       <processingSoftware>
         <softwareName>page/page2alto.py (Gpura pipeline demo)</softwareName>
@@ -23,10 +23,43 @@
     </Processing>
   </Description>
   <Styles/>
-  <Tags/>
+  <Tags>
+    <LayoutTag ID="lt_heading" TYPE="structure" LABEL="heading" DESCRIPTION="PAGE TextRegion/@type=heading"/>
+    <LayoutTag ID="lt_paragraph" TYPE="structure" LABEL="paragraph" DESCRIPTION="PAGE TextRegion/@type=paragraph"/>
+    <OtherTag ID="prod_printed" TYPE="production" LABEL="printed" DESCRIPTION="PAGE @production=printed"/>
+    <OtherTag ID="geom_est" TYPE="geometry" LABEL="estimated word boxes" DESCRIPTION="PAGE source is line-level; String HPOS/VPOS/WIDTH/HEIGHT were estimated by splitting the line box along the baseline in proportion to code-point counts. Do not use for word-level highlighting precision."/>
+    <OtherTag ID="p008_r02_l001_t01" TYPE="unclear" LABEL="unclear (medium)" DESCRIPTION="unclear on code points 0-2 (end-exclusive) of TextLine p008_r02_l001; cert=medium; note: Weak match between Gpura's line and the Tesseract reading of this line (similarity 40.0)."/>
+  </Tags>
   <Layout>
     <Page ID="p008" PAGECLASS="content" PHYSICAL_IMG_NR="8" WIDTH="1751" HEIGHT="2643" PROCESSINGREFS="proc_ocr proc_conv">
-      <PrintSpace ID="p008_ps" HPOS="0" VPOS="0" WIDTH="1751" HEIGHT="2643"/>
+      <PrintSpace ID="p008_ps" HPOS="0" VPOS="0" WIDTH="1751" HEIGHT="2643">
+        <TextBlock ID="p008_r01" HPOS="744" VPOS="1371" WIDTH="7" HEIGHT="4" LANG="ml" TAGREFS="lt_heading prod_printed" IDNEXT="p008_r02">
+          <Shape>
+            <Polygon POINTS="744,1371 751,1371 751,1375 744,1375"/>
+          </Shape>
+          <TextLine ID="p008_r01_l001" HPOS="744" VPOS="1371" WIDTH="7" HEIGHT="4" BASELINE="744,1373 751,1373" LANG="ml" TAGREFS="geom_est">
+            <Shape>
+              <Polygon POINTS="744,1371 751,1371 751,1375 744,1375"/>
+            </Shape>
+            <String ID="p008_r01_l001_w001" CONTENT="83" HPOS="744" VPOS="1371" WIDTH="7" HEIGHT="4">
+              <ALTERNATIVE PURPOSE="Tesseract reading used for alignment">3</ALTERNATIVE>
+            </String>
+          </TextLine>
+        </TextBlock>
+        <TextBlock ID="p008_r02" HPOS="1307" VPOS="1733" WIDTH="39" HEIGHT="4" LANG="ml" TAGREFS="lt_paragraph prod_printed">
+          <Shape>
+            <Polygon POINTS="1307,1733 1346,1733 1346,1737 1307,1737"/>
+          </Shape>
+          <TextLine ID="p008_r02_l001" HPOS="1307" VPOS="1733" WIDTH="39" HEIGHT="4" BASELINE="1307,1736 1346,1736" LANG="ml" TAGREFS="geom_est">
+            <Shape>
+              <Polygon POINTS="1307,1733 1346,1733 1346,1737 1307,1737"/>
+            </Shape>
+            <String ID="p008_r02_l001_w001" CONTENT="82" HPOS="1307" VPOS="1733" WIDTH="39" HEIGHT="4" TAGREFS="p008_r02_l001_t01">
+              <ALTERNATIVE PURPOSE="Tesseract reading used for alignment">E22)</ALTERNATIVE>
+            </String>
+          </TextLine>
+        </TextBlock>
+      </PrintSpace>
     </Page>
   </Layout>
 </alto>

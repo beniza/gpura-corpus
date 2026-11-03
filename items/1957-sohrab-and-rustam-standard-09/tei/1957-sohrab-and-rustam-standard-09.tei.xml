@@ -21,6 +21,10 @@
           <resp>fallback readings where Gpura's text has no matching line</resp>
           <name>Tesseract OCR (mal+eng)</name>
         </respStmt>
+        <respStmt xml:id="sarvam">
+          <resp>page text where Gpura has none (Document AI parse, aligned to the detected lines; not reviewed)</resp>
+          <name>Sarvam Vision 2.1 (Sarvam AI)</name>
+        </respStmt>
         <respStmt xml:id="ai">
           <resp>readings of line images where Gpura has no text (not reviewed)</resp>
           <name>Claude Sonnet 5.5</name>
@@ -108,13 +112,15 @@
         <zone xml:id="p010_r04_l008" type="line" points="457,1034 843,1034 843,1071 457,1071"/>
         <zone xml:id="p010_r04_l009" type="line" points="456,1078 809,1078 809,1120 456,1120"/>
       </zone>
-      <zone xml:id="p010_r05" type="paragraph" points="83,1170 289,1170 289,1257 83,1257">
+      <zone xml:id="p010_r05" type="heading" points="84,1170 289,1170 289,1208 84,1208">
         <zone xml:id="p010_r05_l001" type="line" points="84,1170 289,1170 289,1208 84,1208"/>
-        <zone xml:id="p010_r05_l002" type="line" points="83,1217 287,1217 287,1257 83,1257"/>
       </zone>
-      <zone xml:id="p010_r06" type="paragraph" points="229,1129 838,1129 838,1219 229,1219">
-        <zone xml:id="p010_r06_l001" type="line" points="229,1129 838,1129 838,1173 229,1173"/>
-        <zone xml:id="p010_r06_l002" type="line" points="308,1172 838,1172 838,1219 308,1219"/>
+      <zone xml:id="p010_r06" type="heading" points="83,1217 287,1217 287,1257 83,1257">
+        <zone xml:id="p010_r06_l001" type="line" points="83,1217 287,1217 287,1257 83,1257"/>
+      </zone>
+      <zone xml:id="p010_r07" type="paragraph" points="229,1129 838,1129 838,1219 229,1219">
+        <zone xml:id="p010_r07_l001" type="line" points="229,1129 838,1129 838,1173 229,1173"/>
+        <zone xml:id="p010_r07_l002" type="line" points="308,1172 838,1172 838,1219 308,1219"/>
       </zone>
     </surface>
   </facsimile>
@@ -122,12 +128,12 @@
     <body>
       <div type="text">
         <pb facs="#p010"/>
-        <p facs="#p010_r01"><lb facs="#p010_r01_l001"/><unclear xml:id="f-p010_r01_l001-1" cert="medium" reason="ai-reading" resp="#ai">king himself came out to meet him.</unclear>
-<lb facs="#p010_r01_l002"/><unclear xml:id="f-p010_r01_l002-1" cert="medium" reason="ai-reading" resp="#ai">But Rustam was angry and said, “Your</unclear>
-<lb facs="#p010_r01_l003"/><unclear xml:id="f-p010_r01_l003-1" cert="medium" reason="ai-reading" resp="#ai">men have stolen my horse. If I do not</unclear>
-<lb facs="#p010_r01_l004"/><unclear xml:id="f-p010_r01_l004-1" cert="medium" reason="ai-reading" resp="#ai">get it back I will kill you and burn your</unclear>
-<lb facs="#p010_r01_l005"/><unclear xml:id="f-p010_r01_l005-1" cert="medium" reason="ai-reading" resp="#ai">city.” So the king sent out his men to</unclear>
-<lb facs="#p010_r01_l006"/><unclear xml:id="f-p010_r01_l006-1" cert="medium" reason="ai-reading" resp="#ai">look for the horse.</unclear></p>
+        <p facs="#p010_r01"><lb facs="#p010_r01_l001"/>king himself came out to meet him.
+<lb facs="#p010_r01_l002"/>But Rustam was angry and said, "Your
+<lb facs="#p010_r01_l003"/>men have stolen my horse. If I do not
+<lb facs="#p010_r01_l004"/>get it back I will kill you and burn your
+<lb facs="#p010_r01_l005"/>city." So the king sent out his men to
+<lb facs="#p010_r01_l006"/>look for the horse.</p>
         <p facs="#p010_r02"><lb facs="#p010_r02_l001"/><unclear xml:id="f-p010_r02_l001-1" cert="medium" reason="ai-reading" resp="#ai">palace with the king. That night as he</unclear>
 <lb facs="#p010_r02_l002"/><unclear xml:id="f-p010_r02_l002-1" cert="medium" reason="ai-reading" resp="#ai">lay asleep, he had a sweet dream. He</unclear>
 <lb facs="#p010_r02_l003"/><unclear xml:id="f-p010_r02_l003-1" cert="medium" reason="ai-reading" resp="#ai">thought he saw a beautiful girl standing</unclear>
@@ -137,48 +143,39 @@
           <lb facs="#p010_r03_l001"/>
           <unclear xml:id="f-p010_r03_l001-1" cert="medium" reason="ai-reading" resp="#ai">Meanwhile Rustam stayed in the</unclear>
         </p>
-        <p facs="#p010_r04"><lb facs="#p010_r04_l001"/><unclear xml:id="f-p010_r04_l001-1" cert="medium" reason="ai-reading" resp="#ai">saw a beautiful girl</unclear>
-<lb facs="#p010_r04_l002"/><unclear xml:id="f-p010_r04_l002-1" cert="medium" reason="ai-reading" resp="#ai">standing before him.</unclear>
-<lb facs="#p010_r04_l003"/><unclear xml:id="f-p010_r04_l003-1" cert="medium" reason="ai-reading" resp="#ai">She was fairer than</unclear>
-<lb facs="#p010_r04_l004"/><unclear xml:id="f-p010_r04_l004-1" cert="medium" reason="ai-reading" resp="#ai">all the other ladies</unclear>
-<lb facs="#p010_r04_l005"/><unclear xml:id="f-p010_r04_l005-1" cert="medium" reason="ai-reading" resp="#ai">that he had ever</unclear>
-<lb facs="#p010_r04_l006"/><unclear xml:id="f-p010_r04_l006-1" cert="medium" reason="ai-reading" resp="#ai">seen. Even at first</unclear>
-<lb facs="#p010_r04_l007"/><unclear xml:id="f-p010_r04_l007-1" cert="medium" reason="ai-reading" resp="#ai">sight he fell in love</unclear>
-<lb facs="#p010_r04_l008"/><unclear xml:id="f-p010_r04_l008-1" cert="medium" reason="ai-reading" resp="#ai">with her. “Who are</unclear>
-<lb facs="#p010_r04_l009"/><unclear xml:id="f-p010_r04_l009-1" cert="medium" reason="ai-reading" resp="#ai">you?” he asked her.</unclear></p>
-        <p facs="#p010_r05"><lb facs="#p010_r05_l001"/><unclear xml:id="f-p010_r05_l001-1" cert="medium" reason="ai-reading" resp="#ai">“and I am</unclear>
-<lb facs="#p010_r05_l002"/><unclear xml:id="f-p010_r05_l002-1" cert="medium" reason="ai-reading" resp="#ai">Samangan.”</unclear></p>
-        <p facs="#p010_r06"><lb facs="#p010_r06_l001"/><unclear xml:id="f-p010_r06_l001-1" cert="medium" reason="ai-reading" resp="#ai">am Tahminah,” she answered,</unclear>
-<lb facs="#p010_r06_l002"/><unclear xml:id="f-p010_r06_l002-1" cert="medium" reason="ai-reading" resp="#ai">the daughter of the king of</unclear></p>
+        <p facs="#p010_r04"><lb facs="#p010_r04_l001"/>saw a beautiful girl
+<lb facs="#p010_r04_l002"/>standing before him.
+<lb facs="#p010_r04_l003"/>She was fairer than
+<lb facs="#p010_r04_l004"/>all the other ladies
+<lb facs="#p010_r04_l005"/>that he had ever
+<lb facs="#p010_r04_l006"/>seen. Even at first
+<lb facs="#p010_r04_l007"/>sight he fell in love
+<lb facs="#p010_r04_l008"/>with her. "Who are
+<lb facs="#p010_r04_l009"/>you?" he asked her.</p>
+      </div>
+      <div type="section">
+        <head facs="#p010_r05">
+          <lb facs="#p010_r05_l001"/>
+          <unclear xml:id="f-p010_r05_l001-1" cert="medium" reason="ai-reading" resp="#ai">“and I am</unclear>
+        </head>
+      </div>
+      <div type="section">
+        <head facs="#p010_r06"><lb facs="#p010_r06_l001"/>Samangan."</head>
+        <p facs="#p010_r07"><lb facs="#p010_r07_l001"/>"I am Tahminah," she answered,
+<lb facs="#p010_r07_l002"/>"and I am the daughter of the king of</p>
       </div>
     </body>
     <back>
       <div type="notes">
-        <note type="unclear" target="#f-p010_r01_l001-1" resp="#pipeline" xml:lang="en">Gpura has no text for this page; the reading was made by an AI model (Claude Sonnet 5.5) from the line image. Not reviewed.</note>
-        <note type="unclear" target="#f-p010_r01_l002-1" resp="#pipeline" xml:lang="en">Gpura has no text for this page; the reading was made by an AI model (Claude Sonnet 5.5) from the line image. Not reviewed.</note>
-        <note type="unclear" target="#f-p010_r01_l003-1" resp="#pipeline" xml:lang="en">Gpura has no text for this page; the reading was made by an AI model (Claude Sonnet 5.5) from the line image. Not reviewed.</note>
-        <note type="unclear" target="#f-p010_r01_l004-1" resp="#pipeline" xml:lang="en">Gpura has no text for this page; the reading was made by an AI model (Claude Sonnet 5.5) from the line image. Not reviewed.</note>
-        <note type="unclear" target="#f-p010_r01_l005-1" resp="#pipeline" xml:lang="en">Gpura has no text for this page; the reading was made by an AI model (Claude Sonnet 5.5) from the line image. Not reviewed.</note>
-        <note type="unclear" target="#f-p010_r01_l006-1" resp="#pipeline" xml:lang="en">Gpura has no text for this page; the reading was made by an AI model (Claude Sonnet 5.5) from the line image. Not reviewed.</note>
-        <note type="unclear" target="#f-p010_r02_l001-1" resp="#pipeline" xml:lang="en">Gpura has no text for this page; the reading was made by an AI model (Claude Sonnet 5.5) from the line image. Not reviewed.</note>
-        <note type="unclear" target="#f-p010_r02_l002-1" resp="#pipeline" xml:lang="en">Gpura has no text for this page; the reading was made by an AI model (Claude Sonnet 5.5) from the line image. Not reviewed.</note>
-        <note type="unclear" target="#f-p010_r02_l003-1" resp="#pipeline" xml:lang="en">Gpura has no text for this page; the reading was made by an AI model (Claude Sonnet 5.5) from the line image. Not reviewed.</note>
-        <note type="unclear" target="#f-p010_r02_l004-1" resp="#pipeline" xml:lang="en">Gpura has no text for this page; the reading was made by an AI model (Claude Sonnet 5.5) from the line image. Not reviewed.</note>
-        <note type="unclear" target="#f-p010_r02_l005-1" resp="#pipeline" xml:lang="en">Gpura has no text for this page; the reading was made by an AI model (Claude Sonnet 5.5) from the line image. Not reviewed.</note>
-        <note type="unclear" target="#f-p010_r03_l001-1" resp="#pipeline" xml:lang="en">Gpura has no text for this page; the reading was made by an AI model (Claude Sonnet 5.5) from the line image. Not reviewed.</note>
-        <note type="unclear" target="#f-p010_r04_l001-1" resp="#pipeline" xml:lang="en">Gpura has no text for this page; the reading was made by an AI model (Claude Sonnet 5.5) from the line image. Not reviewed.</note>
-        <note type="unclear" target="#f-p010_r04_l002-1" resp="#pipeline" xml:lang="en">Gpura has no text for this page; the reading was made by an AI model (Claude Sonnet 5.5) from the line image. Not reviewed.</note>
-        <note type="unclear" target="#f-p010_r04_l003-1" resp="#pipeline" xml:lang="en">Gpura has no text for this page; the reading was made by an AI model (Claude Sonnet 5.5) from the line image. Not reviewed.</note>
-        <note type="unclear" target="#f-p010_r04_l004-1" resp="#pipeline" xml:lang="en">Gpura has no text for this page; the reading was made by an AI model (Claude Sonnet 5.5) from the line image. Not reviewed.</note>
-        <note type="unclear" target="#f-p010_r04_l005-1" resp="#pipeline" xml:lang="en">Gpura has no text for this page; the reading was made by an AI model (Claude Sonnet 5.5) from the line image. Not reviewed.</note>
-        <note type="unclear" target="#f-p010_r04_l006-1" resp="#pipeline" xml:lang="en">Gpura has no text for this page; the reading was made by an AI model (Claude Sonnet 5.5) from the line image. Not reviewed.</note>
-        <note type="unclear" target="#f-p010_r04_l007-1" resp="#pipeline" xml:lang="en">Gpura has no text for this page; the reading was made by an AI model (Claude Sonnet 5.5) from the line image. Not reviewed.</note>
-        <note type="unclear" target="#f-p010_r04_l008-1" resp="#pipeline" xml:lang="en">Gpura has no text for this page; the reading was made by an AI model (Claude Sonnet 5.5) from the line image. Not reviewed.</note>
-        <note type="unclear" target="#f-p010_r04_l009-1" resp="#pipeline" xml:lang="en">Gpura has no text for this page; the reading was made by an AI model (Claude Sonnet 5.5) from the line image. Not reviewed.</note>
-        <note type="unclear" target="#f-p010_r05_l001-1" resp="#pipeline" xml:lang="en">Gpura has no text for this page; the reading was made by an AI model (Claude Sonnet 5.5) from the line image. Not reviewed.</note>
-        <note type="unclear" target="#f-p010_r05_l002-1" resp="#pipeline" xml:lang="en">Gpura has no text for this page; the reading was made by an AI model (Claude Sonnet 5.5) from the line image. Not reviewed.</note>
-        <note type="unclear" target="#f-p010_r06_l001-1" resp="#pipeline" xml:lang="en">Gpura has no text for this page; the reading was made by an AI model (Claude Sonnet 5.5) from the line image. Not reviewed.</note>
-        <note type="unclear" target="#f-p010_r06_l002-1" resp="#pipeline" xml:lang="en">Gpura has no text for this page; the reading was made by an AI model (Claude Sonnet 5.5) from the line image. Not reviewed.</note>
+        <note type="unclear" target="#f-p010_r02_l001-1" resp="#pipeline" xml:lang="en">No line in Sarvam's text for this page matches this printed line; the reading was made by an AI model (Claude Sonnet 5.5) from the line image. Not reviewed.</note>
+        <note type="unclear" target="#f-p010_r02_l002-1" resp="#pipeline" xml:lang="en">No line in Sarvam's text for this page matches this printed line; the reading was made by an AI model (Claude Sonnet 5.5) from the line image. Not reviewed.</note>
+        <note type="unclear" target="#f-p010_r02_l003-1" resp="#pipeline" xml:lang="en">No line in Sarvam's text for this page matches this printed line; the reading was made by an AI model (Claude Sonnet 5.5) from the line image. Not reviewed.</note>
+        <note type="unclear" target="#f-p010_r02_l004-1" resp="#pipeline" xml:lang="en">No line in Sarvam's text for this page matches this printed line; the reading was made by an AI model (Claude Sonnet 5.5) from the line image. Not reviewed.</note>
+        <note type="unclear" target="#f-p010_r02_l005-1" resp="#pipeline" xml:lang="en">No line in Sarvam's text for this page matches this printed line; the reading was made by an AI model (Claude Sonnet 5.5) from the line image. Not reviewed.</note>
+        <note type="unclear" target="#f-p010_r03_l001-1" resp="#pipeline" xml:lang="en">No line in Sarvam's text for this page matches this printed line; the reading was made by an AI model (Claude Sonnet 5.5) from the line image. Not reviewed.</note>
+        <note type="unclear" target="#f-p010_r05_l001-1" resp="#pipeline" xml:lang="en">No line in Sarvam's text for this page matches this printed line; the reading was made by an AI model (Claude Sonnet 5.5) from the line image. Not reviewed.</note>
+        <note type="unplaced" target="#p010" resp="#pipeline" xml:lang="en">Line 1 of Sarvam's text for this page matches no printed line found on the page: «8»</note>
+        <note type="unplaced" target="#p010" resp="#pipeline" xml:lang="en">Line 8 of Sarvam's text for this page matches no printed line found on the page: «Meanwhile Rustam stayed in the palace with the king. That night as he lay asleep, he had a sweet dream. He thought he saw a beautiful girl standing by his side. He opened his eyes and found that the dream had come true. For he»</note>
       </div>
     </back>
   </text>

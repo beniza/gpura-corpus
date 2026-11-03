@@ -15,7 +15,7 @@
     </Processing>
     <Processing ID="proc_conv">
       <processingCategory>other</processingCategory>
-      <processingDateTime>2026-11-03T04:33:25+00:00</processingDateTime>
+      <processingDateTime>2026-11-03T09:50:08+00:00</processingDateTime>
       <processingStepDescription>PAGE 2019-07-15 -&gt; ALTO 4.4 from page/p006.page.xml; word boxes estimated (tag geom_est).</processingStepDescription>
       <processingSoftware>
         <softwareName>page/page2alto.py (Gpura pipeline demo)</softwareName>
@@ -28,15 +28,8 @@
     <LayoutTag ID="lt_heading" TYPE="structure" LABEL="heading" DESCRIPTION="PAGE TextRegion/@type=heading"/>
     <OtherTag ID="prod_printed" TYPE="production" LABEL="printed" DESCRIPTION="PAGE @production=printed"/>
     <OtherTag ID="geom_est" TYPE="geometry" LABEL="estimated word boxes" DESCRIPTION="PAGE source is line-level; String HPOS/VPOS/WIDTH/HEIGHT were estimated by splitting the line box along the baseline in proportion to code-point counts. Do not use for word-level highlighting precision."/>
-    <OtherTag ID="p006_r01_l001_t01" TYPE="unclear" LABEL="unclear (medium)" DESCRIPTION="unclear on code points 0-24 (end-exclusive) of TextLine p006_r01_l001; cert=medium; note: Gpura has no text for this page; the reading was made by an AI model (Claude Sonnet 5.5) from the line image. Not reviewed."/>
-    <OtherTag ID="p006_r01_l002_t01" TYPE="unclear" LABEL="unclear (medium)" DESCRIPTION="unclear on code points 0-45 (end-exclusive) of TextLine p006_r01_l002; cert=medium; note: Gpura has no text for this page; the reading was made by an AI model (Claude Sonnet 5.5) from the line image. Not reviewed."/>
-    <OtherTag ID="p006_r01_l003_t01" TYPE="unclear" LABEL="unclear (medium)" DESCRIPTION="unclear on code points 0-29 (end-exclusive) of TextLine p006_r01_l003; cert=medium; note: Gpura has no text for this page; the reading was made by an AI model (Claude Sonnet 5.5) from the line image. Not reviewed."/>
-    <OtherTag ID="p006_r02_l001_t01" TYPE="unclear" LABEL="unclear (medium)" DESCRIPTION="unclear on code points 0-15 (end-exclusive) of TextLine p006_r02_l001; cert=medium; note: Gpura has no text for this page; the reading was made by an AI model (Claude Sonnet 5.5) from the line image. Not reviewed."/>
-    <OtherTag ID="p006_r02_l002_t01" TYPE="unclear" LABEL="unclear (medium)" DESCRIPTION="unclear on code points 0-9 (end-exclusive) of TextLine p006_r02_l002; cert=medium; note: Gpura has no text for this page; the reading was made by an AI model (Claude Sonnet 5.5) from the line image. Not reviewed."/>
-    <OtherTag ID="p006_r02_l003_t01" TYPE="unclear" LABEL="unclear (medium)" DESCRIPTION="unclear on code points 0-5 (end-exclusive) of TextLine p006_r02_l003; cert=medium; note: Gpura has no text for this page; the reading was made by an AI model (Claude Sonnet 5.5) from the line image. Not reviewed."/>
-    <OtherTag ID="p006_r03_l001_t01" TYPE="unclear" LABEL="unclear (medium)" DESCRIPTION="unclear on code points 0-4 (end-exclusive) of TextLine p006_r03_l001; cert=medium; note: Gpura has no text for this page; the reading was made by an AI model (Claude Sonnet 5.5) from the line image. Not reviewed."/>
-    <OtherTag ID="p006_r04_l001_t01" TYPE="unclear" LABEL="unclear (medium)" DESCRIPTION="unclear on code points 0-23 (end-exclusive) of TextLine p006_r04_l001; cert=medium; note: Gpura has no text for this page; the reading was made by an AI model (Claude Sonnet 5.5) from the line image. Not reviewed."/>
-    <OtherTag ID="p006_r04_l002_t01" TYPE="unclear" LABEL="unclear (medium)" DESCRIPTION="unclear on code points 0-15 (end-exclusive) of TextLine p006_r04_l002; cert=medium; note: Gpura has no text for this page; the reading was made by an AI model (Claude Sonnet 5.5) from the line image. Not reviewed."/>
+    <OtherTag ID="p006_r02_l001_t01" TYPE="unclear" LABEL="unclear (medium)" DESCRIPTION="unclear on code points 0-9 (end-exclusive) of TextLine p006_r02_l001; cert=medium; note: No line in Sarvam's text for this page matches this printed line; the reading was made by an AI model (Claude Sonnet 5.5) from the line image. Not reviewed."/>
+    <OtherTag ID="p006_r03_l001_t01" TYPE="unclear" LABEL="unclear (medium)" DESCRIPTION="unclear on code points 0-4 (end-exclusive) of TextLine p006_r03_l001; cert=medium; note: No line in Sarvam's text for this page matches this printed line; the reading was made by an AI model (Claude Sonnet 5.5) from the line image. Not reviewed."/>
   </Tags>
   <Layout>
     <Page ID="p006" PAGECLASS="content" PHYSICAL_IMG_NR="6" WIDTH="1751" HEIGHT="2643" PROCESSINGREFS="proc_ocr proc_conv">
@@ -49,75 +42,59 @@
             <Shape>
               <Polygon POINTS="178,320 942,320 942,381 178,381"/>
             </Shape>
-            <String ID="p006_r01_l001_w001" CONTENT="Printed" HPOS="178" VPOS="320" WIDTH="223" HEIGHT="61" TAGREFS="p006_r01_l001_t01"/>
+            <String ID="p006_r01_l001_w001" CONTENT="Printed" HPOS="178" VPOS="320" WIDTH="223" HEIGHT="61"/>
             <SP HPOS="401" VPOS="320" WIDTH="32" HEIGHT="61"/>
-            <String ID="p006_r01_l001_w002" CONTENT="and" HPOS="433" VPOS="320" WIDTH="96" HEIGHT="61" TAGREFS="p006_r01_l001_t01"/>
+            <String ID="p006_r01_l001_w002" CONTENT="and" HPOS="433" VPOS="320" WIDTH="96" HEIGHT="61"/>
             <SP HPOS="528" VPOS="320" WIDTH="32" HEIGHT="61"/>
-            <String ID="p006_r01_l001_w003" CONTENT="Published" HPOS="560" VPOS="320" WIDTH="286" HEIGHT="61" TAGREFS="p006_r01_l001_t01"/>
+            <String ID="p006_r01_l001_w003" CONTENT="Published" HPOS="560" VPOS="320" WIDTH="286" HEIGHT="61"/>
             <SP HPOS="846" VPOS="320" WIDTH="32" HEIGHT="61"/>
-            <String ID="p006_r01_l001_w004" CONTENT="by" HPOS="878" VPOS="320" WIDTH="64" HEIGHT="61" TAGREFS="p006_r01_l001_t01"/>
+            <String ID="p006_r01_l001_w004" CONTENT="by" HPOS="878" VPOS="320" WIDTH="64" HEIGHT="61"/>
           </TextLine>
           <TextLine ID="p006_r01_l002" HPOS="171" VPOS="404" WIDTH="1176" HEIGHT="76" BASELINE="171,463 1347,463" LANG="ml" TAGREFS="geom_est">
             <Shape>
               <Polygon POINTS="171,404 1347,404 1347,480 171,480"/>
             </Shape>
-            <String ID="p006_r01_l002_w001" CONTENT="The" HPOS="171" VPOS="404" WIDTH="78" HEIGHT="76" TAGREFS="p006_r01_l002_t01"/>
+            <String ID="p006_r01_l002_w001" CONTENT="The" HPOS="171" VPOS="404" WIDTH="78" HEIGHT="76"/>
             <SP HPOS="249" VPOS="404" WIDTH="26" HEIGHT="76"/>
-            <String ID="p006_r01_l002_w002" CONTENT="Superintendent," HPOS="276" VPOS="404" WIDTH="392" HEIGHT="76" TAGREFS="p006_r01_l002_t01"/>
+            <String ID="p006_r01_l002_w002" CONTENT="Superintendent," HPOS="276" VPOS="404" WIDTH="392" HEIGHT="76"/>
             <SP HPOS="668" VPOS="404" WIDTH="26" HEIGHT="76"/>
-            <String ID="p006_r01_l002_w003" CONTENT="Department" HPOS="694" VPOS="404" WIDTH="261" HEIGHT="76" TAGREFS="p006_r01_l002_t01"/>
+            <String ID="p006_r01_l002_w003" CONTENT="Department" HPOS="694" VPOS="404" WIDTH="261" HEIGHT="76"/>
             <SP HPOS="955" VPOS="404" WIDTH="26" HEIGHT="76"/>
-            <String ID="p006_r01_l002_w004" CONTENT="of" HPOS="981" VPOS="404" WIDTH="52" HEIGHT="76" TAGREFS="p006_r01_l002_t01"/>
+            <String ID="p006_r01_l002_w004" CONTENT="of" HPOS="981" VPOS="404" WIDTH="52" HEIGHT="76"/>
             <SP HPOS="1033" VPOS="404" WIDTH="26" HEIGHT="76"/>
-            <String ID="p006_r01_l002_w005" CONTENT="Publication" HPOS="1060" VPOS="404" WIDTH="287" HEIGHT="76" TAGREFS="p006_r01_l002_t01"/>
+            <String ID="p006_r01_l002_w005" CONTENT="Publication" HPOS="1060" VPOS="404" WIDTH="287" HEIGHT="76"/>
           </TextLine>
           <TextLine ID="p006_r01_l003" HPOS="171" VPOS="504" WIDTH="850" HEIGHT="56" BASELINE="171,549 1021,549" LANG="ml" TAGREFS="geom_est">
             <Shape>
               <Polygon POINTS="171,504 1021,504 1021,560 171,560"/>
             </Shape>
-            <String ID="p006_r01_l003_w001" CONTENT="For" HPOS="171" VPOS="504" WIDTH="88" HEIGHT="56" TAGREFS="p006_r01_l003_t01"/>
+            <String ID="p006_r01_l003_w001" CONTENT="For" HPOS="171" VPOS="504" WIDTH="88" HEIGHT="56"/>
             <SP HPOS="259" VPOS="504" WIDTH="29" HEIGHT="56"/>
-            <String ID="p006_r01_l003_w002" CONTENT="the" HPOS="288" VPOS="504" WIDTH="88" HEIGHT="56" TAGREFS="p006_r01_l003_t01"/>
+            <String ID="p006_r01_l003_w002" CONTENT="the" HPOS="288" VPOS="504" WIDTH="88" HEIGHT="56"/>
             <SP HPOS="376" VPOS="504" WIDTH="29" HEIGHT="56"/>
-            <String ID="p006_r01_l003_w003" CONTENT="University" HPOS="405" VPOS="504" WIDTH="293" HEIGHT="56" TAGREFS="p006_r01_l003_t01"/>
+            <String ID="p006_r01_l003_w003" CONTENT="University" HPOS="405" VPOS="504" WIDTH="293" HEIGHT="56"/>
             <SP HPOS="699" VPOS="504" WIDTH="29" HEIGHT="56"/>
-            <String ID="p006_r01_l003_w004" CONTENT="of" HPOS="728" VPOS="504" WIDTH="59" HEIGHT="56" TAGREFS="p006_r01_l003_t01"/>
+            <String ID="p006_r01_l003_w004" CONTENT="of" HPOS="728" VPOS="504" WIDTH="59" HEIGHT="56"/>
             <SP HPOS="787" VPOS="504" WIDTH="29" HEIGHT="56"/>
-            <String ID="p006_r01_l003_w005" CONTENT="Kerala." HPOS="816" VPOS="504" WIDTH="205" HEIGHT="56" TAGREFS="p006_r01_l003_t01">
+            <String ID="p006_r01_l003_w005" CONTENT="Kerala." HPOS="816" VPOS="504" WIDTH="205" HEIGHT="56">
               <ALTERNATIVE PURPOSE="Tesseract reading used for alignment">Kerala,</ALTERNATIVE>
             </String>
           </TextLine>
         </TextBlock>
-        <TextBlock ID="p006_r02" HPOS="700" VPOS="1367" WIDTH="525" HEIGHT="322" LANG="ml" TAGREFS="lt_paragraph prod_printed" IDNEXT="p006_r03">
+        <TextBlock ID="p006_r02" HPOS="746" VPOS="1458" WIDTH="464" HEIGHT="91" LANG="ml" TAGREFS="lt_heading prod_printed" IDNEXT="p006_r03">
           <Shape>
-            <Polygon POINTS="700,1367 1225,1367 1225,1689 700,1689"/>
+            <Polygon POINTS="746,1458 1210,1458 1210,1549 746,1549"/>
           </Shape>
-          <TextLine ID="p006_r02_l001" HPOS="700" VPOS="1367" WIDTH="471" HEIGHT="66" BASELINE="700,1416 1171,1416" LANG="ml" TAGREFS="geom_est">
-            <Shape>
-              <Polygon POINTS="700,1367 1171,1367 1171,1433 700,1433"/>
-            </Shape>
-            <String ID="p006_r02_l001_w001" CONTENT="Rights" HPOS="700" VPOS="1367" WIDTH="188" HEIGHT="66" TAGREFS="p006_r02_l001_t01"/>
-            <SP HPOS="888" VPOS="1367" WIDTH="31" HEIGHT="66"/>
-            <String ID="p006_r02_l001_w002" CONTENT="Reserved" HPOS="920" VPOS="1367" WIDTH="251" HEIGHT="66" TAGREFS="p006_r02_l001_t01"/>
-          </TextLine>
-          <TextLine ID="p006_r02_l002" HPOS="746" VPOS="1458" WIDTH="464" HEIGHT="91" BASELINE="746,1541 1210,1541" LANG="ml" TAGREFS="geom_est">
+          <TextLine ID="p006_r02_l001" HPOS="746" VPOS="1458" WIDTH="464" HEIGHT="91" BASELINE="746,1541 1210,1541" LANG="ml" TAGREFS="geom_est">
             <Shape>
               <Polygon POINTS="746,1458 1210,1458 1210,1549 746,1549"/>
             </Shape>
-            <String ID="p006_r02_l002_w001" CONTENT="19129.7" HPOS="746" VPOS="1458" WIDTH="361" HEIGHT="91" TAGREFS="p006_r02_l002_t01">
+            <String ID="p006_r02_l001_w001" CONTENT="19129.7" HPOS="746" VPOS="1458" WIDTH="361" HEIGHT="91" TAGREFS="p006_r02_l001_t01">
               <ALTERNATIVE PURPOSE="Tesseract reading used for alignment">[7/77</ALTERNATIVE>
             </String>
             <SP HPOS="1107" VPOS="1458" WIDTH="52" HEIGHT="91"/>
-            <String ID="p006_r02_l002_w002" CONTENT="-" HPOS="1158" VPOS="1458" WIDTH="52" HEIGHT="91" TAGREFS="p006_r02_l002_t01">
+            <String ID="p006_r02_l001_w002" CONTENT="-" HPOS="1158" VPOS="1458" WIDTH="52" HEIGHT="91" TAGREFS="p006_r02_l001_t01">
               <ALTERNATIVE PURPOSE="Tesseract reading used for alignment">~</ALTERNATIVE>
-            </String>
-          </TextLine>
-          <TextLine ID="p006_r02_l003" HPOS="769" VPOS="1592" WIDTH="456" HEIGHT="97" BASELINE="769,1655 1225,1655" LANG="ml" TAGREFS="geom_est">
-            <Shape>
-              <Polygon POINTS="769,1592 1225,1592 1225,1689 769,1689"/>
-            </Shape>
-            <String ID="p006_r02_l003_w001" CONTENT="42065" HPOS="769" VPOS="1592" WIDTH="456" HEIGHT="97" TAGREFS="p006_r02_l003_t01">
-              <ALTERNATIVE PURPOSE="Tesseract reading used for alignment">20627</ALTERNATIVE>
             </String>
           </TextLine>
         </TextBlock>
@@ -142,25 +119,23 @@
             <Shape>
               <Polygon POINTS="1007,2258 1664,2258 1664,2321 1007,2321"/>
             </Shape>
-            <String ID="p006_r04_l001_w001" CONTENT="1st" HPOS="1007" VPOS="2258" WIDTH="86" HEIGHT="63" TAGREFS="p006_r04_l001_t01">
+            <String ID="p006_r04_l001_w001" CONTENT="1st" HPOS="1007" VPOS="2258" WIDTH="86" HEIGHT="63">
               <ALTERNATIVE PURPOSE="Tesseract reading used for alignment">Ist</ALTERNATIVE>
             </String>
             <SP HPOS="1093" VPOS="2258" WIDTH="29" HEIGHT="63"/>
-            <String ID="p006_r04_l001_w002" CONTENT="Edition" HPOS="1121" VPOS="2258" WIDTH="200" HEIGHT="63" TAGREFS="p006_r04_l001_t01"/>
+            <String ID="p006_r04_l001_w002" CONTENT="Edition" HPOS="1121" VPOS="2258" WIDTH="200" HEIGHT="63"/>
             <SP HPOS="1321" VPOS="2258" WIDTH="29" HEIGHT="63"/>
-            <String ID="p006_r04_l001_w003" CONTENT="Copies" HPOS="1350" VPOS="2258" WIDTH="171" HEIGHT="63" TAGREFS="p006_r04_l001_t01"/>
+            <String ID="p006_r04_l001_w003" CONTENT="Copies" HPOS="1350" VPOS="2258" WIDTH="171" HEIGHT="63"/>
             <SP HPOS="1521" VPOS="2258" WIDTH="29" HEIGHT="63"/>
-            <String ID="p006_r04_l001_w004" CONTENT="1000" HPOS="1550" VPOS="2258" WIDTH="114" HEIGHT="63" TAGREFS="p006_r04_l001_t01"/>
+            <String ID="p006_r04_l001_w004" CONTENT="1000" HPOS="1550" VPOS="2258" WIDTH="114" HEIGHT="63"/>
           </TextLine>
           <TextLine ID="p006_r04_l002" HPOS="1157" VPOS="2348" WIDTH="419" HEIGHT="54" BASELINE="1157,2390 1576,2390" LANG="ml" TAGREFS="geom_est">
             <Shape>
               <Polygon POINTS="1157,2348 1576,2348 1576,2402 1157,2402"/>
             </Shape>
-            <String ID="p006_r04_l002_w001" CONTENT="September" HPOS="1157" VPOS="2348" WIDTH="251" HEIGHT="54" TAGREFS="p006_r04_l002_t01"/>
+            <String ID="p006_r04_l002_w001" CONTENT="September" HPOS="1157" VPOS="2348" WIDTH="251" HEIGHT="54"/>
             <SP HPOS="1408" VPOS="2348" WIDTH="28" HEIGHT="54"/>
-            <String ID="p006_r04_l002_w002" CONTENT="1957." HPOS="1436" VPOS="2348" WIDTH="140" HEIGHT="54" TAGREFS="p006_r04_l002_t01">
-              <ALTERNATIVE PURPOSE="Tesseract reading used for alignment">1957,</ALTERNATIVE>
-            </String>
+            <String ID="p006_r04_l002_w002" CONTENT="1957," HPOS="1436" VPOS="2348" WIDTH="140" HEIGHT="54"/>
           </TextLine>
         </TextBlock>
       </PrintSpace>
