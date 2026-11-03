@@ -111,6 +111,8 @@ pre .ml{font-family:var(--f-ml);font-size:1.08em}
 .readwrap{max-height:75vh;overflow:auto;border-radius:6px}
 .readwrap .flash{outline:3px solid var(--sel);outline-offset:2px}
 .readwrap .lbmark{display:inline-block;width:3px;height:1.1em;background:var(--sel);vertical-align:-.15em;margin:0 2px}
+.readwrap{cursor:pointer}
+::highlight(rline){background-color:color-mix(in srgb,var(--sel) 28%,transparent)}
 .empty{color:var(--muted);font-size:.9rem}
 .cur{font-family:var(--f-ml);white-space:pre-wrap;font-size:.98rem;line-height:1.8;max-height:70vh;overflow:auto;background:var(--sunk);padding:12px;border-radius:6px}
 
@@ -336,13 +338,44 @@ body{margin:0}
     const target=walker||[...pre.querySelectorAll('.xa')].find(a=>{const n=a.nextSibling; return n&&n.textContent.includes(sel);});
     if(target){ const sp=document.createElement('span'); target.parentNode.insertBefore(sp,target); sp.className='hit'; sp.textContent='▶'; pre.scrollTop=Math.max(0,sp.offsetTop-pre.offsetTop-80); }
   }
+  // Reading view <-> scan: every printed line starts at a <br class="lb" data-facs="<line id>">.
+  const lbs=()=>[...document.querySelectorAll('#readwrap br.lb[data-facs]')];
+  function lineRange(br){                       // from this line break to the next one, inside the same block
+    const r=document.createRange(); r.setStartAfter(br.parentNode.classList.contains('lb-wrap')?br.parentNode:br);
+    const all=lbs(), next=all[all.indexOf(br)+1], block=br.closest('p,h1,h2,h3,h4,h5,li,blockquote,div');
+    if(next && block && block.contains(next)) r.setEndBefore(next.parentNode.classList.contains('lb-wrap')?next.parentNode:next);
+    else if(block) r.setEnd(block,block.childNodes.length); else r.setEndAfter(br);
+    return r;
+  }
   function flashReading(){
     const w=document.getElementById('readwrap');
     w.querySelectorAll('.lbmark').forEach(e=>e.remove());
+    if(window.CSS&&CSS.highlights) CSS.highlights.delete('rline');
     if(!sel) return;
-    const br=w.querySelector(`[data-facs~="${sel}"]`)||w.querySelector(`[data-facs*="${sel}"]`);
-    if(br){ const m=document.createElement('span'); m.className='lbmark'; br.parentNode.insertBefore(m,br.nextSibling); w.scrollTop=Math.max(0,m.offsetTop-w.offsetTop-120); }
+    const br=lbs().find(b=>b.dataset.facs===sel);
+    if(!br) return;
+    const r=lineRange(br);
+    if(window.CSS&&CSS.highlights&&window.Highlight) CSS.highlights.set('rline',new Highlight(r));
+    else { const m=document.createElement('span'); m.className='lbmark'; br.parentNode.insertBefore(m,br.nextSibling); }
+    const box=(r.getClientRects()[0]||br.parentNode.getBoundingClientRect()), wb=w.getBoundingClientRect();
+    w.scrollTo({top:w.scrollTop+box.top-wb.top-w.clientHeight/3, behavior:'smooth'});
   }
+  function lineAt(x,y){                          // the line whose text was clicked: last line break before the click
+    const c=document.caretPositionFromPoint?document.caretPositionFromPoint(x,y):document.caretRangeFromPoint?document.caretRangeFromPoint(x,y):null;
+    const node=c&&(c.offsetNode||c.startContainer); if(!node) return null;
+    let hit=null;
+    for(const b of lbs()){ if(b===node||(b.compareDocumentPosition(node)&Node.DOCUMENT_POSITION_FOLLOWING)) hit=b; else break; }
+    return hit&&hit.dataset.facs;
+  }
+  document.getElementById('readwrap').addEventListener('click',async e=>{
+    if(window.getSelection&&String(window.getSelection()).length) return;   // let people select text to copy
+    const id=lineAt(e.clientX,e.clientY); if(!id) return;
+    const page=id.split('_')[0];
+    if(page!==pg && PAGES.includes(page)) await showPage(page);
+    select(id);
+    const el=svg.querySelector(`.ln[data-id="${id}"]`);
+    if(el){ const b=el.getBoundingClientRect(); if(b.bottom<0||b.top>innerHeight) el.scrollIntoView({block:'center',behavior:'smooth'}); }
+  });
   async function showPage(p){
     pg=p;
     const i=PAGES.indexOf(p), sel=document.getElementById('pgSel');
