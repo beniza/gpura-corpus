@@ -42,8 +42,8 @@
     return a;
   }
   inner.appendChild(link('', 'Gpura Corpus', 'brand'));
-  inner.appendChild(link('paper/', 'Paper'));
   inner.appendChild(link('proposal/', 'Proposal'));
+  inner.appendChild(link('paper/', 'Paper'));
   inner.appendChild(link('walkthrough/', 'Walkthrough'));
 
   var dd = document.createElement('details');
