@@ -23,7 +23,7 @@ from pathlib import Path
 from lxml import etree
 
 ROOT = Path(os.environ["GPURA_ITEM_DIR"]) if os.environ.get("GPURA_ITEM_DIR") else Path(__file__).resolve().parent.parent
-TEIF = Path(sys.argv[1]) if len(sys.argv) > 1 else next((ROOT / "tei").glob("*.tei.xml"))
+TEIF = Path(sys.argv[1]) if len(sys.argv) > 1 else next(f for f in sorted((ROOT / "tei").glob("*.tei.xml")) if not f.name.endswith(".dict.tei.xml"))
 RNG = Path(os.environ["GPURA_TEI_RNG"]) if os.environ.get("GPURA_TEI_RNG") else Path(__file__).resolve().parents[2] / "schemas" / "tei" / "tei_all.rng"
 NS = {"t": "http://www.tei-c.org/ns/1.0"}
 T = "{http://www.tei-c.org/ns/1.0}"

@@ -25,7 +25,7 @@ a{color:var(--accent)}
 .ml{font-family:var(--f-ml)}
 .eyebrow{font-size:.75rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);font-weight:600}
 .lede{font-size:1.12rem;color:var(--muted)}
-.entries{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
+.entries{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px}
 .entry{display:flex;flex-direction:column;gap:8px;padding:18px;background:var(--surface);border:1px solid var(--line);border-radius:8px;text-decoration:none;color:var(--fg);min-width:0}
 .entry:hover,.entry:focus-visible{border-color:var(--fg);outline:none}
 .entry p{font-size:.92rem;color:var(--muted)}
@@ -47,13 +47,25 @@ pre{margin:0;background:var(--sunk);border-radius:6px;padding:12px 14px;overflow
     <p class="lede">A structured, machine-readable companion to Gpura’s scans: for every item, a standards-based edition that records not only the words but where and how they appear on the page, linked to the page images Gpura already serves through IIIF.</p>
   </header>
 
-  <nav class="entries" aria-label="Contents">
-    <a class="entry" href="proposal/"><span class="eyebrow">Why</span><h3>The proposal</h3><p>Two paragraphs, in English and Malayalam: what the corpus is and why Gpura should build it.</p><span class="go">Read the proposal →</span></a>
-    <a class="entry" href="paper/"><span class="eyebrow">In full</span><h3>The paper</h3><p>The proposal written as a paper: goal, encoding model and standards, the pipeline, what the experiments found, costs and open challenges.</p><span class="go">Read the paper →</span></a>
-    <a class="entry" href="walkthrough/"><span class="eyebrow">How</span><h3>Walkthrough</h3><p>Three pages of a 1971 book: what the current transcription misses, and how the corpus records it.</p><span class="go">Explore the findings →</span></a>
-    <a class="entry" href="specimen/american-aikyanadu-1971/"><span class="eyebrow">Evidence</span><h3>Working specimen</h3><p>The same three pages encoded end to end: scan with layout overlay, reading view, and the raw PAGE-XML, ALTO and TEI.</p><span class="go">Open the specimen →</span></a>
-    <a class="entry" href="showcase/"><span class="eyebrow">Showcase</span><h3>Layouts, and a complete book</h3><p>One encoded page per layout type, from prose and maps to tables, magazines and a newspaper, and all 163 pages of a book Gpura has no text for, each with how much of the page the corpus reproduces.</p><span class="go">Open the showcase →</span></a>
-  </nav>
+  <section style="display:flex;flex-direction:column;gap:14px" aria-labelledby="try">
+    <h2 id="try">Try the sample corpus</h2>
+    <nav class="entries" aria-label="Sample corpus">
+      <a class="entry" href="read/?b=1957-sir-isaac-newton"><span class="eyebrow">Read online</span><h3>A complete book</h3><p><span class="ml">സർ ഐസക്ക് ന്യൂട്ടൻ</span> (1957), all 163 pages: the scan beside its encoded text, chapter by chapter.</p><span class="go">Start reading →</span></a>
+      <a class="entry" href="library/"><span class="eyebrow">Library</span><h3>Every book</h3><p>The books encoded so far, each with its contents, where its text comes from, and its files.</p><span class="go">Open the library →</span></a>
+      <a class="entry" href="showcase/"><span class="eyebrow">Showcase</span><h3>Layouts we encode</h3><p>Prose, maps, title and contents pages, tables, a dictionary, magazines and a newspaper, each with how much the corpus reproduces.</p><span class="go">See the layouts →</span></a>
+      <a class="entry" href="downloads/gpura-corpus-sample.zip" download><span class="eyebrow">Download</span><h3>The files</h3><p>TEI, PAGE-XML, ALTO, plain text and metadata for every book, CC0. Shared for feedback.</p><span class="go">Download (ZIP, 2.5 MB) →</span></a>
+    </nav>
+  </section>
+
+  <section style="display:flex;flex-direction:column;gap:14px" aria-labelledby="why">
+    <h2 id="why">The proposal</h2>
+    <nav class="entries" aria-label="Proposal">
+      <a class="entry" href="proposal/"><span class="eyebrow">Why</span><h3>The proposal</h3><p>Two paragraphs, in English and Malayalam: what the corpus is and why Gpura should build it.</p><span class="go">Read the proposal →</span></a>
+      <a class="entry" href="paper/"><span class="eyebrow">In full</span><h3>The paper</h3><p>Goal, encoding model and standards, the pipeline, what the experiments found, costs and open challenges.</p><span class="go">Read the paper →</span></a>
+      <a class="entry" href="walkthrough/"><span class="eyebrow">How</span><h3>Walkthrough</h3><p>Three pages of a 1971 book: what the current transcription misses, and how the corpus records it.</p><span class="go">Explore the findings →</span></a>
+      <a class="entry" href="specimen/american-aikyanadu-1971/"><span class="eyebrow">Evidence</span><h3>Working specimen</h3><p>The same three pages, checked line by line: scan with layout overlay, reading view, and the raw PAGE-XML, ALTO and TEI.</p><span class="go">Open the specimen →</span></a>
+    </nav>
+  </section>
 
   <section style="display:flex;flex-direction:column;gap:16px" aria-labelledby="ly">
     <h2 id="ly">Three layers, one set of IDs</h2>

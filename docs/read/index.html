@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Gpura Corpus Reader</title>
+<meta name="description" content="Read a book from the Gpura corpus page by page: the scan beside its encoded text, line by line.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Noto+Serif+Malayalam:wght@400;600;700&display=swap">
+<script src="../nav.js" defer></script>
+<style>
+/* Layout: a toolbar (book, chapter, page); then scan | text side by side, stacked on narrow screens */
+:root{--bg:#F4F5F3;--surface:#FFFFFF;--sunk:#E9ECE8;--fg:#1B2220;--muted:#5A6662;--line:#D3D9D5;--accent:#2B6A8A;--sel:#d99a1e;--warn:#a1372c;
+  --f-body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;--f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;--f-ml:"Noto Serif Malayalam",serif}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#141917;--surface:#1C2320;--sunk:#232B28;--fg:#E4EAE7;--muted:#9AA7A2;--line:#33403B;--accent:#7DB8D6;--sel:#e8b04a;--warn:#f08a7e;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#141917;--surface:#1C2320;--sunk:#232B28;--fg:#E4EAE7;--muted:#9AA7A2;--line:#33403B;--accent:#7DB8D6;--sel:#e8b04a;--warn:#f08a7e;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:16px;line-height:1.6}
+.wrap{max-width:1320px;margin:0 auto;padding:16px max(16px, env(safe-area-inset-left, 0px)) 60px;display:flex;flex-direction:column;gap:14px}
+a{color:var(--accent)}
+.tool{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center}
+.tool .book{font-weight:600;margin-right:auto;min-width:0;text-decoration:none;color:var(--fg);font-family:var(--f-ml)}
+.tool select,.tool button{font:inherit;font-size:.88rem;border:1px solid var(--line);background:var(--surface);color:var(--fg);border-radius:7px;padding:6px 9px;cursor:pointer;max-width:100%}
+.tool button:disabled{opacity:.4;cursor:default}
+.pos{font-family:var(--f-mono);font-size:.8rem;color:var(--muted)}
+.view{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;align-items:start}
+@media (max-width:860px){.view{grid-template-columns:1fr}}
+.scan{position:sticky;top:56px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:8px}
+@media (max-width:860px){.scan{position:static}}
+.scan svg{display:block;width:100%;height:auto;max-height:calc(100vh - 110px)}
+.ln{fill:transparent;stroke:transparent;stroke-width:6;cursor:pointer;vector-effect:non-scaling-stroke}
+.boxes .ln{stroke:color-mix(in srgb,var(--accent) 70%,transparent);stroke-width:1.5px}
+.ln.on{fill:color-mix(in srgb,var(--sel) 30%,transparent);stroke:var(--sel);stroke-width:2.5px}
+.text{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px 22px;min-height:200px}
+.rg{margin:0 0 14px}
+.rg.heading,.rg.header{font-weight:700;text-align:center}
+.rg.page-number{color:var(--muted);text-align:center;font-size:.85rem}
+.l{display:block;font-family:var(--f-ml);font-size:1.12rem;line-height:1.85;border-radius:4px;padding:0 4px;margin:0 -4px;cursor:pointer}
+.l:hover,.l.on{background:color-mix(in srgb,var(--sel) 22%,transparent)}
+.l.flag{text-decoration:underline dotted var(--warn);text-underline-offset:4px}
+.l small{font-family:var(--f-body);font-size:.68rem;color:var(--muted);margin-left:6px;vertical-align:middle}
+.empty{color:var(--muted)}
+.foot{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:.85rem;color:var(--muted);margin-top:12px;border-top:1px solid var(--line);padding-top:10px}
+.legend{font-size:.8rem;color:var(--muted)}
+.chk{display:inline-flex;gap:6px;align-items:center;font-size:.85rem;color:var(--muted)}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <div class="tool" role="navigation" aria-label="Book">
+    <a class="book" id="book" href="../library/">…</a>
+    <select id="chap" aria-label="Chapter"></select>
+    <button type="button" id="prev" aria-label="Previous page">‹</button>
+    <select id="page" aria-label="Page"></select>
+    <button type="button" id="next" aria-label="Next page">›</button>
+    <span class="pos" id="pos"></span>
+    <label class="chk"><input type="checkbox" id="boxes" checked> line boxes</label>
+  </div>
+  <div class="view">
+    <div class="scan"><svg id="svg" role="img" aria-label="Page scan with encoded lines"></svg></div>
+    <article class="text" id="text" lang="ml"><p class="empty">Loading…</p></article>
+  </div>
+</main>
+<script>
+(async function () {
+  const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const item = new URLSearchParams(location.search).get('b');
+  if (!item) { document.getElementById('text').innerHTML = '<p>No book chosen. <a href="../library/">Go to the library</a>.</p>'; return; }
+  const base = `../specimen/${encodeURIComponent(item)}/`;
+  const b = await fetch(base + 'book.json').then(r => r.json());
+  const ids = b.pages.map(p => p.id);
+  const byId = Object.fromEntries(b.pages.map(p => [p.id, p]));
+  const cache = {};
+  const load = p => cache[p] || (cache[p] = fetch(`${base}data/${p}.json`).then(r => r.json()));
+  const svg = document.getElementById('svg'), text = document.getElementById('text');
+  const book = document.getElementById('book');
+  book.textContent = b.title_en ? `${b.title} · ${b.title_en}` : b.title;
+  book.href = `../book/?b=${encodeURIComponent(item)}`;
+  document.title = (b.title_en || b.title) + ' · Reader';
+  const label = p => `Page ${parseInt(p.id.slice(1), 10)}${p.printed ? ' · printed ' + p.printed : ''}`;
+  const sel = document.getElementById('page'), chap = document.getElementById('chap');
+  sel.innerHTML = b.pages.map(p => `<option value="${p.id}">${esc(label(p))}</option>`).join('');
+  chap.innerHTML = '<option value="">Chapters…</option>' + b.toc.map(t => `<option value="${t.page}">${esc(t.title)}</option>`).join('');
+  if (!b.toc.length) chap.hidden = true;
+  const chapterOf = p => { let c = ''; for (const t of b.toc) if (ids.indexOf(t.page) <= ids.indexOf(p)) c = t.page; return c; };
+  const SRC = {sarvam: 'Sarvam', gpura: 'Gpura', ai: 'AI', tesseract: 'Tesseract', reviewed: 'checked'};
+  let cur = null;
+
+  function select(id, from) {
+    document.querySelectorAll('.on').forEach(e => e.classList.remove('on'));
+    if (!id) return;
+    const a = svg.querySelector(`[data-id="${id}"]`), t = text.querySelector(`[data-id="${id}"]`);
+    if (a) a.classList.add('on');
+    if (t) { t.classList.add('on'); if (from === 'scan') t.scrollIntoView({block: 'nearest', behavior: 'smooth'}); }
+  }
+
+  async function show(p) {
+    if (!byId[p]) p = ids[0];
+    cur = p;
+    const d = await load(p);
+    if (cur !== p) return;
+    const i = ids.indexOf(p);
+    sel.value = p; chap.value = chapterOf(p);
+    document.getElementById('prev').disabled = i <= 0;
+    document.getElementById('next').disabled = i >= ids.length - 1;
+    document.getElementById('pos').textContent = `${i + 1} / ${ids.length}`;
+    if (location.hash !== '#' + p) history.replaceState(null, '', '#' + p);
+    svg.setAttribute('viewBox', `0 0 ${d.width} ${d.height}`);
+    let s = `<image href="${base}${d.image}" x="0" y="0" width="${d.width}" height="${d.height}" preserveAspectRatio="none"/>`;
+    let h = '', n = 0;
+    for (const r of d.regions) {
+      if (!r.lines.length) continue;
+      h += `<div class="rg ${esc(r.type)}">`;
+      for (const l of r.lines) {
+        const [x, y, w, hh] = l.bbox;
+        s += `<rect class="ln" data-id="${l.id}" x="${x}" y="${y}" width="${w}" height="${hh}"><title>${esc(l.text)}</title></rect>`;
+        const flag = l.unclear || l.src === 'tesseract' || l.src === 'ai';
+        h += `<span class="l${flag ? ' flag' : ''}" data-id="${l.id}" title="${l.id} · ${SRC[l.src] || l.src}${l.unclear ? ' · uncertain' : ''}">${esc(l.text) || '&nbsp;'}${flag ? `<small>${l.unclear && !(l.src === 'tesseract' || l.src === 'ai') ? 'uncertain' : (SRC[l.src] || l.src)}</small>` : ''}</span>`;
+        n++;
+      }
+      h += '</div>';
+    }
+    if (!n) h = `<p class="empty">${d.non_text ? 'No text: a cover, endpaper, blank page or plate.' : 'No encoded lines on this page.'}</p>`;
+    const report = `https://github.com/beniza/gpura-corpus/issues/new?template=corpus-feedback.md&title=${encodeURIComponent(`Feedback: ${b.title_en || item}, page ${parseInt(p.slice(1), 10)}`)}`;
+    h += `<div class="foot"><span>${n} lines${d.unplaced ? ` · ${d.unplaced} source lines not placed on this page` : ''}</span>
+      <a href="${base}#${p}">Inspect the encoding of this page</a><a href="${report}">Report a problem on this page</a></div>
+      <div class="legend">Dotted underline: text from Tesseract or an AI reading, or marked uncertain. Hover a line for its ID and source.</div>`;
+    svg.innerHTML = s; text.innerHTML = h;
+    // preload the neighbours
+    [ids[i - 1], ids[i + 1]].filter(Boolean).forEach(q => { load(q); new Image().src = `${base}${q}.jpg`; });
+  }
+
+  svg.addEventListener('mouseover', e => { const id = e.target.dataset && e.target.dataset.id; if (id) select(id, 'scan'); });
+  svg.addEventListener('click', e => { const id = e.target.dataset && e.target.dataset.id; if (id) select(id, 'scan'); });
+  text.addEventListener('mouseover', e => { const el = e.target.closest('.l'); if (el) select(el.dataset.id, 'text'); });
+  document.getElementById('boxes').addEventListener('change', e => svg.classList.toggle('boxes', e.target.checked));
+  svg.classList.add('boxes');
+  const go = d => { const i = ids.indexOf(cur) + d; if (i >= 0 && i < ids.length) { show(ids[i]); window.scrollTo({top: 0}); } };
+  document.getElementById('prev').onclick = () => go(-1);
+  document.getElementById('next').onclick = () => go(1);
+  sel.onchange = () => show(sel.value);
+  chap.onchange = () => chap.value && show(chap.value);
+  document.addEventListener('keydown', e => {
+    if (e.target.closest('input,select,textarea') || e.ctrlKey || e.metaKey || e.altKey) return;
+    if (e.key === '[' || e.key === 'ArrowLeft') { e.preventDefault(); go(-1); }
+    if (e.key === ']' || e.key === 'ArrowRight') { e.preventDefault(); go(1); }
+  });
+  window.addEventListener('hashchange', () => { const p = location.hash.slice(1); if (p && p !== cur) show(p); });
+  show(location.hash.slice(1) || (b.toc[0] && b.toc[0].page) || ids[0]);
+})().catch(e => { document.getElementById('text').innerHTML = '<p>Could not load this book: ' + e.message + '</p>'; });
+</script>
+</body>
+</html>

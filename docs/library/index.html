@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Gpura Corpus Library</title>
+<meta name="description" content="Every book in the Gpura sample corpus: read online, check the encoding, download the files, give feedback.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:wght@500;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Noto+Serif+Malayalam:wght@400;600;700&display=swap">
+<script src="../nav.js" defer></script>
+<style>
+/* Layout: intro and a download/feedback panel, then one card per book */
+:root{--bg:#F4F5F3;--surface:#FFFFFF;--sunk:#E9ECE8;--fg:#1B2220;--muted:#5A6662;--line:#D3D9D5;--accent:#2B6A8A;
+  --f-display:"Spectral",Georgia,serif;--f-body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;--f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;--f-ml:"Noto Serif Malayalam",serif}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#141917;--surface:#1C2320;--sunk:#232B28;--fg:#E4EAE7;--muted:#9AA7A2;--line:#33403B;--accent:#7DB8D6;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#141917;--surface:#1C2320;--sunk:#232B28;--fg:#E4EAE7;--muted:#9AA7A2;--line:#33403B;--accent:#7DB8D6;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:16px;line-height:1.6}
+.wrap{max-width:1120px;margin:0 auto;padding-block:44px 80px;padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px));display:flex;flex-direction:column;gap:30px}
+h1{font-family:var(--f-display);font-size:clamp(2rem,5vw,2.8rem);margin:0;line-height:1.15}
+p{margin:0;max-width:72ch} a{color:var(--accent)}
+.eyebrow{font-size:.75rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.lede{color:var(--muted);font-size:1.05rem}
+.panel{display:flex;gap:16px;justify-content:space-between;align-items:center;flex-wrap:wrap;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px 20px}
+.panel p{font-size:.92rem;color:var(--muted)}
+.btns{display:flex;gap:8px;flex-wrap:wrap}
+.btn{display:inline-block;border:1px solid var(--line);border-radius:7px;padding:7px 12px;text-decoration:none;color:var(--fg);font-size:.88rem;white-space:nowrap;background:var(--surface)}
+.btn:hover{border-color:var(--fg)} .btn.primary{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:18px}
+.card{display:grid;grid-template-columns:110px minmax(0,1fr);gap:14px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px}
+.card img{width:110px;height:150px;object-fit:cover;object-position:top;border-radius:4px;border:1px solid var(--line);background:var(--sunk)}
+.card h2{margin:0;font-family:var(--f-ml);font-size:1.15rem;line-height:1.35}
+.card h2 a{color:var(--fg);text-decoration:none}
+.meta{font-size:.84rem;color:var(--muted)}
+.tag{display:inline-block;font-size:.72rem;border:1px solid var(--line);border-radius:999px;padding:0 8px;color:var(--muted);margin-top:4px}
+.card .btns{margin-top:10px}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <header style="display:flex;flex-direction:column;gap:12px">
+    <span class="eyebrow">Library</span>
+    <h1>The sample corpus</h1>
+    <p class="lede">Books from Gpura encoded by the corpus pipeline: read each one online page by page beside its scan, look inside the encoding, or download the files. Most are automatic and not yet reviewed; we are sharing them for feedback.</p>
+  </header>
+  <section class="panel" aria-label="Download and feedback">
+    <p>All books as TEI, PAGE-XML, ALTO, plain text and metadata, CC0.</p>
+    <div class="btns">
+      <a class="btn primary" id="all" href="../downloads/gpura-corpus-sample.zip" download>Download the sample corpus (ZIP)</a>
+      <a class="btn" href="../showcase/">Layouts we encode</a>
+      <a class="btn" href="https://github.com/beniza/gpura-corpus/issues/new?template=corpus-feedback.md">Give feedback</a>
+    </div>
+  </section>
+  <section class="grid" id="grid" aria-label="Books"><p>Loading…</p></section>
+</main>
+<script>
+(async function () {
+  const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const [books, dls] = await Promise.all([
+    fetch('../specimen/index.json').then(r => r.json()),
+    fetch('../downloads/index.json').then(r => r.json()).catch(() => [])
+  ]);
+  const dl = Object.fromEntries(dls.map(d => [d.item, d]));
+  if (dl['*']) document.getElementById('all').textContent += ` · ${(dl['*'].bytes / 1e6).toFixed(1)} MB`;
+  books.sort((a, b) => (b.pages - a.pages) || String(a.date).localeCompare(String(b.date)));
+  document.getElementById('grid').innerHTML = books.map(b => {
+    const q = encodeURIComponent(b.item);
+    const whole = b.pages_total && String(b.pages) === String(b.pages_total);
+    return `<article class="card">
+      <a href="../book/?b=${q}"><img loading="lazy" src="../specimen/${b.item}/${b.cover || 'p001'}.jpg" alt=""></a>
+      <div>
+        <h2><a href="../book/?b=${q}">${esc(b.title)}</a></h2>
+        <div class="meta">${esc([b.title_en, b.author, b.date].filter(Boolean).join(' · '))}</div>
+        <div class="meta">${whole ? 'complete book, ' : ''}${b.pages} of ${esc(b.pages_total || '?')} pages${b.lines ? ' · ' + b.lines.toLocaleString() + ' lines' : ''}</div>
+        <span class="tag">${b.automatic ? 'automatic, not reviewed' : 'checked line by line'}</span>
+        <div class="btns">
+          <a class="btn primary" href="../read/?b=${q}">Read</a>
+          <a class="btn" href="../book/?b=${q}">About</a>
+          ${dl[b.item] ? `<a class="btn" href="../downloads/${b.item}.zip" download>ZIP</a>` : ''}
+        </div>
+      </div>
+    </article>`;
+  }).join('');
+})().catch(e => { document.getElementById('grid').innerHTML = '<p>Could not load the library: ' + e.message + '</p>'; });
+</script>
+</body>
+</html>

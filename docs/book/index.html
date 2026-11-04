@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Gpura Corpus Book</title>
+<meta name="description" content="A book in the Gpura corpus: what it is, its contents, where the text comes from, and ways to read, check, download and cite it.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:wght@500;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Noto+Serif+Malayalam:wght@400;600;700&display=swap">
+<script src="../nav.js" defer></script>
+<style>
+/* Layout: cover + facts beside the title; then contents, where the text comes from, and actions */
+:root{--bg:#F4F5F3;--surface:#FFFFFF;--sunk:#E9ECE8;--fg:#1B2220;--muted:#5A6662;--line:#D3D9D5;--accent:#2B6A8A;
+  --s-reviewed:#2f7a4f;--s-gpura:#2B6A8A;--s-sarvam:#6b3fa0;--s-ai:#a35a16;--s-tesseract:#a1372c;
+  --f-display:"Spectral",Georgia,serif;--f-body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;--f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;--f-ml:"Noto Serif Malayalam",serif}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#141917;--surface:#1C2320;--sunk:#232B28;--fg:#E4EAE7;--muted:#9AA7A2;--line:#33403B;--accent:#7DB8D6;
+  --s-reviewed:#7cc79a;--s-gpura:#7DB8D6;--s-sarvam:#c7a6f0;--s-ai:#e3a266;--s-tesseract:#f08a7e;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#141917;--surface:#1C2320;--sunk:#232B28;--fg:#E4EAE7;--muted:#9AA7A2;--line:#33403B;--accent:#7DB8D6;
+  --s-reviewed:#7cc79a;--s-gpura:#7DB8D6;--s-sarvam:#c7a6f0;--s-ai:#e3a266;--s-tesseract:#f08a7e;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:16px;line-height:1.6}
+.wrap{max-width:1040px;margin:0 auto;padding-block:40px 80px;padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px));display:flex;flex-direction:column;gap:34px}
+h1{font-family:var(--f-ml);font-size:clamp(1.8rem,5vw,2.6rem);line-height:1.25;margin:0}
+h2{font-family:var(--f-display);font-size:1.35rem;margin:0}
+p{margin:0;max-width:72ch} a{color:var(--accent)}
+.ml{font-family:var(--f-ml)}
+.eyebrow{font-size:.75rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.top{display:grid;grid-template-columns:220px minmax(0,1fr);gap:28px;align-items:start}
+@media (max-width:700px){.top{grid-template-columns:1fr}.cover{max-width:220px}}
+.cover{display:block;border:1px solid var(--line);border-radius:6px;overflow:hidden;background:var(--sunk);aspect-ratio:3/4}
+.cover img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.en{color:var(--muted);font-size:1.1rem;margin-top:4px}
+.facts{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:4px 16px;margin:16px 0 0;font-size:.92rem}
+.facts dt{color:var(--muted)} .facts dd{margin:0;overflow-wrap:anywhere}
+.actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.btn{display:inline-block;border:1px solid var(--line);border-radius:7px;padding:8px 13px;text-decoration:none;color:var(--fg);font-size:.92rem;background:var(--surface)}
+.btn:hover{border-color:var(--fg)} .btn.primary{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px 20px;display:flex;flex-direction:column;gap:12px}
+.bar{display:flex;height:12px;border-radius:6px;overflow:hidden;background:var(--sunk)}
+.bar span{display:block;height:100%}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:.88rem}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:baseline}
+.status{font-size:.92rem;color:var(--muted)}
+.checks{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-size:.8rem;border:1px solid var(--line);border-radius:999px;padding:2px 10px;color:var(--muted)}
+.chip.warn{border-color:#b58a2a;color:#b58a2a}
+.toc{list-style:none;margin:0;padding:0;columns:2 300px;column-gap:28px}
+.toc li{break-inside:avoid;padding:6px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:12px}
+.toc a{text-decoration:none;color:var(--fg)} .toc a:hover{color:var(--accent)}
+.toc .pg{font-family:var(--f-mono);font-size:.8rem;color:var(--muted);white-space:nowrap}
+.cite{font-family:var(--f-mono);font-size:.82rem;background:var(--sunk);border-radius:6px;padding:10px 12px;overflow-wrap:anywhere}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px}
+</style>
+</head>
+<body>
+<main class="wrap" id="main"><p>Loading…</p></main>
+<script>
+(async function () {
+  const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const item = new URLSearchParams(location.search).get('b');
+  const main = document.getElementById('main');
+  if (!item) { main.innerHTML = '<p>No book chosen. <a href="../library/">Go to the library</a>.</p>'; return; }
+  const base = `../specimen/${encodeURIComponent(item)}/`;
+  const b = await fetch(base + 'book.json').then(r => { if (!r.ok) throw new Error('not found'); return r.json(); });
+  const dls = await fetch('../downloads/index.json').then(r => r.json()).catch(() => []);
+  const zip = dls.find(d => d.item === item);
+  const s = b.summary || {}, ck = s.checks || {};
+  document.title = (b.title_en || b.title || 'Book') + ' · Gpura Corpus';
+  const read = (p) => `../read/?b=${encodeURIComponent(item)}#${p}`;
+  const first = (b.toc[0] && b.toc[0].page) || s.cover || (b.pages[0] && b.pages[0].id);
+  const NAMES = {reviewed: 'checked line by line (not yet verified by a person)', gpura: "Gpura's existing OCR", sarvam: 'Sarvam Vision',
+                 ai: 'AI reading of the line image', tesseract: 'Tesseract only (uncertain)'};
+  const tot = Object.values(s.sources || {}).reduce((a, v) => a + v, 0) || 1;
+  const srcs = Object.entries(s.sources || {}).sort((a, b) => b[1] - a[1]);
+  const pct = v => (100 * v / tot < 1 ? (100 * v / tot).toFixed(1) : Math.round(100 * v / tot)) + '%';
+  const pnum = p => parseInt(p.slice(1), 10);
+  const printed = Object.fromEntries(b.pages.map(p => [p.id, p.printed]));
+  const fact = (k, v) => v ? `<dt>${k}</dt><dd>${v}</dd>` : '';
+  const cite = `${b.author ? b.author + ', ' : ''}${b.title_en || b.title}${b.date ? ' (' + b.date + ')' : ''}. ` +
+    `Digital edition from the Gpura Corpus, ${s.pages_encoded} page${s.pages_encoded === 1 ? '' : 's'} encoded in TEI P5, PAGE-XML and ALTO` +
+    `${s.reviewed ? '' : ', automatic, not reviewed'}. ${location.origin}${location.pathname}?b=${item}. Source: ${b.gpura_item}.`;
+  main.innerHTML = `
+  <section class="top">
+    <a class="cover" href="${read(s.cover || first)}"><img src="${base}${s.cover || first}.jpg" alt="First text page of the book"></a>
+    <div>
+      <span class="eyebrow">Book in the corpus</span>
+      <h1>${esc(b.title)}</h1>
+      ${b.title_en ? `<div class="en">${esc(b.title_en)}</div>` : ''}
+      <dl class="facts">
+        ${fact('Author', esc([b.author, b.author_ml].filter(Boolean).join(' · ')))}
+        ${fact('Translator', esc(b.translator))}
+        ${fact('Publisher', esc(b.publisher))}
+        ${fact('Printer', esc(b.printer))}
+        ${fact('Date', esc(b.date))}
+        ${fact('Pages', `${s.pages_encoded} encoded of ${esc(b.pages_total)}${s.non_text_pages ? ` (${s.non_text_pages} covers or blank pages without text)` : ''}`)}
+        ${fact('Size', esc(b.dimensions))}
+        ${fact('Copy', esc(b.holding))}
+        ${fact('Rights', esc(b.rights))}
+        ${fact('At Gpura', b.gpura_item ? `<a href="${esc(b.gpura_item)}">${esc(b.gpura_item.replace('https://', ''))}</a>` : '')}
+      </dl>
+      <div class="actions">
+        <a class="btn primary" href="${read(first)}">Read online</a>
+        ${b.dictionary ? `<a class="btn" href="${base}dictionary.html">Dictionary entries</a>` : ''}
+        <a class="btn" href="../print.html?item=${encodeURIComponent(item)}">PDF view</a>
+        ${zip ? `<a class="btn" href="../downloads/${item}.zip" download>Download files (ZIP, ${(zip.bytes / 1e6).toFixed(1)} MB)</a>` : ''}
+        <a class="btn" href="${base}#${first}">Inspect the encoding</a>
+      </div>
+    </div>
+  </section>
+
+  ${b.toc.length ? `<section style="display:flex;flex-direction:column;gap:12px" aria-labelledby="h-toc">
+    <h2 id="h-toc">Contents</h2>
+    <ol class="toc">${b.toc.map(t => `<li><a class="ml" href="${read(t.page)}">${esc(t.title)}</a><span class="pg" title="${printed[t.page] ? 'printed page number' : 'page of the scan (no printed number found)'}">${printed[t.page] ? 'p. ' + esc(printed[t.page]) : 'scan ' + pnum(t.page)}</span></li>`).join('')}</ol>
+  </section>` : ''}
+
+  <section class="two">
+    <div class="panel" aria-labelledby="h-src">
+      <h2 id="h-src">Where the text comes from</h2>
+      <div class="bar" role="img" aria-label="Share of lines by source">${srcs.map(([k, v]) => `<span style="width:${100 * v / tot}%;background:var(--s-${k})" title="${esc(NAMES[k] || k)}: ${v} lines"></span>`).join('')}</div>
+      <div class="legend">${srcs.map(([k, v]) => `<span><i style="background:var(--s-${k})"></i>${esc(NAMES[k] || k)} · ${v.toLocaleString()} lines (${pct(v)})</span>`).join('')}</div>
+      <p class="status">${esc(s.status)}</p>
+      <div class="checks">
+        ${ck.page_valid ? `<span class="chip">PAGE-XML: ${ck.page_valid} of ${s.pages_encoded} valid</span>` : ''}
+        ${ck.alto_valid ? `<span class="chip">ALTO: ${ck.alto_valid} of ${s.pages_encoded} valid</span>` : ''}
+        ${ck.tei_valid ? '<span class="chip">TEI P5: valid</span>' : ''}
+        <span class="chip warn">${s.reviewed ? 'Not yet verified by a person' : 'Automatic: not reviewed by a person'}</span>
+      </div>
+    </div>
+    <div class="panel" aria-labelledby="h-cite">
+      <h2 id="h-cite">Cite and comment</h2>
+      <div class="cite">${esc(cite)}</div>
+      <p class="status">The encoding is released under CC0 1.0; the scans are Gpura's and in the public domain. Found an error or have a suggestion? Please tell us, with the page and, if you can, the line ID shown in the reader.</p>
+      <div class="actions" style="margin-top:0"><a class="btn" href="https://github.com/beniza/gpura-corpus/issues/new?template=corpus-feedback.md">Give feedback</a></div>
+    </div>
+  </section>`;
+})().catch(e => { document.getElementById('main').innerHTML = '<p>Could not load this book: ' + e.message + '. <a href="../library/">Go to the library</a>.</p>'; });
+</script>
+</body>
+</html>

@@ -40,6 +40,16 @@
 
 ## Site
 
+- [x] Phase 0 (4 Nov 2026): each book's page view takes its header (status, validation counts, review
+  badge) from its own summary (run.py writes book.json / pages.json "summary"), not the specimen's text.
+- [x] Phase 1: Library (library/), book home (book/?b=), reader (read/?b=#pNNN: scan | text, chapter and page
+  navigation, per-page data files), new menu (Library · Showcase · Feedback · About) and homepage.
+- [ ] Phase 2: search within a book and across the corpus (prebuilt index); IIIF annotations so the corpus
+  opens in Mirador / Universal Viewer on Gpura's own images; lighter images (WebP); the page view still
+  loads the whole book's TEI source and reading view (1.9 MB for Newton): load them lazily.
+- [ ] Library stamps and catalogue numbers are encoded as headings (filtered from the contents only):
+  recognise them as stamps in the align stage.
+
 - [ ] **Edit in the Reading (from TEI) view** (deferred, 3 Nov 2026): correct a line in the browser and
   export the corrections as a file the pipeline imports as reviewed readings with the reviewer's name.
   A shared online database (several reviewers at once) would need a hosted service.

@@ -38,18 +38,40 @@
     a.href = u(href);
     a.textContent = text;
     if (cls) a.className = cls;
-    if (a.href.replace(/index\.html$/, '') === here || (href === 'showcase/' && /\/specimen\//.test(here)))
+    if (a.href.replace(/index\.html$/, '') === here)
       a.setAttribute('aria-current', 'page');
     return a;
   }
+  // Two audiences: people trying the corpus (Library, Showcase, Feedback) and the proposal (About menu)
   inner.appendChild(link('', 'Gpura Corpus', 'brand'));
-  inner.appendChild(link('proposal/', 'Proposal'));
-  inner.appendChild(link('paper/', 'Paper'));
-  inner.appendChild(link('walkthrough/', 'Walkthrough'));
-
-  // Showcase: an index page (showcase/) introduces each layout type and lists every book
+  var lib = link('library/', 'Library');
+  if (/\/(library|book|read|specimen)\//.test(here)) lib.setAttribute('aria-current', 'page');
+  inner.appendChild(lib);
   inner.appendChild(link('showcase/', 'Showcase'));
-  inner.appendChild(Object.assign(document.createElement('a'), { href: 'https://github.com/beniza/gpura-corpus', textContent: 'Code' }));
+  inner.appendChild(Object.assign(document.createElement('a'), {
+    href: 'https://github.com/beniza/gpura-corpus/issues/new?template=corpus-feedback.md', textContent: 'Feedback' }));
+  var about = document.createElement('details');
+  var asum = document.createElement('summary');
+  asum.textContent = 'About';
+  var amenu = document.createElement('div');
+  amenu.className = 'menu';
+  [['proposal/', 'Proposal', 'Why Gpura should build the corpus (English and Malayalam)'],
+   ['paper/', 'Paper', 'The encoding model, pipeline, experiments and costs'],
+   ['walkthrough/', 'Walkthrough', 'Three pages of one book, from scan to corpus']].forEach(function (x) {
+    var a = link(x[0], '');
+    var t = document.createElement('span'); t.textContent = x[1];
+    var sm = document.createElement('small'); sm.textContent = x[2];
+    a.appendChild(t); a.appendChild(sm); amenu.appendChild(a);
+    if (a.getAttribute('aria-current')) asum.style.color = 'var(--accent,#2b6a8a)';
+  });
+  var code = Object.assign(document.createElement('a'), { href: 'https://github.com/beniza/gpura-corpus' });
+  var ct = document.createElement('span'); ct.textContent = 'Code';
+  var cs = document.createElement('small'); cs.textContent = 'The pipeline on GitHub (MIT; data CC0)';
+  code.appendChild(ct); code.appendChild(cs); amenu.appendChild(code);
+  about.appendChild(asum); about.appendChild(amenu);
+  inner.appendChild(about);
+  document.addEventListener('click', function (e) { if (!about.contains(e.target)) about.open = false; });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') about.open = false; });
 
   // Malayalam script style: old (traditional orthography, RIT Rachana) or new (reformed, Noto Serif Malayalam).
   // Same Unicode text either way: only the font changes, so search and copy are unaffected.

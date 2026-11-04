@@ -56,7 +56,7 @@ def item_json(item):
 
 
 def tei_file(item):
-    files = sorted((item / "tei").glob("*.tei.xml"))
+    files = sorted(f for f in (item / "tei").glob("*.tei.xml") if not f.name.endswith(".dict.tei.xml"))
     if not files:
         sys.exit("no tei/*.tei.xml in item (run the tei stage first)")
     return files[0]
@@ -78,6 +78,9 @@ def validate(item):
         for e in alto_xsd.error_log: print("       ", e.line, e.message)
     t = tei_file(item)
     good = tei_rng.validate(etree.parse(str(t))); ok &= good
+    (item / "checks.json").write_text(json.dumps({          # read by the site stage (book page, page view header)
+        "page_valid": len(list((item / "page").glob("*.page.xml"))), "alto_valid": len(list((item / "page").glob("*.alto.xml"))),
+        "tei_valid": bool(good), "contract": True, "ok": bool(ok)}, indent=1) + "\n", encoding="utf-8", newline="\n")
     print(f"  {'PASS' if good else 'FAIL'}  TEI tei_all {t.name}")
     for e in list(tei_rng.error_log)[:20]: print("       ", e.line, e.message)
     if not ok:
@@ -123,7 +126,9 @@ def build_site(item):
     for p in pages:
         lj = json.loads((item / "ocr" / f"{p}.lines.json").read_text(encoding="utf-8"))
         plist.append({"id": p, "canvas": lj.get("canvas"), "printed": lj.get("printed_page")})
-    (out / "pages.json").write_text(json.dumps({**meta, "item": name, "tei": tei_file(item).name, "pages": plist}, ensure_ascii=False, indent=1), encoding="utf-8")
+    summary = book_summary(item, pages, out)
+    (out / "pages.json").write_text(json.dumps({**meta, "item": name, "tei": tei_file(item).name, "pages": plist,
+                                                "summary": summary}, ensure_ascii=False, indent=1), encoding="utf-8")
     findings = item / "site" / "findings.html"
     if findings.exists():
         shutil.copy(findings, out / "findings.html")
@@ -132,6 +137,92 @@ def build_site(item):
     print(f"  site → {out.relative_to(REPO)}/ ({len(pages)} pages)")
     subprocess.run([sys.executable, str(REPO / "pipeline" / "tools" / "package.py"), name], check=True)   # downloads/<item>.zip
     book_index()
+
+
+SOURCE_NAMES = {"reviewed": "checked line by line against the scan (model-made, not yet verified by a person)", "gpura": "Gpura's existing OCR",
+                "sarvam": "Sarvam Vision (where Gpura has no text)", "ai": "an AI reading of the line image",
+                "tesseract": "Tesseract OCR only (uncertain)"}
+CHAPTER = re.compile(r"^\s*(അദ്ധ്യായം|അധ്യായം|ഭാഗം|പ്രകരണം|chapter|part)(?![^\W\d_])", re.I)
+
+
+def line_source(l, automatic):
+    return l.get("source") or (("gpura" if "match" in l else "tesseract") if automatic else "reviewed")
+
+
+def toc_from_tei(item):
+    """Table of contents from the TEI headings: grouped per page, stamps and catalogue numbers left out
+    (no Malayalam or too few letters, or another Indic script), and only chapter openings where the book
+    labels its chapters (അദ്ധ്യായം, Chapter …)."""
+    from lxml import etree
+    NS = "{http://www.tei-c.org/ns/1.0}"
+    t = etree.parse(str(tei_file(item)))
+    groups = []
+    for h in t.iter(NS + "head"):
+        txt = " ".join("".join(h.itertext()).split())
+        page = (h.get("facs") or "#").lstrip("#").split("_")[0]
+        letters = sum(1 for c in txt if "അ" <= c <= "ഹ")
+        other_indic = any("ऀ" <= c <= "೿" for c in txt)
+        if letters < 3 or other_indic or not page:
+            continue
+        if groups and groups[-1]["page"] == page:
+            groups[-1]["title"] += " · " + txt
+        else:
+            groups.append({"page": page, "title": txt})
+    chapters = [g for g in groups if CHAPTER.search(g["title"])]
+    if len(chapters) < 3:
+        return groups
+    first = groups.index(chapters[0])
+    if first > 0 and int(groups[first - 1]["page"][1:]) < int(chapters[0]["page"][1:]):
+        chapters.insert(0, groups[first - 1])         # an unlabelled first chapter (its label was not read as a heading)
+    return chapters
+
+
+def book_summary(item, pages, out):
+    """Per-page data files for the reader (data/pNNN.json) and the book's summary (book.json)."""
+    meta = item_json(item)
+    data = out / "data"
+    data.mkdir(exist_ok=True)
+    sources, reviewed, non_text, plist = {}, True, 0, []
+    for p in pages:
+        lj = json.loads((item / "ocr" / f"{p}.lines.json").read_text(encoding="utf-8"))
+        auto = bool(lj.get("automatic"))
+        reviewed &= not auto
+        non_text += bool(lj.get("non_text"))
+        regions, n = [], 0
+        for r in sorted(lj["regions"], key=lambda r: (r.get("reading_order") is None, r.get("reading_order") or 0)):
+            ls = []
+            for l in r.get("lines", []):
+                src = line_source(l, auto)
+                sources[src] = sources.get(src, 0) + 1
+                ls.append({"id": l["id"], "bbox": l["bbox"], "text": l.get("text", ""), "src": src,
+                           **({"unclear": True} if any(f.get("type") == "unclear" for f in l.get("flags", [])) else {})})
+            n += len(ls)
+            regions.append({"id": r["id"], "type": r["type"], "production": r.get("production", "printed"),
+                            "bbox": r.get("bbox"), "lines": ls})
+        rec = {"id": p, "canvas": lj.get("canvas"), "printed": lj.get("printed_page"), "width": lj["width"],
+               "height": lj["height"], "image": f"{p}.jpg", "regions": regions, "unplaced": len(lj.get("unplaced", [])),
+               **({"non_text": lj["non_text"]} if lj.get("non_text") else {})}
+        (data / f"{p}.json").write_text(json.dumps(rec, ensure_ascii=False, separators=(",", ":")), encoding="utf-8", newline="\n")
+        plist.append({"id": p, "canvas": lj.get("canvas"), "printed": lj.get("printed_page"), "lines": n})
+    checks = json.loads((item / "checks.json").read_text(encoding="utf-8")) if (item / "checks.json").exists() else {}
+    total = sum(sources.values())
+    if reviewed:
+        status = meta.get("status") or "Reviewed by a person."
+    else:
+        parts = [f"{SOURCE_NAMES.get(k, k)} ({v:,} lines)" for k, v in sorted(sources.items(), key=lambda kv: -kv[1])]
+        status = ("Automatic encoding, not reviewed by a person: line boxes, regions and reading order detected by the "
+                  "pipeline; text from " + "; ".join(parts) + ".")
+    cover = next((x["id"] for x in plist if x["lines"] >= 3), plist[0]["id"] if plist else None)
+    summary = {"reviewed": reviewed, "sources": sources, "lines": total, "pages_encoded": len(pages),
+               "non_text_pages": non_text, "status": status, "checks": checks, "cover": cover}
+    book = {k: meta.get(k) for k in ("title", "title_en", "author", "author_ml", "translator", "publisher", "publisher_ml",
+                                     "printer", "date", "pages_total", "dimensions", "holding", "digitized", "rights",
+                                     "gpura_item", "iiif_manifest")}
+    book.update({"item": item.name, "summary": summary, "pages": plist, "toc": toc_from_tei(item),
+                 "tei": "tei-source.txt", "dictionary": (out / "dictionary.html").exists() or
+                 any((item / "tei").glob("*.dict.tei.xml"))})
+    (out / "book.json").write_text(json.dumps(book, ensure_ascii=False, indent=1) + "\n", encoding="utf-8", newline="\n")
+    return summary
 
 
 def ensure_images(item):
@@ -158,8 +249,10 @@ def book_index():
         m = json.loads(pj.read_text(encoding="utf-8"))
         src = REPO / "items" / m["item"] / "ocr"
         auto = any(json.loads(f.read_text(encoding="utf-8")).get("automatic") for f in src.glob("*.lines.json"))
+        sm = m.get("summary") or {}
         books.append({"item": m["item"], "title": m.get("title"), "title_en": m.get("title_en"), "date": m.get("date"),
-                      "pages": len(m.get("pages", [])), "automatic": auto})
+                      "author": m.get("author"), "pages": len(m.get("pages", [])), "pages_total": m.get("pages_total"),
+                      "automatic": auto, "cover": sm.get("cover"), "lines": sm.get("lines"), "sources": sm.get("sources")})
     books.sort(key=lambda b: (b["automatic"], b["item"]))
     (REPO / "docs" / "specimen" / "index.json").write_text(json.dumps(books, ensure_ascii=False, indent=1) + "\n",
                                                           encoding="utf-8", newline="\n")

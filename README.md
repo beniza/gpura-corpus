@@ -203,3 +203,13 @@ every book: README (contents, provenance of the text, licence, how to give feedb
 PAGE-XML and ALTO for every page, plain text in reading order, IIIF image links and the CC0 licence; and
 `docs/downloads/gpura-corpus-sample.zip` with all of them. Linked from the Showcase and each book's page.
 Feedback: GitHub issue form `.github/ISSUE_TEMPLATE/corpus-feedback.md`.
+
+## Reading the corpus online
+
+- `library/`: every book, with cover, extent, review status and Read / About / ZIP.
+- `book/?b=<item>`: the book's home: catalogue details, contents (from the TEI headings; stamps and
+  catalogue numbers left out), where its text comes from, validation, citation, downloads, feedback.
+- `read/?b=<item>#pNNN`: the reader: the scan with its line boxes beside the page's text, line by line;
+  hover either side to find the other; chapter and page menus, `[` `]` or arrow keys; a link to the page
+  view (the encoding inspector) and to report a problem on the page. Loads one small file per page
+  (`docs/specimen/<item>/data/pNNN.json`, written by the site stage with `book.json`).

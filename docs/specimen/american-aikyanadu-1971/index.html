@@ -134,16 +134,11 @@ body{margin:0}
 <body>
 <div class="wrap">
   <header style="display:flex;flex-direction:column;gap:12px">
-    <span class="eyebrow"><a href="../../" style="color:inherit">Gpura corpus</a> · working specimen · <span id="itemTitle" class="ml"></span> · <a id="pdfLink" href="../../print.html" style="color:var(--accent,inherit)">PDF view (layout facsimile + reading edition)</a> · <a id="zipLink" href="../../downloads/" download style="color:var(--accent,inherit)">Download corpus files (ZIP)</a></span>
+    <span class="eyebrow"><a href="../../" style="color:inherit">Gpura corpus</a> · page view · <span id="itemTitle" class="ml"></span> · <a id="pdfLink" href="../../print.html" style="color:var(--accent,inherit)">PDF view (layout facsimile + reading edition)</a> · <a id="zipLink" href="../../downloads/" download style="color:var(--accent,inherit)">Download corpus files (ZIP)</a></span>
     <h1 id="pagesHead">Three pages, encoded end to end</h1>
-    <p class="lede">The scans were run through fresh OCR, reviewed line by line, then encoded as PAGE-XML (layout), exported to ALTO, and edited as TEI (text and structure). Every line in each format carries the same ID, so the image, the layout and the edition point at each other. Select any line on the scan to follow it through all three.</p>
-    <div class="pills">
-      <span class="pill"><span class="dot"></span><b>PAGE 2019</b> valid against official XSD</span>
-      <span class="pill"><span class="dot"></span><b>ALTO 4.4</b> valid against official XSD</span>
-      <span class="pill"><span class="dot"></span><b>TEI P5</b> valid against tei_all (compiled from TEI sources)</span>
-      <span class="pill"><span class="dot"></span><b>266</b> internal links resolve</span>
-      <span class="pill warn"><span class="dot"></span>Readings are model-made, not yet human-verified</span>
-    </div>
+    <p class="lede" id="lede">Every line on each page is encoded in PAGE-XML (layout), exported to ALTO, and edited as TEI (text and structure), with the same ID in each format, so the image, the layout and the edition point at each other. Select any line on the scan to follow it through all three.</p>
+    <p class="lede" id="status" style="font-size:.95rem"></p>
+    <div class="pills" id="pills">    </div>
   </header>
 
   <div class="bar">
@@ -415,6 +410,18 @@ body{margin:0}
     if(meta.tei) document.getElementById('teiName').textContent=meta.tei;
     const NUM=['','One page','Two pages','Three pages','Four pages','Five pages','Six pages'];
     document.getElementById('pagesHead').textContent=(NUM[meta.pages.length]||meta.pages.length+' pages')+', encoded end to end';
+    // header facts from this book's own summary (written by run.py's site stage): never another book's
+    const sm=meta.summary||{}, ck=sm.checks||{};
+    document.getElementById('status').textContent=sm.status||meta.status||'';
+    const pill=(t,warn)=>`<span class="pill${warn?' warn':''}"><span class="dot"></span>${t}</span>`;
+    let pills='';
+    if(ck.page_valid) pills+=pill(`<b>PAGE 2019</b> ${ck.page_valid} of ${meta.pages.length} pages valid against the official XSD`);
+    if(ck.alto_valid) pills+=pill(`<b>ALTO 4.4</b> ${ck.alto_valid} of ${meta.pages.length} valid against the official XSD`);
+    if(ck.tei_valid) pills+=pill('<b>TEI P5</b> valid against tei_all');
+    pills+=pill(sm.reviewed?'Checked line by line against the scan; not yet verified by a person':'Automatic: not reviewed by a person',true);
+    document.getElementById('pills').innerHTML=pills;
+    const bk=document.createElement('a'); bk.href='../../book/?b='+encodeURIComponent(meta.item); bk.textContent='About this book';
+    bk.style.color='var(--accent,inherit)'; document.getElementById('pdfLink').before(bk,document.createTextNode(' · '));
     const sel=document.getElementById('pgSel');
     meta.pages.forEach(p=>{const o=document.createElement('option'); o.value=p.id;
       o.textContent='Viewer '+(p.canvas||p.id)+(p.printed?' · printed p. '+p.printed:''); sel.append(o);});
