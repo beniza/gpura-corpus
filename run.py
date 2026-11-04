@@ -130,6 +130,7 @@ def build_site(item):
     tmpl = REPO / "docs" / "specimen" / "explorer.html"
     shutil.copy(tmpl, out / "index.html")
     print(f"  site → {out.relative_to(REPO)}/ ({len(pages)} pages)")
+    subprocess.run([sys.executable, str(REPO / "pipeline" / "tools" / "package.py"), name], check=True)   # downloads/<item>.zip
     book_index()
 
 

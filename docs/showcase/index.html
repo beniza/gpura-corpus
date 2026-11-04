@@ -46,9 +46,17 @@ a{color:var(--accent)}
 .note{font-size:.75rem;color:var(--muted)}
 .foot{display:flex;gap:10px;flex-wrap:wrap;font-size:.82rem;position:relative;z-index:1}
 .chip{display:inline-block;font-size:.72rem;border:1px solid var(--line);border-radius:999px;padding:1px 8px;color:var(--muted)}
+.dl{display:flex;gap:18px;justify-content:space-between;align-items:center;flex-wrap:wrap;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px 20px}
+.dl p{font-size:.92rem;color:var(--muted);margin-top:4px}
+.dl-links{display:flex;gap:8px;flex-wrap:wrap}
+.btn{display:inline-block;border:1px solid var(--line);border-radius:7px;padding:8px 12px;text-decoration:none;color:var(--fg);font-size:.9rem;white-space:nowrap}
+.btn:hover{border-color:var(--fg)}
+.btn.primary{background:var(--fg);color:var(--bg);border-color:var(--fg)}
 .books{display:flex;flex-direction:column;border-top:1px solid var(--line)}
-.books a.row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;align-items:baseline;padding:12px 4px;border-bottom:1px solid var(--line);text-decoration:none;color:var(--fg)}
-.books a.row:hover{background:var(--sunk)}
+.books .row{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:14px;align-items:baseline;padding:12px 4px;border-bottom:1px solid var(--line)}
+.books .row > a{text-decoration:none;color:var(--fg)}
+.books .row:hover{background:var(--sunk)}
+.books .dlink{font-size:.82rem;white-space:nowrap}
 .books small{display:block;color:var(--muted);font-size:.82rem}
 .books .n{font-family:var(--f-mono);font-size:.82rem;color:var(--muted);white-space:nowrap}
 </style>
@@ -66,6 +74,18 @@ a{color:var(--accent)}
     </div>
   </header>
 
+  <section class="dl" aria-labelledby="h-dl">
+    <div>
+      <h2 id="h-dl">Download the sample corpus</h2>
+      <p>The files themselves, to open, test and comment on: for every page the TEI edition, PAGE-XML and ALTO layout, plain text in reading order, the book's metadata and links to Gpura's page images. Released under CC0. We are sharing this for feedback.</p>
+    </div>
+    <div class="dl-links">
+      <a class="btn primary" id="dl-all" href="../downloads/gpura-corpus-sample.zip" download>Whole sample corpus (ZIP)</a>
+      <a class="btn" id="dl-newton" href="../downloads/1957-sir-isaac-newton.zip" download>The complete Newton book (ZIP)</a>
+      <a class="btn" href="https://github.com/beniza/gpura-corpus/issues/new?template=corpus-feedback.md">Give feedback</a>
+    </div>
+  </section>
+
   <section aria-labelledby="h-layouts" style="display:flex;flex-direction:column;gap:14px">
     <h2 id="h-layouts">By layout</h2>
     <div class="grid" id="grid"><p class="lede">Loading…</p></div>
@@ -79,10 +99,15 @@ a{color:var(--accent)}
 <script>
 (async function () {
   const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-  const [show, books] = await Promise.all([
+  const [show, books, dls] = await Promise.all([
     fetch('../showcase.json').then(r => r.json()),
-    fetch('../specimen/index.json').then(r => r.json())
+    fetch('../specimen/index.json').then(r => r.json()),
+    fetch('../downloads/index.json').then(r => r.json()).catch(() => [])
   ]);
+  const mb = b => (b / 1e6 < 0.1 ? '<0.1' : (b / 1e6).toFixed(1)) + ' MB';
+  const dl = Object.fromEntries(dls.map(d => [d.item, d]));
+  if (dl['*']) document.getElementById('dl-all').textContent += ` · ${mb(dl['*'].bytes)}`;
+  if (dl['1957-sir-isaac-newton']) document.getElementById('dl-newton').textContent += ` · ${mb(dl['1957-sir-isaac-newton'].bytes)}`;
   const byItem = Object.fromEntries(books.map(b => [b.item, b]));
   const grade = v => v == null ? '' : v >= 95 ? 'good' : v >= 75 ? 'part' : 'weak';
   const score = (v, label) => `<div class="score ${grade(v)}"><b>${v == null ? '–' : (Math.round(v * 10) / 10).toString() + '%'}</b><span>${label}</span></div>`;
@@ -100,15 +125,16 @@ a{color:var(--accent)}
         <div><span class="chip">text: ${esc(s.text)}</span></div>
         <div class="scores">${score(sc.ink, 'Ink')}${score(sc.text, 'Text')}${score(sc.order, 'Order')}</div>
         ${sc.note ? `<div class="note">${esc(sc.note)}</div>` : ''}
-        <div class="foot"><a href="../print.html?item=${encodeURIComponent(s.item)}&pages=${n}">PDF view of this page</a></div>
+        <div class="foot"><a href="../print.html?item=${encodeURIComponent(s.item)}&pages=${n}">PDF view of this page</a>${dl[s.item] ? ` · <a href="../downloads/${s.item}.zip" download>Download this book (ZIP, ${mb(dl[s.item].bytes)})</a>` : ''}</div>
       </div>
     </article>`;
   }).join('');
   document.getElementById('books').innerHTML = books.map(b => `
-    <a class="row" href="../specimen/${b.item}/">
-      <span><span class="ml">${esc(b.title)}</span><small>${esc([b.title_en, b.date].filter(Boolean).join(' · '))}</small></span>
+    <div class="row">
+      <a href="../specimen/${b.item}/"><span class="ml">${esc(b.title)}</span><small>${esc([b.title_en, b.date].filter(Boolean).join(' · '))}</small></a>
       <span class="n">${b.pages} ${b.pages === 1 ? 'page' : 'pages'} · ${b.automatic ? 'automatic' : 'reviewed'}</span>
-    </a>`).join('');
+      ${dl[b.item] ? `<a class="dlink" href="../downloads/${b.item}.zip" download>ZIP · ${mb(dl[b.item].bytes)}</a>` : '<span></span>'}
+    </div>`).join('');
 })().catch(e => { document.getElementById('grid').innerHTML = '<p>Could not load the showcase: ' + e.message + '</p>'; });
 </script>
 </body>

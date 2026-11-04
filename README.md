@@ -195,3 +195,11 @@ Every labelled part must be an exact, in-order piece of the printed text or the 
 (`<entryFree>`), so labelling can never change the text. Parts: headword, transliteration, etymology,
 part of speech, sense number, gloss, example with its source, usage label, cross-reference (see / =),
 derived words as nested entries. Example: Gundert's dictionary (1872), p. 264, in the Showcase.
+
+## Sample corpus downloads
+
+`python3 pipeline/tools/package.py` (also run by the `site` stage) writes `docs/downloads/<item>.zip` for
+every book: README (contents, provenance of the text, licence, how to give feedback), `item.json`, TEI,
+PAGE-XML and ALTO for every page, plain text in reading order, IIIF image links and the CC0 licence; and
+`docs/downloads/gpura-corpus-sample.zip` with all of them. Linked from the Showcase and each book's page.
+Feedback: GitHub issue form `.github/ISSUE_TEMPLATE/corpus-feedback.md`.
